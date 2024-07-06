@@ -1,0 +1,35 @@
+import { Canvas, Meta } from '@storybook/blocks';
+import * as ButtonGroup from './ButtonGroup.stories.tsx';
+
+import Button from '../../Button';
+
+<Meta of={ButtonGroup} title='ButtonGroup' />
+
+# Button Group
+
+Button Group component for holding buttons in a group on the front end.
+
+#### Example
+
+<Canvas of={ButtonGroup.Default} />
+
+## Usage
+
+```ts
+import {Button, ButtonGroup} from '@nick8green/components';
+
+const Example = () => {
+  return (
+      <ButtonGroup>
+        <Button text='Done!' />
+        <Button text='Reset' type={ButtonType.RESET} />
+      </ButtonGroup>
+  );
+};
+
+export default Example;
+```
+
+#### Arguments
+
+None
