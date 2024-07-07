@@ -1,0 +1,1 @@
+import{j as e}from"./jsx-runtime-QvZ8i92b.js";import"./index-uubelm5h.js";const s={decorators:[t=>e.jsx("div",{style:{display:"flex",justifyContent:"center",alignItems:"center",height:"100%"},children:e.jsx(t,{})})],parameters:{controls:{expanded:!0,matchers:{color:/(background|color)$/i,date:/Date$/i}}}};export{s as default};
