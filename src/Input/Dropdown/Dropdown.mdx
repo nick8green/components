@@ -1,0 +1,47 @@
+import { Canvas, Meta } from "@storybook/blocks";
+import * as Dropdown from "./Dropdown.stories.tsx";
+
+<Meta of={Dropdown} title="Dropdown" />
+
+# Dropdown
+
+Dropdown component with different props.
+
+#### Example
+
+<Canvas of={Dropdown.Default} />
+
+## Usage
+
+```ts
+import {Dropdown} from "@nick8green/components";
+
+const Example = () => {
+  return (
+      <Dropdown
+        id='demo'
+        options={[
+            {
+                label: "Option 1",
+                value: "1",
+            },
+            {
+                label: "Option 2",
+                value: "2",
+            },
+            {
+                label: "Option 3",
+                value: "3",
+            },
+        ]}
+        onChange={()=> console.log("Clicked")}
+      />
+  );
+};
+
+export default Example;
+```
+
+#### Arguments
+
+TBD

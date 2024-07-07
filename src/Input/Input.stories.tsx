@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { fn } from '@storybook/test';
+import { fn } from "@storybook/test";
 
 import Input, { InputType } from "Input";
 
@@ -11,7 +11,7 @@ const meta: Meta<typeof Input> = {
       control: "text",
     },
     type: {
-      options: Object.keys(InputType).filter(o => o !== "DROPDOWN"),
+      options: Object.keys(InputType).filter((o) => o !== "DROPDOWN"),
       mapping: InputType,
     },
   },

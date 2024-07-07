@@ -1,5 +1,7 @@
 import { FC } from "react";
 
+import Dropdown, { Option } from "Input/Dropdown";
+
 import "./style.css";
 
 export enum InputType {
@@ -13,6 +15,8 @@ export enum InputType {
 export interface InputProps {
   id: string;
   label?: string;
+  max?: number;
+  min?: number;
   onChange: () => void;
   options?: Option[];
   placeholder?: string;
@@ -23,31 +27,39 @@ export interface InputProps {
 const Input: FC<InputProps> = ({
   id,
   label,
+  max,
+  min,
   onChange,
   options = [],
   placeholder,
   type = InputType.TEXT,
   value = "",
 }) => {
+    const opts: any = {
+        id: id,
+        onChange: onChange,
+        placeholder: placeholder,
+        value: value,
+    };
+
+    if (type === InputType.NUMBER) {
+        opts.max = max;
+        opts.min = min;
+    }
+
   return (
     <div>
       {label && <label htmlFor={id}>{label}</label>}
       {type === InputType.DROPDOWN ? (
         <Dropdown
-          id={id}
-          onChange={onChange}
+            {...opts}
           options={options}
-          placeholder={placeholder}
-          value={value}
         />
       ) : (
         <input
-          id={id}
+         {...opts}
           name={id}
-          onChange={onChange}
-          placeholder={placeholder}
           type={type}
-          value={value}
         />
       )}
     </div>
@@ -55,43 +67,3 @@ const Input: FC<InputProps> = ({
 };
 
 export default Input;
-
-interface DropdownProps {
-  id: string;
-  onChange: () => void;
-  options: Option[];
-  placeholder?: string;
-  value?: string;
-}
-
-export interface Option {
-  label: string;
-  value: string;
-}
-
-const Dropdown: FC<DropdownProps> = ({
-  id,
-  onChange,
-  options,
-  placeholder,
-  value,
-}) => {
-  if (options.length === 0) {
-    throw new Error("you must provide options for a dropdown!");
-  }
-
-  return (
-    <select id={id} name={id} onChange={onChange} value={value}>
-      {placeholder && (
-        <option disabled value="">
-          &lt;{placeholder}&gt;
-        </option>
-      )}
-      {options.map((option: Option, key: number) => (
-        <option key={key} value={option.value}>
-          {option.label}
-        </option>
-      ))}
-    </select>
-  );
-};

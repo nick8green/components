@@ -1,4 +1,3 @@
-// import React from 'react';
 import { render, screen } from "@testing-library/react";
 import Input, { InputType } from "Input";
 
@@ -42,8 +41,14 @@ describe("Input component", () => {
     });
 
     it("for a dropdown input", () => {
+      const options = [{ label: "foo", value: "bar" }];
       render(
-        <Input id="testing" onChange={() => null} type={InputType.DROPDOWN} />,
+        <Input
+          id="testing"
+          onChange={() => null}
+          options={options}
+          type={InputType.DROPDOWN}
+        />,
       );
       const input = screen.getByRole("combobox");
       expect(input).toBeInTheDocument();
