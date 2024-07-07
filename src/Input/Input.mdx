@@ -1,0 +1,34 @@
+import { Canvas, Meta } from "@storybook/blocks";
+import * as Input from "./Input.stories.tsx";
+
+<Meta of={Input} title="Input" />
+
+# Input
+
+Input component with different props.
+
+#### Example
+
+<Canvas of={Input.Default} />
+
+## Usage
+
+```ts
+import {Input} from "@nick8green/components";
+
+const Example = () => {
+  return (
+      <Input
+        id='demo'
+        label='Input Label'
+        onChange={()=> console.log("Clicked")}
+      />
+  );
+};
+
+export default Example;
+```
+
+#### Arguments
+
+TBD
