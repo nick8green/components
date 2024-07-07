@@ -10,14 +10,19 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+
       - uses: actions/setup-node@v1
         with:
           node-version: 21
           registry-url: https://npm.pkg.github.com/
           scope: "@{USER_NAME}"
-      - run: npm install --legacy-peer-deps
+
+      - run: npm ci --legacy-peer-deps
+
       - run: npm run test
+
       - run: npm run build
+
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
