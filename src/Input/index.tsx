@@ -35,32 +35,25 @@ const Input: FC<InputProps> = ({
   type = InputType.TEXT,
   value = "",
 }) => {
-    const opts: any = {
-        id: id,
-        onChange: onChange,
-        placeholder: placeholder,
-        value: value,
-    };
+  const opts: any = {
+    id: id,
+    onChange: onChange,
+    placeholder: placeholder,
+    value: value,
+  };
 
-    if (type === InputType.NUMBER) {
-        opts.max = max;
-        opts.min = min;
-    }
+  if (type === InputType.NUMBER) {
+    opts.max = max;
+    opts.min = min;
+  }
 
   return (
     <div>
       {label && <label htmlFor={id}>{label}</label>}
       {type === InputType.DROPDOWN ? (
-        <Dropdown
-            {...opts}
-          options={options}
-        />
+        <Dropdown {...opts} options={options} />
       ) : (
-        <input
-         {...opts}
-          name={id}
-          type={type}
-        />
+        <input {...opts} name={id} type={type} />
       )}
     </div>
   );

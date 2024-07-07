@@ -1,6 +1,6 @@
 {
   "name": "@nick8green/components",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "type": "module",
   "main": "dist/index.cjs.js",
   "module": "dist/index.es.js",
@@ -13,6 +13,7 @@
     "clean": "rm -rf dist",
     "format": "prettier --write --parser typescript '**/*.{ts,tsx}'",
     "lint": "eslint . --ext .ts,.tsx --ignore-path .gitignore --fix",
+    "postversion": "git push --tags",
     "prebuild": "npm run clean",
     "storybook": "storybook dev -p 6006",
     "test": "vitest run",
