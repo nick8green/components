@@ -1,4 +1,4 @@
-import { describe, expect, it, vi } from "vitest";
+import { vi } from "vitest";
 import { fireEvent, render, screen } from "@testing-library/react";
 
 import Button, { ButtonType } from "Button";
@@ -20,7 +20,7 @@ describe("Button component", () => {
     render(<Button label="Test" onClick={cb} />);
     const button = screen.getByRole("button");
     fireEvent.click(button);
-    expect(cb).toBeCalled();
+    expect(cb).toHaveBeenCalled();
   });
 
   describe("can set the button type", () => {

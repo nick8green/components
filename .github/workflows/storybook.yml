@@ -2,27 +2,45 @@ name: build and deploy storybook
 
 on:
   push:
-    paths: ["src/*"]
+    paths:
+      - "src/*"
+    branches:
+      - "main"
+
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
 
 jobs:
-  build-and-deploy:
+  deploy:
+    environment:
+      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2.3.1
-        with:
-          persist-credentials: false
+      - name: checkout
+        uses: actions/checkout@v4
 
-      - name: Install and Build
+      - name: build storybook
         run: |
           npm ci --legacy-peer-deps
           npm run build-storybook
 
-      - name: Deploy
-        uses: JamesIves/github-pages-deploy-action@3.6.2
+      - name: setup pages
+        uses: actions/configure-pages@v5
+
+      - name: upload artifact
+        uses: actions/upload-pages-artifact@v3
         with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          BRANCH: main
-          FOLDER: docs-build
-          CLEAN: true
-          TARGET_FOLDER: docs
+          path: 'docs'
+
+      - name: deploy to github pages
+        id: deployment
+        uses: actions/deploy-pages@v4
