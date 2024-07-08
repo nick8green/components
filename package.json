@@ -19,7 +19,7 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "test:ui": "vitest --ui",
-    "build-storybook": "storybook build -o docs"
+    "build-storybook": "storybook build -o storybook"
   },
   "keywords": [],
   "author": "Nick Green <nick-green@live.co.uk> (https://www.nick8green.co.uk/)",
