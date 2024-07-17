@@ -1,0 +1,42 @@
+:root {
+    --dot-size: 1.75em;
+    --dots-width: 30vw;
+}
+
+#loading-container > .dots {
+    height: var(--dot-size);
+    margin: auto;
+    width: var(--dots-width);
+}
+
+#loading-container #dot-container {
+    height: var(--dot-size);
+    width: 100%;
+}
+
+#loading-container > .dots .dot {
+    animation-name: loader;
+    animation-timing-function: ease-in-out;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    background-color: black;
+    border: 2px solid var(--primary-bg, darkgreen);
+    border-radius: 100%;
+    height: var(--dot-size);
+    position: absolute;
+    width: var(--dot-size);
+}
+#loading-container > .dots .dot:first-child { animation-delay: 0.5s; background-color: var(--primary-bg, darkgreen); opacity: 0.25; }
+#loading-container > .dots .dot:nth-child(2) { animation-delay: 0.4s; background-color: var(--primary-bg, darkgreen); opacity: 0.40; }
+#loading-container > .dots .dot:nth-child(3) { animation-delay: 0.3s; background-color: var(--primary-bg, darkgreen); opacity: 0.55; }
+#loading-container > .dots .dot:nth-child(4) { animation-delay: 0.2s; background-color: var(--primary-bg, darkgreen); opacity: 0.70; }
+#loading-container > .dots .dot:nth-child(5) { animation-delay: 0.1s; background-color: var(--primary-bg, darkgreen); opacity: 0.85; }
+#loading-container > .dots .dot:nth-child(6) { animation-delay: 0s; background-color: var(--primary-bg, darkgreen); }
+
+#loading-container > .dots p { text-align: center; }
+
+@keyframes loader {
+    0% { transform: translateX(0); }
+    50% { transform: translateX(calc(var(--dots-width) - var(--dot-size))); }
+    100% { transform: translateX(0); }
+}

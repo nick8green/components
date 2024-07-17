@@ -1,0 +1,33 @@
+import { Canvas, Meta } from "@storybook/blocks";
+import * as Loader from "./Loader.stories.tsx";
+
+<Meta of={Loader} title="Loader" />
+
+# Loader
+
+Loader component.
+
+#### Example
+
+<Canvas of={Loader.Default} />
+
+## Usage
+
+```ts
+import {Loader} from "@nick8green/components";
+
+const Example = () => {
+  return (
+      <Loader
+        args={{ message: 'Loading' }}
+        displayed={true}
+      />
+  );
+};
+
+export default Example;
+```
+
+#### Arguments
+
+TBD

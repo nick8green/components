@@ -1,0 +1,22 @@
+/* #loading-container {
+    align-items: center;
+    background-color: #fff;
+    background-color: rgba(0,0,0,0.4);
+    display: none;
+    flex-flow: column wrap;
+    height: 100%;
+    left: 0;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+} */
+/* #loading-container.show { display: flex; } */
+
+#loading-container #loading {
+    border: 1px solid #888;
+  margin: auto auto;
+  max-width: 50%;
+  padding: 2em;
+}

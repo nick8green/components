@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import Dropdown from "Input/Dropdown";
+import Dropdown from "components/Input/Dropdown";
 
 describe("Input component", () => {
   it("Input should render correctly by default", () => {

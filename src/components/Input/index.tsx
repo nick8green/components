@@ -1,6 +1,6 @@
 import { FC } from "react";
 
-import Dropdown, { Option } from "Input/Dropdown";
+import Dropdown, { Option } from "components/Input/Dropdown";
 
 import "./style.css";
 

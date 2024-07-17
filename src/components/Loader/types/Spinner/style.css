@@ -1,0 +1,19 @@
+:root{
+  --spinner-size: 8em;
+}
+
+#loading-container > .spinner > div {
+    animation: spinner 2s linear infinite;
+    border: calc(var(--spinner-size) / 10) solid #EAF0F6;
+    border-radius: 50%;
+    border-top: calc(var(--spinner-size) / 10) solid var(--primary-bg, darkgreen);
+    height: var(--spinner-size);
+    margin: auto;
+    width: var(--spinner-size);
+}
+#loading-container > .spinner > p { text-align: center; }
+
+@keyframes spinner {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

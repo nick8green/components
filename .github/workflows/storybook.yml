@@ -28,7 +28,7 @@ jobs:
 
       - uses: actions/setup-node@v1
         with:
-          node-version: 21
+          node-version: 20
 
       - name: build storybook
         run: |

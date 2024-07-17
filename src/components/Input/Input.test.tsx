@@ -1,5 +1,6 @@
 import { render, screen } from "@testing-library/react";
-import Input, { InputType } from "Input";
+
+import Input, { InputType } from "components/Input";
 
 describe("Input component", () => {
   it("Input should render correctly by default", () => {

@@ -1,0 +1,35 @@
+import { Canvas, Meta } from "@storybook/blocks";
+import * as Modal from "./Modal.stories.tsx";
+
+<Meta of={Modal} title="Modal" />
+
+# Modal
+
+Modal component.
+
+#### Example
+
+<Canvas of={Modal.Default} />
+
+## Usage
+
+```ts
+import {Modal} from "@nick8green/components";
+
+const Example = () => {
+  return (
+    <Modal>
+      <div>
+        <h1>Model Content</h1>
+        <p>This is some dummy modal content</p>
+      </div>
+    </Modal>
+  );
+};
+
+export default Example;
+```
+
+#### Arguments
+
+TBD
