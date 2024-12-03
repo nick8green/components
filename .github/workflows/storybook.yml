@@ -26,14 +26,14 @@ jobs:
       - name: checkout
         uses: actions/checkout@v4
 
-      - uses: actions/setup-node@v1
+      - uses: actions/setup-node@v4
         with:
           node-version: 20
 
       - name: build storybook
         run: |
           npm ci --legacy-peer-deps
-          npm run build-storybook
+          npm run build:storybook
 
       - name: setup pages
         uses: actions/configure-pages@v5

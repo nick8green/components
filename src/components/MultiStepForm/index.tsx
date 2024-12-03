@@ -4,29 +4,50 @@ import { FC, FormEvent, useState } from "react";
 import Step from "./Step";
 
 import "./style.css";
+import ButtonGroup from "components/Button/Group";
+import Button from "components/Button";
+
+type GenericObject = {
+  [key: string]:
+    | boolean
+    | boolean[]
+    | null
+    | number
+    | number[]
+    | string
+    | string[];
+};
+type StepsProps = GenericObject & {
+  handleChange: (e: FormEvent<HTMLInputElement | HTMLSelectElement>) => void;
+};
 
 interface MultiStepProps {
-  done: (data: any) => void;
-  steps: FC[];
+  done: (data?: GenericObject) => void;
+  steps: FC<StepsProps>[];
 }
 
 const MultiStepForm: FC<MultiStepProps> = ({ done, steps = [] }) => {
-  const [data, setData] = useState<object>();
+  const [data, setData] = useState<GenericObject>();
   const [step, setStep] = useState<number>(1);
 
   const handleChange = (e: FormEvent<HTMLInputElement | HTMLSelectElement>) => {
     const matcher = /([a-zA-Z0-9]+)(?:\[([0-9]+)\])$/;
-    const newData: any = { ...data };
+    const newData: GenericObject = { ...data };
 
-    let { name, value } = e.currentTarget;
-    let match: any;
+    let { name } = e.currentTarget;
+    const { value } = e.currentTarget;
+    let match: null | RegExpExecArray;
 
     if ((match = matcher.exec(e.currentTarget.name)) !== null) {
       name = name.replace(matcher, "$1");
       if (!newData[name]) {
         newData[name] = [];
       }
-      newData[name][parseInt(match[2])] = value;
+      if (!match[2]) {
+        throw new Error("not sure if the regex has worked for this element?");
+      }
+      (newData[name] as (boolean | number | string)[])[parseInt(match[2])] =
+        value;
       setData(newData);
       return;
     }
@@ -52,34 +73,28 @@ const MultiStepForm: FC<MultiStepProps> = ({ done, steps = [] }) => {
     steps.length > 0
       ? steps[step - 1]
       : () => <p>Steps appear to be missing...</p>;
-  const args = {
-    ...data,
-    handleChange,
-  };
 
   return (
     <div>
       <Step step={step} total={steps.length}>
-        <ActiveStep {...(args as any)} />
+        <ActiveStep {...data} handleChange={handleChange} />
       </Step>
 
-      <div className="button-group">
+      <ButtonGroup>
         {step !== 1 && (
-          <button data-testid="back" onClick={prevStep}>
-            Back &lt;
-          </button>
+          <Button data-testid="back" label="Back &lt;" onClick={prevStep} />
         )}
         {step !== steps.length && step - 1 < steps.length && (
-          <button data-testid="next" onClick={nextStep}>
-            Next &gt;
-          </button>
+          <Button data-testid="next" label="Next &gt;" onClick={nextStep} />
         )}
         {step === steps.length && (
-          <button data-testid="done" onClick={() => done(data)}>
-            Complete!
-          </button>
+          <Button
+            data-testid="done"
+            label="Complete!"
+            onClick={() => done(data)}
+          />
         )}
-      </div>
+      </ButtonGroup>
     </div>
   );
 };

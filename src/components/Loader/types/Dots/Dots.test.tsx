@@ -1,4 +1,3 @@
-import React from "react";
 import Dots from "components/Loader/types/Dots";
 import { render } from "@testing-library/react";
 

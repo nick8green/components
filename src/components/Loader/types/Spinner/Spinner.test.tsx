@@ -1,4 +1,3 @@
-import React from "react";
 import Spinner from "components/Loader/types/Spinner";
 import { render } from "@testing-library/react";
 
