@@ -15,7 +15,8 @@ type GenericObject = {
     | number
     | number[]
     | string
-    | string[];
+    | string[]
+    | ((e: FormEvent<HTMLInputElement | HTMLSelectElement>) => void);
 };
 type StepsProps = GenericObject & {
   handleChange: (e: FormEvent<HTMLInputElement | HTMLSelectElement>) => void;
@@ -81,18 +82,12 @@ const MultiStepForm: FC<MultiStepProps> = ({ done, steps = [] }) => {
       </Step>
 
       <ButtonGroup>
-        {step !== 1 && (
-          <Button data-testid="back" label="Back &lt;" onClick={prevStep} />
-        )}
+        {step !== 1 && <Button label="Back &lt;" onClick={prevStep} />}
         {step !== steps.length && step - 1 < steps.length && (
-          <Button data-testid="next" label="Next &gt;" onClick={nextStep} />
+          <Button label="Next &gt;" onClick={nextStep} />
         )}
         {step === steps.length && (
-          <Button
-            data-testid="done"
-            label="Complete!"
-            onClick={() => done(data)}
-          />
+          <Button label="Complete!" onClick={() => done(data)} testId="done" />
         )}
       </ButtonGroup>
     </div>

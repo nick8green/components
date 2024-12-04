@@ -25,7 +25,16 @@ const Button: FC<ButtonProps> = ({
 }) => {
   return (
     <button
-      data-testid={testId}
+      data-testid={
+        testId ||
+        label
+          .replaceAll(/&[a-z]+;/g, "")
+          .replaceAll(/ +/g, " ")
+          .replaceAll(/[^a-zA-Z\d\s\-:]/g, "")
+          .trim()
+          .replaceAll(" ", "-")
+          .toLowerCase()
+      }
       disabled={disabled}
       onClick={onClick}
       type={type}
