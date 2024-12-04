@@ -1,1 +1,15 @@
+label { float: left; margin-right: 0.25em; margin-top: 0.3em; text-align: right; width: 40%; }
 label:after { content: ':'; }
+
+.input-field input, .input-field select { -webkit-border-radius: 5px; border-radius: 5px; padding: 0.3em; width: calc(60% - 1.2em); }
+
+.input-field .required:before {
+    color: red;
+    content: '* Required';
+    float: right;
+    font-size: 0.75em;
+}
+
+.input-field .error { color: red; }
+.input-field input.error, .input-field select.error { border: red 2px inset; }
+.input-field p.error { font-size: 0.7em; margin-top: 0; text-align: center; }

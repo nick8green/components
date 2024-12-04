@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, useState } from "react";
 
 import Dropdown, { Option } from "components/Input/Dropdown";
 
@@ -20,6 +20,7 @@ export interface InputProps {
   onChange: () => void;
   options?: Option[];
   placeholder?: string;
+  required?: boolean;
   type?: InputType;
   value?: string;
 }
@@ -32,13 +33,39 @@ const Input: FC<InputProps> = ({
   onChange,
   options = [],
   placeholder,
+  required = false,
   type = InputType.TEXT,
   value = "",
 }) => {
-  const opts: any = {
-    id: id,
+  const [valid, setValid] = useState<string>("");
+
+  const validate = (
+    value: boolean | null | number | string,
+    type: InputType,
+  ) => {
+    console.debug("validation not yet implemented");
+    console.debug(`validating ${type} input`);
+    if (required && value === "") {
+      setValid("Please provider a value as this field is required...");
+    }
+  };
+
+  const opts: InputProps & {
+    className: string;
+    onBlur: (
+      event: React.FocusEvent<HTMLInputElement | HTMLSelectElement>,
+    ) => void;
+    onFocus: () => void;
+  } = {
+    className: `${valid !== "" ? "error" : ""} ${required ? "required" : ""}`,
+    id,
+    onBlur: (event: React.FocusEvent<HTMLInputElement | HTMLSelectElement>) => {
+      const { type, value } = event.currentTarget;
+      validate(value, type as InputType);
+    },
     onChange: onChange,
-    placeholder: placeholder,
+    onFocus: () => setValid(""),
+    placeholder: required && !placeholder ? "Required" : placeholder,
     value: value,
   };
 
@@ -48,13 +75,14 @@ const Input: FC<InputProps> = ({
   }
 
   return (
-    <div>
+    <div className="input-field">
       {label && <label htmlFor={id}>{label}</label>}
       {type === InputType.DROPDOWN ? (
         <Dropdown {...opts} options={options} />
       ) : (
         <input {...opts} name={id} type={type} />
       )}
+      <p className="error">{valid}</p>
     </div>
   );
 };

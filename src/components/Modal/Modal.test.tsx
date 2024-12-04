@@ -4,7 +4,7 @@ import { vi } from "vitest";
 import Modal, { ModalType } from "components/Modal";
 
 describe("Modal component", () => {
-  let close: any;
+  let close: () => void;
 
   afterEach(() => {
     vi.resetAllMocks();
