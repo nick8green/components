@@ -1,5 +1,13 @@
 "use client";
-import { FC, FormEvent, useState } from "react";
+import {
+  cloneElement,
+  FC,
+  FormEvent,
+  isValidElement,
+  PropsWithChildren,
+  useEffect,
+  useState,
+} from "react";
 
 import Step from "./Step";
 
@@ -18,75 +26,90 @@ type GenericObject = {
     | string[]
     | ((e: FormEvent<HTMLInputElement | HTMLSelectElement>) => void);
 };
-type StepsProps = GenericObject & {
-  handleChange: (e: FormEvent<HTMLInputElement | HTMLSelectElement>) => void;
+export type StepProps = GenericObject & {
+  handleChange?: (e: FormEvent<HTMLInputElement | HTMLSelectElement>) => void;
 };
 
 interface MultiStepProps {
   done: (data?: GenericObject) => void;
-  steps: FC<StepsProps>[];
 }
 
-const MultiStepForm: FC<MultiStepProps> = ({ done, steps = [] }) => {
-  const [data, setData] = useState<GenericObject>();
+const MultiStepForm: FC<PropsWithChildren<MultiStepProps>> = ({
+  children,
+  done,
+}) => {
+  if (!children || !Array.isArray(children)) {
+    throw new Error("Children are required for MultiStepForm");
+  }
+
+  const [data, setData] = useState<GenericObject>({});
   const [step, setStep] = useState<number>(1);
 
   const handleChange = (e: FormEvent<HTMLInputElement | HTMLSelectElement>) => {
     const matcher = /([a-zA-Z0-9]+)(?:\[([0-9]+)\])$/;
-    const newData: GenericObject = { ...data };
+    const newData: GenericObject = {};
 
     let { name } = e.currentTarget;
     const { value } = e.currentTarget;
     let match: null | RegExpExecArray;
 
     if ((match = matcher.exec(e.currentTarget.name)) !== null) {
-      name = name.replace(matcher, "$1");
-      if (!newData[name]) {
-        newData[name] = [];
-      }
       if (!match[2]) {
         throw new Error("not sure if the regex has worked for this element?");
       }
-      (newData[name] as (boolean | number | string)[])[parseInt(match[2])] =
-        value;
-      setData(newData);
+      name = name.replace(matcher, "$1");
+      newData[name] = !data[name] ? [] : data[name];
+      const index = parseInt(match[2]);
+      (newData[name] as (boolean | number | string)[])[index] = value;
+      setData((prevData) => ({ ...prevData, ...newData }));
       return;
     }
-    newData[e.currentTarget.name] = e.currentTarget.value;
-    setData(newData);
+    newData[name] = value;
+    setData((prevData) => ({ ...prevData, ...newData }));
   };
 
-  const nextStep = () => {
-    if (step === steps.length) {
-      return;
+  const getStep = () => {
+    const child = children[step - 1];
+    if (isValidElement(child)) {
+      return cloneElement(child, {
+        ...(child.props as object),
+        ...data,
+        ...{ handleChange },
+      });
     }
-    setStep(step + 1);
+    return child;
+  };
+
+  const [activeStep, setActiveStep] = useState(getStep());
+
+  useEffect(() => {
+    setActiveStep(getStep());
+  }, [step]);
+
+  const nextStep = () => {
+    if (step < children.length) {
+      setStep(step + 1);
+    }
   };
 
   const prevStep = () => {
-    if (step <= 0) {
-      return;
+    if (step !== 0) {
+      setStep(step - 1);
     }
-    setStep(step - 1);
   };
-
-  const ActiveStep =
-    steps.length > 0
-      ? steps[step - 1]
-      : () => <p>Steps appear to be missing...</p>;
 
   return (
     <div>
-      <Step step={step} total={steps.length}>
-        <ActiveStep {...data} handleChange={handleChange} />
+      <Step step={step} total={children.length}>
+        {activeStep}
       </Step>
 
       <ButtonGroup>
-        {step !== 1 && <Button label="Back &lt;" onClick={prevStep} />}
-        {step !== steps.length && step - 1 < steps.length && (
+        {step !== 1 && <Button label="&lt; Back" onClick={prevStep} />}
+        {step !== children.length && step - 1 < children.length && (
           <Button label="Next &gt;" onClick={nextStep} />
         )}
-        {step === steps.length && (
+        {step === children.length && (
           <Button label="Complete!" onClick={() => done(data)} testId="done" />
         )}
       </ButtonGroup>
