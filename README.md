@@ -1,12 +1,39 @@
 # Nick8Green Components
 
-## Installation
-
-### Authentication
-
 ## Usage
 
+Within your repository create an `.npmrc` file pointing to the GitHub registry for the relevant scoped packages.
+
+```
+@nick8green:registry=https://npm.pkg.github.com
+```
+
+Due to the package being hosted within GitHub, you must be authenticated with GitHub in order to use the library. This requires having a personal access token with the relevant scopes.
+
+```
+$ npm login --scope=@nick8green --auth-type=legacy --registry=https://npm.pkg.github.com
+
+> Username: USERNAME
+> Password: TOKEN
+```
+
+## Installation
+
+```
+$ npm install -s @nick8green/component
+```
+
+The components can then be utilised as per the examples in Storybook.
+
+## Documentation
+
+Storybook documentation is hosted in GitHub at [http://nick8green.github.io/components](http://nick8green.github.io/components).
+
+Each component with example usage can be found here.
+
 ## Reporting Issues
+
+Please raise an issue to the repository or [click here](https://github.com/nick8green/components/issues).
 
 ## Useful Links
 
