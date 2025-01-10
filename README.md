@@ -2,7 +2,11 @@
 
 ## Installation
 
+### Authentication
 
+## Usage
+
+## Reporting Issues
 
 ## Useful Links
 
