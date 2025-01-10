@@ -20,7 +20,7 @@ $ npm login --scope=@nick8green --auth-type=legacy --registry=https://npm.pkg.gi
 ## Installation
 
 ```
-$ npm install -s @nick8green/component
+$ npm install @nick8green/components
 ```
 
 The components can then be utilised as per the examples in Storybook.
