@@ -1,0 +1,72 @@
+name: build checks for application
+
+on:
+  push:
+    branches:
+      - "**"
+      - "!main"
+
+jobs:
+  # run unit tests
+  test:
+    name: 🧪 unit tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout code
+        uses: actions/checkout@v4
+
+      - name: setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 21.5
+
+      - name: install dependencies
+        run: npm ci
+
+      - name: execute tests
+        run: npm run test
+
+      - uses: actions/upload-artifact@v4
+        if: ${{ !cancelled() }}
+        with:
+          name: unit-test-coverage
+          path: coverage/
+          retention-days: 30
+
+  # build package
+  build:
+    name: 🏗️ build package
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout code
+        uses: actions/checkout@v4
+
+      - name: setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 21.5
+
+      - name: install dependencies
+        run: npm ci
+
+      - name: execute tests
+        run: npm run build
+
+  # build package
+  storybook:
+    name: 📚 build storybook
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout code
+        uses: actions/checkout@v4
+
+      - name: setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 21.5
+
+      - name: install dependencies
+        run: npm ci
+
+      - name: execute tests
+        run: npm run build:storybook
