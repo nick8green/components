@@ -49,7 +49,7 @@ jobs:
       - name: install dependencies
         run: npm ci
 
-      - name: execute tests
+      - name: build package
         run: npm run build
 
   # build storybook
@@ -68,7 +68,7 @@ jobs:
       - name: install dependencies
         run: npm ci
 
-      - name: execute tests
+      - name: build storybook
         run: npm run build:storybook
 
   # lint code
@@ -87,5 +87,5 @@ jobs:
       - name: install dependencies
         run: npm ci
 
-      - name: execute tests
+      - name: lint code
         run: npm run lint
