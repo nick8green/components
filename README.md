@@ -17,6 +17,13 @@ $ npm login --scope=@nick8green --auth-type=legacy --registry=https://npm.pkg.gi
 > Password: TOKEN
 ```
 
+In order to persist within the repository only, create an `.npmrc` file withing the project with the following content but with your personal access token in place of `<ACCESS TOKEN>`.
+
+```
+@nick8green:registry=https://npm.pkg.github.com
+//npm.pkg.github.com/:_authToken=<ACCESS TOKEN>
+```
+
 ## Installation
 
 ```
