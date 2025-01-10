@@ -89,5 +89,9 @@
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/"
   },
-  "homepage": "http://nick8green.github.io/components"
+  "homepage": "http://nick8green.github.io/components",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nick8green/components.git"
+  }
 }
