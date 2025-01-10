@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import Switch from "components/Switch";
 
 const meta: Meta<typeof Switch> = {
-  title: "Switch",
+  title: "Interaction/Switch",
   component: Switch,
   args: {
     label: "storybook",

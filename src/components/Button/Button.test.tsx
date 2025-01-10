@@ -50,12 +50,7 @@ describe("Button component", () => {
   });
 
   describe("can set the button test id", () => {
-    const testcases: { expected: string; id?: string; label: string }[] = [
-      {
-        expected: "test-id",
-        id: "test-id",
-        label: "Test",
-      },
+    const testcases: { expected: string; label: string }[] = [
       {
         expected: "test",
         label: "Test",
@@ -74,13 +69,9 @@ describe("Button component", () => {
       },
     ];
 
-    testcases.forEach(({ expected, id, label }) => {
+    testcases.forEach(({ expected, label }) => {
       it(`button has test id ${expected}`, () => {
-        const args: { testId?: string; label: string } = { label };
-        if (id) {
-          args.testId = id;
-        }
-        render(<Button {...args} />);
+        render(<Button label={label} />);
         const button = screen.getByTestId(expected);
         expect(button).toBeInTheDocument();
       });

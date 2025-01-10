@@ -5,11 +5,15 @@ import * as MultiStepForm from "./MultiStepForm.stories.tsx";
 
 # MultiStepForm
 
-MultiStepForm component.
+MultiStepForm component. Each step of the form must be passed in as a list of children. The `done` function must be passed and is passed the data that has been collected for the action that needs to occur.
 
 #### Example
 
 <Canvas of={MultiStepForm.Default} />
+
+## Arguments
+
+- **done** _`(data: GenericObject) => void`_ - The action to be carried out when the form is completed. The data that has been collected is passed to the function.
 
 ## Usage
 
@@ -18,13 +22,21 @@ import {MultiStepForm} from "@nick8green/components";
 
 const Example = () => {
   return (
-      <MultiStepForm />
+    <MultiStepForm
+      done={(data) =>
+        alert(
+          `data collected...\n  - ${Object.keys(data)
+            .map((key) => `${key}: ${data[key]}`)
+            .join("\n  - ")}`,
+        )
+      }
+    >
+      <Step 1 />
+      <Step 2 />
+      <Step 3 />
+    </MultiStepForm>
   );
 };
 
 export default Example;
 ```
-
-#### Arguments
-
-TBD

@@ -5,11 +5,17 @@ import * as Modal from "./Modal.stories.tsx";
 
 # Modal
 
-Modal component.
+Modal component. There are two types of modals, `LOADER` and an `INPUT` modal. If it is an input modal, there must be a close callback passed in for the actions that should occur when the modal is closed.
 
 #### Example
 
 <Canvas of={Modal.Default} />
+
+## Arguments
+
+- **close** _`() => void`_ - Any action that should happen as the result of clicking to close the modal. _(optional)_
+- **type** _`ModalType`_ - The type of modal to display. _(optional)_
+- **visible** _`boolean`_ - Whether the model should be visible.
 
 ## Usage
 
@@ -18,10 +24,10 @@ import {Modal} from "@nick8green/components";
 
 const Example = () => {
   return (
-    <Modal>
+    <Modal visible={true}>
       <div>
-        <h1>Model Content</h1>
-        <p>This is some dummy modal content</p>
+        <h1>This is a modal display</h1>
+        <p>This is where we display overlay messages</p>
       </div>
     </Modal>
   );
@@ -29,7 +35,3 @@ const Example = () => {
 
 export default Example;
 ```
-
-#### Arguments
-
-TBD

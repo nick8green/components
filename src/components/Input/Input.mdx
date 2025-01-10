@@ -5,13 +5,39 @@ import * as Input from "./Input.stories.tsx";
 
 # Input
 
-Input component with different props.
+Input component.
+
+This can be any of the following:
+- DROPDOWN
+- EMAIL
+- NUMBER
+- TELEPHONE
+- TEXT
+
+If it is a dropdown which is required, there is an additional argument for the options required.
 
 #### Example
 
 <Canvas of={Input.Default} />
 
+## Arguments
+
+- **id** _`string`_ - The string ID for the input.
+- **label** _`string`_ - The label for the input. _(optional)_
+- **max** _`number`_ - The maximum value if the input type is a number. _(optional)_
+- **min** _`number`_ - The minimum value if the input type is a number. _(optional)_
+- **onChange** _`() => void`_ - The action that should occur when the input is updated/changed.
+- **options** _`Option[]`_ - The list of options for a dropdown. Each option must have a `label` and a `value`. _(optional)_
+- **placeholder** _`string`_ - A placeholder value within the input. _(optional)_
+- **required** _`boolean`_ - Indicator as to whether the input is required by the containing form. _(optional)_
+- **type** _`InputType`_ - The input type to be produced. _(optional)_
+- **value** _`string`_ - The value of the input. _(optional)_
+
 ## Usage
+
+### Default/Text
+
+The default type for this component is to produce a text input so there is no need to provide a type if you are looking to create a text input.
 
 ```ts
 import {Input} from "@nick8green/components";
@@ -21,7 +47,8 @@ const Example = () => {
       <Input
         id='demo'
         label='Input Label'
-        onChange={()=> console.log("Clicked")}
+        onChange={(e)=> console.log("new value:", e.target.value)}
+        type={InputType.TEXT}    {/* Optional property */}
       />
   );
 };
@@ -29,6 +56,95 @@ const Example = () => {
 export default Example;
 ```
 
-#### Arguments
+<Canvas of={Input.Text} />
 
-TBD
+### Dropdown
+
+When requiring a dropdown, the additional property `options` must be provided. If it is not provided an error will be thrown.
+
+```ts
+import {Input, InputType} from "@nick8green/components";
+
+const Example = () => {
+  return (
+      <Input
+        id='demo'
+        label='Input Label'
+        onChange={(e)=> console.log(`Option ${e.target.value} selected`)}
+        options={[
+          { label: "Option 1", value: "1" },
+          { label: "Option 2", value: "2" },
+          { label: "Option 3", value: "3" },
+        ]}
+        type={InputType.DROPDOWN}
+      />
+  );
+};
+
+export default Example;
+```
+
+<Canvas of={Input.Dropdown} />
+
+### E-mail Address
+
+```ts
+import {Input, InputType} from "@nick8green/components";
+
+const Example = () => {
+  return (
+      <Input
+        id='demo'
+        label='Input Label'
+        onChange={(e)=> console.log("e-mail address:", e.target.value)}
+        type={InputType.EMAIL}
+      />
+  );
+};
+
+export default Example;
+```
+
+<Canvas of={Input.Email} />
+
+### Number
+
+```ts
+import {Input, InputType} from "@nick8green/components";
+
+const Example = () => {
+  return (
+      <Input
+        id='demo'
+        label='Input Label'
+        onChange={(e)=> console.log("number:", e.target.value)}
+        type={InputType.NUMBER}
+      />
+  );
+};
+
+export default Example;
+```
+
+<Canvas of={Input.Number} />
+
+### Telephone Number
+
+```ts
+import {Input, InputType} from "@nick8green/components";
+
+const Example = () => {
+  return (
+      <Input
+        id='demo'
+        label='Input Label'
+        onChange={(e)=> console.log("phone number:", e.target.value)}
+        type={InputType.TELEPHONE}
+      />
+  );
+};
+
+export default Example;
+```
+
+<Canvas of={Input.Telephone} />

@@ -5,13 +5,21 @@ import * as Loader from "./Loader.stories.tsx";
 
 # Loader
 
-Loader component.
+Loader component. The component allows us to display different types of loaders in order to feed back meaningfully to the user. The component needs to take the type of loader, whether it should be displayed and any other arguments which are relevant to the loader type. By default the component produces a text loader. There also may be a dot annimation loader and a spinner produced.
 
 #### Example
 
 <Canvas of={Loader.Default} />
 
+## Arguments
+
+- **args** _`LoaderArgs`_ - The arguments for the loader that has been specified. At this time, the only arguments which can be used is to pass a textual `message` to the user. _(optional)_
+- **displayed** _`boolean`_ - An indicator as to whehter the loader should be displayed. _(default: false)_ _(optional)_
+- **type** _`LoaderType`_ - The type of loader should be displayed. _(default: text)_ _(options: DOTS, SPINNER, TEXT)_ _(optional)_
+
 ## Usage
+
+### Default/Text
 
 ```ts
 import {Loader} from "@nick8green/components";
@@ -28,6 +36,45 @@ const Example = () => {
 export default Example;
 ```
 
-#### Arguments
+<Canvas of={Loader.Default} />
 
-TBD
+### Spinner
+
+```ts
+import {Loader} from "@nick8green/components";
+
+const Example = () => {
+  return (
+      <Loader
+        args={{ message: 'Loading' }}
+        displayed={true}
+        type={LoaderType.SPINNER}
+      />
+  );
+};
+
+export default Example;
+```
+
+<Canvas of={Loader.Spinner} />
+
+### Default/Text
+
+```ts
+import {Loader} from "@nick8green/components";
+
+const Example = () => {
+  return (
+      <Loader
+        args={{ message: 'Loading' }}
+        displayed={true}
+         type={LoaderType.DOTS}
+      />
+  );
+};
+
+
+export default Example;
+```
+
+<Canvas of={Loader.Dots} />

@@ -9,7 +9,7 @@ export enum ModalType {
   LOADER = "loader",
 }
 
-interface ModalProps {
+export interface ModalProps {
   close?: () => void;
   type?: ModalType;
   visible: boolean;

@@ -4,7 +4,7 @@ import { FC } from "react";
 import MultiStepForm, { StepProps } from "components/MultiStepForm";
 
 const meta: Meta<typeof MultiStepForm> = {
-  title: "MultiStepForm",
+  title: "Interaction/MultiStepForm",
   component: MultiStepForm,
   argTypes: {},
 };
@@ -13,8 +13,16 @@ export default meta;
 type Story = StoryObj<typeof MultiStepForm>;
 
 export const Default: Story = {
-  render: (args) => (
-    <MultiStepForm {...args} done={(data) => console.log(data)}>
+  render: () => (
+    <MultiStepForm
+      done={(data) => {
+        alert(
+          `data collected...\n  - ${Object.keys(data)
+            .map((key) => `${key}: ${data[key]}`)
+            .join("\n  - ")}`,
+        );
+      }}
+    >
       <PersonalDetails />
       <AccountDetails />
       <AccountSummary />

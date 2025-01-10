@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import Loader, { LoaderType } from "components/Loader";
 
 const meta: Meta<typeof Loader> = {
-  title: "Loader",
+  title: "Feedback/Loader",
   component: Loader,
   argTypes: {
     type: {
@@ -29,5 +29,25 @@ export const Default: Story = {
       message: "Loading",
     },
     displayed: true,
+  },
+};
+
+export const Spinner: Story = {
+  args: {
+    args: {
+      message: "Loading",
+    },
+    displayed: true,
+    type: LoaderType.SPINNER,
+  },
+};
+
+export const Dots: Story = {
+  args: {
+    args: {
+      message: "Loading",
+    },
+    displayed: true,
+    type: LoaderType.DOTS,
   },
 };

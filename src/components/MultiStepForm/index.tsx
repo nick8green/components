@@ -30,7 +30,7 @@ export type StepProps = GenericObject & {
   handleChange?: (e: FormEvent<HTMLInputElement | HTMLSelectElement>) => void;
 };
 
-interface MultiStepProps {
+export interface MultiStepProps {
   done: (data?: GenericObject) => void;
 }
 
@@ -39,7 +39,9 @@ const MultiStepForm: FC<PropsWithChildren<MultiStepProps>> = ({
   done,
 }) => {
   if (!children || !Array.isArray(children)) {
-    throw new Error("Children are required for MultiStepForm");
+    throw new Error(
+      "Children are required for MultiStepForm and there must be more than one step to be completed!",
+    );
   }
 
   const [data, setData] = useState<GenericObject>({});
@@ -110,7 +112,7 @@ const MultiStepForm: FC<PropsWithChildren<MultiStepProps>> = ({
           <Button label="Next &gt;" onClick={nextStep} />
         )}
         {step === children.length && (
-          <Button label="Complete!" onClick={() => done(data)} testId="done" />
+          <Button label="Complete!" onClick={() => done(data)} />
         )}
       </ButtonGroup>
     </div>

@@ -4,7 +4,7 @@ import { fn } from "@storybook/test";
 import Input, { InputType } from "components/Input";
 
 const meta: Meta<typeof Input> = {
-  title: "Input",
+  title: "Interaction/Input",
   component: Input,
   argTypes: {
     label: {

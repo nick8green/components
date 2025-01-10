@@ -11,6 +11,14 @@ Switch component with different props.
 
 <Canvas of={Switch.Default} />
 
+## Arguments
+
+- **offColour** _`string`_ - The background colour to be displayed when "turned off". _(optional)_
+- **onColour** _`string`_ - The background colour to be displayed when "turned on". _(optional)_
+- **checked** _`boolean`_ - Whether the switch is "on". _(optional)_
+- **label** _`string`_ - The label for the switch.
+- **onChange** _`(checked: boolean) => void`_ - The action to be executed when the switch is flicked.
+
 ## Usage
 
 ```ts
@@ -19,14 +27,11 @@ import {Switch} from "@nick8green/components";
 const Example = () => {
   return (
       <Switch
-
+        label="switch"
+        onChange={(on) => console.log("switched on:", on)}
       />
   );
 };
 
 export default Example;
 ```
-
-#### Arguments
-
-TBC

@@ -3,7 +3,7 @@ import Button, { ButtonType } from "components/Button";
 import ButtonGroup from "components/Button/Group";
 
 const meta: Meta<typeof ButtonGroup> = {
-  title: "ButtonGroup",
+  title: "Interaction/ButtonGroup",
   component: ButtonGroup,
 };
 

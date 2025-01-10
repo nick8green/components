@@ -1,9 +1,21 @@
 import { vi } from "vitest";
 import { render, fireEvent } from "@testing-library/react";
-import MultiStepForm from "./index";
+import MultiStepForm, { StepProps } from "./index";
+import { FC } from "react";
 
 describe("MultiStepForm", () => {
   const doneMock = vi.fn();
+  const DummySingleInputForm: FC<StepProps> = ({ handleChange, testInput }) => (
+    <div>
+      <input
+        name="testInput"
+        aria-label="testInput"
+        data-testid="testInput"
+        onChange={handleChange}
+        value={testInput as string}
+      />
+    </div>
+  );
 
   const renderComponent = (props = {}) =>
     render(
@@ -14,10 +26,16 @@ describe("MultiStepForm", () => {
       </MultiStepForm>,
     );
 
+  afterEach(() => {
+    vi.resetAllMocks();
+  });
+
   it("errors without steps provided", () => {
     expect(() =>
       render(<MultiStepForm done={doneMock}></MultiStepForm>),
-    ).toThrow("Children are required for MultiStepForm");
+    ).toThrow(
+      "Children are required for MultiStepForm and there must be more than one step to be completed!",
+    );
   });
 
   it("renders the first step initially", () => {
@@ -42,20 +60,14 @@ describe("MultiStepForm", () => {
     const { getByText, getByTestId } = renderComponent();
     fireEvent.click(getByText("Next >"));
     fireEvent.click(getByText("Next >"));
-    fireEvent.click(getByTestId("done"));
+    fireEvent.click(getByTestId("complete"));
     expect(doneMock).toHaveBeenCalledWith({});
   });
 
   it("updates data state on input change", () => {
     const { getByText, getByLabelText } = render(
       <MultiStepForm done={doneMock}>
-        <div>
-          <input
-            name="testInput"
-            aria-label="testInput"
-            data-testid="testInput"
-          />
-        </div>
+        <DummySingleInputForm />
         <div>Step 2</div>
       </MultiStepForm>,
     );
@@ -64,5 +76,20 @@ describe("MultiStepForm", () => {
     fireEvent.click(getByText("Next >"));
     fireEvent.click(getByText("< Back"));
     expect(input).toHaveValue("testValue");
+  });
+
+  it("updates the data when there is an input change", () => {
+    const { getByText, getByLabelText } = render(
+      <MultiStepForm done={doneMock}>
+        <DummySingleInputForm />
+        <div>Step 2</div>
+      </MultiStepForm>,
+    );
+    const input = getByLabelText("testInput");
+    fireEvent.change(input, { target: { value: "testValue" } });
+    fireEvent.click(getByText("Next >"));
+    fireEvent.click(getByText("Complete!"));
+    expect(doneMock).toHaveBeenCalledTimes(1);
+    expect(doneMock).toHaveBeenCalledWith({ testInput: "testValue" });
   });
 });

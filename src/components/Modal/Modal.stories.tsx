@@ -4,7 +4,7 @@ import { fn } from "@storybook/test";
 import Modal, { ModalType } from "components/Modal";
 
 const meta: Meta<typeof Modal> = {
-  title: "Modal",
+  title: "Feedback/Modal",
   component: Modal,
   decorators: [
     (Story) => (

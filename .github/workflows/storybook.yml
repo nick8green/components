@@ -2,10 +2,8 @@ name: build and deploy storybook
 
 on:
   push:
-    paths:
-      - "src/*"
     branches:
-      - "main"
+      - main
 
   workflow_dispatch:
 
@@ -13,7 +11,6 @@ permissions:
   contents: read
   pages: write
   id-token: write
-
 
 concurrency:
   group: "pages"
