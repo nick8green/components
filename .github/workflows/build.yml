@@ -52,7 +52,7 @@ jobs:
       - name: execute tests
         run: npm run build
 
-  # build package
+  # build storybook
   storybook:
     name: 📚 build storybook
     runs-on: ubuntu-latest
@@ -70,3 +70,22 @@ jobs:
 
       - name: execute tests
         run: npm run build:storybook
+
+  # lint code
+  linting:
+    name: ✏️ lint code
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout code
+        uses: actions/checkout@v4
+
+      - name: setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 21.5
+
+      - name: install dependencies
+        run: npm ci
+
+      - name: execute tests
+        run: npm run lint
