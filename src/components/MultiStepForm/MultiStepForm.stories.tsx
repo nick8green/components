@@ -16,9 +16,10 @@ export const Default: Story = {
   render: () => (
     <MultiStepForm
       done={(data) => {
+        const d = data || {};
         alert(
-          `data collected...\n  - ${Object.keys(data)
-            .map((key) => `${key}: ${data[key]}`)
+          `data collected...\n  - ${Object.keys(d)
+            .map((key) => `${key}: ${d[key]}`)
             .join("\n  - ")}`,
         );
       }}

@@ -1,4 +1,4 @@
-# N8G Compoenents
+# Nick8Green Components
 
 ## Installation
 
