@@ -4,11 +4,33 @@ on:
   release:
     types:
       - published
+  workflow_dispatch:
 
 jobs:
-  build:
+  checks:
+    name: ✅ checks
+    uses: ./build.yml
+
+  version:
+    name: ⛙ versioning
+    needs:
+      - checks
+    runs-on: ubuntu-latest
+    outputs:
+      tag: ${{ steps.details.outputs.version }}
+    steps:
+      - uses: actions/checkout@v4
+      - run: echo "tagging release"
+      - id: details
+        run: |
+          echo "version=1.0.0" >> $GITHUB_OUTPUT
+
+  deploy:
     name: 🚢 deploy package
     runs-on: ubuntu-latest
+    needs:
+      - checks
+      - tag
     permissions:
       contents: read
       packages: write
@@ -26,7 +48,14 @@ jobs:
       - name: build package
         run: npm run build
 
-      - name: publish package
-        run: npm publish --access restricted
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      # beta package
+      # - name: publish package
+      #   run: npm publish --tag beta --access restricted
+      #   env:
+      #     NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # stable package
+      # - name: publish package
+      #   run: npm publish --tag stable --access restricted
+      #   env:
+      #     NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
