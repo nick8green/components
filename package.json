@@ -39,7 +39,7 @@
     "@storybook/addon-essentials": "^8.5.4",
     "@storybook/addon-interactions": "^8.5.4",
     "@storybook/addon-links": "^8.5.4",
-    "@storybook/addon-onboarding": "^8.5.4",
+    "@storybook/addon-onboarding": "^8.5.8",
     "@storybook/blocks": "^8.3.6",
     "@storybook/client-api": "^7.6.17",
     "@storybook/react": "^8.3.6",
