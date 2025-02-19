@@ -23,7 +23,11 @@
     "test:watch": "vitest",
     "test:ui": "vitest --ui"
   },
-  "keywords": [],
+  "keywords": [
+    "components",
+    "react",
+    "storybook"
+  ],
   "author": "Nick Green <nick-green@live.co.uk> (https://www.nick8green.co.uk/)",
   "license": "MIT",
   "description": "",
