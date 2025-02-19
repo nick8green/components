@@ -37,7 +37,7 @@
     "@fortawesome/react-fontawesome": "^0.2.2",
     "@storybook/addon-controls": "^8.3.6",
     "@storybook/addon-essentials": "^8.5.4",
-    "@storybook/addon-interactions": "^8.5.4",
+    "@storybook/addon-interactions": "^8.5.8",
     "@storybook/addon-links": "^8.5.4",
     "@storybook/addon-onboarding": "^8.5.4",
     "@storybook/blocks": "^8.3.6",
