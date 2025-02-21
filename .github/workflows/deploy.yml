@@ -1,61 +1,90 @@
-name: Publish package to GitHub Packages
+name: Publish components packages
 
 on:
   release:
     types:
       - published
+      - prereleased
+
   workflow_dispatch:
 
 jobs:
-  # checks:
-  #   name: ✅ checks
-  #   uses: ./checks.yml
+  checks:
+    name: ✅ checks
+    uses: ./.github/workflows/checks.yml
 
-  # version:
-  #   name: ⛙ versioning
-  #   needs:
-  #     - checks
-  #   runs-on: ubuntu-latest
-  #   outputs:
-  #     tag: ${{ steps.details.outputs.version }}
-  #   steps:
-  #     - uses: actions/checkout@v4
-  #     - run: echo "tagging release"
-  #     - id: details
-  #       run: |
-  #         echo "version=1.0.0" >> $GITHUB_OUTPUT
-
-  deploy:
-    name: 🚢 deploy package
+  version:
+    name: ⛙ versioning
+    needs:
+      - checks
     runs-on: ubuntu-latest
-  #   needs:
-  #     - checks
-  #     - tag
-  #   permissions:
-  #     contents: read
-  #     packages: write
+    outputs:
+      tag: ${{ steps.details.outputs.version }}
     steps:
       - uses: actions/checkout@v4
+      - run: echo "tagging release"
+      - id: details
+        run: |
+          echo "version=1.0.0" >> $GITHUB_OUTPUT
 
-  #     - uses: actions/setup-node@v3
-  #       with:
-  #         node-version: '21.5'
-  #         registry-url: 'https://npm.pkg.github.com'
+  package:
+    if: true == false
+    name: 🚢 build and deploy npm package
+    runs-on: ubuntu-latest
+    needs:
+      - checks
+      - version
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - uses: nick8green/workflows/actions/node/setup@main
+        with:
+          registry: 'https://npm.pkg.github.com'
 
-  #     - name: install dependencies
-  #       run: npm ci
+      - name: build package
+        run: npm run build
 
-  #     - name: build package
-  #       run: npm run build
+      # beta package
+      - name: publish package
+        if: github.event_name == 'release' && github.event.action == 'prereleased'
+        run: npm publish --tag beta --access restricted
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-  #     # beta package
-  #     # - name: publish package
-  #     #   run: npm publish --tag beta --access restricted
-  #     #   env:
-  #     #     NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      # stable package
+      - name: publish package
+        if: github.event_name == 'release' && github.event.action == 'published'
+        run: npm publish --tag stable --access restricted
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-  #     # stable package
-  #     # - name: publish package
-  #     #   run: npm publish --tag stable --access restricted
-  #     #   env:
-  #     #     NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  storybook:
+    concurrency:
+      cancel-in-progress: false
+      group: "pages"
+    if: github.event_name == 'release' && github.event.action == 'published'
+    name: 📚 build and deploy storybook
+    permissions:
+      contents: read
+      id-token: write
+      pages: write
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🧱 Setup workspace
+        uses: nick8green/workflows/actions/node/setup@main
+
+      - name: 📔 build storybook
+        run: npm run build:storybook
+
+      - name: 🗒️ setup pages
+        uses: actions/configure-pages@v5
+
+      - name: 📦 upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: 'storybook'
+
+      - name: 🚀 deploy to github pages
+        id: deployment
+        uses: actions/deploy-pages@v4
