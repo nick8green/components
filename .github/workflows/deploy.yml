@@ -1,10 +1,15 @@
 name: Publish components packages
 
 on:
-  release:
-    types:
-      - published
-      - prereleased
+  # release:
+  #   types:
+  #     - published
+  #     - prereleased
+  push:
+    branches:
+      - main
+      - release
+      - deployment
 
   workflow_dispatch:
 
@@ -20,10 +25,29 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       tag: ${{ steps.details.outputs.version }}
+    permissions:
+      contents: write
+      issues: write
+      pull-requests: write
+      id-token: write
     steps:
-      - uses: actions/checkout@v4
-      - run: echo "tagging release"
+      - name: 🛎️ Checkout code
+        uses: actions/checkout@v4
+
+      - name: 🧱 Setup workspace
+        uses: nick8green/workflows/actions/node/setup@main
+        with:
+          registry: 'https://npm.pkg.github.com'
+
+      - name: 👌 verify
+        run: npm audit signatures
+
+      - env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: npx semantic-release
+
       - id: details
+        name: 🔍 details
         run: |
           echo "version=1.0.0" >> $GITHUB_OUTPUT
 
@@ -42,18 +66,18 @@ jobs:
         with:
           registry: 'https://npm.pkg.github.com'
 
-      - name: build package
+      - name: 🏗️ build package
         run: npm run build
 
       # beta package
-      - name: publish package
+      - name: 🚀 publish package
         if: github.event_name == 'release' && github.event.action == 'prereleased'
         run: npm publish --tag beta --access restricted
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       # stable package
-      - name: publish package
+      - name: 🚀 publish package
         if: github.event_name == 'release' && github.event.action == 'published'
         run: npm publish --tag stable --access restricted
         env:
