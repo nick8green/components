@@ -37,6 +37,12 @@ export default defineConfig({
       include: ["src/**"],
       reporter: ["text", "json", "html"],
       provider: "v8",
+      thresholds: {
+        functions: 80,
+        lines: 80,
+        statements: 80,
+        branches: 80,
+      },
     },
     globals: true,
     environment: "jsdom",

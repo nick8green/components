@@ -76,13 +76,13 @@ const Input: FC<InputProps> = ({
 
   return (
     <div className="input-field">
-      {label && <label htmlFor={id}>{label}</label>}
+      {label && <label data-testid="input-label" htmlFor={id}>{label}</label>}
       {type === InputType.DROPDOWN ? (
         <Dropdown {...opts} options={options} />
       ) : (
         <input {...opts} name={id} type={type} />
       )}
-      <p className="error">{valid}</p>
+      <p className="error" data-testid="input-error">{valid}</p>
     </div>
   );
 };
