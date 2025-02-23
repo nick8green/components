@@ -11,6 +11,7 @@
   "scripts": {
     "build": "tsc -p tsconfig.prod.json && vite build",
     "build:storybook": "storybook build -o storybook",
+    "cz": "cz",
     "clean": "rm -rf dist",
     "format": "prettier --write --parser typescript '**/*.{ts,tsx}'",
     "lint": "eslint . --fix",
@@ -34,6 +35,8 @@
   "description": "",
   "devDependencies": {
     "@chromatic-com/storybook": "^3.2.4",
+    "@commitlint/cli": "^19.7.1",
+    "@commitlint/config-conventional": "^19.7.1",
     "@eslint/compat": "^1.2.6",
     "@eslint/eslintrc": "^3.2.0",
     "@eslint/js": "^9.13.0",
@@ -108,10 +111,6 @@
       "main",
       {
         "name": "release",
-        "prerelease": true
-      },
-      {
-        "name": "deployment",
         "prerelease": true
       }
     ],
