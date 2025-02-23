@@ -47,33 +47,10 @@ jobs:
         run: npx semantic-release
 
   storybook:
-    concurrency:
-      cancel-in-progress: false
-      group: "pages"
     if: github.event_name == 'refs/heads/main'
-    name: 📚 build and deploy storybook
+    name: 📚 deploy storybook
     needs:
       - version
-    permissions:
-      contents: read
-      id-token: write
-      pages: write
-    runs-on: ubuntu-latest
-    steps:
-      - name: 🧱 setup workspace
-        uses: nick8green/workflows/actions/node/setup@main
-
-      - name: 📔 build storybook
-        run: npm run build:storybook
-
-      - name: 🗒️ setup pages
-        uses: actions/configure-pages@v5
-
-      - name: 📦 upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: 'storybook'
-
-      - name: 🚀 deploy to github pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+    uses: ./.github/workflows/storybook-build-and-deploy.yml
+    with:
+      deploy: true
