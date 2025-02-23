@@ -16,6 +16,7 @@
     "lint": "eslint . --fix",
     "postversion": "git push --tags",
     "prebuild": "npm run clean",
+    "prepublish": "npm run build",
     "prestorybook": "rm -rf storybook",
     "storybook": "storybook dev -p 6006",
     "test": "vitest run --coverage",
@@ -117,6 +118,12 @@
     "plugins": [
       "@semantic-release/commit-analyzer",
       "@semantic-release/release-notes-generator",
+      [
+        "@semantic-release/npm",
+        {
+          "tarballDir": "dist"
+        }
+      ],
       "@semantic-release/github",
       [
         "@semantic-release/git",
