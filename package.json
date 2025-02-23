@@ -34,8 +34,6 @@
   "description": "",
   "devDependencies": {
     "@chromatic-com/storybook": "^3.2.4",
-    "@commitlint/cli": "^19.7.1",
-    "@commitlint/config-conventional": "^19.7.1",
     "@eslint/compat": "^1.2.6",
     "@eslint/eslintrc": "^3.2.0",
     "@eslint/js": "^9.13.0",
