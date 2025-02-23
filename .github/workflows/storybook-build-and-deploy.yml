@@ -36,15 +36,22 @@ jobs:
       - name: 📔 build storybook
         run: npm run build:storybook
 
-      - if: inputs.deploy == true
-        name: 🗒️ setup pages
-        uses: actions/configure-pages@v5
+      - if: inputs.deploy != true
+        name: 📦 upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          name: storybook-build
+          path: storybook
 
       - if: inputs.deploy == true
         name: 📦 upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: 'storybook'
+          path: storybook
+
+      - if: inputs.deploy == true
+        name: 🗒️ setup pages
+        uses: actions/configure-pages@v5
 
       - id: deployment
         if: inputs.deploy == true
