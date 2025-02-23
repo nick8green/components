@@ -1,3 +1,10 @@
+## [0.2.6](https://github.com/nick8green/components/compare/v0.2.5...v0.2.6) (2025-02-23)
+
+
+### Bug Fixes
+
+* updated npm deploy ([686195d](https://github.com/nick8green/components/commit/686195d01cec2711eb52b3674fa17243acec6adf))
+
 ## [0.2.5](https://github.com/nick8green/components/compare/v0.2.4...v0.2.5) (2025-02-23)
 
 
