@@ -1,10 +1,6 @@
 name: publish components packages
 
 on:
-  release:
-    types:
-      - prereleased
-      - released
   push:
     branches:
       - main
@@ -47,11 +43,15 @@ jobs:
 
       - name: 📋 version
         env:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: npx semantic-release
 
+      - name: get tag
+        run: |
+          git describe --tags --abbrev=0
+          jq '.version' package.json
+
   package:
-    if: true == false
     name: 🚢 build and deploy npm package
     runs-on: ubuntu-latest
     needs:
@@ -70,17 +70,19 @@ jobs:
 
       # beta package
       - name: 🚀 publish package
-        if: github.event_name == 'release' && github.event.action == 'prereleased'
-        run: npm publish --tag beta --access restricted
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        if: github.event_name != 'refs/heads/main'
+        run: echo "publish beta package"
+        # run: npm publish --tag beta --access restricted
+        # env:
+        #   NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       # stable package
       - name: 🚀 publish package
-        if: github.event_name == 'release' && github.event.action == 'released'
-        run: npm publish --tag stable --access restricted
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        if: github.event_name == 'refs/heads/main'
+        run: echo "publish package"
+        # run: npm publish --tag stable --access restricted
+        # env:
+        #   NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   storybook:
     concurrency:
