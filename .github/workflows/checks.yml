@@ -22,15 +22,9 @@ jobs:
   # build storybook
   storybook:
     name: 📚 build storybook
-    runs-on: ubuntu-latest
-    steps:
-      - name: checkout code
-        uses: actions/checkout@v4
-
-      - uses: nick8green/workflows/actions/node/setup@main
-
-      - name: build storybook
-        run: npm run build:storybook
+    uses: ./.github/workflows/storybook-build-and-deploy.yml
+    with:
+      deploy: false
 
   # lint code
   linting:
