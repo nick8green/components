@@ -1,4 +1,4 @@
-name: Build and deploy Storybook instance
+name: build and deploy storybook instance
 
 on:
   workflow_dispatch:
