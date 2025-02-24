@@ -50,8 +50,6 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: npx semantic-release
 
-      - run: ls -la && ls -la dist
-
   storybook:
     if: github.ref == 'refs/heads/main'
     name: 📚 deploy storybook
