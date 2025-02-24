@@ -37,14 +37,14 @@ jobs:
         run: npm run build:storybook
 
       - if: inputs.deploy != true
-        name: 📦 upload artifact
+        name: 📦 upload artifact build only
         uses: actions/upload-pages-artifact@v3
         with:
           name: storybook-build
           path: storybook
 
       - if: inputs.deploy == true
-        name: 📦 upload artifact
+        name: 📦 upload pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: storybook
