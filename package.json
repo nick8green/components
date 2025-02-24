@@ -11,8 +11,8 @@
   "scripts": {
     "build": "tsc -p tsconfig.prod.json && vite build",
     "build:storybook": "storybook build -o storybook",
-    "cz": "cz",
     "clean": "rm -rf dist",
+    "commit": "cz",
     "format": "prettier --write --parser typescript '**/*.{ts,tsx}'",
     "lint": "eslint . --fix",
     "postversion": "git push --tags",
