@@ -1,10 +1,3 @@
-## [0.2.7](https://github.com/nick8green/components/compare/v0.2.6...v0.2.7) (2025-02-24)
-
-
-### Bug Fixes
-
-* **package:** updated files array to be included in the package ([bdf44f1](https://github.com/nick8green/components/commit/bdf44f1493b5d6dbef64530ffbf60acfcf34c98f)), closes [#26](https://github.com/nick8green/components/issues/26)
-
 ## [0.2.6](https://github.com/nick8green/components/compare/v0.2.5...v0.2.6) (2025-02-23)
 
 
