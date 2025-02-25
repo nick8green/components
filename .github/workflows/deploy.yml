@@ -6,12 +6,6 @@ on:
       - main
       - release
 
-  pull_request:
-    types:
-      - closed
-    branches:
-      - main
-
   workflow_dispatch:
 
 jobs:
