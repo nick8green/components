@@ -9,6 +9,7 @@ updates:
         dependency-type: "production"
       development-dependencies:
         dependency-type: "development"
+    target-branch: "release"
 
   - package-ecosystem: "github-actions"
     directory: "/"
