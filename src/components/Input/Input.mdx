@@ -26,7 +26,7 @@ If it is a dropdown which is required, there is an additional argument for the o
 - **label** _`string`_ - The label for the input. _(optional)_
 - **max** _`number`_ - The maximum value if the input type is a number. _(optional)_
 - **min** _`number`_ - The minimum value if the input type is a number. _(optional)_
-- **onChange** _`() => void`_ - The action that should occur when the input is updated/changed.
+- **onChange** _`(e: FormEvent<HTMLInputElement | HTMLSelectElement>) => void`_ - The action that should occur when the input is updated/changed.
 - **options** _`Option[]`_ - The list of options for a dropdown. Each option must have a `label` and a `value`. _(optional)_
 - **placeholder** _`string`_ - A placeholder value within the input. _(optional)_
 - **required** _`boolean`_ - Indicator as to whether the input is required by the containing form. _(optional)_
@@ -48,7 +48,8 @@ const Example = () => {
         id='demo'
         label='Input Label'
         onChange={(e)=> console.log("new value:", e.target.value)}
-        type={InputType.TEXT}    {/* Optional property */}
+        type={InputType.TEXT}
+        {/* Optional property */}
       />
   );
 };
@@ -126,7 +127,7 @@ const Example = () => {
 export default Example;
 ```
 
-<Canvas of={Input.Number} />
+<Canvas of={Input.Numeric} />
 
 ### Telephone Number
 
