@@ -1,4 +1,4 @@
-import { FC, useState } from "react";
+import { FC, FocusEvent, FormEvent, useState } from "react";
 
 import Dropdown, { Option } from "components/Input/Dropdown";
 
@@ -17,7 +17,7 @@ export interface InputProps {
   label?: string;
   max?: number;
   min?: number;
-  onChange: () => void;
+  onChange: (e: FormEvent<HTMLInputElement | HTMLSelectElement>) => void;
   options?: Option[];
   placeholder?: string;
   required?: boolean;
@@ -53,13 +53,13 @@ const Input: FC<InputProps> = ({
   const opts: InputProps & {
     className: string;
     onBlur: (
-      event: React.FocusEvent<HTMLInputElement | HTMLSelectElement>,
+      event: FocusEvent<HTMLInputElement | HTMLSelectElement>,
     ) => void;
     onFocus: () => void;
   } = {
     className: `${valid !== "" ? "error" : ""} ${required ? "required" : ""}`,
     id,
-    onBlur: (event: React.FocusEvent<HTMLInputElement | HTMLSelectElement>) => {
+    onBlur: (event: FocusEvent<HTMLInputElement | HTMLSelectElement>) => {
       const { type, value } = event.currentTarget;
       validate(value, type as InputType);
     },
@@ -76,12 +76,14 @@ const Input: FC<InputProps> = ({
 
   return (
     <div className="input-field">
-      {label && <label data-testid="input-label" htmlFor={id}>{label}</label>}
-      {type === InputType.DROPDOWN ? (
-        <Dropdown {...opts} options={options} />
-      ) : (
-        <input {...opts} name={id} type={type} />
-      )}
+      <label data-testid="input-label" htmlFor={id}>
+        {label ? `${label}:` : ""}
+        {type === InputType.DROPDOWN ? (
+          <Dropdown {...opts} options={options} />
+        ) : (
+          <input {...opts} name={id} type={type} />
+        )}
+      </label>
       <p className="error" data-testid="input-error">{valid}</p>
     </div>
   );

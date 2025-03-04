@@ -1,7 +1,11 @@
-label { float: left; margin-right: 0.25em; margin-top: 0.3em; text-align: right; width: 40%; }
-label:after { content: ':'; }
+label { margin-right: 0.25em; margin-top: 0.3em; text-align: right; width: 40%; }
+label > * { float: right; margin-top: -0.3em; vertical-align: middle; }
 
-.input-field input, .input-field select { -webkit-border-radius: 5px; border-radius: 5px; padding: 0.3em; width: calc(60% - 1.2em); }
+.input-field input, .input-field select {
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    padding: 0.3em;
+}
 
 .input-field .required:before {
     color: red;

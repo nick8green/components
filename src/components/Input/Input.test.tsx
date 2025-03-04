@@ -15,7 +15,7 @@ describe("Input component", () => {
     render(<Input label="Testing" id="testing" onChange={() => null} />);
     const label = screen.getByTestId("input-label");
     expect(label).toBeInTheDocument();
-    expect(label.innerHTML).toBe("Testing");
+    expect(label.innerHTML).toBe("Testing:<input class=\" \" id=\"testing\" type=\"text\" value=\"\" name=\"testing\">");
   });
 
   describe("Renders as a different type correctly", () => {
