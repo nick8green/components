@@ -1,8 +1,8 @@
-import { FC } from "react";
+import { FC, FormEvent } from "react";
 
 interface DropdownProps {
   id: string;
-  onChange: () => void;
+  onChange: (e: FormEvent<HTMLSelectElement>) => void;
   options: Option[];
   placeholder?: string;
   value?: string;
