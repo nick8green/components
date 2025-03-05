@@ -1,3 +1,11 @@
+## [0.2.8](https://github.com/nick8green/components/compare/v0.2.7...v0.2.8) (2025-03-05)
+
+
+### Bug Fixes
+
+* **husky:** removed lines that will fail going forward ([e449739](https://github.com/nick8green/components/commit/e449739864bae022a25e0c75ec1d6c2026c09101))
+* **storybook:** update to the input stories and address sonar recomendations ([77a01c0](https://github.com/nick8green/components/commit/77a01c08da92bb34fa454fa2c15cb3ce840db086))
+
 ## [0.2.8-release.1](https://github.com/nick8green/components/compare/v0.2.7...v0.2.8-release.1) (2025-03-05)
 
 
