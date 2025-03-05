@@ -1,5 +1,5 @@
 import { useArgs } from "@storybook/client-api";
-import type { Meta } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react";
 
 import Input, { InputProps, InputType } from "components/Input";
 import { FormEvent } from "react";
@@ -19,33 +19,30 @@ const meta: Meta<typeof Input> = {
 };
 
 export default meta;
+type Story = StoryObj<typeof Input>;
 
 const id = "storybookInput",
   label = "Story Input";
 
 const Template = (args: InputProps) => {
   const [{ value }, updateArgs] = useArgs<InputProps>();
-  const handleChange = (e: FormEvent<HTMLInputElement | HTMLSelectElement>) => updateArgs({ value: e.currentTarget.value });
+  const handleChange = (e: FormEvent<HTMLInputElement | HTMLSelectElement>) =>
+    updateArgs({ value: e.currentTarget.value });
 
   return (
-    <Input
-      {...args}
-      onChange={args.onChange || handleChange}
-      value={value}
-    />
+    <Input {...args} onChange={args.onChange || handleChange} value={value} />
   );
 };
 
-export const Default = {
+export const Default: Story = {
   args: {
     id,
     label,
-    onChange: () => console.log("input changed!"),
   } as InputProps,
   render: Template,
 };
 
-export const Dropdown = {
+export const Dropdown: Story = {
   args: {
     id,
     label,
@@ -69,7 +66,7 @@ export const Dropdown = {
   render: Template,
 };
 
-export const Text = {
+export const Text: Story = {
   args: {
     id,
     label,
@@ -78,7 +75,7 @@ export const Text = {
   render: Template,
 };
 
-export const Numeric = {
+export const Numeric: Story = {
   args: {
     id,
     label,
@@ -87,7 +84,7 @@ export const Numeric = {
   render: Template,
 };
 
-export const Email = {
+export const Email: Story = {
   args: {
     id,
     label,
@@ -96,7 +93,7 @@ export const Email = {
   render: Template,
 };
 
-export const Telephone = {
+export const Telephone: Story = {
   args: {
     id,
     label,

@@ -15,7 +15,9 @@ describe("Input component", () => {
     render(<Input label="Testing" id="testing" onChange={() => null} />);
     const label = screen.getByTestId("input-label");
     expect(label).toBeInTheDocument();
-    expect(label.innerHTML).toBe("Testing:<input class=\" \" id=\"testing\" type=\"text\" value=\"\" name=\"testing\">");
+    expect(label.innerHTML).toBe(
+      'Testing:<input class=" " id="testing" type="text" value="" name="testing">',
+    );
   });
 
   describe("Renders as a different type correctly", () => {
@@ -81,7 +83,7 @@ describe("Input component", () => {
 
     validationTests.forEach((tc) => {
       it(`for a ${tc.rule} ${tc.type} input`, () => {
-        const rules: {[key: string]: boolean} = {};
+        const rules: { [key: string]: boolean } = {};
         rules[tc.rule] = tc.requirement;
         render(
           <Input
@@ -94,7 +96,9 @@ describe("Input component", () => {
         const input = screen.getByRole("textbox");
         fireEvent.focus(input);
         fireEvent.blur(input);
-        expect(screen.getByTestId("input-error").innerHTML).toBe("Please provider a value as this field is required...");
+        expect(screen.getByTestId("input-error").innerHTML).toBe(
+          "Please provider a value as this field is required...",
+        );
       });
     });
   });
