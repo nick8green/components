@@ -52,9 +52,7 @@ const Input: FC<InputProps> = ({
 
   const opts: InputProps & {
     className: string;
-    onBlur: (
-      event: FocusEvent<HTMLInputElement | HTMLSelectElement>,
-    ) => void;
+    onBlur: (event: FocusEvent<HTMLInputElement | HTMLSelectElement>) => void;
     onFocus: () => void;
   } = {
     className: `${valid !== "" ? "error" : ""} ${required ? "required" : ""}`,
@@ -84,7 +82,9 @@ const Input: FC<InputProps> = ({
           <input {...opts} name={id} type={type} />
         )}
       </label>
-      <p className="error" data-testid="input-error">{valid}</p>
+      <p className="error" data-testid="input-error">
+        {valid}
+      </p>
     </div>
   );
 };
