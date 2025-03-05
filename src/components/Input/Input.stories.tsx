@@ -1,9 +1,8 @@
-import type { Meta, StoryObj } from "@storybook/react";
-import { fn } from "@storybook/test";
-import { FormEvent } from "react";
-
-import Input, { InputType } from "components/Input";
 import { useArgs } from "@storybook/client-api";
+import type { Meta } from "@storybook/react";
+
+import Input, { InputProps, InputType } from "components/Input";
+import { FormEvent } from "react";
 
 const meta: Meta<typeof Input> = {
   title: "Interaction/Input",
@@ -20,36 +19,36 @@ const meta: Meta<typeof Input> = {
 };
 
 export default meta;
-type Story = StoryObj<typeof Input>;
 
 const id = "storybookInput",
-  label = "Story Input",
-  onChange = fn();
+  label = "Story Input";
 
-export const Default: Story = {
+const Template = (args: InputProps) => {
+  const [{ value }, updateArgs] = useArgs<InputProps>();
+  const handleChange = (e: FormEvent<HTMLInputElement | HTMLSelectElement>) => updateArgs({ value: e.currentTarget.value });
+
+  return (
+    <Input
+      {...args}
+      onChange={args.onChange || handleChange}
+      value={value}
+    />
+  );
+};
+
+export const Default = {
   args: {
     id,
     label,
     onChange: () => console.log("input changed!"),
-  },
-  render: ({ ...args }) => {
-    const [{ value }, updateArgs] = useArgs();
-    const handleChange = (e: FormEvent<HTMLInputElement | HTMLSelectElement>) => updateArgs({ value: e.currentTarget.value });
-
-    return (
-      <Input
-        {...args}
-        onChange={handleChange}
-        value={value}
-      />
-    );
-  },
+  } as InputProps,
+  render: Template,
 };
-export const Dropdown: Story = {
+
+export const Dropdown = {
   args: {
     id,
     label,
-    onChange,
     options: [
       {
         label: "Option 1",
@@ -66,99 +65,44 @@ export const Dropdown: Story = {
     ],
     placeholder: "choose and option",
     type: InputType.DROPDOWN,
-  },
-  render: ({ ...args }) => {
-    const [{ value }, updateArgs] = useArgs();
-    const handleChange = (e: FormEvent<HTMLInputElement | HTMLSelectElement>) => updateArgs({ value: e.currentTarget.value });
-
-    return (
-      <Input
-        {...args}
-        onChange={handleChange}
-        value={value}
-      />
-    );
-  },
+  } as InputProps,
+  render: Template,
 };
-export const Text: Story = {
+
+export const Text = {
   args: {
     id,
     label,
-    onChange,
     type: InputType.TEXT,
-  },
-  render: ({ ...args }) => {
-    const [{ value }, updateArgs] = useArgs();
-    const handleChange = (e: FormEvent<HTMLInputElement | HTMLSelectElement>) => updateArgs({ value: e.currentTarget.value });
-
-    return (
-      <Input
-        {...args}
-        onChange={handleChange}
-        value={value}
-      />
-    );
-  },
+  } as InputProps,
+  render: Template,
 };
-export const Numeric: Story = {
+
+export const Numeric = {
   args: {
     id,
     label,
-    onChange,
     type: InputType.NUMBER,
   },
-  render: ({ ...args }) => {
-    const [{ value }, updateArgs] = useArgs();
-    const handleChange = (e: FormEvent<HTMLInputElement | HTMLSelectElement>) => updateArgs({ value: e.currentTarget.value });
-
-    return (
-      <Input
-        {...args}
-        onChange={handleChange}
-        value={value}
-      />
-    );
-  },
+  render: Template,
 };
-export const Email: Story = {
+
+export const Email = {
   args: {
     id,
     label,
-    onChange,
     type: InputType.EMAIL,
   },
-  render: ({ ...args }) => {
-    const [{ value }, updateArgs] = useArgs();
-    const handleChange = (e: FormEvent<HTMLInputElement | HTMLSelectElement>) => updateArgs({ value: e.currentTarget.value });
-
-    return (
-      <Input
-        {...args}
-        onChange={handleChange}
-        value={value}
-      />
-    );
-  },
+  render: Template,
 };
-export const Telephone: Story = {
+
+export const Telephone = {
   args: {
     id,
     label,
     max: 10,
     min: 0,
-    onChange,
     type: InputType.TELEPHONE,
   },
-  render: ({ ...args }) => {
-    const [{ value }, updateArgs] = useArgs();
-    const handleChange = (e: FormEvent<HTMLInputElement | HTMLSelectElement>) => updateArgs({ value: e.currentTarget.value });
-
-    return (
-      <Input
-        {...args}
-        onChange={handleChange}
-        value={value}
-      />
-    );
-  },
+  render: Template,
 };
