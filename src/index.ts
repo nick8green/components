@@ -23,5 +23,8 @@ export { ModalType, type ModalProps } from "components/Modal";
 export * as MultiStepForm from "components/MultiStepForm";
 export type { MultiStepProps } from "components/MultiStepForm";
 
+export * as SocialMediaLink from "components/SocialMediaLink";
+export { Platform as SocialMediaPlatform, type SocialMediaArgs } from "components/SocialMediaLink";
+
 export * as Switch from "components/Switch";
 export type { ToggleProps } from "components/Switch";
