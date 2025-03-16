@@ -24,7 +24,9 @@
         "declaration": true, // Generates declaration files for TypeScript.
 
         "types": ["@testing-library/jest-dom"],
-        "plugins": [{ "name": "typescript-plugin-css-modules" }]
+        "plugins": [{ "name": "typescript-plugin-css-modules" }],
+
+        "verbatimModuleSyntax": true, // Enables verbatim module syntax.
     },
     "include": ["src", "stories"], // Specifies the directory to include when searching for TypeScript files.
     "exclude": [

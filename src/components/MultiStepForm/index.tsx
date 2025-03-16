@@ -1,10 +1,10 @@
 "use client";
 import {
   cloneElement,
-  FC,
-  FormEvent,
+  type FC,
+  type FormEvent,
   isValidElement,
-  PropsWithChildren,
+  type PropsWithChildren,
   useEffect,
   useState,
 } from "react";

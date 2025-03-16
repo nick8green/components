@@ -1,4 +1,4 @@
-import { FC, FormEvent } from "react";
+import type { FC, FormEvent } from "react";
 
 interface DropdownProps {
   id: string;
