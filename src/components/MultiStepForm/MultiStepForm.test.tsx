@@ -1,7 +1,7 @@
 import { vi } from "vitest";
 import { render, fireEvent } from "@testing-library/react";
-import MultiStepForm, { StepProps } from "./index";
-import { FC } from "react";
+import MultiStepForm, { type StepProps } from "./index";
+import type { FC } from "react";
 
 describe("MultiStepForm", () => {
   const doneMock = vi.fn();
