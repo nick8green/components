@@ -1,0 +1,14 @@
+.social-media-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+.social-media-list.column { flex-direction: column; }
+.social-media-list.row { flex-direction: row; }
+
+.social-media-list li {
+    margin: 0.2em;
+}
