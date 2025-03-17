@@ -8,7 +8,11 @@ const meta: Meta<typeof Modal> = {
   component: Modal,
   decorators: [
     (Story) => (
-      <div style={{ height: "25em" }}>
+      <div
+        style={{
+          height: "25em",
+        }}
+      >
         <Story />
       </div>
     ),
@@ -18,6 +22,9 @@ const meta: Meta<typeof Modal> = {
       options: Object.keys(ModalType),
       mapping: ModalType,
     },
+  },
+  parameters: {
+    layout: "padded",
   },
 };
 

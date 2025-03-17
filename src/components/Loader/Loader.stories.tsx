@@ -13,11 +13,18 @@ const meta: Meta<typeof Loader> = {
   },
   decorators: [
     (Story) => (
-      <div style={{ height: "25em" }}>
+      <div
+        style={{
+          height: "25em",
+        }}
+      >
         <Story />
       </div>
     ),
   ],
+  parameters: {
+    layout: "padded",
+  },
 };
 
 export default meta;

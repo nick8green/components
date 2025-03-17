@@ -1,0 +1,105 @@
+import { Canvas, Meta } from "@storybook/blocks";
+import * as Footer from "./Footer.stories.tsx";
+
+<Meta of={Footer} title="Footer" />
+
+# Footer
+
+Footer component for a website.
+
+#### Example
+
+<Canvas of={Footer.Default} />
+
+## Arguments
+
+- **contactInfo** _`ContactInfoProps`_ - The contact info for the business. _(optional)_
+- **copyright** _`CopyrightProps`_ - The copyright of the site.
+- **display** _`DisplayProps`_ - The display properties for the footer. _(default: \{ socialMediaDisplay: \{ direction: "row", showHandles: false, \}\})_ _(optional)_
+- **links** _`LinkProps[]`_ - The list of links to be displayed within the footer. _(default: \[\])_ _(optional)_
+- **socials** _`SocialMediaArgs[]`_ - The business' or users list of social media links. _(default: \[\])_ _(optional)_
+
+### ContactInfoProps
+
+- **address** _`string`_ - The business' address. _(optional)_
+- **email** _`string`_ - The business' contact e-mail address. _(optional)_
+- **fax** _`string`_ - The business' fax number. _(optional)_
+- **phone** _`string`_ - The business' contact phone number. _(optional)_
+
+### CopyrightProps
+
+- **year** _`number`_ - The year of the copyright.
+- **owner** _`string`_ - The copyright owner.
+
+### DisplayProps
+
+- **socialMediaDisplay** _`SocialMediaListDisplayProps`_ - See `SocialMediaListDisplayProps` on [Social Media List](?path=/docs/display-socialmedialist--docs#socialmedialistdisplayprops) component.
+
+### LinkProps
+
+- **title** _`string`_ - The title of the link.
+- **url** _`string`_ - The URL the link should take the user to.
+
+### SocialMediaArgs
+
+See [Social Media Link](?path=/docs/display-socialmedialink--docs) component. The `displayHandle` argument will be superseeded by the `showHandles` property on this component.
+
+## Usage
+
+```ts
+import { Footer } from "@nick8green/components";
+
+const Example = () => {
+  return (
+      <Footer
+        contactInfo={{
+          address: "1234 Main St, Springfield, IL 62701",
+          phone: "217-555-1234",
+          fax: "217-555-5678",
+        }}
+        copyright={{
+          owner: "My Business",
+          year: 2025,
+        }}
+        links={[
+          {
+            title: "Home",
+            url: "/",
+          },
+          {
+            title: "About",
+            url: "/about",
+          },
+          {
+            title: "Contact",
+            url: "/contact",
+          },
+        ]}
+        socials={[
+          {
+            handle: "Facebook Profile",
+            platform: Platform.Facebook,
+            url: "#",
+          },
+          {
+            handle: "Instagram Profile",
+            platform: Platform.Instagram,
+            url: "#",
+          },
+          {
+            handle: "LinkedIn Profile",
+            platform: Platform.LinkedIn,
+            url: "#",
+          },
+          {
+            handle: "Twitter Handle",
+            platform: Platform.X,
+            url: "#",
+          },
+        ]}
+      />
+  );
+};
+
+export default Example;
+```

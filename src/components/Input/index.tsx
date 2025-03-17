@@ -1,6 +1,6 @@
-import { FC, FocusEvent, FormEvent, useState } from "react";
+import { type FC, type FocusEvent, type FormEvent, useState } from "react";
 
-import Dropdown, { Option } from "components/Input/Dropdown";
+import Dropdown, { type Option } from "components/Input/Dropdown";
 
 import "./style.css";
 
