@@ -70,27 +70,27 @@ const Footer: FC<PropsWithChildren<FooterProps>> = ({
         <div id="contact">
           <div id="info">
             {contactInfo.address && (
-              <p>
+              <p data-testid="address">
                 {contactInfo.address
                   .split(/,\s*/g)
                   .map((line, key, address) => {
                     return (
                       <>
                         <span key={key}>{line}</span>
-                        {key < address.length - 1 && (<br />)}
+                        {key < address.length - 1 && <br />}
                       </>
                     );
                   })}
               </p>
             )}
             {contactInfo.phone && (
-              <p>
+              <p data-testid="phone">
                 <a href={`tel:${contactInfo.phone}`}>{contactInfo.phone}</a>
               </p>
             )}
-            {contactInfo.fax && <p>{contactInfo.fax}</p>}
+            {contactInfo.fax && <p data-testid="fax">{contactInfo.fax}</p>}
             {contactInfo.email && (
-              <p>
+              <p data-testid="email">
                 <a href={`mailto:${contactInfo.email}`}>{contactInfo.email}</a>
               </p>
             )}
