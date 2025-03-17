@@ -26,5 +26,8 @@ export type { MultiStepProps } from "components/MultiStepForm";
 export * as SocialMediaLink from "components/SocialMediaLink";
 export { Platform as SocialMediaPlatform, type SocialMediaArgs } from "components/SocialMediaLink";
 
+export * as SocialMediaList from "components/SocialMediaList";
+export type { SocialMediaListDisplayProps, SocialMediaListProps } from "components/SocialMediaList";
+
 export * as Switch from "components/Switch";
 export type { ToggleProps } from "components/Switch";
