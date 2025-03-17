@@ -1,0 +1,41 @@
+import { Canvas, Meta } from "@storybook/blocks";
+import * as QRCode from "./QRCode.stories.tsx";
+
+<Meta of={QRCode} title="QRCode" />
+
+# QR Code
+
+QR Code component. Renders the code for use on a client.
+
+#### Example
+
+<Canvas of={QRCode.Default} />
+
+## Arguments
+
+- **display** _`QRCodeDisplayOptions`_ - Additional options to be passed in to personalise the code. _(optional)_
+- **title** _`string`_ - The name to be given to the code for accessibility reasons.
+- **value** _`string|string[]`_ - The value or values to be embedded within the QR code. Likely to be a url to a specific web page or asset.
+
+### QRCodeDisplayOptions
+
+- **background** _`string`_ - The colour to be used for the background. Needs to be a HEX value. _(default: #ffffff)_ _(optional)_
+- **foreground** _`string`_ - The colour to be used for the modules. Needs to be a HEX value. _(default: #000000)_ _(optional)_
+- **image** _`string`_ - The path to an image to be embedded within the code. _(optional)_
+
+## Usage
+
+```ts
+import {QRCode} from "@nick8green/components";
+
+const Example = () => {
+  return (
+      <QRCode
+        title="Example QR Code"
+        value="https://example.com"
+      />
+  );
+};
+
+export default Example;
+```
