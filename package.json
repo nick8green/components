@@ -108,9 +108,9 @@
   },
   "release": {
     "branches": [
-      "main",
+      "release",
       {
-        "name": "release",
+        "name": "^(?!release).*$",
         "prerelease": true
       }
     ],

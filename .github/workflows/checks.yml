@@ -2,12 +2,6 @@ name: build checks for application
 
 on:
   push:
-    branches:
-      - "**"
-      - "!main"
-      - "!release"
-    paths:
-      - "**"
   workflow_call:
 
 jobs:

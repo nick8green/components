@@ -1,10 +1,13 @@
 name: publish components packages
 
 on:
-  push:
-    branches:
-      - main
-      - release
+  pull_request:
+    types:
+      - opened
+      - synchronize
+      - reopened
+      - edited
+      - closed
 
   workflow_dispatch:
 
@@ -45,10 +48,30 @@ jobs:
         run: npx semantic-release
 
   storybook:
-    if: github.ref == 'refs/heads/main'
+    if: contains(github.ref, 'release')
     name: 📚 deploy storybook
     needs:
       - version
     uses: ./.github/workflows/storybook-build-and-deploy.yml
     with:
       deploy: true
+
+  create-pr:
+    if: contains(github.ref, 'release')
+    name: 📨 Create PR to main
+    needs:
+      - version
+    permissions:
+      pull-requests: write
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create PR
+        uses: devops-infra/action-pull-request@v0.5.5
+        with:
+          github_token: ${{ github.GITHUB_TOKEN }}
+          source_branch: release
+          target_branch: main
+          title: Latest Release
+          body: "**Automated pull request**"
+          draft: false
+          get_diff: true
