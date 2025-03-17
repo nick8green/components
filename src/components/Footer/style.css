@@ -1,0 +1,21 @@
+footer > p { text-align: center; }
+
+footer > div {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    border-top: 1px solid #e9ecef;
+}
+footer #links, footer #contact { width: 30%; }
+footer > div > * { padding: 0.5em; }
+
+footer #links ul { list-style: none; margin: 0; padding-left: 0.5em; }
+
+footer #contact { text-align: right; width: 25%; }
+footer #contact #socials .social-media-list { justify-content: flex-end; }
+
+footer #content { flex-grow: 2; }

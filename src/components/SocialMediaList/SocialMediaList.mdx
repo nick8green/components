@@ -16,6 +16,15 @@ Social Media list component for a website. Takes a list of social media platform
 - **display** _`SocialMediaListDisplayProps`_ - The properties required to update the display. _(default: \{ direction: "row", showHandles: false \})_ _(optional)_
 - **socials** _`SocialMediaArgs[]`_ - The list of the user's social media platforms. _(default: [])_ _(optional)_
 
+### SocialMediaListDisplayProps
+
+- **direction** _`"row" | "column"`_ - How the list of social media accounts should look. _(default: row)_ _(options: "row", "column")_ _(optional)_
+- **showHandles** _`boolean`_ - Whether or not to show the user's social media handles next to the platform icon. _(default: false)_ _(optional)_
+
+### SocialMediaArgs
+
+See [Social Media Link](?path=/docs/display-socialmedialink--docs) component. The `displayHandle` argument will be superseeded by the `showHandles` property on this component.
+
 ## Usage
 
 ```ts
