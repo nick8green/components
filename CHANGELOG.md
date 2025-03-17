@@ -1,3 +1,10 @@
+# [0.3.0-release.2](https://github.com/nick8green/components/compare/v0.3.0-release.1...v0.3.0-release.2) (2025-03-17)
+
+
+### Features
+
+* added a QR code component ([060c176](https://github.com/nick8green/components/commit/060c1761740803a1db3c3c431b25675d489b6fbd))
+
 # [0.3.0-release.1](https://github.com/nick8green/components/compare/v0.2.8...v0.3.0-release.1) (2025-03-17)
 
 
