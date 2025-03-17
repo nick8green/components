@@ -1,5 +1,8 @@
 import { render, screen } from "@testing-library/react";
-import Footer from "./index";
+import Footer, { type ContactInfoProps } from "./index";
+import { Platform } from "components/SocialMediaLink";
+
+type ContactInfoTests = ContactInfoProps & { [key: string]: string };
 
 describe("Footer Component", () => {
   test("renders the Footer component", () => {
@@ -8,7 +11,7 @@ describe("Footer Component", () => {
     expect(footerElement).toBeInTheDocument();
   });
 
-  test("displays the correct text", () => {
+  test("displays the correct text for the copyright", () => {
     render(<Footer copyright={{ owner: "My Company", year: 2023 }} />);
     const copyright = screen.getByTestId("copyright");
     expect(copyright.innerHTML).toBe(
@@ -16,7 +19,7 @@ describe("Footer Component", () => {
     );
   });
 
-  test("contains a link to the privacy policy when passed", () => {
+  test("contains a links passed", () => {
     render(
       <Footer
         copyright={{ owner: "My Company", year: 2023 }}
@@ -28,7 +31,7 @@ describe("Footer Component", () => {
     expect(privacyLink).toHaveAttribute("href", "/privacy-policy");
   });
 
-  test("contains a link to the privacy policy when passed", () => {
+  test("contains child elements when passed", () => {
     render(
       <Footer copyright={{ owner: "My Company", year: 2023 }}>
         <p>Some additional content</p>
@@ -36,5 +39,61 @@ describe("Footer Component", () => {
     );
     const additionalContent = screen.getByText(/some additional content/i);
     expect(additionalContent).toBeInTheDocument();
+  });
+
+  describe("when contact information is passed", () => {
+    const testCases: ContactInfoTests[] = [
+      {
+        key: "address",
+        address: "123 Main St, Springfield, IL 62701",
+      },
+      {
+        key: "email",
+        email: "info@testing.com",
+      },
+      {
+        key: "fax",
+        fax: "555-555-5555",
+      },
+      {
+        key: "phone",
+        phone: "555-555-5555",
+      },
+    ];
+
+    testCases.forEach((tc: ContactInfoTests) => {
+      test(`contains the ${tc.key} when passed`, () => {
+        render(
+          <Footer
+            copyright={{ owner: "My Company", year: 2023 }}
+            contactInfo={tc}
+          />,
+        );
+        const contactInfo = screen.getByTestId(tc.key);
+        expect(contactInfo).toBeInTheDocument();
+        expect(contactInfo).toHaveTextContent(tc[tc.key].replace(/,\s*/g, ""));
+      });
+    });
+  });
+
+  describe("when social media links are passed", () => {
+    test("contains the social media list", () => {
+      const socialMediaLinks = [
+        { handle: "Facebook", platform: Platform.Facebook, url: "https://facebook.com" },
+        { handle: "Twitter", platform: Platform.X, url: "https://twitter.com" },
+      ];
+      render(
+        <Footer
+            copyright={{ owner: "My Company", year: 2023 }}
+            socials={socialMediaLinks}
+        />);
+      const socials = screen.getByTestId("social-media-list");
+      expect(socials).toBeInTheDocument();
+      socialMediaLinks.forEach((link) => {
+        const socialLink = screen.getByTestId(`${link.platform.toLowerCase()}-link`);
+        expect(socialLink).toBeInTheDocument();
+        expect(socialLink).toHaveAttribute("href", link.url);
+      });
+    });
   });
 });
