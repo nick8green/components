@@ -1,6 +1,3 @@
-export * as Button from "components/Button";
-export { ButtonType, type ButtonProps } from "components/Button";
-
 export * as Footer from "components/Footer";
 export type {
   ContactInfoProps,
@@ -35,3 +32,6 @@ export type {
 
 export * as Switch from "components/Switch";
 export type { ToggleProps } from "components/Switch";
+
+export * as QRCode from "components/QRCode";
+export type { QRCodeDisplayOptions, QRCodeProps } from "components/QRCode";
