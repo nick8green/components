@@ -1,0 +1,74 @@
+import { Canvas, Meta } from "@storybook/blocks";
+import * as SocialMediaLink from "./SocialMediaLink.stories.tsx";
+
+<Meta of={SocialMediaLink} title="SocialMediaLink" />
+
+# Social Media Link
+
+Social Media link component. The component creates a link with the relevant icon and information.
+
+The following platforms are currently supported...
+* Facebook
+* Instagram
+* LinkedIn
+* X
+* Github
+* Pinterest
+* Youtube
+* Google
+* Tumblr
+* Flickr
+* Vimeo
+* Medium
+* WhatsApp
+* Telegram
+* Slack
+* Discord
+* Reddit
+* Snapchat
+* Tiktok
+* Spotify
+* SoundCloud
+* Bandcamp
+* LastFM
+* Twitch
+* Steam
+* Xbox
+* Playstation
+* ItchIo
+* Etsy
+* Patreon
+* PayPal
+* Amazon
+* Ebay
+
+If there is a platform missing that needs adding, please raise an issue.
+
+#### Example
+
+<Canvas of={SocialMediaLink.Default} />
+
+## Arguments
+
+- **displayHandle** _`boolean`_ - Indicator as to whether to display the user's handle. _(optional)_
+- **handle** _`string`_ - The user's social media handle.
+- **platform** _`Platform`_ - The social media platform.
+- **url** _`string`_ - The URL to access the user's social profile.
+
+## Usage
+
+```ts
+import { SocialMediaLinks, SocialMediaPlatform } from "@nick8green/components";
+
+const Example = () => {
+  return (
+      <SocialMediaLinks
+        handle: "My Facebook",
+        platform: SocialMediaPlatform.Facebook,
+        url: "https://www.facebook.com/",
+      />
+  );
+};
+
+export default Example;
+```

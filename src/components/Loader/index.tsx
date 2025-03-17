@@ -1,9 +1,9 @@
-import { FC } from "react";
+import type { FC } from "react";
 
 import Modal, { ModalType } from "components/Modal";
-import Dots, { DotsLoaderArgs } from "./types/Dots";
-import Spinner, { SpinnerLoaderArgs } from "./types/Spinner";
-import TextLoader, { TextLoaderArgs } from "./types/Text";
+import Dots, { type DotsLoaderArgs } from "./types/Dots";
+import Spinner, { type SpinnerLoaderArgs } from "./types/Spinner";
+import TextLoader, { type TextLoaderArgs } from "./types/Text";
 
 import "./style.css";
 

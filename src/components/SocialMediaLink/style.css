@@ -1,0 +1,46 @@
+.social-link {
+    align-items: center;
+    color: inherit;
+    display: flex;
+    flex-flow: row nowrap;
+    text-decoration: none;
+}
+.social-link:active, .social-link:focus, .social-link:hover { cursor: pointer; text-decoration: underline; }
+.social-link svg { font-size: 1.75em; }
+.social-link span { margin-left: 0.25em; }
+.social-link:not(.with-handle) span { display: none; }
+
+.social-link.facebook svg { color: #3b5998; }
+.social-link.x svg { color: #000000; }
+.social-link.linkedin svg { color: #0077b5; }
+.social-link.instagram svg { color: #e4405f; }
+.social-link.github svg { color: #333; }
+.social-link.pinterest svg { color: #bd081c; }
+.social-link.youtube svg { color: #cd201f; }
+.social-link.google svg { color: #dd4b39; }
+.social-link.tumblr svg { color: #35465d; }
+.social-link.flickr svg { color: #ff0084; }
+.social-link.vimeo svg { color: #1ab7ea; }
+.social-link.medium svg { color: #00ab6c; }
+.social-link.whatsapp svg { color: #25d366; }
+.social-link.telegram svg { color: #0088cc; }
+.social-link.slack svg { color: #4a154b; }
+.social-link.discord svg { color: #7289da; }
+.social-link.reddit svg { color: #ff4500; }
+.social-link.snapchat svg { color: #fffc00; }
+.social-link.tiktok svg { color: #000; }
+.social-link.spotify svg { color: #1db954; }
+.social-link.soundcloud svg { color: #ff8800; }
+.social-link.bandcamp svg { color: #629aa9; }
+.social-link.lastfm svg { color: #d51007; }
+.social-link.twitch svg { color: #6441a5; }
+.social-link.steam svg { color: #171a21; }
+.social-link.xbox svg { color: #107c10; }
+.social-link.playstation svg { color: #003087; }
+.social-link.nintendo svg { color: #e60012; }
+.social-link.itchio svg { color: #fa5c5c; }
+.social-link.etsy svg { color: #f2581e; }
+.social-link.patreon svg { color: #f96854; }
+.social-link.paypal svg { color: #003087; }
+.social-link.amazon svg { color: #ff9900; }
+.social-link.ebay svg { color: #0064d2; }

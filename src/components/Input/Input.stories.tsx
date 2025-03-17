@@ -1,8 +1,8 @@
+import type { FormEvent } from "react";
 import { useArgs } from "@storybook/client-api";
 import type { Meta, StoryObj } from "@storybook/react";
 
-import Input, { InputProps, InputType } from "components/Input";
-import { FormEvent } from "react";
+import Input, { type InputProps, InputType } from "components/Input";
 
 const meta: Meta<typeof Input> = {
   title: "Interaction/Input",

@@ -1,3 +1,19 @@
+# [0.3.0-release.2](https://github.com/nick8green/components/compare/v0.3.0-release.1...v0.3.0-release.2) (2025-03-17)
+
+
+### Features
+
+* added a QR code component ([060c176](https://github.com/nick8green/components/commit/060c1761740803a1db3c3c431b25675d489b6fbd))
+
+# [0.3.0-release.1](https://github.com/nick8green/components/compare/v0.2.8...v0.3.0-release.1) (2025-03-17)
+
+
+### Features
+
+* added a social media link component ([c5f3cd6](https://github.com/nick8green/components/commit/c5f3cd6390ebed8126bb29bdf005c14b2308f4f2))
+* added social media links list container ([75f131e](https://github.com/nick8green/components/commit/75f131e7a9a771b423797f9f3843ec7474fe7b65))
+* **footer:** added footer component ([ee07b1c](https://github.com/nick8green/components/commit/ee07b1c64c18a27117e1fd82ff681fe0aedd9edc))
+
 ## [0.2.8](https://github.com/nick8green/components/compare/v0.2.7...v0.2.8) (2025-03-05)
 
 

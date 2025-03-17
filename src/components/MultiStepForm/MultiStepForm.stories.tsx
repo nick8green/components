@@ -1,7 +1,7 @@
+import type { FC } from "react";
 import type { Meta, StoryObj } from "@storybook/react";
-import { FC } from "react";
 
-import MultiStepForm, { StepProps } from "components/MultiStepForm";
+import MultiStepForm, { type StepProps } from "components/MultiStepForm";
 
 const meta: Meta<typeof MultiStepForm> = {
   title: "Interaction/MultiStepForm",
