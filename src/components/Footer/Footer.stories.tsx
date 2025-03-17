@@ -58,4 +58,7 @@ export const Default: Story = {
       },
     ],
   },
+  parameters: {
+    layout: "fullscreen",
+  },
 };

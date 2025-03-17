@@ -3,7 +3,9 @@ import type { FC, PropsWithChildren } from "react";
 import type { SocialMediaArgs } from "components/SocialMediaLink";
 
 import "./style.css";
-import SocialMediaList, { type SocialMediaListDisplayProps } from "components/SocialMediaList";
+import SocialMediaList, {
+  type SocialMediaListDisplayProps,
+} from "components/SocialMediaList";
 
 export interface ContactInfoProps {
   address?: string;
@@ -68,7 +70,18 @@ const Footer: FC<PropsWithChildren<FooterProps>> = ({
         <div id="contact">
           <div id="info">
             {contactInfo.address && (
-              <p>{contactInfo.address.replaceAll(/,\s*/g, "\n")}</p>
+              <p>
+                {contactInfo.address
+                  .split(/,\s*/g)
+                  .map((line, key, address) => {
+                    return (
+                      <>
+                        <span key={key}>{line}</span>
+                        {key < address.length - 1 && (<br />)}
+                      </>
+                    );
+                  })}
+              </p>
             )}
             {contactInfo.phone && (
               <p>
@@ -83,7 +96,10 @@ const Footer: FC<PropsWithChildren<FooterProps>> = ({
             )}
           </div>
           <div id="socials">
-            <SocialMediaList display={display.socialMediaDisplay} socials={socials} />
+            <SocialMediaList
+              display={display.socialMediaDisplay}
+              socials={socials}
+            />
           </div>
         </div>
       </div>

@@ -4,11 +4,15 @@ import { Platform } from "components/SocialMediaLink";
 
 describe("Social Media List Component", () => {
   test("renders social media list", () => {
-    render(<SocialMediaList socials={[
-      { handle: "testing", platform: Platform.X, url: "#" },
-      { handle: "testing", platform: Platform.Facebook, url: "#" },
-      { handle: "testing", platform: Platform.Snapchat, url: "#" },
-    ]} />);
+    render(
+      <SocialMediaList
+        socials={[
+          { handle: "testing", platform: Platform.X, url: "#" },
+          { handle: "testing", platform: Platform.Facebook, url: "#" },
+          { handle: "testing", platform: Platform.Snapchat, url: "#" },
+        ]}
+      />,
+    );
     const list = screen.getByTestId("social-media-list");
 
     expect(list).toBeInTheDocument();
@@ -37,19 +41,33 @@ describe("Social Media List Component", () => {
     });
 
     test("with handles hidden by default", () => {
-      render(<SocialMediaList socials={[{ handle: "testing", platform: Platform.X, url: "#" }]} />);
+      render(
+        <SocialMediaList
+          socials={[{ handle: "testing", platform: Platform.X, url: "#" }]}
+        />,
+      );
       const list = screen.getByTestId("x-link");
       expect(list).not.toHaveClass("with-handle");
     });
 
     test("with handles hidden", () => {
-      render(<SocialMediaList socials={[{ handle: "testing", platform: Platform.X, url: "#" }]} display={{ showHandles: false }} />);
+      render(
+        <SocialMediaList
+          socials={[{ handle: "testing", platform: Platform.X, url: "#" }]}
+          display={{ showHandles: false }}
+        />,
+      );
       const list = screen.getByTestId("x-link");
       expect(list).not.toHaveClass("with-handle");
     });
 
     test("with handles shown", () => {
-      render(<SocialMediaList socials={[{ handle: "testing", platform: Platform.X, url: "#" }]} display={{ showHandles: true }} />);
+      render(
+        <SocialMediaList
+          socials={[{ handle: "testing", platform: Platform.X, url: "#" }]}
+          display={{ showHandles: true }}
+        />,
+      );
       const list = screen.getByTestId("x-link");
       expect(list).toHaveClass("with-handle");
     });

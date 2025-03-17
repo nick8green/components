@@ -21,9 +21,15 @@ const defaultDisplay: SocialMediaListDisplayProps = {
   showHandles: false,
 };
 
-const SocialMediaList: FC<SocialMediaListProps> = ({ display = defaultDisplay, socials = [] }) => {
+const SocialMediaList: FC<SocialMediaListProps> = ({
+  display = defaultDisplay,
+  socials = [],
+}) => {
   return (
-    <ul className={`social-media-list ${display?.direction}`} data-testid="social-media-list">
+    <ul
+      className={`social-media-list ${display?.direction}`}
+      data-testid="social-media-list"
+    >
       {socials.map((social: SocialMediaArgs, index: number) => (
         <li key={index}>
           <SocialMediaLink {...social} displayHandle={display.showHandles} />

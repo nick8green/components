@@ -199,7 +199,10 @@ describe("Social Media Link Component", () => {
       test(`renders social media with the correct icon for ${handle}`, () => {
         render(<Socials handle={handle} platform={platform} url={url} />);
         const icon = screen.getByTestId("social-media-icon");
-        expect(icon).toHaveAttribute("data-icon", iconName ?? platform.toLowerCase());
+        expect(icon).toHaveAttribute(
+          "data-icon",
+          iconName ?? platform.toLowerCase(),
+        );
       });
     });
   });
@@ -211,7 +214,7 @@ describe("Social Media Link Component", () => {
         platform={Platform.X}
         url="https://www.twitter.com"
         displayHandle={false}
-      />
+      />,
     );
     const link = screen.getByTestId("x-link");
     expect(link).not.toHaveClass("with-handle");
@@ -224,7 +227,7 @@ describe("Social Media Link Component", () => {
         platform={Platform.X}
         url="https://www.twitter.com"
         displayHandle={true}
-      />
+      />,
     );
     const link = screen.getByTestId("x-link");
     expect(link).toHaveClass("with-handle");

@@ -48,7 +48,12 @@ export interface SocialMediaArgs {
   url: string;
 }
 
-const SocialMediaLink: FC<SocialMediaArgs> = ({ displayHandle, handle, platform, url }) => {
+const SocialMediaLink: FC<SocialMediaArgs> = ({
+  displayHandle,
+  handle,
+  platform,
+  url,
+}) => {
   const getHandle = () => {
     if (platform === Platform.X && !handle.startsWith("@")) {
       return `@${handle}`;
@@ -74,7 +79,14 @@ const SocialMediaLink: FC<SocialMediaArgs> = ({ displayHandle, handle, platform,
   };
 
   return (
-    <a href={getLink()} data-testid={`${platform.toLowerCase()}-link`} className={`social-link ${platform.toLowerCase()} ${displayHandle ? "with-handle" : ""}`} target="_blank" rel="noreferrer" title={platform}>
+    <a
+      href={getLink()}
+      data-testid={`${platform.toLowerCase()}-link`}
+      className={`social-link ${platform.toLowerCase()} ${displayHandle ? "with-handle" : ""}`}
+      target="_blank"
+      rel="noreferrer"
+      title={platform}
+    >
       <FontAwesomeIcon data-testid="social-media-icon" icon={getIcon()} />
       <span>{getHandle()}</span>
     </a>
