@@ -2,9 +2,9 @@ import type { FC } from "react";
 
 import "./style.css";
 
-export interface DotsLoaderArgs {
+export type DotsLoaderArgs = {
   message?: string;
-}
+};
 
 const Dots: FC<DotsLoaderArgs> = ({ message = "Loading" }) => {
   return (

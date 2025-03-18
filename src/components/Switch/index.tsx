@@ -3,13 +3,13 @@ import type { FC } from "react";
 
 import "./style.css";
 
-export interface ToggleProps {
+export type ToggleProps = {
   offColour?: string;
   onColour?: string;
   checked?: boolean;
   label: string;
   onChange: (checked: boolean) => void;
-}
+};
 
 const Toggle: FC<ToggleProps> = ({
   offColour = "#708090",

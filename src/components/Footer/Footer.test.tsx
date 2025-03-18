@@ -79,18 +79,25 @@ describe("Footer Component", () => {
   describe("when social media links are passed", () => {
     test("contains the social media list", () => {
       const socialMediaLinks = [
-        { handle: "Facebook", platform: Platform.Facebook, url: "https://facebook.com" },
+        {
+          handle: "Facebook",
+          platform: Platform.Facebook,
+          url: "https://facebook.com",
+        },
         { handle: "Twitter", platform: Platform.X, url: "https://twitter.com" },
       ];
       render(
         <Footer
-            copyright={{ owner: "My Company", year: 2023 }}
-            socials={socialMediaLinks}
-        />);
+          copyright={{ owner: "My Company", year: 2023 }}
+          socials={socialMediaLinks}
+        />,
+      );
       const socials = screen.getByTestId("social-media-list");
       expect(socials).toBeInTheDocument();
       socialMediaLinks.forEach((link) => {
-        const socialLink = screen.getByTestId(`${link.platform.toLowerCase()}-link`);
+        const socialLink = screen.getByTestId(
+          `${link.platform.toLowerCase()}-link`,
+        );
         expect(socialLink).toBeInTheDocument();
         expect(socialLink).toHaveAttribute("href", link.url);
       });

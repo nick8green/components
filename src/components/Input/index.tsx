@@ -12,7 +12,7 @@ export enum InputType {
   TEXT = "text",
 }
 
-export interface InputProps {
+export type InputProps = {
   id: string;
   label?: string;
   max?: number;
@@ -23,7 +23,7 @@ export interface InputProps {
   required?: boolean;
   type?: InputType;
   value?: string;
-}
+};
 
 const Input: FC<InputProps> = ({
   id,

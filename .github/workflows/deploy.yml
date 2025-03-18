@@ -1,17 +1,10 @@
 name: publish components packages
 
 on:
-  pull_request:
-    types:
-      - opened
-      - synchronize
-      - reopened
-      - edited
-    branches:
-      - "!main"
   push:
     branches:
-      - release
+      - "**"
+      - "!main"
 
   workflow_dispatch:
 

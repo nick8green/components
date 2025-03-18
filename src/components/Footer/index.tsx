@@ -7,34 +7,34 @@ import SocialMediaList, {
   type SocialMediaListDisplayProps,
 } from "components/SocialMediaList";
 
-export interface ContactInfoProps {
+export type ContactInfoProps = {
   address?: string;
   email?: string;
   fax?: string;
   phone?: string;
-}
+};
 
-export interface CopyrightProps {
+export type CopyrightProps = {
   year: number;
   owner: string;
-}
+};
 
-export interface DisplayProps {
+export type DisplayProps = {
   socialMediaDisplay: SocialMediaListDisplayProps;
-}
+};
 
-export interface FooterProps {
+export type FooterProps = {
   contactInfo?: ContactInfoProps;
   copyright: CopyrightProps;
   display?: DisplayProps;
   links?: LinkProps[];
   socials?: SocialMediaArgs[];
-}
+};
 
-export interface LinkProps {
+export type LinkProps = {
   title: string;
   url: string;
-}
+};
 
 const defaultDisplay: DisplayProps = {
   socialMediaDisplay: {

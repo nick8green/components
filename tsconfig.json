@@ -27,6 +27,7 @@
         "plugins": [{ "name": "typescript-plugin-css-modules" }],
 
         "verbatimModuleSyntax": true, // Enables verbatim module syntax.
+        "esModuleInterop": true, // Enables compatibility with Babel and Webpack.
     },
     "include": ["src", "stories"], // Specifies the directory to include when searching for TypeScript files.
     "exclude": [

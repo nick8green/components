@@ -1,10 +1,8 @@
 name: build checks for application
 
 on:
-  push:
-    branches:
-      - "!release"
   workflow_call:
+  workflow_dispatch:
 
 jobs:
   # run unit tests

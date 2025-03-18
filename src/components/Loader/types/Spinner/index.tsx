@@ -2,9 +2,9 @@ import type { FC } from "react";
 
 import "./style.css";
 
-export interface SpinnerLoaderArgs {
+export type SpinnerLoaderArgs = {
   message?: string;
-}
+};
 
 const Spinner: FC<SpinnerLoaderArgs> = ({ message = "Loading" }) => {
   return (
