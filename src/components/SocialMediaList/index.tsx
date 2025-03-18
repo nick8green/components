@@ -6,15 +6,15 @@ import SocialMediaLink, {
 
 import "./style.css";
 
-export interface SocialMediaListDisplayProps {
+export type SocialMediaListDisplayProps = {
   direction?: "row" | "column";
   showHandles?: boolean;
-}
+};
 
-export interface SocialMediaListProps {
+export type SocialMediaListProps = {
   display?: SocialMediaListDisplayProps;
   socials?: SocialMediaArgs[];
-}
+};
 
 const defaultDisplay: SocialMediaListDisplayProps = {
   direction: "row",

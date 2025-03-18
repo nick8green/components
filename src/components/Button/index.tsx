@@ -8,12 +8,12 @@ export enum ButtonType {
   SUBMIT = "submit",
 }
 
-export interface ButtonProps {
+export type ButtonProps = {
   disabled?: boolean;
   label: string;
   onClick?: () => void;
   type?: ButtonType;
-}
+};
 
 const Button: FC<ButtonProps> = ({
   disabled = false,

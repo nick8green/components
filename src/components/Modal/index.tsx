@@ -9,11 +9,11 @@ export enum ModalType {
   LOADER = "loader",
 }
 
-export interface ModalProps {
+export type ModalProps = {
   close?: () => void;
   type?: ModalType;
   visible: boolean;
-}
+};
 
 const Modal: FC<PropsWithChildren<ModalProps>> = ({
   children,

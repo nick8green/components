@@ -26,13 +26,14 @@ type GenericObject = {
     | string[]
     | ((e: FormEvent<HTMLInputElement | HTMLSelectElement>) => void);
 };
+
 export type StepProps = GenericObject & {
   handleChange?: (e: FormEvent<HTMLInputElement | HTMLSelectElement>) => void;
 };
 
-export interface MultiStepProps {
+export type MultiStepProps = {
   done: (data?: GenericObject) => void;
-}
+};
 
 const MultiStepForm: FC<PropsWithChildren<MultiStepProps>> = ({
   children,

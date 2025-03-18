@@ -1,3 +1,10 @@
+# [0.4.0](https://github.com/nick8green/components/compare/v0.3.0...v0.4.0) (2025-03-18)
+
+
+### Features
+
+* **markdown:** added markdown component ([f57cfd7](https://github.com/nick8green/components/commit/f57cfd7e2c408dd53bbec1f782dd5ab5974df370))
+
 # [0.3.0](https://github.com/nick8green/components/compare/v0.2.8...v0.3.0) (2025-03-17)
 
 

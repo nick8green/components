@@ -20,11 +20,11 @@ export enum LoaderType {
   TEXT = "text",
 }
 
-export interface LoaderProps {
+export type LoaderProps = {
   args?: LoaderArgs;
   displayed?: boolean;
   type?: LoaderType;
-}
+};
 
 const Loader: FC<LoaderProps> = ({
   args,

@@ -1,6 +1,6 @@
 {
   "name": "@nick8green/components",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "type": "module",
   "main": "dist/index.cjs.js",
   "module": "dist/index.es.js",
@@ -147,6 +147,9 @@
   "dependencies": {
     "@fortawesome/free-brands-svg-icons": "^6.7.2",
     "@fortawesome/free-regular-svg-icons": "^6.7.2",
-    "qrcode.react": "^4.2.0"
+    "qrcode.react": "^4.2.0",
+    "react-markdown": "^10.1.0",
+    "rehype-react": "^8.0.0",
+    "remark-gfm": "^4.0.1"
   }
 }
