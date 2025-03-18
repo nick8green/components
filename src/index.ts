@@ -12,6 +12,10 @@ export { InputType, type InputProps } from "components/Input";
 export * as Loader from "components/Loader";
 export { LoaderType, type LoaderProps } from "components/Loader";
 
+import Markdown from "components/Markdown";
+export { Markdown };
+export type { MarkdownProps } from "components/Markdown";
+
 export * as Modal from "components/Modal";
 export { ModalType, type ModalProps } from "components/Modal";
 

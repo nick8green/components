@@ -1,0 +1,62 @@
+import { Canvas, Meta } from "@storybook/blocks";
+import * as Markdown from "./Markdown.stories.tsx";
+
+<Meta of={Markdown} title="Markdown" />
+
+# Markdown
+
+Markdown rendering component. The raw text to be converted should be wrapped in the component. Remark plugin is used to support strikethrough, tables, tasklists and URLs directly.
+
+#### Example
+
+<Canvas of={Markdown.Default} />
+
+## Arguments
+
+- **children** _`string`_ - The raw text to be converted into markdown.
+
+## Usage
+
+```ts
+import { Markdown } from "@nick8green/components";
+
+const content = `# Markdown Example
+
+A paragraph with *emphasis* and **strong importance**.
+
+> A block quote with ~strikethrough~ and a URL: https://reactjs.org.
+
+* Lists
+* [ ] todo
+* [x] done
+
+A table:
+
+| a | b |
+| - | - |
+| 1 | 2 |
+
+Link to [somwhere](http://example.com).
+
+Here is some JavaScript code:
+
+~~~js
+console.log('It works!')
+~~~
+
+<div class="note">
+
+Some *emphasis* and <strong>strong</strong>!
+
+</div>`;
+
+const Example = () => {
+  return (
+    <Markdown>
+      {content}
+    </Markdown>
+  );
+};
+
+export default Example;
+```
