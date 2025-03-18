@@ -1,17 +1,17 @@
 import type { FC, FormEvent } from "react";
 
-interface DropdownProps {
+type DropdownProps = {
   id: string;
   onChange: (e: FormEvent<HTMLSelectElement>) => void;
   options: Option[];
   placeholder?: string;
   value?: string;
-}
+};
 
-export interface Option {
+export type Option = {
   label: string;
   value: string;
-}
+};
 
 const Dropdown: FC<DropdownProps> = ({
   id,

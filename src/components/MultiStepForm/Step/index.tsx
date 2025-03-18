@@ -2,10 +2,10 @@ import type { FC, PropsWithChildren } from "react";
 
 import "./style.css";
 
-interface StepProps {
+type StepProps = {
   step: number;
   total: number;
-}
+};
 
 const Step: FC<PropsWithChildren<StepProps>> = ({ children, step, total }) => {
   return (

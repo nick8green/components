@@ -41,12 +41,12 @@ export enum Platform {
   Ebay = "Ebay",
 }
 
-export interface SocialMediaArgs {
+export type SocialMediaArgs = {
   displayHandle?: boolean;
   handle: string;
   platform: Platform;
   url: string;
-}
+};
 
 const SocialMediaLink: FC<SocialMediaArgs> = ({
   displayHandle,

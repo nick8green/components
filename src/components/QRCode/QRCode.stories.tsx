@@ -3,29 +3,33 @@ import type { Meta, StoryObj } from "@storybook/react";
 
 import QRCode, { type QRCodeDisplayOptions } from "components/QRCode";
 
-type QRCodeStoryProps = ComponentProps<typeof QRCode> & QRCodeDisplayOptions & { imagePath: string };
+type QRCodeStoryProps = ComponentProps<typeof QRCode> &
+  QRCodeDisplayOptions & { imagePath: string };
 
 const meta: Meta<QRCodeStoryProps> = {
   title: "Display/QRCode",
   component: QRCode,
   argTypes: {
     background: {
-        control: {
-            type: "color",
-        },
-        description: "Part of the display properties. The background color of the QR code.",
+      control: {
+        type: "color",
+      },
+      description:
+        "Part of the display properties. The background color of the QR code.",
     },
     foreground: {
-        control: {
-            type: "color",
-        },
-        description: "Part of the display properties. The foreground color of the QR code.",
+      control: {
+        type: "color",
+      },
+      description:
+        "Part of the display properties. The foreground color of the QR code.",
     },
     imagePath: {
-        control: {
-            type: "text",
-        },
-        description: "Part of the display properties. The path to the image to overlay on the QR code.",
+      control: {
+        type: "text",
+      },
+      description:
+        "Part of the display properties. The path to the image to overlay on the QR code.",
     },
     display: {
       control: false,
@@ -38,11 +42,16 @@ const meta: Meta<QRCodeStoryProps> = {
     value: {
       control: {
         type: "text",
+      },
     },
   },
-  },
   render: ({ background, foreground, imagePath, ...props }) => {
-    return (<QRCode {...props} display={{ background, foreground, image: imagePath }} />)
+    return (
+      <QRCode
+        {...props}
+        display={{ background, foreground, image: imagePath }}
+      />
+    );
   },
 };
 
