@@ -25,4 +25,4 @@ jobs:
   # lint code
   linting:
     name: ✏️ lint code
-    uses: nick8green/workflows/.github/workflows/node-lint.yml@main
+    uses: nick8green/workflows/.github/workflows/node-inspect.yml@main
