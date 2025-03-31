@@ -9,6 +9,11 @@ on:
   workflow_dispatch:
 
 jobs:
+  debug:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "${{ toJson(github) }}"
+
   checks:
     name: ✅ checks
     uses: ./.github/workflows/checks.yml
@@ -45,7 +50,7 @@ jobs:
         run: npx semantic-release
 
   storybook:
-    if: contains(github.ref, 'release')
+    if: endsWith(github.ref, 'release')
     name: 📚 deploy storybook
     needs:
       - version
@@ -54,7 +59,7 @@ jobs:
       deploy: true
 
   create-pr:
-    if: contains(github.ref, 'release')
+    if: endsWith(github.ref, 'release')
     name: 📨 Create PR to main
     needs:
       - version
