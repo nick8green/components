@@ -9,6 +9,11 @@ on:
   workflow_dispatch:
 
 jobs:
+  debug:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "${{ github }}"
+
   checks:
     name: ✅ checks
     uses: ./.github/workflows/checks.yml
