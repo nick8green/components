@@ -10,9 +10,13 @@ updates:
       development-dependencies:
         dependency-type: "development"
     target-branch: "release"
+    assignees:
+      - "nick8green"
 
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
       interval: "weekly"
     target-branch: "release"
+    assignees:
+      - "nick8green"
