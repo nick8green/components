@@ -160,4 +160,32 @@ describe("SEO component", () => {
       theme,
     );
   });
+
+  test("adds the author meta tag to the head", () => {
+    const author = "Test Author";
+    const Component = () => (
+      <SEO description="" author={author} title="Testing" />
+    );
+
+    render(<Component />);
+
+    expect(document.querySelector('meta[name="author"]')).toHaveAttribute(
+      "content",
+      author,
+    );
+  });
+
+  test("adds the keywords meta tag to the head", () => {
+    const keywords = ["test", "keywords"];
+    const Component = () => (
+      <SEO description="" keywords={keywords} title="Testing" />
+    );
+
+    render(<Component />);
+
+    expect(document.querySelector('meta[name="keywords"]')).toHaveAttribute(
+      "content",
+      keywords.join(", "),
+    );
+  });
 });
