@@ -75,7 +75,7 @@ const Footer: FC<PropsWithChildren<FooterProps>> = ({
                   .split(/,\s*/g)
                   .map((line, key, address) => {
                     return (
-                      <Fragment key={key}>
+                      <Fragment key={line.replaceAll(/\s+/g, "-")}>
                         <span>{line}</span>
                         {key < address.length - 1 && <br />}
                       </Fragment>
