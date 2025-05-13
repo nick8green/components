@@ -1,3 +1,10 @@
+# [0.5.0](https://github.com/nick8green/components/compare/v0.4.0...v0.5.0) (2025-05-13)
+
+
+### Features
+
+* **seo:** added SEO component ([4f2ac3e](https://github.com/nick8green/components/commit/4f2ac3eedab56d8a041fafb1f64347c13668967b))
+
 # [0.4.0](https://github.com/nick8green/components/compare/v0.3.0...v0.4.0) (2025-03-18)
 
 
