@@ -1,0 +1,47 @@
+import { Canvas, Meta } from "@storybook/blocks";
+import * as SEO from "./Seo.stories.tsx";
+
+<Meta of={SEO} title="SEO" />
+
+# SEO
+
+This is a utility component which enables the use of helpful SEO tags within the head of each page. A series of different options are available which then define the tags for the page.
+
+#### Example
+
+N/A
+
+## Arguments
+
+- **author** _`string`_ - The name of the page author. _(optional)_
+- **charset** _`string`_ - The characterset for the site to ensure proper text rendering. _(optional)_
+- **description** _`string`_ - The description of the page for search engines to understand.
+- **icon** _`string`_ - Path to favicon to be displayed in browser tabs. _(optional)_
+- **image** _`string`_ - Path to rich preview image. _(optional)_
+- **keywords** _`string[]`_ - . _(optional)_
+- **manifest** _`string`_ - Path to app manifest in order to enable Progressive Web App (PWA) support. _(optional)_
+- **robots** _`string`_ - Allow or prevents page appearing in search engine results. _(default: index)_ _(values: "index", "noindex")_ _(optional)_
+- **theme** _`string`_ - Changes the mobile browser’s address bar color (Android Chrome). _(optional)_
+- **title** _`string`_ - The unique title of the page.
+- **touchIcon** _`string`_ - Path to icon. Enables a better icon for iOS home screen shortcuts. _(optional)_
+- **type** _`website"`_ - The type of application. _(default: website)_ _(values: "website")_ _(optional)_
+- **url** _`string`_ - The canonical URL, the preferred version of a web page. It helps webmasters prevent duplicate content issues.
+- **viewport** _`string`_ - The viewport of the site, making the page responsive on mobile devices. _(optional)_
+
+## Usage
+
+```ts
+import {Seo} from "@nick8green/components";
+
+const Example = () => {
+  return (
+      <Seo
+        description="This is a description of my business.",
+        title="My Business",
+        url="https://example.com",
+      />
+  );
+};
+
+export default Example;
+```
