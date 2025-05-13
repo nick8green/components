@@ -1,7 +1,7 @@
 import { render } from "@testing-library/react";
 import { vi } from "vitest";
 
-import SEO from "components/SEO";
+import Seo from "components/Seo";
 
 vi.mock("next/head", () => ({
   default: ({ children }: { children: React.ReactNode }) => <>{children}</>,
@@ -10,7 +10,7 @@ vi.mock("next/head", () => ({
 describe("SEO component", () => {
   test("should render title tag when title is provided", () => {
     const title = "Test Title";
-    const Component = () => <SEO description="" title={title} />;
+    const Component = () => <Seo description="" title={title} url="http://test.com" />;
 
     render(<Component />);
 
@@ -24,9 +24,22 @@ describe("SEO component", () => {
     ).toHaveAttribute("content", title);
   });
 
+  test("warns if the title is too long", () => {
+    const consoleSpy = vi.spyOn(console, 'warn');
+    const title = "a".repeat(161);
+    const Component = () => (
+      <Seo description="" title={title} url="http://test.com" />
+    );
+    render(<Component />);
+    expect(consoleSpy).toHaveBeenCalledWith(
+      "SEO title is too long. It should be less than 60 characters.",
+    );
+    consoleSpy.mockRestore();
+  });
+
   test("adds meta description to the head", () => {
     const description = "This is a test page";
-    const Component = () => <SEO description={description} title="Testing" />;
+    const Component = () => <Seo description={description} title="Testing" url="http://test.com" />;
 
     render(<Component />);
 
@@ -42,10 +55,23 @@ describe("SEO component", () => {
     ).toHaveAttribute("content", description);
   });
 
+  test("warns if the description is too long", () => {
+    const consoleSpy = vi.spyOn(console, 'warn');
+    const description = "a".repeat(161);
+    const Component = () => (
+      <Seo description={description} title="Testing" url="http://test.com" />
+    );
+    render(<Component />);
+    expect(consoleSpy).toHaveBeenCalledWith(
+      "SEO description is too long. It should be less than 160 characters.",
+    );
+    consoleSpy.mockRestore();
+  });
+
   test("adds the charset meta tag to the head", () => {
     const charset = "UTF-8";
     const Component = () => (
-      <SEO charset={charset} description="" title="Testing" />
+      <Seo charset={charset} description="" title="Testing" url="http://test.com" />
     );
 
     render(<Component />);
@@ -56,7 +82,7 @@ describe("SEO component", () => {
   test("adds the viewport meta tag to the head", () => {
     const viewport = "width=device-width, initial-scale=1";
     const Component = () => (
-      <SEO description="" title="Testing" viewport={viewport} />
+      <Seo description="" title="Testing" viewport={viewport} url="http://test.com" />
     );
 
     render(<Component />);
@@ -68,16 +94,16 @@ describe("SEO component", () => {
   });
 
   test("adds the robots meta tag to the head", () => {
-    const robots = "noindex, nofollow";
+    const robots = "noindex";
     const Component = () => (
-      <SEO description="" robots={robots} title="Testing" />
+      <Seo description="" robots={robots} title="Testing" url="http://test.com" />
     );
 
     render(<Component />);
 
     expect(document.querySelector('meta[name="robots"]')).toHaveAttribute(
       "content",
-      robots,
+      "noindex, nofollow",
     );
   });
 
@@ -85,7 +111,7 @@ describe("SEO component", () => {
 
   test("adds the canonical link to the head", () => {
     const url = "n8g.uk";
-    const Component = () => <SEO description="" url={url} title="Testing" />;
+    const Component = () => <Seo description="" url={url} title="Testing" />;
 
     render(<Component />);
 
@@ -102,7 +128,7 @@ describe("SEO component", () => {
   test("adds the image meta tag to the head", () => {
     const image = "/test.jpg";
     const Component = () => (
-      <SEO description="" image={image} title="Testing" />
+      <Seo description="" image={image} title="Testing" url="http://test.com" />
     );
 
     render(<Component />);
@@ -118,39 +144,39 @@ describe("SEO component", () => {
 
   test("adds the favicon link to the head", () => {
     const icon = "/favicon.ico";
-    const Component = () => <SEO description="" icon={icon} title="Testing" />;
+    const Component = () => <Seo description="" icon={icon} title="Testing" url="http://test.com" />;
 
     render(<Component />);
 
-    expect(document.querySelector("link")).toHaveAttribute("href", icon);
+    expect(document.querySelector("link[rel=\"icon\"]")).toHaveAttribute("href", icon);
   });
 
   test("adds the touch icon link to the head", () => {
     const touchIcon = "/touch-icon.png";
     const Component = () => (
-      <SEO description="" title="Testing" touchIcon={touchIcon} />
+      <Seo description="" title="Testing" touchIcon={touchIcon} url="http://test.com" />
     );
 
     render(<Component />);
 
-    expect(document.querySelector("link")).toHaveAttribute("href", touchIcon);
+    expect(document.querySelector("link[rel=\"apple-touch-icon\"]")).toHaveAttribute("href", touchIcon);
   });
 
   test("adds the manifest link to the head", () => {
     const manifest = "/manifest.json";
     const Component = () => (
-      <SEO description="" manifest={manifest} title="Testing" />
+      <Seo description="" manifest={manifest} title="Testing" url="http://test.com" />
     );
 
     render(<Component />);
 
-    expect(document.querySelector("link")).toHaveAttribute("href", manifest);
+    expect(document.querySelector("link[rel=\"manifest\"]")).toHaveAttribute("href", manifest);
   });
 
   test("adds the theme color meta tag to the head", () => {
     const theme = "#f0f0f0";
     const Component = () => (
-      <SEO description="" theme={theme} title="Testing" />
+      <Seo description="" theme={theme} title="Testing" url="http://test.com" />
     );
 
     render(<Component />);
@@ -164,7 +190,7 @@ describe("SEO component", () => {
   test("adds the author meta tag to the head", () => {
     const author = "Test Author";
     const Component = () => (
-      <SEO description="" author={author} title="Testing" />
+      <Seo description="" author={author} title="Testing" url="http://test.com" />
     );
 
     render(<Component />);
@@ -178,7 +204,7 @@ describe("SEO component", () => {
   test("adds the keywords meta tag to the head", () => {
     const keywords = ["test", "keywords"];
     const Component = () => (
-      <SEO description="" keywords={keywords} title="Testing" />
+      <Seo description="" keywords={keywords} title="Testing" url="http://test.com" />
     );
 
     render(<Component />);
@@ -187,5 +213,18 @@ describe("SEO component", () => {
       "content",
       keywords.join(", "),
     );
+  });
+
+  test("warns if the keywords are too long", () => {
+    const consoleSpy = vi.spyOn(console, 'warn');
+    const keywords = Array.from({ length: 11 }, (_, i) => `keyword${i}`);
+    const Component = () => (
+      <Seo description="" keywords={keywords} title="Testing" url="http://test.com" />
+    );
+    render(<Component />);
+    expect(consoleSpy).toHaveBeenCalledWith(
+      "SEO keywords are too many. It should be less than 10 keywords.",
+    );
+    consoleSpy.mockRestore();
   });
 });

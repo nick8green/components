@@ -1,7 +1,7 @@
 import Head from "next/head";
 import type { FC } from "react";
 
-export type SEOProps = {
+export type SeoProps = {
   author?: string;
   charset?: string;
   description: string;
@@ -9,16 +9,16 @@ export type SEOProps = {
   image?: string;
   keywords?: string[];
   manifest?: string;
-  robots?: string;
+  robots?: "index" | "noindex";
   theme?: string;
   title: string;
   touchIcon?: string;
   type?: "website";
-  url?: string;
+  url: string;
   viewport?: string;
 };
 
-const SEO: FC<SEOProps> = ({
+const Seo: FC<SeoProps> = ({
   author,
   charset = "UTF-8",
   description,
@@ -34,6 +34,22 @@ const SEO: FC<SEOProps> = ({
   url,
   viewport = "width=device-width, initial-scale=1",
 }) => {
+  if (title.length >= 60) {
+    console.warn(
+      "SEO title is too long. It should be less than 60 characters.",
+    );
+  }
+  if (description.length >= 160) {
+    console.warn(
+      "SEO description is too long. It should be less than 160 characters.",
+    );
+  }
+  if (keywords && keywords.length > 10) {
+    console.warn(
+      "SEO keywords are too many. It should be less than 10 keywords.",
+    );
+  }
+
   return (
     <Head>
       <meta charSet={charset} />
@@ -42,7 +58,7 @@ const SEO: FC<SEOProps> = ({
       <title>{title}</title>
       <meta name="description" content={description} />
 
-      <meta name="robots" content={robots ?? "index, follow"} />
+      <meta name="robots" content={robots === "noindex" ? "noindex, nofollow" : "index, follow"} />
       {url && (
         <>
           <link rel="canonical" href={url} />
@@ -83,4 +99,4 @@ const SEO: FC<SEOProps> = ({
   );
 };
 
-export default SEO;
+export default Seo;
