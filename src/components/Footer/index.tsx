@@ -1,4 +1,4 @@
-import type { FC, PropsWithChildren } from "react";
+import { Fragment, type FC, type PropsWithChildren } from "react";
 
 import type { SocialMediaArgs } from "components/SocialMediaLink";
 
@@ -75,10 +75,10 @@ const Footer: FC<PropsWithChildren<FooterProps>> = ({
                   .split(/,\s*/g)
                   .map((line, key, address) => {
                     return (
-                      <>
-                        <span key={key}>{line}</span>
+                      <Fragment key={line.replaceAll(/\s+/g, "-")}>
+                        <span>{line}</span>
                         {key < address.length - 1 && <br />}
-                      </>
+                      </Fragment>
                     );
                   })}
               </p>
