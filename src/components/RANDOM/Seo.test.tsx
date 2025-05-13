@@ -1,7 +1,7 @@
 import { render } from "@testing-library/react";
 import { vi } from "vitest";
 
-import Seo from "components/Seo";
+import Seo from "components/RANDOM";
 
 vi.mock("next/head", () => ({
   default: ({ children }: { children: React.ReactNode }) => <>{children}</>,

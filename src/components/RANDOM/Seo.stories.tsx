@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import Seo from "components/Seo";
+import Seo from "components/RANDOM";
 
 const meta: Meta<typeof Seo> = {
   title: "Utility/Seo",
