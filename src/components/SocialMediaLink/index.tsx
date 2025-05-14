@@ -1,7 +1,15 @@
 import type { FC } from "react";
+import dynamic from "next/dynamic";
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import * as icons from "@fortawesome/free-brands-svg-icons";
+
+const FontAwesomeIcon = dynamic(
+  () =>
+    import("@fortawesome/react-fontawesome").then((mod) => mod.FontAwesomeIcon),
+  {
+    ssr: false,
+  },
+);
 
 import "./style.css";
 
@@ -87,7 +95,9 @@ const SocialMediaLink: FC<SocialMediaArgs> = ({
       rel="noreferrer"
       title={platform}
     >
-      <FontAwesomeIcon data-testid="social-media-icon" icon={getIcon()} />
+      {typeof window === "undefined" ? null : (
+        <FontAwesomeIcon data-testid="social-media-icon" icon={getIcon()} />
+      )}
       <span>{getHandle()}</span>
     </a>
   );
