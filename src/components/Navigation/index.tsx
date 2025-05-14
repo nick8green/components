@@ -54,14 +54,12 @@ export const renderLinks = (
           {icon && <FontAwesomeIcon className="link-icon" icon={icon} />}
           <span className="link-label">{label}</span>
           {getExpansionIcon(
-            levels > 1 && (children || []).length > 0,
+            levels > 1 && (children ?? []).length > 0,
             topLevel,
           )}
         </Link>
         {children && children.length > 0 && (
-          <>
-            <ul>{renderLinks(children, levels - 1, false)}</ul>
-          </>
+          <ul>{renderLinks(children, levels - 1, false)}</ul>
         )}
       </li>
     );
