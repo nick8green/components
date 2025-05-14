@@ -1,0 +1,68 @@
+/**
+ * Navigation styles
+ * Styles implemented with the support of:
+ *   - https://www.w3schools.com/css/css_navbar_horizontal.asp
+ *   - https://css-tricks.com/snippets/css/a-guide-to-flexbox/
+ *
+ * To be done:
+ *   - https://www.w3schools.com/howto/howto_css_dropdown_navbar.asp
+ *   - https://www.w3schools.com/howto/howto_js_navbar_shrink_scroll.asp
+ *   - https://www.w3schools.com/howto/howto_js_dropdown_sidenav.asp
+ *   - https://www.w3schools.com/howto/howto_css_responsive_header.asp
+ */
+
+nav { display: inline-block; vertical-align: top; width: 100%; }
+nav.sticky ul { position: sticky; }
+nav .link-icon { display: none; }
+nav.with-icons .link-icon { display: inline-block; }
+
+nav ul {
+	list-style: none;
+	position: relative;
+	margin: 0;
+	padding: 0;
+	display: inline-block;
+	vertical-align: top;
+	width: 100%;
+	color: #f0f0f0;
+    background: #4d4d4d;
+}
+
+nav li {
+    position: relative;
+	margin: 0;
+	padding: 0;
+	display: inline-block;
+	-webkit-transition: all .25s ease-in-out;
+	transition: all .25s ease-in-out;
+}
+nav ul li:hover:not(.active-link), nav ul li:focus:not(.active-link), nav ul li:active:not(.active-link) { background: #0d0d0d; }
+
+nav ul li a, nav ul li a:visited, nav ul li a:hover, nav ul li a:focus, nav ul li a:active {
+    display: block;
+	color: inherit;
+	text-decoration: none;
+	padding: 0.5em 0.75em;
+}
+
+nav > ul ul {
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    display: none;
+    flex-flow: column nowrap;
+    left: 0;
+    position: absolute;
+    top: 2.15em;
+    white-space: nowrap;
+    width: inherit;
+    z-index: 1;
+}
+
+nav.icons-navigation .link-label { display: none; }
+
+nav > ul ul ul { left: 100%; top: 0; }
+
+nav > ul li:hover > ul { display: flex; }
+
+.active-link { background-color: #04AA6D; }
+
+nav svg { margin: 0 0.25em; }

@@ -58,7 +58,10 @@ const Seo: FC<SeoProps> = ({
       <title>{title}</title>
       <meta name="description" content={description} />
 
-      <meta name="robots" content={robots === "noindex" ? "noindex, nofollow" : "index, follow"} />
+      <meta
+        name="robots"
+        content={robots === "noindex" ? "noindex, nofollow" : "index, follow"}
+      />
       {url && (
         <>
           <link rel="canonical" href={url} />

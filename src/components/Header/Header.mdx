@@ -1,0 +1,60 @@
+import { Canvas, Meta } from "@storybook/blocks";
+import * as Header from "./Header.stories.tsx";
+
+<Meta of={Header} title="Header" />
+
+# Header
+
+Header component for a website.
+
+#### Example
+
+<Canvas of={Header.Default} />
+
+## Arguments
+
+- **title** _`string`_ - The title heading for the site.
+- **socials** _`SocialMediaArgs[]`_ - The list of the user's social media platforms. _(default: [])_ _(optional)_
+
+### SocialMediaListDisplayProps
+
+- **direction** _`"row" | "column"`_ - How the list of social media accounts should look. _(default: row)_ _(options: "row", "column")_ _(optional)_
+- **showHandles** _`boolean`_ - Whether or not to show the user's social media handles next to the platform icon. _(default: false)_ _(optional)_
+
+## Usage
+
+```ts
+import { Header } from "@nick8green/components";
+
+const Example = () => {
+  return (
+      <Header
+        title="My Business"
+        socials={[
+            {
+                handle: "Facebook Profile",
+                platform: Platform.Facebook,
+                url: "#",
+            },
+            {
+                handle: "Instagram Profile",
+                platform: Platform.Instagram,
+                url: "#",
+            },
+            {
+                handle: "LinkedIn Profile",
+                platform: Platform.LinkedIn,
+                url: "#",
+            },
+            {
+                handle: "Twitter Handle",
+                platform: Platform.X,
+                url: "#",
+            }
+        ]}
+      />
+  );
+};
+
+export default Example;
+```

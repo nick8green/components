@@ -10,7 +10,9 @@ vi.mock("next/head", () => ({
 describe("SEO component", () => {
   test("should render title tag when title is provided", () => {
     const title = "Test Title";
-    const Component = () => <Seo description="" title={title} url="http://test.com" />;
+    const Component = () => (
+      <Seo description="" title={title} url="http://test.com" />
+    );
 
     render(<Component />);
 
@@ -25,7 +27,7 @@ describe("SEO component", () => {
   });
 
   test("warns if the title is too long", () => {
-    const consoleSpy = vi.spyOn(console, 'warn');
+    const consoleSpy = vi.spyOn(console, "warn");
     const title = "a".repeat(161);
     const Component = () => (
       <Seo description="" title={title} url="http://test.com" />
@@ -39,7 +41,9 @@ describe("SEO component", () => {
 
   test("adds meta description to the head", () => {
     const description = "This is a test page";
-    const Component = () => <Seo description={description} title="Testing" url="http://test.com" />;
+    const Component = () => (
+      <Seo description={description} title="Testing" url="http://test.com" />
+    );
 
     render(<Component />);
 
@@ -56,7 +60,7 @@ describe("SEO component", () => {
   });
 
   test("warns if the description is too long", () => {
-    const consoleSpy = vi.spyOn(console, 'warn');
+    const consoleSpy = vi.spyOn(console, "warn");
     const description = "a".repeat(161);
     const Component = () => (
       <Seo description={description} title="Testing" url="http://test.com" />
@@ -71,7 +75,12 @@ describe("SEO component", () => {
   test("adds the charset meta tag to the head", () => {
     const charset = "UTF-8";
     const Component = () => (
-      <Seo charset={charset} description="" title="Testing" url="http://test.com" />
+      <Seo
+        charset={charset}
+        description=""
+        title="Testing"
+        url="http://test.com"
+      />
     );
 
     render(<Component />);
@@ -82,7 +91,12 @@ describe("SEO component", () => {
   test("adds the viewport meta tag to the head", () => {
     const viewport = "width=device-width, initial-scale=1";
     const Component = () => (
-      <Seo description="" title="Testing" viewport={viewport} url="http://test.com" />
+      <Seo
+        description=""
+        title="Testing"
+        viewport={viewport}
+        url="http://test.com"
+      />
     );
 
     render(<Component />);
@@ -96,7 +110,12 @@ describe("SEO component", () => {
   test("adds the robots meta tag to the head", () => {
     const robots = "noindex";
     const Component = () => (
-      <Seo description="" robots={robots} title="Testing" url="http://test.com" />
+      <Seo
+        description=""
+        robots={robots}
+        title="Testing"
+        url="http://test.com"
+      />
     );
 
     render(<Component />);
@@ -144,33 +163,53 @@ describe("SEO component", () => {
 
   test("adds the favicon link to the head", () => {
     const icon = "/favicon.ico";
-    const Component = () => <Seo description="" icon={icon} title="Testing" url="http://test.com" />;
+    const Component = () => (
+      <Seo description="" icon={icon} title="Testing" url="http://test.com" />
+    );
 
     render(<Component />);
 
-    expect(document.querySelector("link[rel=\"icon\"]")).toHaveAttribute("href", icon);
+    expect(document.querySelector('link[rel="icon"]')).toHaveAttribute(
+      "href",
+      icon,
+    );
   });
 
   test("adds the touch icon link to the head", () => {
     const touchIcon = "/touch-icon.png";
     const Component = () => (
-      <Seo description="" title="Testing" touchIcon={touchIcon} url="http://test.com" />
+      <Seo
+        description=""
+        title="Testing"
+        touchIcon={touchIcon}
+        url="http://test.com"
+      />
     );
 
     render(<Component />);
 
-    expect(document.querySelector("link[rel=\"apple-touch-icon\"]")).toHaveAttribute("href", touchIcon);
+    expect(
+      document.querySelector('link[rel="apple-touch-icon"]'),
+    ).toHaveAttribute("href", touchIcon);
   });
 
   test("adds the manifest link to the head", () => {
     const manifest = "/manifest.json";
     const Component = () => (
-      <Seo description="" manifest={manifest} title="Testing" url="http://test.com" />
+      <Seo
+        description=""
+        manifest={manifest}
+        title="Testing"
+        url="http://test.com"
+      />
     );
 
     render(<Component />);
 
-    expect(document.querySelector("link[rel=\"manifest\"]")).toHaveAttribute("href", manifest);
+    expect(document.querySelector('link[rel="manifest"]')).toHaveAttribute(
+      "href",
+      manifest,
+    );
   });
 
   test("adds the theme color meta tag to the head", () => {
@@ -190,7 +229,12 @@ describe("SEO component", () => {
   test("adds the author meta tag to the head", () => {
     const author = "Test Author";
     const Component = () => (
-      <Seo description="" author={author} title="Testing" url="http://test.com" />
+      <Seo
+        description=""
+        author={author}
+        title="Testing"
+        url="http://test.com"
+      />
     );
 
     render(<Component />);
@@ -204,7 +248,12 @@ describe("SEO component", () => {
   test("adds the keywords meta tag to the head", () => {
     const keywords = ["test", "keywords"];
     const Component = () => (
-      <Seo description="" keywords={keywords} title="Testing" url="http://test.com" />
+      <Seo
+        description=""
+        keywords={keywords}
+        title="Testing"
+        url="http://test.com"
+      />
     );
 
     render(<Component />);
@@ -216,10 +265,15 @@ describe("SEO component", () => {
   });
 
   test("warns if the keywords are too long", () => {
-    const consoleSpy = vi.spyOn(console, 'warn');
+    const consoleSpy = vi.spyOn(console, "warn");
     const keywords = Array.from({ length: 11 }, (_, i) => `keyword${i}`);
     const Component = () => (
-      <Seo description="" keywords={keywords} title="Testing" url="http://test.com" />
+      <Seo
+        description=""
+        keywords={keywords}
+        title="Testing"
+        url="http://test.com"
+      />
     );
     render(<Component />);
     expect(consoleSpy).toHaveBeenCalledWith(

@@ -6,6 +6,9 @@ export type {
   LinkProps,
 } from "components/Footer";
 
+export * as Header from "components/Header";
+export type { HeaderProps } from "components/Header";
+
 export * as Input from "components/Input";
 export { InputType, type InputProps } from "components/Input";
 
@@ -21,6 +24,12 @@ export { ModalType, type ModalProps } from "components/Modal";
 
 export * as MultiStepForm from "components/MultiStepForm";
 export type { MultiStepProps } from "components/MultiStepForm";
+
+export * as Navigation from "components/Navigation";
+export type {
+  NavigationProps,
+  Link,
+} from "components/Navigation";
 
 export * as Seo from "components/Seo";
 export type { SeoProps } from "components/Seo";
