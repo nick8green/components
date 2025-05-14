@@ -1,6 +1,14 @@
+import dynamic from "next/dynamic";
 import type { FC, PropsWithChildren } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleXmark } from "@fortawesome/free-solid-svg-icons";
+
+const FontAwesomeIcon = dynamic(
+  () =>
+    import("@fortawesome/react-fontawesome").then((mod) => mod.FontAwesomeIcon),
+  {
+    ssr: false,
+  },
+);
 
 import "./style.css";
 
