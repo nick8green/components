@@ -1,3 +1,11 @@
+# [0.6.0](https://github.com/nick8green/components/compare/v0.5.0...v0.6.0) (2025-05-14)
+
+
+### Features
+
+* **header:** added a header component ([53831af](https://github.com/nick8green/components/commit/53831af3a2a59a9dad567092e7633a164f9b9ec0))
+* **Navigation:** added navigation component ([ed0bd96](https://github.com/nick8green/components/commit/ed0bd967b09d1cd01fabd0571251193cb32a17f2))
+
 # [0.5.0](https://github.com/nick8green/components/compare/v0.4.0...v0.5.0) (2025-05-13)
 
 
