@@ -47,7 +47,6 @@ export const renderLinks = (
   }
   return links.map((link) => {
     const { icon, label, url, isActive, children } = link;
-    console.log("Rendering link:", label, "with icon:", icon);
     return (
       <li key={label.replaceAll(/\s+/g, "-").toLowerCase()}>
         <Link className={isActive ? "active-link" : ""} href={url}>

@@ -271,7 +271,7 @@ describe("SEO component", () => {
       <Seo
         description=""
         keywords={keywords}
-        title="Testing"
+        title="Warning Testing"
         url="http://test.com"
       />
     );

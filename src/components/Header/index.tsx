@@ -1,6 +1,5 @@
 import type { FC, PropsWithChildren } from "react";
 
-import "./style.css";
 import SocialMediaList from "components/SocialMediaList";
 import type { SocialMediaArgs } from "components/SocialMediaLink";
 
