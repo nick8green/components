@@ -25,6 +25,12 @@ export { ModalType, type ModalProps } from "components/Modal";
 export * as MultiStepForm from "components/MultiStepForm";
 export type { MultiStepProps } from "components/MultiStepForm";
 
+export * as Navigation from "components/Navigation";
+export type {
+  NavigationProps,
+  Link,
+} from "components/Navigation";
+
 export * as Seo from "components/Seo";
 export type { SeoProps } from "components/Seo";
 
