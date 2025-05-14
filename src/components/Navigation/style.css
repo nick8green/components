@@ -1,16 +1,3 @@
-/*
-nav.dropdown-navigation ul, nav.bar-navigation ul { background-color: #bbbbbb; }
-nav.dropdown-navigation li, nav.bar-navigation li { display: inline; }
-nav.dropdown-navigation li, nav.bar-navigation li { float: left; }
-nav.dropdown-navigation li a, nav.bar-navigation li a {
-    color: #f0f0f0;
-    display: block;
-    padding: 0.5em;
-    background-color: #aaaaaa;
-    text-decoration: none;
-}
-nav a:active, nav a:focus, nav a:hover { background-color: #111; } */
-
 /**
  * Navigation styles
  * Styles implemented with the support of:
