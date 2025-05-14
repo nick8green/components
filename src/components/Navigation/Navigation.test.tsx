@@ -1,6 +1,17 @@
 import { render, screen } from "@testing-library/react";
+import { describe, it, vi, expect } from "vitest";
 import Navigation, { getExpansionIcon, renderLinks, type Link } from "./index";
 import { faHome } from "@fortawesome/free-solid-svg-icons";
+
+vi.mock("@fortawesome/react-fontawesome", () => {
+  return {
+    FontAwesomeIcon: ({
+      "data-testid": testId,
+    }: {
+      "data-testid"?: string;
+    }) => <svg data-testid={testId ?? "fa-icon"} className="link-icon" />,
+  };
+});
 
 const mockLinks: Link[] = [
   {
@@ -46,10 +57,9 @@ describe("Navigation Component", () => {
         type="main"
       />,
     );
-    expect(container.querySelector("nav")).toHaveClass(
-      "main-navigation sticky",
-    );
-    expect(container.querySelector("nav")).not.toHaveClass("with-icons");
+    const nav = container.querySelector("nav");
+    expect(nav).toHaveClass("main-navigation", "sticky");
+    expect(nav).not.toHaveClass("with-icons");
   });
 
   it("renders nested links correctly", () => {
