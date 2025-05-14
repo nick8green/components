@@ -1,0 +1,73 @@
+import { Canvas, Meta } from "@storybook/blocks";
+import * as Navigation from "./Navigation.stories.tsx";
+
+<Meta of={Navigation} title="Navigation" />
+
+# Navigation
+
+Navigation component for a website.
+
+#### Example
+
+<Canvas of={Navigation.Default} />
+
+## Arguments
+
+- **levels** _`number`_ - The number of levels deep that children should be displayed. _(default: 10)_ _(optional)_
+- **links** _`Link[]`_ - The links to be rendered out into the navigation. _(default: [])_
+- **type** _`"main"`_ - The type of navigation to be rendered. _(default: "main")_
+- **sticky** _`boolean`_ - Whether the navigation bar should be sticky when scrolling. _(default: false)_ _(optional)_
+- **showIcons** _`boolean`_ - Whether icons within the navigation should be displayed. _(default: true)_ _(optional)_
+
+This component will also display any child components which are defined within it.
+
+### Link
+
+- **children** _`Link[]`_ - Any child pages of the parent which can be rendered within the parent. The could for example, be a dropdown or a sub list. _(optional)_
+- **icon** _`IconDefinition`_ - An icon to be associated with the link. _(optional)_
+- **isActive** _`boolean`_ - Whether the specific link is currently active. _(optional)_
+- **label** _`string`_ - The label for the link.
+- **url** _`string`_ - The URL the link leads to. This can be a full web address or a reletive one. A relative path is highly recommended.
+
+## Usage
+
+```ts
+import { Navigation } from "@nick8green/components";
+
+const Example = () => {
+  return (
+      <Navigation
+        links={[
+            {
+                label: "Home",
+                url: "/",
+                isActive: true,
+            },
+            {
+                label: "About",
+                url: "/about",
+            },
+            {
+                label: "Services",
+                url: "/services",
+                children: [
+                    {
+                        label: "Web Development",
+                        url: "/services/web-development",
+                    },
+                    {
+                        label: "SEO Services",
+                        url: "/services/seo-services",
+                    },
+                ],
+            },
+            {
+                label: "Contact",
+                url: "/contact",
+            },
+        ]} />
+  );
+};
+
+export default Example;
+```
