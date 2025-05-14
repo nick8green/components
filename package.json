@@ -21,6 +21,7 @@
     "prestorybook": "rm -rf storybook",
     "storybook": "storybook dev -p 6006",
     "test": "vitest run --coverage",
+    "test:coverage": "vitest run --coverage && open coverage/index.html",
     "test:watch": "vitest",
     "test:ui": "vitest --ui",
     "prepare": "husky"
