@@ -6,6 +6,9 @@ export type {
   LinkProps,
 } from "components/Footer";
 
+export * as Header from "components/Header";
+export type { HeaderProps } from "components/Header";
+
 export * as Input from "components/Input";
 export { InputType, type InputProps } from "components/Input";
 
