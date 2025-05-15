@@ -11,6 +11,8 @@
   "scripts": {
     "build": "tsc -p tsconfig.prod.json && vite build",
     "build:storybook": "storybook build -o storybook",
+    "build:watch": "vite build --watch",
+    "check": "tsc --noEmit",
     "clean": "rm -rf dist",
     "commit": "cz",
     "format": "prettier --write --parser typescript '**/*.{ts,tsx}'",
