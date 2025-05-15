@@ -1,3 +1,4 @@
+"use client";
 import type { FC } from "react";
 import dynamic from "next/dynamic";
 
@@ -95,9 +96,7 @@ const SocialMediaLink: FC<SocialMediaArgs> = ({
       rel="noreferrer"
       title={platform}
     >
-      {typeof window === "undefined" ? null : (
-        <FontAwesomeIcon data-testid="social-media-icon" icon={getIcon()} />
-      )}
+      <FontAwesomeIcon data-testid="social-media-icon" icon={getIcon()} />
       <span>{getHandle()}</span>
     </a>
   );

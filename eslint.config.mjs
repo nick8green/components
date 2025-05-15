@@ -51,6 +51,7 @@ export default [
     rules: {
       "react/react-in-jsx-scope": "off",
       "@typescript-eslint/no-explicit-any": "warn",
+      "no-restricted-globals": ["error", "document", "window"],
     },
 
     files: ["**/*.ts", "**/*.tsx"],

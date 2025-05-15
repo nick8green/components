@@ -1,3 +1,4 @@
+"use client";
 import { type FC, type FocusEvent, type FormEvent, useState } from "react";
 
 import Dropdown, { type Option } from "components/Input/Dropdown";
