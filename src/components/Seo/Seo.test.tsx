@@ -1,3 +1,4 @@
+/* eslint-disable no-restricted-globals */
 import { render } from "@testing-library/react";
 import { vi } from "vitest";
 
