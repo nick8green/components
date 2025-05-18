@@ -1,6 +1,7 @@
 {
     "compilerOptions": {
         "baseUrl": "src",
+        "rootDir": "src",
 
         "target": "ES5", // Specifies the JavaScript version to target when transpiling code.
         // "useDefineForClassFields": true, // Enables the use of 'define' for class fields.

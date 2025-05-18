@@ -4,6 +4,7 @@ import { defineConfig } from "vite";
 import { configDefaults } from "vitest/config";
 import dts from "vite-plugin-dts";
 import tsconfigPaths from "vite-tsconfig-paths";
+import react from "@vitejs/plugin-react";
 
 import { name, peerDependencies } from "./package.json";
 
@@ -17,11 +18,18 @@ export default defineConfig({
     },
     rollupOptions: {
       external: [...Object.keys(peerDependencies)], // Defines external dependencies for Rollup bundling.
+      output: {
+        globals: {
+          react: "React",
+          "react-dom": "ReactDOM",
+        },
+      },
     },
     sourcemap: true, // Generates source maps for debugging.
     emptyOutDir: true, // Clears the output directory before building.
+    target: "esnext", // Sets the target ECMAScript version for the build.
   },
-  plugins: [dts(), tsconfigPaths()], // Uses the 'vite-plugin-dts' plugin for generating TypeScript declaration files (d.ts).
+  plugins: [react(), dts(), tsconfigPaths()], // Uses the 'vite-plugin-dts' plugin for generating TypeScript declaration files (d.ts).
 
   test: {
     coverage: {
