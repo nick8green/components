@@ -26,7 +26,7 @@ export type LoaderProps = {
   type?: LoaderType;
 };
 
-const Loader: FC<LoaderProps> = ({
+export const Loader: FC<LoaderProps> = ({
   args,
   displayed = false,
   type = LoaderType.TEXT,

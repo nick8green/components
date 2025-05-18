@@ -1,14 +1,4 @@
-import dynamic from "next/dynamic";
 import type { FC, PropsWithChildren } from "react";
-import { faCircleXmark } from "@fortawesome/free-solid-svg-icons";
-
-const FontAwesomeIcon = dynamic(
-  () =>
-    import("@fortawesome/react-fontawesome").then((mod) => mod.FontAwesomeIcon),
-  {
-    ssr: false,
-  },
-);
 
 import "./style.css";
 
@@ -23,7 +13,7 @@ export type ModalProps = {
   visible: boolean;
 };
 
-const Modal: FC<PropsWithChildren<ModalProps>> = ({
+export const Modal: FC<PropsWithChildren<ModalProps>> = ({
   children,
   close,
   type = ModalType.INPUT,
@@ -39,7 +29,7 @@ const Modal: FC<PropsWithChildren<ModalProps>> = ({
         {type === ModalType.INPUT && (
           <header>
             <button className="close" onClick={() => (close ? close() : null)}>
-              Close <FontAwesomeIcon icon={faCircleXmark} />
+              Close
             </button>
           </header>
         )}

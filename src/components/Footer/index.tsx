@@ -43,7 +43,7 @@ const defaultDisplay: DisplayProps = {
   },
 };
 
-const Footer: FC<PropsWithChildren<FooterProps>> = ({
+export const Footer: FC<PropsWithChildren<FooterProps>> = ({
   children,
   contactInfo = {},
   copyright,

@@ -26,7 +26,7 @@ export type InputProps = {
   value?: string;
 };
 
-const Input: FC<InputProps> = ({
+export const Input: FC<InputProps> = ({
   id,
   label,
   max,

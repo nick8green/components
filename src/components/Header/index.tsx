@@ -8,7 +8,7 @@ export interface HeaderProps {
   socials?: SocialMediaArgs[];
 }
 
-const Header: FC<PropsWithChildren<HeaderProps>> = ({
+export const Header: FC<PropsWithChildren<HeaderProps>> = ({
   children,
   socials,
   title,
@@ -20,7 +20,7 @@ const Header: FC<PropsWithChildren<HeaderProps>> = ({
       {socials && (
         <SocialMediaList
           display={{ direction: "row", showHandles: false }}
-          socials={socials}
+          socials={socials ?? []}
         />
       )}
     </header>

@@ -10,9 +10,25 @@ import { name, peerDependencies } from "./package.json";
 export default defineConfig({
   build: {
     lib: {
-      entry: "./src/index.ts", // Specifies the entry point for building the library.
+      entry: {
+        // Specifies the entry point for building the library.
+        index: "./src/index.ts",
+        client: "./src/client.ts",
+
+        // button: "./src/components/Button/index.tsx",
+        // footer: "./src/components/Footer/index.tsx",
+        // header: "./src/components/Header/index.tsx",
+        // input: "./src/components/Input/index.tsx",
+        // modal: "./src/components/Modal/index.tsx",
+        // multiStepForm: "./src/components/MultiStepForm/index.tsx",
+        // navigation: "./src/components/Navigation/index.tsx",
+        // qrCode: "./src/components/QrCode/index.tsx",
+        // socialMediaLink: "./src/components/SocialMediaLink/index.tsx",
+        // socialMediaList: "./src/components/SocialMediaList/index.tsx",
+        // switch: "./src/components/Switch/index.tsx",
+      },
       name, // Sets the name of the generated library.
-      fileName: (format) => `index.${format}.js`, // Generates the output file name based on the format.
+      // fileName: (format) => `index.${format}.js`, // Generates the output file name based on the format.
       formats: ["cjs", "es"], // Specifies the output formats (CommonJS and ES modules).
     },
     rollupOptions: {
@@ -21,7 +37,7 @@ export default defineConfig({
     sourcemap: true, // Generates source maps for debugging.
     emptyOutDir: true, // Clears the output directory before building.
   },
-  plugins: [dts(), tsconfigPaths()], // Uses the 'vite-plugin-dts' plugin for generating TypeScript declaration files (d.ts).
+  plugins: [dts({ outDir: "dist" }), tsconfigPaths()], // Uses the 'vite-plugin-dts' plugin for generating TypeScript declaration files (d.ts).
 
   test: {
     coverage: {

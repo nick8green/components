@@ -1,16 +1,4 @@
-"use client";
 import type { FC } from "react";
-import dynamic from "next/dynamic";
-
-import * as icons from "@fortawesome/free-brands-svg-icons";
-
-const FontAwesomeIcon = dynamic(
-  () =>
-    import("@fortawesome/react-fontawesome").then((mod) => mod.FontAwesomeIcon),
-  {
-    ssr: false,
-  },
-);
 
 import "./style.css";
 
@@ -57,7 +45,7 @@ export type SocialMediaArgs = {
   url: string;
 };
 
-const SocialMediaLink: FC<SocialMediaArgs> = ({
+export const SocialMediaLink: FC<SocialMediaArgs> = ({
   displayHandle,
   handle,
   platform,
@@ -68,19 +56,6 @@ const SocialMediaLink: FC<SocialMediaArgs> = ({
       return `@${handle}`;
     }
     return handle;
-  };
-
-  const getIcon = () => {
-    switch (platform) {
-      case Platform.Facebook:
-        return icons.faSquareFacebook;
-      case Platform.X:
-        return icons.faXTwitter;
-      case Platform.Snapchat:
-        return icons.faSquareSnapchat;
-      default:
-        return icons[`fa${platform}`];
-    }
   };
 
   const getLink = () => {
@@ -96,7 +71,6 @@ const SocialMediaLink: FC<SocialMediaArgs> = ({
       rel="noreferrer"
       title={platform}
     >
-      <FontAwesomeIcon data-testid="social-media-icon" icon={getIcon()} />
       <span>{getHandle()}</span>
     </a>
   );

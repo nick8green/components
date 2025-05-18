@@ -1,11 +1,3 @@
-import { faSearchengin } from "@fortawesome/free-brands-svg-icons";
-import {
-  faBellConcierge,
-  faEarthEurope,
-  faEnvelope,
-  faHouseChimney,
-  faInfoCircle,
-} from "@fortawesome/free-solid-svg-icons";
 import type { Meta, StoryObj } from "@storybook/react";
 import Navigation from "components/Navigation";
 
@@ -33,41 +25,33 @@ export const Default: Story = {
       {
         label: "Home",
         url: "#",
-        icon: faHouseChimney,
         isActive: true,
       },
       {
-        icon: faInfoCircle,
         label: "About",
         url: "#",
       },
       {
-        icon: faBellConcierge,
         label: "Services",
         url: "#",
         children: [
           {
-            icon: faEarthEurope,
             label: "Web Development",
             url: "#",
             children: [
               {
-                icon: faEarthEurope,
                 label: "Web Development",
                 url: "#",
               },
               {
-                icon: faSearchengin,
                 label: "SEO Services",
                 url: "#",
                 children: [
                   {
-                    icon: faEarthEurope,
                     label: "Web Development",
                     url: "#",
                   },
                   {
-                    icon: faSearchengin,
                     label: "SEO Services",
                     url: "#",
                   },
@@ -76,14 +60,12 @@ export const Default: Story = {
             ],
           },
           {
-            icon: faSearchengin,
             label: "SEO Services",
             url: "#",
           },
         ],
       },
       {
-        icon: faEnvelope,
         label: "Contact",
         url: "#",
       },

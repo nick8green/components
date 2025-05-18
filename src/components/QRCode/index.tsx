@@ -28,7 +28,7 @@ type QRProps = {
   value: string | string[];
 };
 
-const QRCode: FC<QRCodeProps> = ({ display, title, value }) => {
+export const QRCode: FC<QRCodeProps> = ({ display, title, value }) => {
   const opts: QRProps = {
     bgColor: display?.background ?? "#ffffff",
     fgColor: display?.foreground ?? "#000000",

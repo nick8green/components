@@ -21,7 +21,7 @@ const defaultDisplay: SocialMediaListDisplayProps = {
   showHandles: false,
 };
 
-const SocialMediaList: FC<SocialMediaListProps> = ({
+export const SocialMediaList: FC<SocialMediaListProps> = ({
   display = defaultDisplay,
   socials = [],
 }) => {
