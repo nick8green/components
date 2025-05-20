@@ -13,7 +13,7 @@ export type Option = {
   value: string;
 };
 
-const Dropdown: FC<DropdownProps> = ({
+export const Dropdown: FC<DropdownProps> = ({
   id,
   onChange,
   options,

@@ -1,6 +1,6 @@
 import { useArgs } from "@storybook/client-api";
 import type { Meta, StoryObj } from "@storybook/react";
-import Switch from "components/Switch";
+import Switch from "components/Toggle";
 
 const meta: Meta<typeof Switch> = {
   title: "Interaction/Switch",

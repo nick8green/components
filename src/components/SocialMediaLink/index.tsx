@@ -57,7 +57,7 @@ export type SocialMediaArgs = {
   url: string;
 };
 
-const SocialMediaLink: FC<SocialMediaArgs> = ({
+export const SocialMediaLink: FC<SocialMediaArgs> = ({
   displayHandle,
   handle,
   platform,

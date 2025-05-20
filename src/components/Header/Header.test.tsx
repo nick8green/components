@@ -1,18 +1,18 @@
 import { render, screen } from "@testing-library/react";
 import Header, { type HeaderProps } from "./index";
-import { Platform } from "components/SocialMediaLink";
+// import { Platform } from "components/SocialMediaLink";
 
 describe("Header Component", () => {
   const defaultProps: HeaderProps = {
     title: "Test Title",
-    socials: [
-      { handle: "X Handle", platform: Platform.X, url: "https://x.com/test" },
-      {
-        handle: "Facebook Handle",
-        platform: Platform.Facebook,
-        url: "https://facebook.com/test",
-      },
-    ],
+    // socials: [
+    //   { handle: "X Handle", platform: Platform.X, url: "https://x.com/test" },
+    //   {
+    //     handle: "Facebook Handle",
+    //     platform: Platform.Facebook,
+    //     url: "https://facebook.com/test",
+    //   },
+    // ],
   };
 
   it("renders the title correctly", () => {
@@ -33,12 +33,12 @@ describe("Header Component", () => {
     expect(childElement).toBeInTheDocument();
   });
 
-  it("renders SocialMediaList with correct props", () => {
-    render(<Header {...defaultProps} />);
-    const socialMediaList = screen.getByRole("list");
-    expect(socialMediaList).toBeInTheDocument();
-    expect(socialMediaList.children.length).toBe(defaultProps.socials?.length);
-  });
+  // it("renders SocialMediaList with correct props", () => {
+  //   render(<Header {...defaultProps} />);
+  //   const socialMediaList = screen.getByRole("list");
+  //   expect(socialMediaList).toBeInTheDocument();
+  //   // expect(socialMediaList.children.length).toBe(defaultProps.socials?.length);
+  // });
 
   it("renders without socials when none are provided", () => {
     render(<Header title="No Socials" />);

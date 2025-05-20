@@ -1,19 +1,19 @@
-import dynamic from "next/dynamic";
-import Link from "next/link";
+// import dynamic from "next/dynamic";
+// import Link from "next/link";
 import type { FC, PropsWithChildren } from "react";
-import {
-  faCaretDown,
-  faCaretRight,
-  type IconDefinition,
-} from "@fortawesome/free-solid-svg-icons";
+// import {
+//   faCaretDown,
+//   faCaretRight,
+//   type IconDefinition,
+// } from "@fortawesome/free-solid-svg-icons";
 
-const FontAwesomeIcon = dynamic(
-  () =>
-    import("@fortawesome/react-fontawesome").then((mod) => mod.FontAwesomeIcon),
-  {
-    ssr: false,
-  },
-);
+// const FontAwesomeIcon = dynamic(
+//   () =>
+//     import("@fortawesome/react-fontawesome").then((mod) => mod.FontAwesomeIcon),
+//   {
+//     ssr: false,
+//   },
+// );
 
 import "./style.css";
 
@@ -28,44 +28,44 @@ export interface NavigationProps {
 
 export type Link = {
   children?: Link[];
-  icon?: IconDefinition;
+  // icon?: IconDefinition;
   isActive?: boolean;
   label: string;
   url: string;
 };
 
-export const getExpansionIcon = (hasChildren: boolean, topLevel: boolean) => {
-  if (!hasChildren) {
-    return null;
-  }
-  if (topLevel) {
-    return <FontAwesomeIcon className="link-icon" icon={faCaretDown} />;
-  }
-  return <FontAwesomeIcon className="link-icon" icon={faCaretRight} />;
-};
+// export const getExpansionIcon = (hasChildren: boolean, topLevel: boolean) => {
+//   if (!hasChildren) {
+//     return null;
+//   }
+//   if (topLevel) {
+//     return <FontAwesomeIcon className="link-icon" icon={faCaretDown} />;
+//   }
+//   return <FontAwesomeIcon className="link-icon" icon={faCaretRight} />;
+// };
 
 export const renderLinks = (
   links: Link[],
   levels: number,
-  topLevel: boolean = true,
+  // topLevel: boolean = true,
 ) => {
   if (levels <= 0) {
     return null;
   }
   return links.map((link) => {
-    const { icon, label, url, isActive, children } = link;
+    const { /*icon, */label, url, isActive, children } = link;
     return (
       <li key={label.replaceAll(/\s+/g, "-").toLowerCase()}>
-        <Link className={isActive ? "active-link" : ""} href={url}>
-          {icon && <FontAwesomeIcon className="link-icon" icon={icon} />}
+        <a className={isActive ? "active-link" : ""} href={url}>
+          {/* {icon && <FontAwesomeIcon className="link-icon" icon={icon} />} */}
           <span className="link-label">{label}</span>
-          {getExpansionIcon(
+          {/* {getExpansionIcon(
             levels > 1 && (children ?? []).length > 0,
             topLevel,
-          )}
-        </Link>
+          )} */}
+        </a>
         {children && children.length > 0 && (
-          <ul>{renderLinks(children, levels - 1, false)}</ul>
+          <ul>{renderLinks(children, levels - 1/*, false*/)}</ul>
         )}
       </li>
     );
@@ -87,7 +87,7 @@ export const renderLinks = (
  * @param
  * @returns
  */
-const Navigation: FC<PropsWithChildren<NavigationProps>> = ({
+export const Navigation: FC<PropsWithChildren<NavigationProps>> = ({
   children,
   levels = 10,
   links = [],

@@ -11,7 +11,7 @@ export type ToggleProps = {
   onChange: (checked: boolean) => void;
 };
 
-const Toggle: FC<ToggleProps> = ({
+export const Toggle: FC<ToggleProps> = ({
   offColour = "#708090",
   onColour = "#242424",
   checked = false,

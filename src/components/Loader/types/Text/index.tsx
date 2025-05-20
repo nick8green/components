@@ -6,7 +6,7 @@ export type TextLoaderArgs = {
   message: string;
 };
 
-const TextLoader: FC<TextLoaderArgs> = ({ message }) => (
+export const TextLoader: FC<TextLoaderArgs> = ({ message }) => (
   <p className="loader-text-message">{message}</p>
 );
 

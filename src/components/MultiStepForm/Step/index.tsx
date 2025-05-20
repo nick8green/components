@@ -7,7 +7,11 @@ type StepProps = {
   total: number;
 };
 
-const Step: FC<PropsWithChildren<StepProps>> = ({ children, step, total }) => {
+export const Step: FC<PropsWithChildren<StepProps>> = ({
+  children,
+  step,
+  total,
+}) => {
   return (
     <div>
       <h3>

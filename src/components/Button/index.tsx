@@ -15,7 +15,7 @@ export type ButtonProps = {
   type?: ButtonType;
 };
 
-const Button: FC<ButtonProps> = ({
+export const Button: FC<ButtonProps> = ({
   disabled = false,
   label,
   onClick = () => null,

@@ -6,7 +6,7 @@ export type SpinnerLoaderArgs = {
   message?: string;
 };
 
-const Spinner: FC<SpinnerLoaderArgs> = ({ message = "Loading" }) => {
+export const Spinner: FC<SpinnerLoaderArgs> = ({ message = "Loading" }) => {
   return (
     <div className="spinner">
       <div></div>

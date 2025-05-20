@@ -23,7 +23,7 @@ export type ModalProps = {
   visible: boolean;
 };
 
-const Modal: FC<PropsWithChildren<ModalProps>> = ({
+export const Modal: FC<PropsWithChildren<ModalProps>> = ({
   children,
   close,
   type = ModalType.INPUT,

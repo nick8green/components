@@ -88,7 +88,7 @@ export const components: Components = {
   h6: headingRenderer,
 };
 
-const Markdown: FC<PropsWithChildren<MarkdownProps>> = ({
+export const Markdown: FC<PropsWithChildren<MarkdownProps>> = ({
   children: content,
   renderers,
 }) => {

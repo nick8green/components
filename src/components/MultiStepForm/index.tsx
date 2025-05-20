@@ -35,7 +35,7 @@ export type MultiStepProps = {
   done: (data?: GenericObject) => void;
 };
 
-const MultiStepForm: FC<PropsWithChildren<MultiStepProps>> = ({
+export const MultiStepForm: FC<PropsWithChildren<MultiStepProps>> = ({
   children,
   done,
 }) => {

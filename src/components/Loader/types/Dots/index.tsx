@@ -6,7 +6,7 @@ export type DotsLoaderArgs = {
   message?: string;
 };
 
-const Dots: FC<DotsLoaderArgs> = ({ message = "Loading" }) => {
+export const Dots: FC<DotsLoaderArgs> = ({ message = "Loading" }) => {
   return (
     <div className="dots">
       <div id="dot-container">
