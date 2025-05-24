@@ -67,15 +67,15 @@ export const headingRenderer = ({ children, node, ...props }: any) => {
   );
 };
 
-export const imageRenderer = ({ children, ...props }: any) => {
-  return (<Image loading="lazy" {...props} />);
+export const imageRenderer = ({ ...props }: any) => {
+  return <Image loading="lazy" {...props} />;
 };
 
 export const linkRenderer = ({ children, href, node }: any) => {
   if (!/^\/[a-z0-9]+/i.exec(href)) {
     node.properties.target = "_blank";
   }
-  return (<Link {...node.properties}>{children}</Link>);
+  return <Link {...node.properties}>{children}</Link>;
 };
 
 export const components: Components = {

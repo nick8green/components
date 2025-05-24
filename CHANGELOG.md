@@ -1,3 +1,10 @@
+## [0.6.1-client-issues.rc.1](https://github.com/nick8green/components/compare/v0.6.0...v0.6.1-client-issues.rc.1) (2025-05-23)
+
+
+### Bug Fixes
+
+* client and server splitting ([c78cc1a](https://github.com/nick8green/components/commit/c78cc1adb6013af566d3f889aaba0ba82b72c191))
+
 # [0.6.0](https://github.com/nick8green/components/compare/v0.5.0...v0.6.0) (2025-05-14)
 
 

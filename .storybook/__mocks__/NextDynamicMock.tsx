@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 type DynamicImport = <T>(component: React.FC<T>) => React.FC<T>;
 

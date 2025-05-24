@@ -1,10 +1,10 @@
-// export {
-//   Footer,
-//   type ContactInfoProps,
-//   type CopyrightProps,
-//   type FooterProps,
-//   type LinkProps,
-// } from "components/Footer";
+export {
+  Footer,
+  type ContactInfoProps,
+  type CopyrightProps,
+  type FooterProps,
+  type LinkProps,
+} from "components/Footer";
 
 export { Header, type HeaderProps } from "components/Header";
 
