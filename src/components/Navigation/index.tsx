@@ -1,5 +1,5 @@
 // import dynamic from "next/dynamic";
-// import Link from "next/link";
+import Link from "next/link";
 import type { FC, PropsWithChildren } from "react";
 // import {
 //   faCaretDown,
@@ -15,7 +15,7 @@ import type { FC, PropsWithChildren } from "react";
 //   },
 // );
 
-import "./style.css";
+import "./Navigation.css";
 
 export interface NavigationProps {
   levels?: number;
@@ -56,14 +56,14 @@ export const renderLinks = (
     const { /*icon, */label, url, isActive, children } = link;
     return (
       <li key={label.replaceAll(/\s+/g, "-").toLowerCase()}>
-        <a className={isActive ? "active-link" : ""} href={url}>
+        <Link className={isActive ? "active-link" : ""} href={url}>
           {/* {icon && <FontAwesomeIcon className="link-icon" icon={icon} />} */}
           <span className="link-label">{label}</span>
           {/* {getExpansionIcon(
             levels > 1 && (children ?? []).length > 0,
             topLevel,
           )} */}
-        </a>
+        </Link>
         {children && children.length > 0 && (
           <ul>{renderLinks(children, levels - 1/*, false*/)}</ul>
         )}

@@ -4,7 +4,8 @@ import { defineConfig } from "vite";
 import { configDefaults } from "vitest/config";
 import dts from "vite-plugin-dts";
 import tsconfigPaths from "vite-tsconfig-paths";
-import cssInjectedByJsPlugin from 'vite-plugin-css-injected-by-js';
+import libCss from 'vite-plugin-libcss';
+import react from '@vitejs/plugin-react';
 
 import { name, peerDependencies } from "./package.json";
 
@@ -32,14 +33,16 @@ export default defineConfig({
     },
     sourcemap: true, // Generates source maps for debugging.
     emptyOutDir: true, // Clears the output directory before building.
+    cssCodeSplit: true, // forces bundling into a single CSS file
   },
   plugins: [
+    react(), // Uses the React plugin for Vite to handle React components.
+    libCss(), // Handles CSS files in the library build.
     dts({
       entryRoot: "src", // Specifies the root directory for entry points.
       outDir: "dist", // Specifies the output directory for generated types.
     }),
     tsconfigPaths(),
-    cssInjectedByJsPlugin(),
   ], // Uses the 'vite-plugin-dts' plugin for generating TypeScript declaration files (d.ts).
 
   test: {

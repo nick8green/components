@@ -3,6 +3,8 @@
  *     * https://medium.com/@muzaffar640/typescript-and-reactmarkdown-a-tale-of-types-tears-and-triumph-1db07a499412
  */
 
+import Image from "next/image";
+import Link from "next/link";
 import {
   Children,
   createElement,
@@ -66,14 +68,14 @@ export const headingRenderer = ({ children, node, ...props }: any) => {
 };
 
 export const imageRenderer = ({ children, ...props }: any) => {
-  return createElement("img", { ...props, loading: "lazy" }, children);
+  return (<Image loading="lazy" {...props} />);
 };
 
 export const linkRenderer = ({ children, href, node }: any) => {
-  if (/^\/[a-z0-9]+/i.exec(href)) {
-    return <a {...node.properties}>{children}</a>;
+  if (!/^\/[a-z0-9]+/i.exec(href)) {
+    node.properties.target = "_blank";
   }
-  return createElement("a", { target: "_blank", ...node.properties }, children);
+  return (<Link {...node.properties}>{children}</Link>);
 };
 
 export const components: Components = {

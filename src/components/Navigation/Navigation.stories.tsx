@@ -1,11 +1,11 @@
-import { faSearchengin } from "@fortawesome/free-brands-svg-icons";
-import {
-  faBellConcierge,
-  faEarthEurope,
-  faEnvelope,
-  faHouseChimney,
-  faInfoCircle,
-} from "@fortawesome/free-solid-svg-icons";
+// import { faSearchengin } from "@fortawesome/free-brands-svg-icons";
+// import {
+//   faBellConcierge,
+//   faEarthEurope,
+//   faEnvelope,
+//   faHouseChimney,
+//   faInfoCircle,
+// } from "@fortawesome/free-solid-svg-icons";
 import type { Meta, StoryObj } from "@storybook/react";
 import Navigation from "components/Navigation";
 
@@ -33,41 +33,41 @@ export const Default: Story = {
       {
         label: "Home",
         url: "#",
-        icon: faHouseChimney,
+        // icon: faHouseChimney,
         isActive: true,
       },
       {
-        icon: faInfoCircle,
+        // icon: faInfoCircle,
         label: "About",
         url: "#",
       },
       {
-        icon: faBellConcierge,
+        // icon: faBellConcierge,
         label: "Services",
         url: "#",
         children: [
           {
-            icon: faEarthEurope,
+            // icon: faEarthEurope,
             label: "Web Development",
             url: "#",
             children: [
               {
-                icon: faEarthEurope,
+                // icon: faEarthEurope,
                 label: "Web Development",
                 url: "#",
               },
               {
-                icon: faSearchengin,
+                // icon: faSearchengin,
                 label: "SEO Services",
                 url: "#",
                 children: [
                   {
-                    icon: faEarthEurope,
+                    // icon: faEarthEurope,
                     label: "Web Development",
                     url: "#",
                   },
                   {
-                    icon: faSearchengin,
+                    // icon: faSearchengin,
                     label: "SEO Services",
                     url: "#",
                   },
@@ -76,14 +76,14 @@ export const Default: Story = {
             ],
           },
           {
-            icon: faSearchengin,
+            // icon: faSearchengin,
             label: "SEO Services",
             url: "#",
           },
         ],
       },
       {
-        icon: faEnvelope,
+        // icon: faEnvelope,
         label: "Contact",
         url: "#",
       },
