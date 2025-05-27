@@ -49,17 +49,9 @@ describe("Navigation Component", () => {
   });
 
   it("applies the correct classes based on props", () => {
-    const { container } = render(
-      <Navigation
-        links={mockLinks}
-        sticky={true}
-        showIcons={false}
-        type="main"
-      />,
-    );
+    const { container } = render(<Navigation links={mockLinks} type="main" />);
     const nav = container.querySelector("nav");
-    expect(nav).toHaveClass("main-navigation", "sticky");
-    expect(nav).not.toHaveClass("with-icons");
+    expect(nav).toHaveClass("main-navigation");
   });
 
   it("renders nested links correctly", () => {

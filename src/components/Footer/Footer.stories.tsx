@@ -1,6 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import Footer from "components/Footer";
-import { Platform } from "components/SocialMediaLink";
 
 const meta: Meta<typeof Footer> = {
   title: "Display/Footer",
@@ -33,28 +32,6 @@ export const Default: Story = {
       {
         title: "Contact",
         url: "/contact",
-      },
-    ],
-    socials: [
-      {
-        handle: "Facebook Profile",
-        platform: Platform.Facebook,
-        url: "#",
-      },
-      {
-        handle: "Instagram Profile",
-        platform: Platform.Instagram,
-        url: "#",
-      },
-      {
-        handle: "LinkedIn Profile",
-        platform: Platform.LinkedIn,
-        url: "#",
-      },
-      {
-        handle: "Twitter Handle",
-        platform: Platform.X,
-        url: "#",
       },
     ],
   },

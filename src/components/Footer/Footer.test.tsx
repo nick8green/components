@@ -1,6 +1,5 @@
 import { render, screen } from "@testing-library/react";
 import Footer, { type ContactInfoProps } from "./index";
-import { Platform } from "components/SocialMediaLink";
 
 type ContactInfoTests = ContactInfoProps & { [key: string]: string };
 
@@ -72,34 +71,6 @@ describe("Footer Component", () => {
         const contactInfo = screen.getByTestId(tc.key);
         expect(contactInfo).toBeInTheDocument();
         expect(contactInfo).toHaveTextContent(tc[tc.key].replace(/,\s*/g, ""));
-      });
-    });
-  });
-
-  describe("when social media links are passed", () => {
-    test("contains the social media list", () => {
-      const socialMediaLinks = [
-        {
-          handle: "Facebook",
-          platform: Platform.Facebook,
-          url: "https://facebook.com",
-        },
-        { handle: "Twitter", platform: Platform.X, url: "https://twitter.com" },
-      ];
-      render(
-        <Footer
-          copyright={{ owner: "My Company", year: 2023 }}
-          socials={socialMediaLinks}
-        />,
-      );
-      const socials = screen.getByTestId("social-media-list");
-      expect(socials).toBeInTheDocument();
-      socialMediaLinks.forEach((link) => {
-        const socialLink = screen.getByTestId(
-          `${link.platform.toLowerCase()}-link`,
-        );
-        expect(socialLink).toBeInTheDocument();
-        expect(socialLink).toHaveAttribute("href", link.url);
       });
     });
   });

@@ -14,7 +14,7 @@ const meta: Meta<typeof Navigation> = {
   component: Navigation,
   decorators: [
     (Story) => (
-      <div style={{ width: "100vw", height: "7.5em" }}>
+      <div style={{ width: "100vw", height: "10em" }}>
         <Story />
       </div>
     ),

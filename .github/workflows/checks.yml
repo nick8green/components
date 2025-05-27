@@ -8,12 +8,12 @@ jobs:
   # run unit tests
   test:
     name: 🧪 unit tests
-    uses: nick8green/workflows/.github/workflows/node-unit-test.yml@main
+    uses: nick8green/workflows/.github/workflows/node-unit-test.yml@package-manager
 
   # build package
   build:
     name: 🏗️ build package
-    uses: nick8green/workflows/.github/workflows/node-build.yml@main
+    uses: nick8green/workflows/.github/workflows/node-build.yml@package-manager
 
   # build storybook
   storybook:
@@ -25,4 +25,4 @@ jobs:
   # lint code
   linting:
     name: ✏️ lint code
-    uses: nick8green/workflows/.github/workflows/node-inspect.yml@main
+    uses: nick8green/workflows/.github/workflows/node-inspect.yml@package-manager

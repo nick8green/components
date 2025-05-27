@@ -23,7 +23,7 @@
         "noFallthroughCasesInSwitch": true, // Requires handling all cases in a switch statement.
         "declaration": true, // Generates declaration files for TypeScript.
 
-        "types": ["@testing-library/jest-dom"],
+        "types": ["@testing-library/jest-dom", "vitest/globals"],
         "plugins": [{ "name": "typescript-plugin-css-modules" }],
 
         "verbatimModuleSyntax": true, // Enables verbatim module syntax.
@@ -31,7 +31,6 @@
     },
     "include": ["src", "stories"], // Specifies the directory to include when searching for TypeScript files.
     "exclude": [
-        "src/**/__docs__",
-        "src/**/__test__"
+        "src/**/*.test.tsx?"
     ]
 }
