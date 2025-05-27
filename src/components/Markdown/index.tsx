@@ -28,22 +28,18 @@ export const flattenToId = (text: string, child: any): string => {
   return Children.toArray(child?.props.children).reduce(flattenToId, text);
 };
 
-export const codeRenderer = ({
+export const codeRenderer: FC<PropsWithChildren> = ({
   children,
   className,
   language,
   ...props
-}: any) => {
-  return createElement(
-    "pre",
-    {},
-    createElement(
-      "code",
-      { className: `${className} ${language}`, ...props },
-      children,
-    ),
-  );
-};
+}: any) => (
+  <pre>
+    <code className={`${className} ${language}`} {...props}>
+      {children}
+    </code>
+  </pre>
+);
 
 export const headingRenderer = ({ children, node, ...props }: any) => {
   let tag: RegExpExecArray | null;

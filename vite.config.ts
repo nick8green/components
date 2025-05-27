@@ -2,10 +2,11 @@
 
 import { defineConfig } from "vite";
 import { configDefaults } from "vitest/config";
+import react from "@vitejs/plugin-react";
 import dts from "vite-plugin-dts";
 import tsconfigPaths from "vite-tsconfig-paths";
 
-import { name, peerDependencies } from "./package.json";
+import { name } from "./package.json";
 
 export default defineConfig({
   build: {
@@ -16,12 +17,31 @@ export default defineConfig({
       formats: ["cjs", "es"], // Specifies the output formats (CommonJS and ES modules).
     },
     rollupOptions: {
-      external: [...Object.keys(peerDependencies)], // Defines external dependencies for Rollup bundling.
+      external: [
+        "next",
+        "next/link",
+        "next/router",
+        "react-markdown",
+        "remark-gfm",
+        "rehype-react",
+        "qrcode.react",
+      ], // Defines external dependencies for Rollup bundling.
+      output: {
+        globals: {},
+      },
+      onwarn(warning, warn) {
+        if (warning.code === 'EVAL') return;
+        warn(warning);
+      },
     },
     sourcemap: true, // Generates source maps for debugging.
     emptyOutDir: true, // Clears the output directory before building.
+    cssCodeSplit: true, // Enables CSS code splitting.
   },
-  plugins: [dts(), tsconfigPaths()], // Uses the 'vite-plugin-dts' plugin for generating TypeScript declaration files (d.ts).
+  plugins: [tsconfigPaths(), react(), dts({
+    entryRoot: 'src',
+    include: ['src'],
+  })], // Uses the 'vite-plugin-dts' plugin for generating TypeScript declaration files (d.ts).
 
   test: {
     coverage: {
@@ -33,6 +53,8 @@ export default defineConfig({
         "**/*.stories.tsx",
         "**/*.test.ts",
         "**/*.test.tsx",
+        "./src/index.ts",
+        "setupTests.ts",
       ],
       include: ["src/**"],
       reporter: ["text", "json", "html"],

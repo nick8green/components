@@ -9,11 +9,11 @@ import {
   useState,
 } from "react";
 
-import Step from "./Step";
-
-import "./style.css";
 import ButtonGroup from "components/Button/Group";
 import Button from "components/Button";
+import Step from "components/MultiStepForm/Step";
+
+import "./style.css";
 
 type GenericObject = {
   [key: string]:

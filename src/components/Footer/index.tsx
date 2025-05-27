@@ -1,11 +1,6 @@
 import { Fragment, type FC, type PropsWithChildren } from "react";
 
-import type { SocialMediaArgs } from "components/SocialMediaLink";
-
 import "./style.css";
-import SocialMediaList, {
-  type SocialMediaListDisplayProps,
-} from "components/SocialMediaList";
 
 export type ContactInfoProps = {
   address?: string;
@@ -19,16 +14,10 @@ export type CopyrightProps = {
   owner: string;
 };
 
-export type DisplayProps = {
-  socialMediaDisplay: SocialMediaListDisplayProps;
-};
-
 export type FooterProps = {
   contactInfo?: ContactInfoProps;
   copyright: CopyrightProps;
-  display?: DisplayProps;
   links?: LinkProps[];
-  socials?: SocialMediaArgs[];
 };
 
 export type LinkProps = {
@@ -36,20 +25,11 @@ export type LinkProps = {
   url: string;
 };
 
-const defaultDisplay: DisplayProps = {
-  socialMediaDisplay: {
-    direction: "row",
-    showHandles: false,
-  },
-};
-
 const Footer: FC<PropsWithChildren<FooterProps>> = ({
   children,
   contactInfo = {},
   copyright,
-  display = defaultDisplay,
   links = [],
-  socials = [],
 }) => {
   return (
     <footer data-testid="footer">
@@ -94,12 +74,6 @@ const Footer: FC<PropsWithChildren<FooterProps>> = ({
                 <a href={`mailto:${contactInfo.email}`}>{contactInfo.email}</a>
               </p>
             )}
-          </div>
-          <div id="socials">
-            <SocialMediaList
-              display={display.socialMediaDisplay}
-              socials={socials}
-            />
           </div>
         </div>
       </div>
