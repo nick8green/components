@@ -15,7 +15,6 @@ Footer component for a website.
 
 - **contactInfo** _`ContactInfoProps`_ - The contact info for the business. _(optional)_
 - **copyright** _`CopyrightProps`_ - The copyright of the site.
-- **display** _`DisplayProps`_ - The display properties for the footer. _(default: \{ socialMediaDisplay: \{ direction: "row", showHandles: false, \}\})_ _(optional)_
 - **links** _`LinkProps[]`_ - The list of links to be displayed within the footer. _(default: \[\])_ _(optional)_
 - **socials** _`SocialMediaArgs[]`_ - The business' or users list of social media links. _(default: \[\])_ _(optional)_
 
@@ -31,18 +30,10 @@ Footer component for a website.
 - **year** _`number`_ - The year of the copyright.
 - **owner** _`string`_ - The copyright owner.
 
-### DisplayProps
-
-- **socialMediaDisplay** _`SocialMediaListDisplayProps`_ - See `SocialMediaListDisplayProps` on [Social Media List](?path=/docs/display-socialmedialist--docs#socialmedialistdisplayprops) component.
-
 ### LinkProps
 
 - **title** _`string`_ - The title of the link.
 - **url** _`string`_ - The URL the link should take the user to.
-
-### SocialMediaArgs
-
-See [Social Media Link](?path=/docs/display-socialmedialink--docs) component. The `displayHandle` argument will be superseeded by the `showHandles` property on this component.
 
 ## Usage
 
@@ -73,28 +64,6 @@ const Example = () => {
           {
             title: "Contact",
             url: "/contact",
-          },
-        ]}
-        socials={[
-          {
-            handle: "Facebook Profile",
-            platform: Platform.Facebook,
-            url: "#",
-          },
-          {
-            handle: "Instagram Profile",
-            platform: Platform.Instagram,
-            url: "#",
-          },
-          {
-            handle: "LinkedIn Profile",
-            platform: Platform.LinkedIn,
-            url: "#",
-          },
-          {
-            handle: "Twitter Handle",
-            platform: Platform.X,
-            url: "#",
           },
         ]}
       />

@@ -1,3 +1,15 @@
+# [1.0.0-slow-build-up.rc.1](https://github.com/nick8green/components/compare/v0.6.0...v1.0.0-slow-build-up.rc.1) (2025-05-27)
+
+
+### Features
+
+* redeveloped for server side use with next apps ([9a54697](https://github.com/nick8green/components/commit/9a54697b40a6d6eae6179fc074ecc92ddf2d5463))
+
+
+### BREAKING CHANGES
+
+*
+
 # [0.6.0](https://github.com/nick8green/components/compare/v0.5.0...v0.6.0) (2025-05-14)
 
 

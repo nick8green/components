@@ -16,6 +16,5 @@ footer > div > * { padding: 0.5em; }
 footer #links ul { list-style: none; margin: 0; padding-left: 0.5em; }
 
 footer #contact { text-align: right; width: 25%; }
-footer #contact #socials .social-media-list { justify-content: flex-end; }
 
 footer #content { flex-grow: 2; }
