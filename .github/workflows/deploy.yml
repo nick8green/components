@@ -33,10 +33,10 @@ jobs:
           registry: 'https://npm.pkg.github.com'
 
       - name: 👌 verify
-        run: npm audit signatures
+        run: yarn audit signatures
 
       - name: 👷🏼‍♂️ build
-        run: npm run build
+        run: yarn build
 
       - name: 📋 version
         env:

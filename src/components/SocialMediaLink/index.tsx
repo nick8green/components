@@ -1,16 +1,7 @@
-"use client";
 import type { FC } from "react";
-import dynamic from "next/dynamic";
 
 import * as icons from "@fortawesome/free-brands-svg-icons";
-
-const FontAwesomeIcon = dynamic(
-  () =>
-    import("@fortawesome/react-fontawesome").then((mod) => mod.FontAwesomeIcon),
-  {
-    ssr: false,
-  },
-);
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import "./style.css";
 

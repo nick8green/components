@@ -1,8 +1,15 @@
 {
+    "compilerOptions": {
+    "declaration": true,
+    "emitDeclarationOnly": true,
+    "outDir": "dist",
+    "skipLibCheck": true
+  },
+  "exclude": [
+      "src/**/*.mdx?",
+      "src/**/*.stories.*",
+      "src/**/*.test.*"
+    ],
     "extends": "./tsconfig",
-    "exclude": [
-        "src/**/*.mdx?",
-        "src/**/*.stories.*",
-        "src/**/*.test.*"
-    ]
+    "include": ["src"]
 }

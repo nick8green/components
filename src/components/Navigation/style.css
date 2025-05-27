@@ -12,9 +12,7 @@
  */
 
 nav { display: inline-block; vertical-align: top; width: 100%; }
-nav.sticky ul { position: sticky; }
-nav .link-icon { display: none; }
-nav.with-icons .link-icon { display: inline-block; }
+nav .link-icon { display: inline-block; }
 
 nav ul {
 	list-style: none;
@@ -24,19 +22,21 @@ nav ul {
 	display: inline-block;
 	vertical-align: top;
 	width: 100%;
-	color: #f0f0f0;
-    background: #4d4d4d;
+	color: darkslategrey;
 }
 
 nav li {
-    position: relative;
+	border-bottom: 0.25em solid transparent;
+	display: inline-block;
 	margin: 0;
 	padding: 0;
-	display: inline-block;
-	-webkit-transition: all .25s ease-in-out;
+    position: relative;
 	transition: all .25s ease-in-out;
+	-webkit-transition: all .25s ease-in-out;
 }
-nav ul li:hover:not(.active-link), nav ul li:focus:not(.active-link), nav ul li:active:not(.active-link) { background: #0d0d0d; }
+nav ul li:hover:not(.active-link), nav ul li:focus:not(.active-link), nav ul li:active:not(.active-link) {
+	border-bottom-color: darkslategrey;
+}
 
 nav ul li a, nav ul li a:visited, nav ul li a:hover, nav ul li a:focus, nav ul li a:active {
     display: block;
@@ -63,6 +63,6 @@ nav > ul ul ul { left: 100%; top: 0; }
 
 nav > ul li:hover > ul { display: flex; }
 
-.active-link { background-color: #04AA6D; }
+.active-link { border-bottom-color: darkslategrey; }
 
-nav svg { margin: 0 0.25em; }
+nav svg { height: 1em; margin: 0 0.25em; }

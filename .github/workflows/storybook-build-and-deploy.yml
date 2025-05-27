@@ -34,7 +34,7 @@ jobs:
         uses: nick8green/workflows/actions/node/setup@main
 
       - name: 📔 build storybook
-        run: npm run build:storybook
+        run: yarn build:storybook
 
       - if: inputs.deploy != true
         name: 📦 upload artifact build only

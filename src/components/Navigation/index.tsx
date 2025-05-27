@@ -1,4 +1,3 @@
-import dynamic from "next/dynamic";
 import Link from "next/link";
 import type { FC, PropsWithChildren } from "react";
 import {
@@ -6,14 +5,7 @@ import {
   faCaretRight,
   type IconDefinition,
 } from "@fortawesome/free-solid-svg-icons";
-
-const FontAwesomeIcon = dynamic(
-  () =>
-    import("@fortawesome/react-fontawesome").then((mod) => mod.FontAwesomeIcon),
-  {
-    ssr: false,
-  },
-);
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import "./style.css";
 
@@ -21,9 +13,6 @@ export interface NavigationProps {
   levels?: number;
   links: Link[];
   type?: "main";
-  // type: "bar" | "icons" | "list" | "main" | "sidebar";
-  sticky?: boolean;
-  showIcons?: boolean;
 }
 
 export type Link = {
@@ -55,8 +44,11 @@ export const renderLinks = (
   return links.map((link) => {
     const { icon, label, url, isActive, children } = link;
     return (
-      <li key={label.replaceAll(/\s+/g, "-").toLowerCase()}>
-        <Link className={isActive ? "active-link" : ""} href={url}>
+      <li
+        className={isActive ? "active-link" : ""}
+        key={label.replaceAll(/\s+/g, "-").toLowerCase()}
+      >
+        <Link href={url}>
           {icon && <FontAwesomeIcon className="link-icon" icon={icon} />}
           <span className="link-label">{label}</span>
           {getExpansionIcon(
@@ -91,8 +83,6 @@ const Navigation: FC<PropsWithChildren<NavigationProps>> = ({
   children,
   levels = 10,
   links = [],
-  showIcons = true,
-  sticky = false,
   type = "main",
 }) => {
   if (links.length === 0) {
@@ -100,9 +90,7 @@ const Navigation: FC<PropsWithChildren<NavigationProps>> = ({
   }
 
   return (
-    <nav
-      className={`${type}-navigation ${sticky ? "sticky" : ""} ${showIcons ? "with-icons" : ""}`}
-    >
+    <nav className={`${type}-navigation`}>
       {children}
       <ul>{renderLinks(links, levels)}</ul>
     </nav>
