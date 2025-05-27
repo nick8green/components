@@ -1,3 +1,24 @@
+# [1.0.0](https://github.com/nick8green/components/compare/v0.4.0...v1.0.0) (2025-05-27)
+
+
+* Slow build up ([#78](https://github.com/nick8green/components/issues/78)) ([efeb27f](https://github.com/nick8green/components/commit/efeb27fa209481050d988530fbd527f29a59eb3f))
+
+
+### Features
+
+* **header:** added a header component ([e04349f](https://github.com/nick8green/components/commit/e04349f8a06a445ce0aa5b01e304dce542fc00a0))
+* **Navigation:** added navigation component ([255094f](https://github.com/nick8green/components/commit/255094fa3be60ded8fe3f61b453812168c89b7a8))
+* **seo:** added SEO component ([f612a80](https://github.com/nick8green/components/commit/f612a808d90dc83fc97200ba3e8d391f4d11c17a))
+
+
+### BREAKING CHANGES
+
+* * chore(release): 1.0.0-slow-build-up.rc.1 [skip ci]
+
+* redeveloped for server side use with next apps ([9a54697](https://github.com/nick8green/components/commit/9a54697b40a6d6eae6179fc074ecc92ddf2d5463))
+
+*
+
 # [1.0.0-slow-build-up.rc.1](https://github.com/nick8green/components/compare/v0.6.0...v1.0.0-slow-build-up.rc.1) (2025-05-27)
 
 
