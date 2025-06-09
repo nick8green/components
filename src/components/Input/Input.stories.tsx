@@ -1,6 +1,6 @@
 import type { FormEvent } from "react";
 import { useArgs } from "@storybook/client-api";
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react-vite";
 
 import Input, { type InputProps, InputType } from "components/Input";
 
