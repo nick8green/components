@@ -6,7 +6,7 @@ import {
   faHouseChimney,
   faInfoCircle,
 } from "@fortawesome/free-solid-svg-icons";
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react-vite";
 import Navigation from "components/Navigation";
 
 const meta: Meta<typeof Navigation> = {
