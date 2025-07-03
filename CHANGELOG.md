@@ -1,3 +1,29 @@
+# [2.0.0](https://github.com/nick8green/components/compare/v1.0.0...v2.0.0) (2025-07-03)
+
+
+* Slow build up ([#78](https://github.com/nick8green/components/issues/78)) ([1f729b6](https://github.com/nick8green/components/commit/1f729b623ec94b17639d42196280313a1be30fc6))
+
+
+### Bug Fixes
+
+* dependency updates ([3ddefe5](https://github.com/nick8green/components/commit/3ddefe5a2ca7212191c81a0e566e911729591db7))
+
+
+### Features
+
+* **header:** added a header component ([326a742](https://github.com/nick8green/components/commit/326a7424a5e16c38fd074228b3da69e6f098b8d2))
+* **Navigation:** added navigation component ([4d31e72](https://github.com/nick8green/components/commit/4d31e7216c10dd907694d2c5be7d49882350ef6f))
+* **seo:** added SEO component ([2b025eb](https://github.com/nick8green/components/commit/2b025ebc49d412963a8070b7f6cac5134b50c052))
+
+
+### BREAKING CHANGES
+
+* * chore(release): 1.0.0-slow-build-up.rc.1 [skip ci]
+
+* redeveloped for server side use with next apps ([9a54697](https://github.com/nick8green/components/commit/9a54697b40a6d6eae6179fc074ecc92ddf2d5463))
+
+*
+
 # [2.0.0-version-bumps.rc.1](https://github.com/nick8green/components/compare/v1.0.0...v2.0.0-version-bumps.rc.1) (2025-07-03)
 
 
