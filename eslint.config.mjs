@@ -15,6 +15,11 @@ const compat = new FlatCompat({
   allConfig: js.configs.all,
 });
 
+const cleanGlobals = (obj) =>
+  Object.fromEntries(
+    Object.entries(obj).map(([key, value]) => [key.trim(), value]),
+  );
+
 export default [
   ...fixupConfigRules(
     compat.extends(
@@ -41,8 +46,8 @@ export default [
 
     languageOptions: {
       globals: {
-        ...globals.jest,
-        ...globals.browser,
+        ...cleanGlobals(globals.jest),
+        ...cleanGlobals(globals.browser),
       },
 
       parser: tsParser,

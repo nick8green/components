@@ -9,6 +9,11 @@ updates:
         dependency-type: "production"
       development-dependencies:
         dependency-type: "development"
+      storybook:
+        patterns:
+          - "storybook"
+          - "@storybook/*"
+          - "*storybook"
     target-branch: "release"
     assignees:
       - "nick8green"

@@ -1,4 +1,5 @@
-import type { Preview } from "@storybook/react";
+import { MINIMAL_VIEWPORTS } from "storybook/viewport";
+import type { Preview } from "@storybook/react-vite";
 
 const preview: Preview = {
   parameters: {
@@ -10,6 +11,10 @@ const preview: Preview = {
       },
     },
     layout: "centered",
+    viewport: {
+      viewports: MINIMAL_VIEWPORTS,
+      defaultViewport: "responsive",
+    },
   },
 };
 
