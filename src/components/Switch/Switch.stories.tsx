@@ -1,5 +1,5 @@
 import { useArgs } from "@storybook/client-api";
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react-vite";
 import Switch from "components/Switch";
 
 const meta: Meta<typeof Switch> = {
