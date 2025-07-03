@@ -30,7 +30,7 @@ export default defineConfig({
         globals: {},
       },
       onwarn(warning, warn) {
-        if (warning.code === 'EVAL') return;
+        if (warning.code === "EVAL") return;
         warn(warning);
       },
     },
@@ -38,10 +38,14 @@ export default defineConfig({
     emptyOutDir: true, // Clears the output directory before building.
     cssCodeSplit: true, // Enables CSS code splitting.
   },
-  plugins: [tsconfigPaths(), react(), dts({
-    entryRoot: 'src',
-    include: ['src'],
-  })], // Uses the 'vite-plugin-dts' plugin for generating TypeScript declaration files (d.ts).
+  plugins: [
+    tsconfigPaths(),
+    react(),
+    dts({
+      entryRoot: "src",
+      include: ["src"],
+    }),
+  ], // Uses the 'vite-plugin-dts' plugin for generating TypeScript declaration files (d.ts).
 
   test: {
     coverage: {
