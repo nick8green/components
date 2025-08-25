@@ -1,3 +1,10 @@
+## [2.0.1-dep-updates.rc.1](https://github.com/nick8green/components/compare/v2.0.0...v2.0.1-dep-updates.rc.1) (2025-08-25)
+
+
+### Bug Fixes
+
+* upgrade @fortawesome/react-fontawesome from 0.2.2 to 0.2.3 ([d0ea540](https://github.com/nick8green/components/commit/d0ea540c5e8b724f796eaa4c4107cfaf5775d41c))
+
 # [2.0.0](https://github.com/nick8green/components/compare/v1.0.0...v2.0.0) (2025-07-03)
 
 
