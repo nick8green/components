@@ -40,16 +40,45 @@ describe("colour utility tests", () => {
       });
     });
 
+    it(`#000 to RGB`, () => {
+      expect(hexToRgb("#000")).toEqual([0, 0, 0]);
+    });
+
     it("errors if the hex value is too short", () => {
-      expect(() => hexToRgb("#123")).toThrow(
-        "please specify a valid hex colour value (^#[0-9a-f]{6})!",
+      expect(() => hexToRgb("#12")).toThrow(
+        "please specify a valid hex colour value (^#?[0-9a-f]{3|6})!",
+      );
+      expect(() => hexToRgb("12")).toThrow(
+        "please specify a valid hex colour value (^#?[0-9a-f]{3|6})!",
       );
     });
 
-    it("errors if the hex value is invalid", () => {
-      expect(() => hexToRgb("123456")).toThrow(
-        "please specify a valid hex colour value (^#[0-9a-f]{6})!",
+    it("errors if the hex value is too long", () => {
+      expect(() => hexToRgb("#1234567")).toThrow(
+        "please specify a valid hex colour value (^#?[0-9a-f]{3|6})!",
       );
+      expect(() => hexToRgb("1234567")).toThrow(
+        "please specify a valid hex colour value (^#?[0-9a-f]{3|6})!",
+      );
+    });
+
+    it("errors if the hex value is between 3 and 6", () => {
+      expect(() => hexToRgb("#12ab")).toThrow(
+        "please specify a valid hex colour value (^#?[0-9a-f]{3|6})!",
+      );
+      expect(() => hexToRgb("12abc")).toThrow(
+        "please specify a valid hex colour value (^#?[0-9a-f]{3|6})!",
+      );
+    });
+
+    it("errors if the hex value has invalid characters", () => {
+      expect(() => hexToRgb("123xyz")).toThrow(
+        "please specify a valid hex colour value (^#?[0-9a-f]{3|6})!",
+      );
+    });
+
+    it("converts three character hex successfully", () => {
+      expect(hexToRgb("353")).toEqual([51, 85, 51]);
     });
   });
 
