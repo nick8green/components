@@ -43,6 +43,7 @@ export {
   type SocialMediaListProps,
 } from "components/SocialMediaList";
 export { default as Switch, type ToggleProps } from "components/Switch";
+export { default as Timeline, type TimelineProps } from "components/Timeline";
 
 // Utilities
 
