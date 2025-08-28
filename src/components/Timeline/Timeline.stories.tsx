@@ -4,7 +4,12 @@ import type { Meta, StoryObj } from "@storybook/react-vite";
 import Timeline from "components/Timeline";
 
 const meta: Meta<typeof Timeline> = {
-  argTypes: {},
+  argTypes: {
+    display: {
+      options: ["vertical"],
+      control: { type: "radio" },
+    },
+  },
   component: Timeline,
   decorators: [
     (Story) => (
