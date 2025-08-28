@@ -5,7 +5,7 @@ import * as Timeline from "./Timeline.stories.tsx";
 
 # Timeline
 
-Timeline component.
+This is a timeline component which renders a list of events in chronological order. It can be in ascending or descending order. The list of items is required and that list must include the date and the content to display. The content for each even can be just a string or it's own react element. The list is a vertical list at this time with each item alternating sides.
 
 #### Example
 
@@ -13,19 +13,20 @@ Timeline component.
 
 ## Arguments
 
-- **dateFormat** _`string`_ - . _(default: vertical)_ _(optional)_
-- **display** _`"horizontal" | "vertical"`_ - . _(default: DD/MM/YYYY)_ _(optional)_
-- **order** _`"asc" | "desc"`_ - . _(default: asc)_ _(optional)_
-- **items** _`Item`_ - . _(default: [])_
+- **dateFormat** _`string`_ - The format that any dates should be displayed in. _(default: "DD/MM/YYYY")_ _(optional)_
+- **dateLocation** _`"default" | "alternate"`_ - Whether the dates should remain with each event or be on the alternate side. _(default: "default")_ _(optional)_
+- **display** _`"vertical"`_ - The orientation of the timeline. At this point, it can only be vertical. _(default: "vertical")_ _(optional)_
+- **order** _`"asc" | "desc"`_ - The order that the events should be listed. _(default: "asc")_ _(optional)_
+- **items** _`Item[]`_ - The events to be listed on the timeline. _(default: [])_
 
 ### Timeline Item Props
 
-- **content** _`string | ReactNode`_ - .
-- **date** _`Date`_ - .
-- **icon** _`ReactNode`_ - . _(default: )_ _(optional)_
-- **link** _`string`_ - . _(default: )_ _(optional)_
-- **tag** _`string`_ - . _(default: )_ _(optional)_
-- **title** _`string`_ - . _(default: )_ _(optional)_
+- **content** _`string | ReactNode`_ - The content to be displayed for the event. It can be a string which will be output in markdown or it can be a react component itself.
+- **date** _`Date`_ - The date of the event/item.
+- **icon** _`ReactNode`_ - An icon or element to be displayed on the timeline itself.
+- **link** _`string`_ - A link that can take the user to a new page to get greater detail.
+- **tag** _`string`_ - A tag which can be displayed on each event.
+- **title** _`string`_ - The title of the event if there is to be one.
 
 ## Usage
 
@@ -35,6 +36,31 @@ import {Timeline} from "@nick8green/components";
 const Example = () => {
   return (
       <Timeline
+        dateFormat="ddd Do MMM YYYY",
+        items={[
+          {
+            icon: "🎉",
+            title: "Event One",
+            date: new Date("2025-08-21"),
+            content:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non erat sodales, gravida ex et, tempus sapien. Integer dignissim faucibus metus id cursus. Duis cursus erat a tellus ornare, ut molestie massa tincidunt. In viverra, diam sed fringilla tempus, justo nulla vestibulum felis, at imperdiet leo magna ac metus. Nunc facilisis rutrum diam, ut eleifend nunc efficitur semper. Nam arcu massa, fringilla at semper dapibus, volutpat at arcu. Integer est urna, consequat vel est a, consequat vulputate leo. Nulla ut risus at elit rhoncus mollis vel in magna. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.",
+          },
+          {
+            date: new Date("2025-08-22"),
+            content:
+              "Maecenas sodales volutpat leo, ac mattis arcu blandit id. Cras aliquam dapibus sem non tempus. Vivamus vitae dolor eget velit fringilla bibendum quis et sem. Curabitur accumsan bibendum elit molestie interdum. Donec pellentesque neque et pharetra tempor. Maecenas ullamcorper quis justo at fringilla. Aenean id interdum diam, a sodales nisl. Suspendisse sed diam eu leo consectetur rutrum. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Donec venenatis urna dapibus ullamcorper ultricies. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Cras vitae nunc feugiat, eleifend turpis vel, hendrerit turpis.",
+            tag: "In Progress",
+            link: "https://example.com",
+          },
+          {
+            title: "Event Three",
+            icon: <FontAwesomeIcon icon={faCode} />,
+            date: new Date("2025-08-23"),
+            content:
+              "Cras sem sem, maximus nec sem et, congue suscipit nunc. Integer mattis luctus dui in facilisis. Morbi eget eros eget urna dictum hendrerit. Aliquam pharetra urna a posuere rutrum. Morbi ac urna sed risus eleifend scelerisque et nec turpis. Aliquam erat volutpat. Praesent vehicula dictum nulla tristique aliquam.",
+            tag: "Completed",
+          },
+        ]}
       />
   );
 };

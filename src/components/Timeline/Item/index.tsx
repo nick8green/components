@@ -35,7 +35,10 @@ export const Item: FC<ItemProps> = ({
   }
 
   return (
-    <div className={`timeline-item date-${display}`}>
+    <div
+      className={`timeline-item date-${display}`}
+      data-testid="timeline-item"
+    >
       <span className="circle">
         <span>{icon}</span>
       </span>

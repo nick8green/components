@@ -9,13 +9,11 @@
     padding: 0;
     position: relative;
     width: 100%;
-
-    border: 1px solid red;
 }
 .timeline.horizontal {
     flex-direction: row;
     height: 100vh;
-    overflow-x: auto;
+    overflow-x: scroll;
 }
 
 .timeline:after {

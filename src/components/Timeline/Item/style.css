@@ -10,7 +10,7 @@
     --horizontal-height: 40%;
     --horizontal-width: 25em;
 
-    --item-width: 50%;
+    --vertical-width: 50%;
 }
 
 .timeline-item {
@@ -20,16 +20,15 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    /* justify-content: flex-end; */
     margin: 1em;
     padding: 1em;
     position: relative;
-    width: calc(var(--item-width) - var(--circle-size) - var(--circle-offset-line) - 4.35em);
+    width: calc(var(--vertical-width) - var(--circle-size) - var(--circle-offset-line) - 4.35em);
     z-index: 10;
 }
 .timeline.horizontal .timeline-item {
     height: calc(var(--horizontal-height) - var(--circle-size) - var(--circle-offset-line) - 1em);
-    max-width: var(--horizontal-width);
+    min-width: var(--horizontal-width);
 }
 .timeline-item:nth-child(even) { align-self: flex-end; justify-content: flex-start; }
 .timeline-item:after {
@@ -38,7 +37,7 @@
     box-shadow: 0.1em -0.1em 0.1em rgba(0, 0, 0, 0.2);
     position: absolute;
     right: -0.5em;
-    top: calc(var(--item-width) - 0.5em);
+    top: calc(var(--vertical-width) - 0.5em);
     transform: rotate(45deg);
     width: 1em;
     height: 1em;
@@ -86,12 +85,12 @@
 }
 .timeline-item:nth-child(even) .tag { left: auto; right: 0.3em; }
 
-.timeline-item time { color: #777; font-size: 0.7em; margin: -0.5em 0 0.5em; }
+.timeline-item time { color: #777; font-size: 0.7em; margin: 0.5em 0.5em 0; }
 .timeline-item.date-alternate time {
     font-size: 1.25em;
     position: absolute;
     right: calc(var(--circle-placement) - var(--circle-size) - 9em);
-    top: calc(var(--item-width) - var(--circle-offset-top) + 1em);
+    top: calc(var(--vertical-width) - var(--circle-offset-top) + 1em);
     white-space: nowrap;
     z-index: 100;
 }
@@ -105,7 +104,7 @@
     border: var(--timeline-line-width) solid var(--colour-primary, #50c878);
     border-radius: 50%;
     position: absolute;
-    top: calc(var(--item-width) - var(--circle-offset-top));
+    top: calc(var(--vertical-width) - var(--circle-offset-top));
     right: var(--circle-placement);
     width: var(--circle-size);
     height: var(--circle-size);
@@ -117,7 +116,7 @@
 }
 .timeline-item .circle:hover { cursor: pointer; }
 .timeline.horizontal .timeline-item .circle { left: calc(50% - 0.9em); top: calc(50vh - var(--circle-size) - 0.1em); }
-/* .timeline.horizontal .timeline-item .circle { bottom: calc(var(--item-width) - var(--circle-offset-top)); left: calc(50% - 1em); top: calc(50vh - var(--circle-size) - 0.1em); } */
+/* .timeline.horizontal .timeline-item .circle { bottom: calc(var(--vertical-width) - var(--circle-offset-top)); left: calc(50% - 1em); top: calc(50vh - var(--circle-size) - 0.1em); } */
 .timeline-item:nth-child(even) .circle { left: var(--circle-placement); }
 /* .timeline.horizontal .timeline-item:nth-child(even) .circle { top: calc(-1.5em - var(--circle-size)); } */
 .timeline.horizontal .timeline-item:nth-child(even) .circle { top: calc(0 - var(--circle-offset)); }
@@ -128,7 +127,7 @@
     .timeline-item:nth-child(even) .content { text-align: center; align-items: center; }
     .timeline-item .tag { margin: -2em 0 0.5em; position: relative; width: 100%; text-align: center; }
     .timeline-item time { margin-top: 0.25em; }
-    .timeline-item.date-alternate time { top: calc(var(--item-width) - var(--circle-offset-top)); }
+    .timeline-item.date-alternate time { top: calc(var(--vertical-width) - var(--circle-offset-top)); }
     .timeline-item .content a { text-decoration: underline; }
     .timeline-item .content a:after { display: none; }
 }

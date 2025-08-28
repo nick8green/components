@@ -11,13 +11,11 @@ import {
   type ItemProps as Item,
 } from "components/Timeline/Item";
 
-export type DisplayProps = {
-};
-
 export type TimelineProps = {
   dateFormat?: string;
   dateLocation?: "default" | "alternate";
-  display?: "horizontal" | "vertical";
+  display?: "vertical";
+  // display?: "horizontal" | "vertical";
   order?: "asc" | "desc";
   items: Item[];
 };

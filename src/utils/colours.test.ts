@@ -5,6 +5,15 @@ interface ConversionTest {
   rgb: [number, number, number];
 }
 
+const testInvalidHex = (hex: string) =>
+  expect(() => hexToRgb(hex)).toThrow(
+    "please specify a valid hex colour value (^#?[0-9a-f]{3|6})!",
+  );
+const testInvalidRgb = (r: number, g: number, b: number) =>
+  expect(() => rgbToHex(r, g, b)).toThrow(
+    "please specify a valid colour value (0-255)!",
+  );
+
 describe("colour utility tests", () => {
   const conversionTests: ConversionTest[] = [
     {
@@ -45,36 +54,22 @@ describe("colour utility tests", () => {
     });
 
     it("errors if the hex value is too short", () => {
-      expect(() => hexToRgb("#12")).toThrow(
-        "please specify a valid hex colour value (^#?[0-9a-f]{3|6})!",
-      );
-      expect(() => hexToRgb("12")).toThrow(
-        "please specify a valid hex colour value (^#?[0-9a-f]{3|6})!",
-      );
+      testInvalidHex("#12");
+      testInvalidHex("12");
     });
 
     it("errors if the hex value is too long", () => {
-      expect(() => hexToRgb("#1234567")).toThrow(
-        "please specify a valid hex colour value (^#?[0-9a-f]{3|6})!",
-      );
-      expect(() => hexToRgb("1234567")).toThrow(
-        "please specify a valid hex colour value (^#?[0-9a-f]{3|6})!",
-      );
+      testInvalidHex("#1234567");
+      testInvalidHex("1234567");
     });
 
     it("errors if the hex value is between 3 and 6", () => {
-      expect(() => hexToRgb("#12ab")).toThrow(
-        "please specify a valid hex colour value (^#?[0-9a-f]{3|6})!",
-      );
-      expect(() => hexToRgb("12abc")).toThrow(
-        "please specify a valid hex colour value (^#?[0-9a-f]{3|6})!",
-      );
+      testInvalidHex("#12ab");
+      testInvalidHex("12abc");
     });
 
     it("errors if the hex value has invalid characters", () => {
-      expect(() => hexToRgb("123xyz")).toThrow(
-        "please specify a valid hex colour value (^#?[0-9a-f]{3|6})!",
-      );
+      testInvalidHex("123xyz");
     });
 
     it("converts three character hex successfully", () => {
@@ -91,43 +86,31 @@ describe("colour utility tests", () => {
 
     describe("errors if the red value is", () => {
       it("is below 0", () => {
-        expect(() => rgbToHex(-1, 10, 20)).toThrow(
-          "please specify a valid colour value (0-255)!",
-        );
+        testInvalidRgb(-1, 10, 20);
       });
 
       it("is above 255", () => {
-        expect(() => rgbToHex(300, 10, 20)).toThrow(
-          "please specify a valid colour value (0-255)!",
-        );
+        testInvalidRgb(300, 10, 20);
       });
     });
 
     describe("errors if the green value is", () => {
       it("is below 0", () => {
-        expect(() => rgbToHex(10, -20, 30)).toThrow(
-          "please specify a valid colour value (0-255)!",
-        );
+        testInvalidRgb(10, -20, 30);
       });
 
       it("is above 255", () => {
-        expect(() => rgbToHex(10, 2000, 30)).toThrow(
-          "please specify a valid colour value (0-255)!",
-        );
+        testInvalidRgb(10, 2000, 30);
       });
     });
 
     describe("errors if the blue value is", () => {
       it("is below 0", () => {
-        expect(() => rgbToHex(10, 20, -30)).toThrow(
-          "please specify a valid colour value (0-255)!",
-        );
+        testInvalidRgb(10, 20, -30);
       });
 
       it("is above 255", () => {
-        expect(() => rgbToHex(10, 20, 300)).toThrow(
-          "please specify a valid colour value (0-255)!",
-        );
+        testInvalidRgb(10, 20, 300);
       });
     });
   });
