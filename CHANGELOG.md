@@ -1,3 +1,12 @@
+# [2.1.0](https://github.com/nick8green/components/compare/v2.0.1...v2.1.0) (2025-08-28)
+
+
+### Features
+
+* initial timeline ([638fdbb](https://github.com/nick8green/components/commit/638fdbb32da8414e8a389009612e1e630399c8c2))
+* **timeline:** horizontal timeline with vertical pending ([dc0ea8d](https://github.com/nick8green/components/commit/dc0ea8d198d01978497c8529edcb13b78acb3dfe))
+* **timeline:** vertical timeline implemented, horizontal in progress ([2956b9c](https://github.com/nick8green/components/commit/2956b9c9469964beeb0aedf5456a509d15d8860e))
+
 # [2.1.0-timeline.rc.1](https://github.com/nick8green/components/compare/v2.0.1...v2.1.0-timeline.rc.1) (2025-08-28)
 
 
