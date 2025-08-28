@@ -116,7 +116,7 @@ jobs:
       - name: Create PR
         uses: devops-infra/action-pull-request@v0.6.1
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.GH_PAT }}
           label: automatic
           source_branch: release
           target_branch: main
