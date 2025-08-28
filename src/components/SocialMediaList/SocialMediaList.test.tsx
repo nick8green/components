@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import SocialMediaList from "./index";
+import SocialMediaList from "components/SocialMediaList";
 import { Platform } from "components/SocialMediaLink";
 
 describe("Social Media List Component", () => {

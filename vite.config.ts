@@ -18,6 +18,7 @@ export default defineConfig({
     },
     rollupOptions: {
       external: [
+        "moment",
         "next",
         "next/link",
         "next/router",

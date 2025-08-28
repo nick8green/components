@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import Header, { type HeaderProps } from "./index";
+import Header, { type HeaderProps } from "components/Header";
 
 describe("Header Component", () => {
   const defaultProps: HeaderProps = {

@@ -13,10 +13,19 @@ Timeline component.
 
 ## Arguments
 
-- **display** _`DisplayMode`_ - . _(optional)_ _(Default: DisplayMode.HORIZONTAL)_
-- **items** _``_ - . _(optional)_ _(Default: [])_
-- **show** _`boolean`_ - . _(optional)_ _(Default: false)_
-- **toolbar** _`boolean`_ - . _(optional)_ _(Default: false)_
+- **dateFormat** _`string`_ - . _(default: vertical)_ _(optional)_
+- **display** _`"horizontal" | "vertical"`_ - . _(default: DD/MM/YYYY)_ _(optional)_
+- **order** _`"asc" | "desc"`_ - . _(default: asc)_ _(optional)_
+- **items** _`Item`_ - . _(default: [])_
+
+### Timeline Item Props
+
+- **content** _`string | ReactNode`_ - .
+- **date** _`Date`_ - .
+- **icon** _`ReactNode`_ - . _(default: )_ _(optional)_
+- **link** _`string`_ - . _(default: )_ _(optional)_
+- **tag** _`string`_ - . _(default: )_ _(optional)_
+- **title** _`string`_ - . _(default: )_ _(optional)_
 
 ## Usage
 
@@ -26,8 +35,6 @@ import {Timeline} from "@nick8green/components";
 const Example = () => {
   return (
       <Timeline
-        display={}
-        items={[]}
       />
   );
 };

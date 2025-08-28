@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import Footer, { type ContactInfoProps } from "./index";
+import Footer, { type ContactInfoProps } from "components/Footer";
 
 type ContactInfoTests = ContactInfoProps & { [key: string]: string };
 

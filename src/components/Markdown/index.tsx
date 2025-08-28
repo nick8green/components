@@ -15,7 +15,6 @@ import rehypeReact from "rehype-react";
 import remarkGfm from "remark-gfm";
 
 export type MarkdownProps = {
-  children: string;
   renderers?: { [key: string]: Component };
 };
 
