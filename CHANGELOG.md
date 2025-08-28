@@ -1,3 +1,10 @@
+# [2.2.0](https://github.com/nick8green/components/compare/v2.1.0...v2.2.0) (2025-08-28)
+
+
+### Features
+
+* deployment improvements ([3445774](https://github.com/nick8green/components/commit/344577488fefb7f2390959cce501395d852612d0))
+
 # [2.1.0](https://github.com/nick8green/components/compare/v2.0.1...v2.1.0) (2025-08-28)
 
 
