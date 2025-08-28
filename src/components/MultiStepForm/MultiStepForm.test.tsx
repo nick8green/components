@@ -1,6 +1,6 @@
 import { vi } from "vitest";
 import { render, fireEvent } from "@testing-library/react";
-import MultiStepForm, { type StepProps } from "./index";
+import MultiStepForm, { type StepProps } from "components/MultiStepForm";
 import type { FC } from "react";
 
 describe("MultiStepForm", () => {

@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import Markdown, { flattenToId, headingRenderer } from "./index";
+import Markdown, { flattenToId, headingRenderer } from "components/Markdown";
 
 type TestCase = {
   attributes?: Record<string, string>;

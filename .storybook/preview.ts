@@ -5,12 +5,21 @@ import "./styles.css";
 
 const preview: Preview = {
   parameters: {
+    backgrounds: {
+      options: {
+        dark: { name: "Dark", value: "#333" },
+        light: { name: "Light", value: "#F7F9F2" },
+      },
+    },
     controls: {
       expanded: true,
       matchers: {
         color: /(background|color)$/i,
         date: /Date$/i,
       },
+    },
+    initialGlobals: {
+      backgrounds: { value: "light" },
     },
     layout: "centered",
     viewport: {

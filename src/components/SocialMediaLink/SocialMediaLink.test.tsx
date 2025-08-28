@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import { describe, test, vi } from "vitest";
-import Socials, { Platform } from "./index";
+import Socials, { Platform } from "components/SocialMediaLink";
 
 vi.mock("@fortawesome/react-fontawesome", () => {
   return {

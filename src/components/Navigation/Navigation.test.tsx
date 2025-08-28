@@ -1,6 +1,10 @@
 import { render, screen } from "@testing-library/react";
 import { describe, it, vi, expect } from "vitest";
-import Navigation, { getExpansionIcon, renderLinks, type Link } from "./index";
+import Navigation, {
+  getExpansionIcon,
+  renderLinks,
+  type Link,
+} from "components/Navigation";
 import { faHome } from "@fortawesome/free-solid-svg-icons";
 
 vi.mock("@fortawesome/react-fontawesome", () => {
