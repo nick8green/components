@@ -5,7 +5,11 @@ on:
     branches:
       - "**"
       - "!main"
-
+  pull_request:
+    types: 
+      - opened
+      - reopened
+      - synchronize
   workflow_dispatch:
 
 jobs:
@@ -26,9 +30,6 @@ jobs:
         with:
           registry: 'https://npm.pkg.github.com'
           token: ${{ secrets.GH_PAT }}
-
-      - name: 👷🏼‍♂️ build
-        run: yarn build
 
       - name: 🔍 release dry run
         id: dryrun
@@ -79,9 +80,6 @@ jobs:
 
       - name: 👌 verify
         run: yarn audit signatures
-
-      - name: 👷🏼‍♂️ build
-        run: yarn build
 
       - name: 📋 version
         env:
