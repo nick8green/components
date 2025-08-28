@@ -31,6 +31,7 @@ jobs:
         uses: nick8green/workflows/actions/node/setup@main
         with:
           registry: 'https://npm.pkg.github.com'
+          token: ${{ secrets.GH_TOKEN }}
 
       - name: 👌 verify
         run: yarn audit signatures
