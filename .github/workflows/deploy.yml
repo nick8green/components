@@ -13,11 +13,55 @@ jobs:
     name: ✅ checks
     uses: ./.github/workflows/checks.yml
 
+  dry-run-comment:
+    name: 🧪 release dry run
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🛎️ checkout code
+        uses: actions/checkout@v5
+
+      - name: 🧱 setup workspace
+        uses: nick8green/workflows/actions/node/setup@main
+        with:
+          registry: 'https://npm.pkg.github.com'
+          token: ${{ secrets.GH_PAT }}
+
+      - name: 👷🏼‍♂️ build
+        run: yarn build
+
+      - name: 🔍 release dry run
+        id: dryrun
+        env:
+          GH_TOKEN: ${{ secrets.GH_PAT }}
+          NODE_AUTH_TOKEN: ${{ secrets.GH_PAT }}
+        run: |
+          npx semantic-release --dry-run --no-ci > dryrun.txt
+          echo "### Semantic Release Dry Run Output" > comment.md
+          echo "\`\`\`" >> comment.md
+          tail -n 50 dryrun.txt >> comment.md
+          echo "\`\`\`" >> comment.md
+
+      - name: 💬 comment on PR
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const fs = require('fs');
+            const body = fs.readFileSync('comment.md', 'utf8');
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body
+            });
+
   version:
     name: ⛙ versioning
     needs:
       - checks
     runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/release' && github.event_name == 'push'
     permissions:
       contents: write
       issues: write
@@ -31,7 +75,7 @@ jobs:
         uses: nick8green/workflows/actions/node/setup@main
         with:
           registry: 'https://npm.pkg.github.com'
-          token: ${{ secrets.GH_TOKEN }}
+          token: ${{ secrets.GH_PAT }}
 
       - name: 👌 verify
         run: yarn audit signatures
@@ -41,8 +85,8 @@ jobs:
 
       - name: 📋 version
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.GH_PAT }}
+          NODE_AUTH_TOKEN: ${{ secrets.GH_PAT }}
         run: npx semantic-release
 
   storybook:
@@ -72,7 +116,7 @@ jobs:
       - name: Create PR
         uses: devops-infra/action-pull-request@v0.6.1
         with:
-          github_token: ${{ secrets.GH_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           label: automatic
           source_branch: release
           target_branch: main
