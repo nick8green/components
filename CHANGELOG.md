@@ -1,3 +1,10 @@
+## [2.0.1](https://github.com/nick8green/components/compare/v2.0.0...v2.0.1) (2025-08-28)
+
+
+### Bug Fixes
+
+* upgrade @fortawesome/react-fontawesome from 0.2.2 to 0.2.3 ([1dad904](https://github.com/nick8green/components/commit/1dad904323440c8ecc4fd31e24b9bd001d80a3c2))
+
 ## [2.0.1](https://github.com/nick8green/components/compare/v2.0.0...v2.0.1) (2025-08-27)
 
 
