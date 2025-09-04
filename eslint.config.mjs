@@ -69,4 +69,11 @@ export default [
       "**/storybook/*",
     ],
   },
+  {
+    files: ["./**/*.js"],
+    rules: {
+      "@typescript-eslint/no-require-imports": "off",
+      "no-undef": "off",
+    },
+  },
 ];
