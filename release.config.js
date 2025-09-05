@@ -22,5 +22,6 @@ module.exports = {
       },
     ],
     "@semantic-release/npm",
+    ["./plugins/conditional-github.js"],
   ],
 };
