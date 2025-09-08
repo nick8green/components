@@ -1,3 +1,15 @@
+# [2.2.0](https://github.com/nick8green/components/compare/v2.1.0...v2.2.0) (2025-09-05)
+
+
+### Bug Fixes
+
+* exposed the timeline component ([bb4ad55](https://github.com/nick8green/components/commit/bb4ad553d334dfefcf2f9c2668ab5d1d0a6b8efc))
+
+
+### Features
+
+* deployment improvements ([770c3e2](https://github.com/nick8green/components/commit/770c3e2900a5cf2eaf54f4c2120d93af4cb57318))
+
 # [2.2.0](https://github.com/nick8green/components/compare/v2.1.0...v2.2.0) (2025-09-04)
 
 
