@@ -8,12 +8,16 @@ jobs:
   # run unit tests
   test:
     name: 🧪 unit tests
-    uses: nick8green/workflows/.github/workflows/node-unit-test.yml@package-manager
+    uses: nick8green/workflows/.github/workflows/node-unit-test.yml@f20240f2265c8e777e01982c8cd31b057b8c1155
+    secrets:
+      GH_TOKEN: ${{ secrets.GH_PAT }}
 
   # build package
   build:
     name: 🏗️ build package
-    uses: nick8green/workflows/.github/workflows/node-build.yml@package-manager
+    uses: nick8green/workflows/.github/workflows/node-build.yml@f20240f2265c8e777e01982c8cd31b057b8c1155
+    secrets:
+      GH_TOKEN: ${{ secrets.GH_PAT }}
 
   # build storybook
   storybook:
@@ -25,4 +29,6 @@ jobs:
   # lint code
   linting:
     name: ✏️ lint code
-    uses: nick8green/workflows/.github/workflows/node-inspect.yml@package-manager
+    uses: nick8green/workflows/.github/workflows/node-inspect.yml@f20240f2265c8e777e01982c8cd31b057b8c1155
+    secrets:
+      GH_TOKEN: ${{ secrets.GH_PAT }}
