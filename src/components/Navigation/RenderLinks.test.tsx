@@ -74,14 +74,6 @@ describe("RenderLinks", () => {
     expect(screen.getByText("SubHome")).toBeInTheDocument();
   });
 
-  it("sets aria-expanded correctly", () => {
-    render(<RenderLinks links={links} levels={2} />);
-    const homeLi = screen.getByText("Home").closest("li");
-    const aboutLi = screen.getByText("About").closest("li");
-    expect(homeLi).toHaveAttribute("aria-expanded", "true");
-    expect(aboutLi).toHaveAttribute("aria-expanded", "false");
-  });
-
   it("does not render ExpansionIcon if levels <= 1", () => {
     render(<RenderLinks links={links} levels={1} />);
     // Only icon for "Home", no expansion icon

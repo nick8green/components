@@ -54,7 +54,7 @@ const Navigation: FC<PropsWithChildren<NavigationProps>> = ({
       aria-label="Main navigation"
     >
       {children}
-      <ul role="tree">
+      <ul>
         <RenderLinks links={links} levels={levels} />
       </ul>
     </nav>
