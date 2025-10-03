@@ -1,3 +1,15 @@
+# [2.3.0](https://github.com/nick8green/components/compare/v2.2.0...v2.3.0) (2025-10-03)
+
+
+### Bug Fixes
+
+* **navigation:** addressed sonar issues ([26b7a5d](https://github.com/nick8green/components/commit/26b7a5d9c277984642674968bc3965bf63ed958e))
+
+
+### Features
+
+* **navigation:** improvements to the navigation component ([fd4ff98](https://github.com/nick8green/components/commit/fd4ff98ca063d600c9fbe98facb29252bb23509d))
+
 # [2.2.0](https://github.com/nick8green/components/compare/v2.1.0...v2.2.0) (2025-09-08)
 
 
