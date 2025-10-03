@@ -31,7 +31,7 @@ const SocialMediaList: FC<SocialMediaListProps> = ({
       data-testid="social-media-list"
     >
       {socials.map((social: SocialMediaArgs, index: number) => (
-        <li key={index}>
+        <li key={`social-${social.platform}-${social.handle ?? index}`}>
           <SocialMediaLink {...social} displayHandle={display.showHandles} />
         </li>
       ))}

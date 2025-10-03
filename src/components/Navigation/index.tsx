@@ -1,11 +1,6 @@
-import Link from "next/link";
+import { type IconDefinition } from "@fortawesome/free-solid-svg-icons";
 import type { FC, PropsWithChildren } from "react";
-import {
-  faCaretDown,
-  faCaretRight,
-  type IconDefinition,
-} from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { RenderLinks } from "components/Navigation/RenderLinks";
 
 import "./style.css";
 
@@ -23,46 +18,11 @@ export type Link = {
   url: string;
 };
 
-export const getExpansionIcon = (hasChildren: boolean, topLevel: boolean) => {
-  if (!hasChildren) {
-    return null;
-  }
-  if (topLevel) {
-    return <FontAwesomeIcon className="link-icon" icon={faCaretDown} />;
-  }
-  return <FontAwesomeIcon className="link-icon" icon={faCaretRight} />;
-};
-
-export const renderLinks = (
-  links: Link[],
-  levels: number,
-  topLevel: boolean = true,
-) => {
-  if (levels <= 0) {
-    return null;
-  }
-  return links.map((link) => {
-    const { icon, label, url, isActive, children } = link;
-    return (
-      <li
-        className={isActive ? "active-link" : ""}
-        key={label.replaceAll(/\s+/g, "-").toLowerCase()}
-      >
-        <Link href={url}>
-          {icon && <FontAwesomeIcon className="link-icon" icon={icon} />}
-          <span className="link-label">{label}</span>
-          {getExpansionIcon(
-            levels > 1 && (children ?? []).length > 0,
-            topLevel,
-          )}
-        </Link>
-        {children && children.length > 0 && (
-          <ul>{renderLinks(children, levels - 1, false)}</ul>
-        )}
-      </li>
-    );
-  });
-};
+export interface NavigationProps {
+  levels?: number;
+  links: Link[];
+  type?: "main";
+}
 
 /**
  *
@@ -85,14 +45,18 @@ const Navigation: FC<PropsWithChildren<NavigationProps>> = ({
   links = [],
   type = "main",
 }) => {
-  if (links.length === 0) {
-    return null;
-  }
+  if (links.length === 0) return null;
 
   return (
-    <nav className={`${type}-navigation`}>
+    <nav
+      className={`${type}-navigation`}
+      role="navigation"
+      aria-label="Main navigation"
+    >
       {children}
-      <ul>{renderLinks(links, levels)}</ul>
+      <ul>
+        <RenderLinks links={links} levels={levels} />
+      </ul>
     </nav>
   );
 };

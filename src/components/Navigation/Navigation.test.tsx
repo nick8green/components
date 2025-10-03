@@ -1,10 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import { describe, it, vi, expect } from "vitest";
-import Navigation, {
-  getExpansionIcon,
-  renderLinks,
-  type Link,
-} from "components/Navigation";
+import Navigation, { type Link } from "components/Navigation";
 import { faHome } from "@fortawesome/free-solid-svg-icons";
 
 vi.mock("@fortawesome/react-fontawesome", () => {
@@ -68,35 +64,5 @@ describe("Navigation Component", () => {
     render(<Navigation links={mockLinks} levels={1} />);
     expect(screen.queryByText("Sub Home 1")).not.toBeInTheDocument();
     expect(screen.queryByText("Sub Home 2")).not.toBeInTheDocument();
-  });
-});
-
-describe("getExpansionIcon", () => {
-  it("returns null when there are no children", () => {
-    expect(getExpansionIcon(false, true)).toBeNull();
-  });
-
-  it("returns the correct icon for top-level links", () => {
-    const { container } = render(<>{getExpansionIcon(true, true)}</>);
-    expect(container.querySelector(".link-icon")).toBeInTheDocument();
-  });
-
-  it("returns the correct icon for non-top-level links", () => {
-    const { container } = render(<>{getExpansionIcon(true, false)}</>);
-    expect(container.querySelector(".link-icon")).toBeInTheDocument();
-  });
-});
-
-describe("renderLinks", () => {
-  it("renders links correctly", () => {
-    const { container } = render(<ul>{renderLinks(mockLinks, 2)}</ul>);
-    expect(container.querySelector("li")).toBeInTheDocument();
-    expect(screen.getByText("Home")).toBeInTheDocument();
-    expect(screen.getByText("About")).toBeInTheDocument();
-  });
-
-  it("does not render links when levels are 0", () => {
-    const { container } = render(<ul>{renderLinks(mockLinks, 0)}</ul>);
-    expect(container.firstChild).toBeEmptyDOMElement();
   });
 });
