@@ -22,7 +22,7 @@ nav ul {
 	display: inline-block;
 	vertical-align: top;
 	width: 100%;
-	color: darkslategrey;
+	color: var(--primary-text-colour, --primary-colour, darkslategrey);
 }
 
 nav li {
@@ -35,7 +35,7 @@ nav li {
 	-webkit-transition: all .25s ease-in-out;
 }
 nav ul li:hover:not(.active-link), nav ul li:focus:not(.active-link), nav ul li:active:not(.active-link) {
-	border-bottom-color: darkslategrey;
+	border-bottom-color: var(--primary-text-colour, --primary-colour, darkslategrey);
 }
 
 nav ul li a, nav ul li a:visited, nav ul li a:hover, nav ul li a:focus, nav ul li a:active {
@@ -64,6 +64,6 @@ nav > ul ul ul { left: 100%; top: 0; }
 
 nav > ul li:hover > ul { display: flex; }
 
-.active-link { border-bottom-color: darkslategrey; }
+.active-link { border-bottom-color: var(--primary-text-colour, --primary-colour, darkslategrey); }
 
 nav svg { height: 1em; margin: 0 0.25em; }
