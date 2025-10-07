@@ -63,8 +63,6 @@ describe("Icon", () => {
 
   it("uses default size when size prop is not provided", () => {
     render(<Icon pack="solid" name="coffee" />);
-    const faIcon = screen.getByTestId("fa-icon");
-    console.log(faIcon);
     expect(receivedProps.size).toEqual("1x");
   });
 });
