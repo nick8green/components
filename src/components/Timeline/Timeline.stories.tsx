@@ -1,6 +1,5 @@
-import { faCode } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import type { Meta, StoryObj } from "@storybook/react-vite";
+import Icon from "components/Icon";
 import Timeline from "components/Timeline";
 
 const meta: Meta<typeof Timeline> = {
@@ -48,7 +47,7 @@ export const Default: Story = {
       },
       {
         title: "Event Three",
-        icon: <FontAwesomeIcon icon={faCode} />,
+        icon: <Icon name="code" pack="solid" />,
         date: new Date("2025-08-23"),
         content:
           "Cras sem sem, maximus nec sem et, congue suscipit nunc. Integer mattis luctus dui in facilisis. Morbi eget eros eget urna dictum hendrerit. Aliquam pharetra urna a posuere rutrum. Morbi ac urna sed risus eleifend scelerisque et nec turpis. Aliquam erat volutpat. Praesent vehicula dictum nulla tristique aliquam.",

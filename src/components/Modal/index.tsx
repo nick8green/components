@@ -1,8 +1,7 @@
 import type { FC, PropsWithChildren } from "react";
-import { faCircleXmark } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import "./style.css";
+import Icon from "components/Icon";
 
 export enum ModalType {
   INPUT = "input",
@@ -31,7 +30,7 @@ const Modal: FC<PropsWithChildren<ModalProps>> = ({
         {type === ModalType.INPUT && (
           <header>
             <button className="close" onClick={() => (close ? close() : null)}>
-              Close <FontAwesomeIcon icon={faCircleXmark} />
+              Close <Icon pack="solid" name="close" />
             </button>
           </header>
         )}

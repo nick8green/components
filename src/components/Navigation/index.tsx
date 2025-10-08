@@ -1,4 +1,3 @@
-import { type IconDefinition } from "@fortawesome/free-solid-svg-icons";
 import type { FC, PropsWithChildren } from "react";
 import { RenderLinks } from "components/Navigation/RenderLinks";
 
@@ -12,7 +11,7 @@ export interface NavigationProps {
 
 export type Link = {
   children?: Link[];
-  icon?: IconDefinition;
+  icon?: string;
   isActive?: boolean;
   label: string;
   url: string;

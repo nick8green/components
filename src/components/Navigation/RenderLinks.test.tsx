@@ -1,7 +1,6 @@
 import { describe, it, expect } from "vitest";
 import { render, screen } from "@testing-library/react";
 import { RenderLinks } from "./RenderLinks";
-import { faHome } from "@fortawesome/free-solid-svg-icons";
 
 // Mock FontAwesomeIcon to avoid rendering issues
 vi.mock("@fortawesome/react-fontawesome", () => ({
@@ -9,7 +8,7 @@ vi.mock("@fortawesome/react-fontawesome", () => ({
 }));
 
 type Link = {
-  icon?: any;
+  icon?: string;
   label: string;
   url: string;
   isActive?: boolean;
@@ -18,7 +17,7 @@ type Link = {
 
 const links: Link[] = [
   {
-    icon: faHome,
+    icon: "home",
     label: "Home",
     url: "/home",
     isActive: true,

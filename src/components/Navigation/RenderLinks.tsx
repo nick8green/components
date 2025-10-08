@@ -1,10 +1,7 @@
-"use client";
-
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCaretDown, faCaretRight } from "@fortawesome/free-solid-svg-icons";
 import type { FC } from "react";
 import type { Link as LinkData } from "components/Navigation";
 import Link from "next/link";
+import Icon from "components/Icon";
 
 const ExpansionIcon: FC<{ hasChildren: boolean; topLevel: boolean }> = ({
   hasChildren,
@@ -12,9 +9,10 @@ const ExpansionIcon: FC<{ hasChildren: boolean; topLevel: boolean }> = ({
 }) => {
   if (!hasChildren) return null;
   return (
-    <FontAwesomeIcon
+    <Icon
       className="link-icon"
-      icon={topLevel ? faCaretDown : faCaretRight}
+      name={topLevel ? "down" : "right"}
+      pack="solid"
     />
   );
 };
@@ -34,7 +32,7 @@ export const RenderLinks: FC<{
           key={(label ?? "link").trim().toLowerCase().replaceAll(/\s+/g, "-")}
         >
           <Link href={url}>
-            {icon && <FontAwesomeIcon className="link-icon" icon={icon} />}
+            {icon && <Icon className="link-icon" name={icon} pack="solid" />}
             <span className="link-label">{label}</span>
             <ExpansionIcon
               hasChildren={levels > 1 && !!children?.length}

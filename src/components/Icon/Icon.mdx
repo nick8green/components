@@ -1,0 +1,89 @@
+import { Canvas, Meta } from "@storybook/addon-docs/blocks";
+import * as Icon from "./Icon.stories.tsx";
+import { default as IconDisplay } from "../Icon";
+
+<Meta of={Icon} title="Icon" />
+
+# Icon
+
+Icon rendering component.
+
+#### Example
+
+<Canvas of={Icon.Default} />
+
+## Arguments
+
+- **pack** _`brand | solid`_ - The pack to pull the icon from.
+- **name** _`string`_ - The name of the icon to be displayed from the pack. This is the key in the icon directory (see below).
+- **size** _`"xs" | "sm" | "lg" | "1x" | "2x" | "3x" | "4x" | "5x"`_ - The size of the icon. _(default: 1x)_ _(optional)_
+- **className** _`string`_ - Any class names to be applied to the icon. _(optional)_
+- **title** _`string`_ - The title of the icon for accessibility. _(optional)_
+
+## Usage
+
+```ts
+import { Icon } from "@nick8green/components";
+
+const Example = () => {
+  return (
+    <Icon pack="solid" name="home" />
+  );
+};
+
+export default Example;
+```
+
+## Directory
+
+### Solid
+
+- <IconDisplay pack="solid" name="bell" /> `<Icon pack="solid" name="bell" />` bell
+- <IconDisplay pack="solid" name="close" /> `<Icon pack="solid" name="close" />` close
+- <IconDisplay pack="solid" name="code" /> `<Icon pack="solid" name="code" />` code
+- <IconDisplay pack="solid" name="home" /> `<Icon pack="solid" name="home" />` home
+- <IconDisplay pack="solid" name="user" /> `<Icon pack="solid" name="user" />` user
+- <IconDisplay pack="solid" name="settings" /> `<Icon pack="solid" name="settings" />` settings
+- <IconDisplay pack="solid" name="earth" /> `<Icon pack="solid" name="earth" />` earth
+- <IconDisplay pack="solid" name="envelope" /> `<Icon pack="solid" name="envelope" />` envelope
+- <IconDisplay pack="solid" name="info" /> `<Icon pack="solid" name="info" />` info
+- <IconDisplay pack="solid" name="down" /> `<Icon pack="solid" name="down" />` down
+- <IconDisplay pack="solid" name="right" /> `<Icon pack="solid" name="right" />` right
+- <IconDisplay pack="solid" name="left" /> `<Icon pack="solid" name="left" />` left
+- <IconDisplay pack="solid" name="up" /> `<Icon pack="solid" name="up" />` up
+
+### Brand
+
+- <IconDisplay pack="brands" name="facebook" /> `<Icon pack="brands" name="facebook" />` facebook
+- <IconDisplay pack="brands" name="x" /> `<Icon pack="brands" name="x" />` x
+- <IconDisplay pack="brands" name="snapchat" /> `<Icon pack="brands" name="snapchat" />` snapchat
+- <IconDisplay pack="brands" name="instagram" /> `<Icon pack="brands" name="instagram" />` instagram
+- <IconDisplay pack="brands" name="linkedin" /> `<Icon pack="brands" name="linkedin" />` linkedin
+- <IconDisplay pack="brands" name="github" /> `<Icon pack="brands" name="github" />` github
+- <IconDisplay pack="brands" name="pinterest" /> `<Icon pack="brands" name="pinterest" />` pinterest
+- <IconDisplay pack="brands" name="youtube" /> `<Icon pack="brands" name="youtube" />` youtube
+- <IconDisplay pack="brands" name="google" /> `<Icon pack="brands" name="google" />` google
+- <IconDisplay pack="brands" name="tumblr" /> `<Icon pack="brands" name="tumblr" />` tumblr
+- <IconDisplay pack="brands" name="flickr" /> `<Icon pack="brands" name="flickr" />` flickr
+- <IconDisplay pack="brands" name="vimeo" /> `<Icon pack="brands" name="vimeo" />` vimeo
+- <IconDisplay pack="brands" name="medium" /> `<Icon pack="brands" name="medium" />` medium
+- <IconDisplay pack="brands" name="whatsapp" /> `<Icon pack="brands" name="whatsapp" />` whatsapp
+- <IconDisplay pack="brands" name="telegram" /> `<Icon pack="brands" name="telegram" />` telegram
+- <IconDisplay pack="brands" name="slack" /> `<Icon pack="brands" name="slack" />` slack
+- <IconDisplay pack="brands" name="discord" /> `<Icon pack="brands" name="discord" />` discord
+- <IconDisplay pack="brands" name="reddit" /> `<Icon pack="brands" name="reddit" />` reddit
+- <IconDisplay pack="brands" name="tiktok" /> `<Icon pack="brands" name="tiktok" />` tiktok
+- <IconDisplay pack="brands" name="spotify" /> `<Icon pack="brands" name="spotify" />` spotify
+- <IconDisplay pack="brands" name="soundcloud" /> `<Icon pack="brands" name="soundcloud" />` soundcloud
+- <IconDisplay pack="brands" name="bandcamp" /> `<Icon pack="brands" name="bandcamp" />` bandcamp
+- <IconDisplay pack="brands" name="lastfm" /> `<Icon pack="brands" name="lastfm" />` lastfm
+- <IconDisplay pack="brands" name="twitch" /> `<Icon pack="brands" name="twitch" />` twitch
+- <IconDisplay pack="brands" name="steam" /> `<Icon pack="brands" name="steam" />` steam
+- <IconDisplay pack="brands" name="xbox" /> `<Icon pack="brands" name="xbox" />` xbox
+- <IconDisplay pack="brands" name="playstation" /> `<Icon pack="brands" name="playstation" />` playstation
+- <IconDisplay pack="brands" name="itchio" /> `<Icon pack="brands" name="itchio" />` itchio
+- <IconDisplay pack="brands" name="etsy" /> `<Icon pack="brands" name="etsy" />` etsy
+- <IconDisplay pack="brands" name="patreon" /> `<Icon pack="brands" name="patreon" />` patreon
+- <IconDisplay pack="brands" name="paypal" /> `<Icon pack="brands" name="paypal" />` paypal
+- <IconDisplay pack="brands" name="amazon" /> `<Icon pack="brands" name="amazon" />` amazon
+- <IconDisplay pack="brands" name="ebay" /> `<Icon pack="brands" name="ebay" />` ebay
