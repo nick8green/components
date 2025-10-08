@@ -3,12 +3,6 @@ import { RenderLinks } from "components/Navigation/RenderLinks";
 
 import "./style.css";
 
-export interface NavigationProps {
-  levels?: number;
-  links: Link[];
-  type?: "main";
-}
-
 export type Link = {
   children?: Link[];
   icon?: string;
@@ -20,7 +14,7 @@ export type Link = {
 export interface NavigationProps {
   levels?: number;
   links: Link[];
-  type?: "main";
+  type?: "main" | "list";
 }
 
 /**
@@ -50,7 +44,7 @@ const Navigation: FC<PropsWithChildren<NavigationProps>> = ({
     <nav
       className={`${type}-navigation`}
       role="navigation"
-      aria-label="Main navigation"
+      aria-label={`${type} navigation`}
     >
       {children}
       <ul>

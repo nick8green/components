@@ -1,5 +1,7 @@
 // Components
 
+import dynamic from "next/dynamic";
+
 export { default as Button } from "components/Button";
 export { default as ButtonGroup } from "components/Button/Group";
 export {
@@ -10,7 +12,10 @@ export {
   type LinkProps,
 } from "components/Footer";
 export { default as Header, type HeaderProps } from "components/Header";
-export { default as Icon, type IconProps } from "components/Icon";
+export { default as Icon } from "components/Icon";
+export const ClientIcon = dynamic(() => import("components/Icon"), {
+  ssr: false,
+});
 export { default as Input, InputType, type InputProps } from "components/Input";
 export {
   default as Loader,

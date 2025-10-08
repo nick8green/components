@@ -14,6 +14,12 @@ const meta: Meta<typeof Navigation> = {
   parameters: {
     layout: "fullscreen",
   },
+  argTypes: {
+    type: {
+      control: { type: "select" },
+      options: ["main", "list"],
+    },
+  },
 };
 
 export default meta;

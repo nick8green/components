@@ -10,7 +10,7 @@ const ExpansionIcon: FC<{ hasChildren: boolean; topLevel: boolean }> = ({
   if (!hasChildren) return null;
   return (
     <Icon
-      className="link-icon"
+      className="link-icon link-expansion-icon"
       name={topLevel ? "down" : "right"}
       pack="solid"
     />

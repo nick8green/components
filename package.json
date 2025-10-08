@@ -34,6 +34,7 @@
   "license": "MIT",
   "description": "Library of reusable React components.",
   "dependencies": {
+    "@fortawesome/fontawesome-common-types": "7.1.0",
     "@fortawesome/fontawesome-svg-core": "7.0.1",
     "@fortawesome/free-brands-svg-icons": "7.1.0",
     "@fortawesome/free-regular-svg-icons": "7.1.0",
@@ -90,7 +91,6 @@
     "vitest": "3.2.4"
   },
   "peerDependencies": {
-    "@fortawesome/fontawesome-common-types": "7.1.0",
     "next": "15.5.4",
     "react": "19.1.1",
     "react-dom": "19.1.1"

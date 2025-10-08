@@ -1,9 +1,8 @@
 "use client";
 
-import type { FC } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { type FC } from "react";
+import { icon as iconRenderer } from "@fortawesome/fontawesome-svg-core";
 import { iconRegistry, type IconName, type IconPack } from "lib/icons";
-import type { IconProp } from "@fortawesome/fontawesome-svg-core";
 
 export type IconProps<P extends IconPack = IconPack> = {
   pack: P;
@@ -11,6 +10,7 @@ export type IconProps<P extends IconPack = IconPack> = {
   size?: "xs" | "sm" | "lg" | "1x" | "2x" | "3x" | "4x" | "5x";
   className?: string;
   title?: string;
+  "data-testid"?: string;
 };
 
 export const Icon: FC<IconProps> = ({
@@ -19,6 +19,7 @@ export const Icon: FC<IconProps> = ({
   size = "1x",
   className,
   title,
+  "data-testid": dataTestId,
 }) => {
   const icon = iconRegistry[pack]?.[name];
 
@@ -27,12 +28,19 @@ export const Icon: FC<IconProps> = ({
     return null;
   }
 
+  const html = iconRenderer(icon as any)
+    .html.join("")
+    .replace(
+      /class="([a-z\- ]+)"/,
+      `class="$1 ${className} fa-${size}" data-testid="${
+        dataTestId ?? "fa-icon"
+      }" title="${title}"`,
+    );
   return (
-    <FontAwesomeIcon
-      icon={icon as IconProp}
-      size={size}
-      className={className}
-      title={title}
+    <span
+      dangerouslySetInnerHTML={{
+        __html: html,
+      }}
     />
   );
 };

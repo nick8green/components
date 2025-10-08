@@ -2,14 +2,6 @@ import { describe, it, expect, vi, beforeEach } from "vitest";
 import { render, screen } from "@testing-library/react";
 import Icon from "components/Icon";
 
-// Mock FontAwesomeIcon
-let receivedProps: any;
-vi.mock("@fortawesome/react-fontawesome", () => ({
-  FontAwesomeIcon: (props: any) => {
-    receivedProps = props;
-    return <span data-testid="fa-icon" {...props} />;
-  },
-}));
 vi.mock("lib/icons", () => {
   const mockIcon = {
     prefix: "fas",
@@ -30,7 +22,6 @@ vi.mock("lib/icons", () => {
 describe("Icon", () => {
   beforeEach(() => {
     vi.clearAllMocks();
-    receivedProps = null;
   });
 
   it("renders FontAwesomeIcon with correct props when icon exists", () => {
@@ -45,10 +36,10 @@ describe("Icon", () => {
     );
     const faIcon = screen.getByTestId("fa-icon");
     expect(faIcon).toBeInTheDocument();
-    expect(faIcon.className).toContain("test-class");
-    expect(receivedProps.size).toEqual("2x");
+    expect(faIcon).toHaveClass("test-class");
+    expect(faIcon).toHaveClass("fa-2x");
+    console.log(screen.debug());
     expect(faIcon).toHaveAttribute("title", "Test Icon");
-    expect(receivedProps.icon.iconName).toEqual("coffee");
   });
 
   it("renders null and warns when icon does not exist", () => {
@@ -63,6 +54,7 @@ describe("Icon", () => {
 
   it("uses default size when size prop is not provided", () => {
     render(<Icon pack="solid" name="coffee" />);
-    expect(receivedProps.size).toEqual("1x");
+    const faIcon = screen.getByTestId("fa-icon");
+    expect(faIcon).toHaveClass("fa-1x");
   });
 });

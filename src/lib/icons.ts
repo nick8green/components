@@ -13,6 +13,7 @@ import {
   faCaretUp,
   faCode,
   faSearch,
+  faMugHot,
 } from "@fortawesome/free-solid-svg-icons";
 import {
   faSquareFacebook,
@@ -59,6 +60,7 @@ export const iconRegistry: {
     bell: faBellConcierge,
     close: faCircleXmark,
     code: faCode,
+    coffee: faMugHot,
     home: faHouseChimney,
     user: faUser,
     search: faSearch,
