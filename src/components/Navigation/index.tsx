@@ -1,18 +1,11 @@
-import { type IconDefinition } from "@fortawesome/free-solid-svg-icons";
 import type { FC, PropsWithChildren } from "react";
 import { RenderLinks } from "components/Navigation/RenderLinks";
 
 import "./style.css";
 
-export interface NavigationProps {
-  levels?: number;
-  links: Link[];
-  type?: "main";
-}
-
 export type Link = {
   children?: Link[];
-  icon?: IconDefinition;
+  icon?: string;
   isActive?: boolean;
   label: string;
   url: string;
@@ -21,7 +14,7 @@ export type Link = {
 export interface NavigationProps {
   levels?: number;
   links: Link[];
-  type?: "main";
+  type?: "main" | "list";
 }
 
 /**
@@ -51,7 +44,7 @@ const Navigation: FC<PropsWithChildren<NavigationProps>> = ({
     <nav
       className={`${type}-navigation`}
       role="navigation"
-      aria-label="Main navigation"
+      aria-label={`${type} navigation`}
     >
       {children}
       <ul>

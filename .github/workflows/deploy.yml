@@ -62,7 +62,6 @@ jobs:
     needs:
       - checks
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/release' && github.event_name == 'push'
     permissions:
       contents: write
       issues: write

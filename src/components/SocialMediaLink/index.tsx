@@ -1,9 +1,7 @@
 import type { FC } from "react";
 
-import * as icons from "@fortawesome/free-brands-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
 import "./style.css";
+import Icon from "components/Icon";
 
 export enum Platform {
   Facebook = "Facebook",
@@ -61,19 +59,6 @@ const SocialMediaLink: FC<SocialMediaArgs> = ({
     return handle;
   };
 
-  const getIcon = () => {
-    switch (platform) {
-      case Platform.Facebook:
-        return icons.faSquareFacebook;
-      case Platform.X:
-        return icons.faXTwitter;
-      case Platform.Snapchat:
-        return icons.faSquareSnapchat;
-      default:
-        return icons[`fa${platform}`];
-    }
-  };
-
   const getLink = () => {
     return url;
   };
@@ -87,7 +72,11 @@ const SocialMediaLink: FC<SocialMediaArgs> = ({
       rel="noreferrer"
       title={platform}
     >
-      <FontAwesomeIcon data-testid="social-media-icon" icon={getIcon()} />
+      <Icon
+        data-testid="social-media-icon"
+        name={platform.toLowerCase()}
+        pack="brands"
+      />
       <span>{getHandle()}</span>
     </a>
   );
