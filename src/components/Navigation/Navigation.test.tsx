@@ -1,7 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import { describe, it, vi, expect } from "vitest";
 import Navigation, { type Link } from "components/Navigation";
-import { faHome } from "@fortawesome/free-solid-svg-icons";
 
 vi.mock("@fortawesome/react-fontawesome", () => {
   return {
@@ -18,7 +17,7 @@ const mockLinks: Link[] = [
     label: "Home",
     url: "/",
     isActive: true,
-    icon: faHome,
+    icon: "home",
     children: [
       {
         label: "Sub Home 1",
