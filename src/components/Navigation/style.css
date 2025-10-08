@@ -53,7 +53,7 @@ nav > ul ul {
     flex-flow: column nowrap;
     left: 0;
     position: absolute;
-    top: 2.15em;
+    top: 2.45em;
     white-space: nowrap;
     width: inherit;
     z-index: 1;
@@ -66,5 +66,7 @@ nav > ul ul ul { left: 100%; top: 0; }
 nav > ul li:hover > ul { display: flex; }
 
 .active-link { border-bottom-color: var(--primary-text-colour, --primary-colour, darkslategrey); }
+
+.link-expansion-icon { font-size: 0.8em; margin-left: 0.25em; }
 
 nav svg { height: 1em; margin: 0 0.25em; }

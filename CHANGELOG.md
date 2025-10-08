@@ -1,3 +1,10 @@
+# [2.4.0](https://github.com/nick8green/components/compare/v2.3.0...v2.4.0) (2025-10-08)
+
+
+### Features
+
+* added icon wrapper and changed build framework to next ([08ff2d1](https://github.com/nick8green/components/commit/08ff2d1c7874526eef843f56fb45d0201aefb9df))
+
 # [2.3.0](https://github.com/nick8green/components/compare/v2.2.0...v2.3.0) (2025-10-03)
 
 

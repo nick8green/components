@@ -1,11 +1,3 @@
-import { faSearchengin } from "@fortawesome/free-brands-svg-icons";
-import {
-  faBellConcierge,
-  faEarthEurope,
-  faEnvelope,
-  faHouseChimney,
-  faInfoCircle,
-} from "@fortawesome/free-solid-svg-icons";
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import Navigation from "components/Navigation";
 
@@ -22,6 +14,12 @@ const meta: Meta<typeof Navigation> = {
   parameters: {
     layout: "fullscreen",
   },
+  argTypes: {
+    type: {
+      control: { type: "select" },
+      options: ["main", "list"],
+    },
+  },
 };
 
 export default meta;
@@ -33,41 +31,41 @@ export const Default: Story = {
       {
         label: "Home",
         url: "#",
-        icon: faHouseChimney,
+        icon: "home",
         isActive: true,
       },
       {
-        icon: faInfoCircle,
+        icon: "info",
         label: "About",
         url: "#",
       },
       {
-        icon: faBellConcierge,
+        icon: "bell",
         label: "Services",
         url: "#",
         children: [
           {
-            icon: faEarthEurope,
+            icon: "earth",
             label: "Web Development",
             url: "#",
             children: [
               {
-                icon: faEarthEurope,
+                icon: "earth",
                 label: "Web Development",
                 url: "#",
               },
               {
-                icon: faSearchengin,
+                icon: "search",
                 label: "SEO Services",
                 url: "#",
                 children: [
                   {
-                    icon: faEarthEurope,
+                    icon: "earth",
                     label: "Web Development",
                     url: "#",
                   },
                   {
-                    icon: faSearchengin,
+                    icon: "search",
                     label: "SEO Services",
                     url: "#",
                   },
@@ -76,14 +74,14 @@ export const Default: Story = {
             ],
           },
           {
-            icon: faSearchengin,
+            icon: "search",
             label: "SEO Services",
             url: "#",
           },
         ],
       },
       {
-        icon: faEnvelope,
+        icon: "envelope",
         label: "Contact",
         url: "#",
       },

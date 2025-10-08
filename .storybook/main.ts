@@ -1,4 +1,4 @@
-import type { StorybookConfig } from "@storybook/react-vite";
+import type { StorybookConfig } from "@storybook/nextjs-vite";
 import { mergeConfig } from "vite";
 
 const config: StorybookConfig = {
@@ -9,7 +9,7 @@ const config: StorybookConfig = {
   ],
   addons: ["@storybook/addon-links", "@storybook/addon-docs"],
   framework: {
-    name: "@storybook/react-vite",
+    name: "@storybook/nextjs-vite",
     options: {},
   },
   viteFinal: async (config) => {

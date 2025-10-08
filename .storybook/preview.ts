@@ -23,8 +23,14 @@ const preview: Preview = {
     },
     layout: "centered",
     viewport: {
-      viewports: MINIMAL_VIEWPORTS,
-      defaultViewport: "responsive",
+      options: MINIMAL_VIEWPORTS,
+    },
+  },
+
+  initialGlobals: {
+    viewport: {
+      value: "responsive",
+      isRotated: false,
     },
   },
 };
