@@ -15,6 +15,7 @@ nav { display: inline-block; vertical-align: top; width: 100%; }
 nav .link-icon { display: inline-block; }
 
 nav ul {
+	background: var(--primary-background-colour, white);
 	list-style: none;
 	position: relative;
 	margin: 0;
