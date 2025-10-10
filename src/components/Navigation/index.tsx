@@ -12,6 +12,7 @@ export type Link = {
 };
 
 export interface NavigationProps {
+  className?: string;
   levels?: number;
   links: Link[];
   type?: "main" | "list";
@@ -34,6 +35,7 @@ export interface NavigationProps {
  */
 const Navigation: FC<PropsWithChildren<NavigationProps>> = ({
   children,
+  className = "",
   levels = 10,
   links = [],
   type = "main",
@@ -42,7 +44,7 @@ const Navigation: FC<PropsWithChildren<NavigationProps>> = ({
 
   return (
     <nav
-      className={`${type}-navigation`}
+      className={`${type}-navigation ${className}`.trim()}
       role="navigation"
       aria-label={`${type} navigation`}
     >

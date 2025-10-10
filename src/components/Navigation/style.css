@@ -15,16 +15,16 @@ nav { display: inline-block; vertical-align: top; width: 100%; }
 nav .link-icon { display: inline-block; }
 
 nav ul {
-	background: var(--primary-background-colour, white);
+	background-color: var(--navigation-background-color, var(--primary-background-colour, var(--background-color, transparent)));
 	list-style: none;
 	position: relative;
 	margin: 0;
 	padding: 0;
 	display: inline-block;
 	vertical-align: top;
-	width: 100%;
-	color: var(--primary-text-colour, --primary-colour, darkslategrey);
+	color: var(--primary-text-colour, var(--primary-colour, darkslategrey));
 }
+nav.full-width ul { width: 100%; }
 
 nav li {
 	border-bottom: 0.25em solid transparent;
@@ -36,7 +36,7 @@ nav li {
 	-webkit-transition: all .25s ease-in-out;
 }
 nav ul li:hover:not(.active-link), nav ul li:focus:not(.active-link), nav ul li:active:not(.active-link) {
-	border-bottom-color: var(--primary-text-colour, --primary-colour, darkslategrey);
+	border-bottom-color: var(--primary-text-colour, var(--primary-colour, darkslategrey));
 }
 
 nav ul li a, nav ul li a:visited, nav ul li a:hover, nav ul li a:focus, nav ul li a:active {
@@ -47,7 +47,7 @@ nav ul li a, nav ul li a:visited, nav ul li a:hover, nav ul li a:focus, nav ul l
 }
 
 nav > ul ul {
-	background-color: var(--navigation-background-color, --background-color, white);
+	background-color: var(--navigation-background-color, var(--primary-background-colour, var(--background-color, white)));
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     display: none;
     flex-flow: column nowrap;
@@ -65,7 +65,7 @@ nav > ul ul ul { left: 100%; top: 0; }
 
 nav > ul li:hover > ul { display: flex; }
 
-.active-link { border-bottom-color: var(--primary-text-colour, --primary-colour, darkslategrey); }
+.active-link { border-bottom-color: var(--primary-text-colour, var(--primary-colour, darkslategrey)); }
 
 .link-expansion-icon { font-size: 0.8em; margin-left: 0.25em; }
 
