@@ -29,13 +29,13 @@ jobs:
         uses: nick8green/workflows/actions/node/setup@f20240f2265c8e777e01982c8cd31b057b8c1155
         with:
           registry: 'https://npm.pkg.github.com'
-          token: ${{ secrets.GH_PAT }}
+          token: ${{ secrets.GITHUB_TOKEN || secrets.GH_PAT }}
 
       - name: 🔍 release dry run
         id: dryrun
         env:
-          GH_TOKEN: ${{ secrets.GH_PAT }}
-          NODE_AUTH_TOKEN: ${{ secrets.GH_PAT }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN || secrets.GH_PAT }}
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN || secrets.GH_PAT }}
         run: |
           npx semantic-release --dry-run --no-ci > dryrun.txt
           echo "### Semantic Release Dry Run Output" > comment.md
@@ -46,7 +46,7 @@ jobs:
       - name: 💬 comment on PR
         uses: actions/github-script@v8
         with:
-          github-token: ${{ secrets.GH_PAT }}
+          github-token: ${{ secrets.GITHUB_TOKEN || secrets.GH_PAT }}
           script: |
             const fs = require('fs');
             const body = fs.readFileSync('comment.md', 'utf8');
@@ -75,15 +75,15 @@ jobs:
         uses: nick8green/workflows/actions/node/setup@main
         with:
           registry: 'https://npm.pkg.github.com'
-          token: ${{ secrets.GH_PAT }}
+          token: ${{ secrets.GITHUB_TOKEN || secrets.GH_PAT }}
 
       - name: 👌 verify
         run: yarn audit signatures
 
       - name: 📋 version
         env:
-          GH_TOKEN: ${{ secrets.GH_PAT }}
-          NODE_AUTH_TOKEN: ${{ secrets.GH_PAT }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN || secrets.GH_PAT }}
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN || secrets.GH_PAT }}
         run: npx semantic-release
 
   storybook:
@@ -113,7 +113,7 @@ jobs:
       - name: Create PR
         uses: devops-infra/action-pull-request@v0.6.1
         with:
-          github_token: ${{ secrets.GH_PAT }}
+          github_token: ${{ secrets.GITHUB_TOKEN || secrets.GH_PAT }}
           label: automatic
           source_branch: release
           target_branch: main
