@@ -38,30 +38,60 @@ const Example = () => {
         links={[
             {
                 label: "Home",
-                url: "/",
+                url: "#",
+                icon: "home",
                 isActive: true,
             },
             {
+                icon: "info",
                 label: "About",
-                url: "/about",
+                url: "#",
             },
             {
+                icon: "bell",
                 label: "Services",
-                url: "/services",
+                url: "#",
                 children: [
                     {
+                        icon: "earth",
                         label: "Web Development",
-                        url: "/services/web-development",
+                        url: "#",
+                        children: [
+                            {
+                                icon: "earth",
+                                label: "Front Ends",
+                                url: "#",
+                            },
+                            {
+                                icon: "search",
+                                label: "SEO Services",
+                                url: "#",
+                                children: [
+                                    {
+                                        icon: "earth",
+                                        label: "Generic Improvements",
+                                        url: "#",
+                                    },
+                                    {
+                                        icon: "search",
+                                        label: "Google Integrations",
+                                        url: "#",
+                                    },
+                                ],
+                            },
+                        ],
                     },
                     {
-                        label: "SEO Services",
-                        url: "/services/seo-services",
+                        icon: "search",
+                        label: "Find a Developer",
+                        url: "#",
                     },
                 ],
             },
             {
+                icon: "envelope",
                 label: "Contact",
-                url: "/contact",
+                url: "#",
             },
         ]} />
   );

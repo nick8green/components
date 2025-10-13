@@ -1,0 +1,47 @@
+/**
+ * Icon navigation styles
+ */
+
+nav.sidebar-navigation { background-color: var(--primary-colour, lightgrey); height: 100vh; max-width: 40vw; overflow-y: auto; padding: 0; width: 100%; }
+
+nav.sidebar-navigation ul {
+	background-color: var(--primary-colour, lightgrey);
+	color: var(--secondary-colour, darkslategrey);
+	display: flex;
+	flex-flow: column nowrap;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+nav.sidebar-navigation li {
+	transition: all .25s ease-in-out;
+	-webkit-transition: all .25s ease-in-out;
+}
+nav.sidebar-navigation ul li:hover, nav.sidebar-navigation ul li:focus, nav.sidebar-navigation ul li:active {
+	background-color: var(--secondary-colour, darkslategrey);
+	color: var(--primary-colour, white);
+}
+
+nav.sidebar-navigation > ul > li {
+	display: block;
+	position: relative;
+	transition: all .25s ease-in-out;
+	-webkit-transition: all .25s ease-in-out;
+}
+
+nav.sidebar-navigation ul li a, nav.sidebar-navigation ul li a:visited, nav.sidebar-navigation ul li a:hover, nav.sidebar-navigation ul li a:focus, nav.sidebar-navigation ul li a:active {
+    display: block;
+	color: inherit;
+	padding: 0.5em 0.75em;
+	text-decoration: none;
+}
+
+nav.sidebar-navigation .link-label { margin: 0 0.3em; }
+
+nav.sidebar-navigation ul ul { display: none; }
+nav.sidebar-navigation ul ul ul, nav.sidebar-navigation ul ul .link-expansion-icon { display: none; }
+
+nav.sidebar-navigation > ul > li:active > ul, nav.sidebar-navigation > ul > li:focus > ul, nav.sidebar-navigation > ul > li:hover > ul { display: flex; }
+
+nav.sidebar-navigation .active-link { background-color: var(--secondary-colour, darkslategrey); color: var(--primary-colour, white); }

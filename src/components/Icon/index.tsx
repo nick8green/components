@@ -38,6 +38,7 @@ export const Icon: FC<IconProps> = ({
     );
   return (
     <span
+      className="icon"
       dangerouslySetInnerHTML={{
         __html: html,
       }}

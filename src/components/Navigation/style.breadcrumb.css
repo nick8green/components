@@ -1,0 +1,34 @@
+/**
+ * Breadcrumbs navigation styles
+ */
+
+nav.breadcrumb-navigation ul {
+	background-color: transparent;
+	color: var(--secondary-text-colour, var(--secondary-colour, darkgreen));
+	display: flex;
+	flex-flow: row nowrap;
+	list-style: none;
+	margin: 0.25em;
+	padding: 0;
+}
+
+nav.breadcrumb-navigation li+li:before {
+  padding: 0.25em 0.5em;
+  color: var(--primary-text-colour, var(--primary-colour, darkslategrey));
+  content: ">";
+}
+
+nav.breadcrumb-navigation ul li a, nav.breadcrumb-navigation ul li a:visited, nav.breadcrumb-navigation ul li a:hover, nav.breadcrumb-navigation ul li a:focus, nav.breadcrumb-navigation ul li a:active {
+	color: inherit;
+	text-decoration: none;
+}
+
+nav.breadcrumb-navigation ul li a:hover, nav.breadcrumb-navigation ul li a:focus, nav.breadcrumb-navigation ul li a:active {
+	text-decoration: underline;
+}
+
+nav.breadcrumb-navigation > ul ul { display: none; }
+
+nav.breadcrumb-navigation .active-link { color: var(--primary-text-colour, var(--primary-colour, darkslategrey)); }
+
+nav.breadcrumb-navigation .link-icon { display: none; }
