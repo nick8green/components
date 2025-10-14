@@ -55,9 +55,9 @@ const Navigation: FC<PropsWithChildren<NavigationProps>> = ({
   if (type === "breadcrumb" && getLowerestNestedLevel(links) > 1) {
     console.warn("breadcrumb navigation should not have nested links!");
   }
-  // if (type === "breadcrumb") {
-  //   console.warn("only the last link should be active!");
-  // }
+  if (type === "breadcrumb" && links.at(-1)?.isActive !== true) {
+    console.warn("the last link should be active!");
+  }
 
   if (type === "categories" && getLowerestNestedLevel(links) > 2) {
     console.warn(

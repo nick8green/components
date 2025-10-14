@@ -13,6 +13,7 @@ Navigation component for a website.
 
 ## Arguments
 
+- **className** _`string`_ - Class names to be applied to the navigation component. _(default: "")_ _(optional)_
 - **levels** _`number`_ - The number of levels deep that children should be displayed. _(default: 10)_ _(optional)_
 - **links** _`Link[]`_ - The links to be rendered out into the navigation. _(default: [])_
 - **type** _`"main"`_ - The type of navigation to be rendered. _(default: "main")_
@@ -99,3 +100,150 @@ const Example = () => {
 
 export default Example;
 ```
+
+# Supported Styling
+
+## CSS Variables
+
+There are a number of CSS variables which are picked up in the CSS for the component. Here they are outlined as clearly as possible.
+
+The following variables are used in a variety of different situations:
+- --navigation-background-color
+- --primary-background-colour
+- --background-color
+- --primary-text-colour
+- --primary-colour
+- --secondary-colour
+- --secondary-text-colour
+
+<table>
+    <thead>
+        <tr>
+            <th>Navigation Type</th>
+            <th>Usage</th>
+            <th>Variable</th>
+            <th>Alternatives (in priority order)</th>
+            <th>Fallback</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td rowspan="2">breadcrumb</td>
+            <td>Standard text colour</td>
+            <td>--secondary-text-colour</td>
+            <td>--secondary-colour</td>
+            <td>darkgreen</td>
+        </tr>
+        <tr>
+            <td>The separator text colour and the active link colour</td>
+            <td>--primary-text-colour</td>
+            <td>--primary-colour</td>
+            <td>darkslategrey</td>
+        </tr>
+        <tr>
+            <td>categories</td>
+            <td>The text colour</td>
+            <td>--primary-text-colour</td>
+            <td>--primary-colour</td>
+            <td>darkslategrey</td>
+        </tr>
+        <tr>
+            <td rowspan="5">icons</td>
+            <td>The overall background of the component</td>
+            <td>--navigation-background-color</td>
+            <td>--primary-background-colour, --background-color</td>
+            <td>transparent</td>
+        </tr>
+        <tr>
+            <td>Colour of the text, the default hover effect underlining colour as well as the active link colour</td>
+            <td>--primary-text-colour</td>
+            <td>--primary-colour</td>
+            <td>darkslategrey</td>
+        </tr>
+        <tr>
+            <td>The link background when highlight-on-hover is passed in</td>
+            <td>--primary-colour</td>
+            <td>--primary-text-colour</td>
+            <td>darkslategrey</td>
+        </tr>
+        <tr>
+            <td>The link text colour when highlight-on-hover is passed in</td>
+            <td>--secondary-colour</td>
+            <td>--secondary-text-colour</td>
+            <td>white</td>
+        </tr>
+        <tr>
+            <td>The background of the children</td>
+            <td>--navigation-background-color</td>
+            <td>--primary-background-colour, --background-color</td>
+            <td>white</td>
+        </tr>
+        <tr>
+            <td rowspan="5">main</td>
+            <td>The overall background of the component</td>
+            <td>--navigation-background-color</td>
+            <td>--primary-background-colour, --background-color</td>
+            <td>transparent</td>
+        </tr>
+        <tr>
+            <td>Colour of the text, the default hover effect underlining colour as well as the active link colour</td>
+            <td>--primary-text-colour</td>
+            <td>--primary-colour</td>
+            <td>darkslategrey</td>
+        </tr>
+        <tr>
+            <td>The link background when highlight-on-hover is passed in</td>
+            <td>--primary-colour</td>
+            <td>--primary-text-colour</td>
+            <td>darkslategrey</td>
+        </tr>
+        <tr>
+            <td>The link text colour when highlight-on-hover is passed in</td>
+            <td>--secondary-colour</td>
+            <td>--secondary-text-colour</td>
+            <td>white</td>
+        </tr>
+        <tr>
+            <td>The background of the children</td>
+            <td>--navigation-background-color</td>
+            <td>--primary-background-colour, --background-color</td>
+            <td>white</td>
+        </tr>
+        <tr>
+            <td rowspan="3">sidebar</td>
+            <td>The component's background</td>
+            <td>--primary-colour</td>
+            <td>-</td>
+            <td>lightgrey</td>
+        </tr>
+        <tr>
+            <td>The standard text colour, the background colour when hovering over a link and the active link and parent of active link background colour</td>
+            <td>--secondary-colour</td>
+            <td>-</td>
+            <td>darkslategrey</td>
+        </tr>
+        <tr>
+            <td>The text colour when hoving over a link and the active link and parent of active link text colour</td>
+            <td>--primary-colour</td>
+            <td>-</td>
+            <td>white</td>
+        </tr>
+    </tbody>
+</table>
+
+
+## Classes
+
+In an attempt to cater for multiple needs and customisation, there are classes that can be passed into the component in order to style it more specifically. The should be passed into the component as a space separated single string.
+
+### highlight-on-hover
+
+Rather than underlining (which is the default functionality) when hovering over a link, the background should change with the the change in focus.
+
+**Relevant Navigation types:** main, icons
+
+### no-active-link
+
+Tells the component not to display anything specific for the active link.
+
+**Relevant Navigation types:** all

@@ -29,6 +29,6 @@ nav.breadcrumb-navigation ul li a:hover, nav.breadcrumb-navigation ul li a:focus
 
 nav.breadcrumb-navigation > ul ul { display: none; }
 
-nav.breadcrumb-navigation .active-link { color: var(--primary-text-colour, var(--primary-colour, darkslategrey)); }
+nav.breadcrumb-navigation:not(.no-active-link) .active-link { color: var(--primary-text-colour, var(--primary-colour, darkslategrey)); }
 
 nav.breadcrumb-navigation .link-icon { display: none; }

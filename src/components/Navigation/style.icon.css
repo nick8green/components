@@ -16,7 +16,13 @@ nav.icon-navigation li {
 	transition: all .25s ease-in-out;
 	-webkit-transition: all .25s ease-in-out;
 }
-nav.icon-navigation ul li:hover:not(.active-link), nav.icon-navigation ul li:focus:not(.active-link), nav.icon-navigation ul li:active:not(.active-link) {
+nav.icon-navigation.highlight-on-hover ul li:hover, nav.icon-navigation.highlight-on-hover ul li:focus, nav.icon-navigation.highlight-on-hover ul li:active {
+	background-color: var(--primary-colour, var(--primary-text-colour, darkslategrey));
+	border-bottom: inherit;
+	border-radius: 0.5em;
+	color: var(--secondary-colour, var(--secondary-text-colour, white));
+}
+nav.icon-navigation ul li:hover, nav.icon-navigation ul li:focus, nav.icon-navigation ul li:active {
 	border-bottom-color: var(--primary-text-colour, var(--primary-colour, darkslategrey));
 }
 
@@ -43,7 +49,7 @@ nav.icon-navigation > ul ul ul { left: 100%; top: 0; }
 
 nav.icon-navigation > ul li:hover > ul { display: flex; }
 
-nav.icon-navigation .active-link { border-bottom-color: var(--primary-text-colour, var(--primary-colour, darkslategrey)); }
+nav.icon-navigation:not(.no-active-link) .active-link { border-bottom-color: var(--primary-text-colour, var(--primary-colour, darkslategrey)); }
 
 nav.icon-navigation .link-expansion-icon { font-size: 0.8em; margin-left: 0.25em; }
 

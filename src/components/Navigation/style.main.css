@@ -24,7 +24,12 @@ nav.main-navigation li {
 	transition: all .25s ease-in-out;
 	-webkit-transition: all .25s ease-in-out;
 }
-nav.main-navigation ul li:hover:not(.active-link), nav.main-navigation ul li:focus:not(.active-link), nav.main-navigation ul li:active:not(.active-link) {
+nav.main-navigation.highlight-on-hover li:not(.active-link) { border-bottom: none; }
+nav.main-navigation.highlight-on-hover ul li:hover, nav.main-navigation.highlight-on-hover ul li:focus, nav.main-navigation.highlight-on-hover ul li:active {
+	background-color: var(--primary-colour, var(--primary-text-colour, darkslategrey));
+	color: var(--secondary-colour, var(--secondary-text-colour, white));
+}
+nav.main-navigation ul li:hover, nav.main-navigation ul li:focus, nav.main-navigation ul li:active {
 	border-bottom-color: var(--primary-text-colour, var(--primary-colour, darkslategrey));
 }
 
@@ -44,12 +49,14 @@ nav.main-navigation > ul ul {
     top: 2.45em;
     white-space: nowrap;
 }
+nav.main-navigation.highlight-on-hover > ul ul { top: 2.15em; }
 
 nav.main-navigation > ul ul ul { left: 100%; top: 0; }
+nav.main-navigation.highlight-on-hover > ul ul ul { top: 0; }
 
 nav.main-navigation > ul li:active > ul, nav.main-navigation > ul li:focus > ul, nav.main-navigation > ul li:hover > ul { display: flex; }
 
-nav.main-navigation .active-link { border-bottom-color: var(--primary-text-colour, var(--primary-colour, darkslategrey)); }
+nav.main-navigation:not(.no-active-link) .active-link { border-bottom: 0.25em solid var(--primary-text-colour, var(--primary-colour, darkslategrey)); }
 
 nav.main-navigation .link-expansion-icon { font-size: 0.8em; margin-left: 0.25em; }
 

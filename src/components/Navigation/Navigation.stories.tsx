@@ -80,7 +80,7 @@ const meta: Meta<typeof Navigation> = {
       return (
         <div style={{ width: "100vw", height: "10em" }}>
           <Story />
-          <div>{content}</div>
+          <div style={{ padding: "0 1em 1em 1em" }}>{content}</div>
         </div>
       );
     },
@@ -102,66 +102,68 @@ const meta: Meta<typeof Navigation> = {
 export default meta;
 type Story = StoryObj<typeof Navigation>;
 
-export const Default: Story = {
-  args: {
-    links: [
+const links = [
+  {
+    label: "Home",
+    url: "#",
+    icon: "home",
+    isActive: true,
+  },
+  {
+    icon: "info",
+    label: "About",
+    url: "#",
+  },
+  {
+    icon: "bell",
+    label: "Services",
+    url: "#",
+    children: [
       {
-        label: "Home",
-        url: "#",
-        icon: "home",
-        isActive: true,
-      },
-      {
-        icon: "info",
-        label: "About",
-        url: "#",
-      },
-      {
-        icon: "bell",
-        label: "Services",
+        icon: "earth",
+        label: "Web Development",
         url: "#",
         children: [
           {
             icon: "earth",
-            label: "Web Development",
+            label: "Front Ends",
+            url: "#",
+          },
+          {
+            icon: "search",
+            label: "SEO Services",
             url: "#",
             children: [
               {
                 icon: "earth",
-                label: "Front Ends",
+                label: "Generic Improvements",
                 url: "#",
               },
               {
                 icon: "search",
-                label: "SEO Services",
+                label: "Google Integrations",
                 url: "#",
-                children: [
-                  {
-                    icon: "earth",
-                    label: "Generic Improvements",
-                    url: "#",
-                  },
-                  {
-                    icon: "search",
-                    label: "Google Integrations",
-                    url: "#",
-                  },
-                ],
               },
             ],
-          },
-          {
-            icon: "search",
-            label: "Find a Developer",
-            url: "#",
           },
         ],
       },
       {
-        icon: "envelope",
-        label: "Contact",
+        icon: "search",
+        label: "Find a Developer",
         url: "#",
       },
     ],
+  },
+  {
+    icon: "envelope",
+    label: "Contact",
+    url: "#",
+  },
+];
+
+export const Default: Story = {
+  args: {
+    links,
   },
 };
