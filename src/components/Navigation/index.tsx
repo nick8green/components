@@ -19,7 +19,7 @@ export interface NavigationProps {
 }
 
 /**
- * Built following the w3schools examples:
+ * Built with the support of the w3schools including:
  *   - https://www.w3schools.com/howto/howto_css_breadcrumbs.asp
  *   - https://www.w3schools.com/howto/howto_css_icon_bar.asp
  *   - https://www.w3schools.com/howto/howto_css_topnav.asp
@@ -27,12 +27,7 @@ export interface NavigationProps {
  * To be done:
  *   - https://www.w3schools.com/howto/howto_js_topnav_responsive.asp
  *   - https://www.w3schools.com/howto/howto_css_searchbar.asp
- *   - https://www.w3schools.com/howto/howto_css_sidebar_responsive.asp
- *   - https://www.w3schools.com/howto/howto_js_dropdown_sidenav.asp
  *   - https://www.w3schools.com/howto/howto_css_sticky_social_bar.asp
- *
- * @param
- * @returns
  */
 const Navigation: FC<PropsWithChildren<NavigationProps>> = ({
   children,
