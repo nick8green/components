@@ -24,11 +24,26 @@ export const RenderLinks: FC<{
 }> = ({ links, levels, topLevel = true }) => {
   if (levels <= 0) return null;
 
+  const childIsActiveLink = (children?: LinkData[]): boolean => {
+    if (!children) {
+      return false;
+    }
+    for (const child of children) {
+      if (child.isActive) {
+        return true;
+      }
+      if (child.children) {
+        return childIsActiveLink(child.children);
+      }
+    }
+    return false;
+  };
+
   return (
     <>
       {links.map(({ icon, label, url, isActive, children }) => (
         <li
-          className={isActive ? "active-link" : ""}
+          className={`${isActive ? "active-link" : ""} ${childIsActiveLink(children) ? "child-active-link" : ""}`}
           key={(label ?? "link").trim().toLowerCase().replaceAll(/\s+/g, "-")}
         >
           <Link href={url}>
