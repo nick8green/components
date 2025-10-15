@@ -5,6 +5,10 @@ import dynamic from "next/dynamic";
 export { default as Button } from "components/Button";
 export { default as ButtonGroup } from "components/Button/Group";
 export {
+  default as Endorsement,
+  type EndorsementProps,
+} from "components/Endorsement";
+export {
   default as Footer,
   type ContactInfoProps,
   type CopyrightProps,
