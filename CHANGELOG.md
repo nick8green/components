@@ -1,3 +1,30 @@
+# [2.5.0](https://github.com/nick8green/components/compare/v2.4.0...v2.5.0) (2025-10-14)
+
+
+### Bug Fixes
+
+* improved styling around the navigation bar ([994f097](https://github.com/nick8green/components/commit/994f097796f6d03c6b14c1fd2468891602bdd2f4))
+* updated dropdown styling ([6ec4788](https://github.com/nick8green/components/commit/6ec4788d8a0121ea2cbcdcacd1dba14974bf7106))
+
+
+### Features
+
+* **Navigation:** enhansed the navigation styling options ([58deec3](https://github.com/nick8green/components/commit/58deec302979f9e501fa3ac1ea19e0e1d426b455))
+* **Navigation:** split styling and documentation ([6672182](https://github.com/nick8green/components/commit/667218253506cd57bd2c8bf7adfa471af3419149))
+
+# [2.5.0](https://github.com/nick8green/components/compare/v2.4.0...v2.5.0) (2025-10-14)
+
+
+### Bug Fixes
+
+* improved styling around the navigation bar ([994f097](https://github.com/nick8green/components/commit/994f097796f6d03c6b14c1fd2468891602bdd2f4))
+
+
+### Features
+
+* **Navigation:** enhansed the navigation styling options ([58deec3](https://github.com/nick8green/components/commit/58deec302979f9e501fa3ac1ea19e0e1d426b455))
+* **Navigation:** split styling and documentation ([6672182](https://github.com/nick8green/components/commit/667218253506cd57bd2c8bf7adfa471af3419149))
+
 # [2.4.0](https://github.com/nick8green/components/compare/v2.3.0...v2.4.0) (2025-10-08)
 
 

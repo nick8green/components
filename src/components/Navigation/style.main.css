@@ -1,0 +1,64 @@
+/**
+ * Main navigation styles.
+ * Styles implemented with the support of:
+ *   - https://www.w3schools.com/css/css_navbar_horizontal.asp
+ *   - https://css-tricks.com/snippets/css/a-guide-to-flexbox/
+ *
+ * To be done:
+ *   - hightlight the link being hovered over rather than underlining it
+ */
+
+nav.main-navigation .link-icon { display: inline-block; }
+
+nav.main-navigation ul {
+	background-color: var(--navigation-background-color, var(--primary-background-colour, var(--background-color, transparent)));
+	margin: 0;
+	padding: 0;
+	color: var(--primary-text-colour, var(--primary-colour, darkslategrey));
+}
+
+nav.main-navigation li {
+	border-bottom: 0.25em solid transparent;
+	display: inline-block;
+	position: relative;
+	transition: all .25s ease-in-out;
+	-webkit-transition: all .25s ease-in-out;
+}
+nav.main-navigation.highlight-on-hover li:not(.active-link) { border-bottom: none; }
+nav.main-navigation.highlight-on-hover ul li:hover, nav.main-navigation.highlight-on-hover ul li:focus, nav.main-navigation.highlight-on-hover ul li:active {
+	background-color: var(--primary-colour, var(--primary-text-colour, darkslategrey));
+	color: var(--secondary-colour, var(--secondary-text-colour, white));
+}
+nav.main-navigation ul li:hover, nav.main-navigation ul li:focus, nav.main-navigation ul li:active {
+	border-bottom-color: var(--primary-text-colour, var(--primary-colour, darkslategrey));
+}
+
+nav.main-navigation ul li a, nav.main-navigation ul li a:visited, nav.main-navigation ul li a:hover, nav.main-navigation ul li a:focus, nav.main-navigation ul li a:active {
+	display: block;
+	color: inherit;
+	text-decoration: none;
+	padding: 0.5em 0.75em;
+}
+
+nav.main-navigation > ul ul {
+	background-color: var(--navigation-background-color, var(--primary-background-colour, var(--background-color, white)));
+	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	display: none;
+	flex-flow: column nowrap;
+	position: absolute;
+	top: 2.40em;
+	white-space: nowrap;
+	z-index: 10000;
+}
+nav.main-navigation.highlight-on-hover > ul ul { top: 2.15em; }
+
+nav.main-navigation > ul ul ul { left: 100%; top: 0; }
+nav.main-navigation.highlight-on-hover > ul ul ul { top: 0; }
+
+nav.main-navigation > ul li:active > ul, nav.main-navigation > ul li:focus > ul, nav.main-navigation > ul li:hover > ul { display: flex; }
+
+nav.main-navigation:not(.no-active-link) .active-link { border-bottom: 0.25em solid var(--primary-text-colour, var(--primary-colour, darkslategrey)); }
+
+nav.main-navigation .link-expansion-icon { font-size: 0.8em; margin-left: 0.25em; }
+
+nav.main-navigation svg { height: 1em; margin: 0 0.25em; }

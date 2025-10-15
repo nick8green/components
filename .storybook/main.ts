@@ -1,4 +1,5 @@
 import type { StorybookConfig } from "@storybook/nextjs-vite";
+import remarkGfm from "remark-gfm";
 import { mergeConfig } from "vite";
 
 const config: StorybookConfig = {
@@ -7,7 +8,19 @@ const config: StorybookConfig = {
     "../src/**/*.mdx",
     "../src/**/*.stories.@(js|jsx|mjs|ts|tsx)",
   ],
-  addons: ["@storybook/addon-links", "@storybook/addon-docs"],
+  addons: [
+    "@storybook/addon-links",
+    {
+      name: "@storybook/addon-docs",
+      options: {
+        mdxPluginOptions: {
+          mdxCompileOptions: {
+            remarkPlugins: [remarkGfm],
+          },
+        },
+      },
+    },
+  ],
   framework: {
     name: "@storybook/nextjs-vite",
     options: {},

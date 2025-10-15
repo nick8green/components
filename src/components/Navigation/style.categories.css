@@ -1,0 +1,43 @@
+/**
+ * List navigation styles
+ */
+
+nav.categories-navigation ul {
+	background-color: transparent;
+	color: var(--primary-text-colour, var(--primary-colour, darkslategrey));
+	display: flex;
+	flex-flow: row nowrap;
+	font-weight: bold;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+}
+
+nav.categories-navigation li {
+	flex-grow: 1;
+	margin: 0.25em 0.5em 0.5em 0.25em;
+	width: auto;
+}
+nav.categories-navigation ul li a:hover, nav.categories-navigation ul li a:focus, nav.categories-navigation ul li a:active {
+	text-decoration: underline;
+}
+
+nav.categories-navigation ul li a, nav.categories-navigation ul li a:visited {
+	color: inherit;
+	text-decoration: none;
+}
+
+nav.categories-navigation > ul ul {
+	display: flex;
+	flex-flow: column nowrap;
+	font-weight: normal;
+	margin-top: 0.5em;
+}
+
+nav.categories-navigation li > ul > li { margin-left: 0; }
+
+nav.categories-navigation > ul ul ul { display: none; }
+
+nav.categories-navigation .link-icon { margin-right: 0.5em; }
+nav.categories-navigation .link-expansion-icon { display: none; }
