@@ -18,6 +18,31 @@ describe("Endorsement component", () => {
     expect(comments[2].textContent).toBe('"Something `in` quotes"');
   });
 
+  describe("Quote handling", () => {
+    const testCases: string[] = [
+      '"""Comment"""',
+      '"Comment"',
+      '"""Comment"""',
+      "Comment",
+      '  "  Comment  "  ',
+      '"Comment',
+      '""""Comment',
+      'Comment"',
+      'Comment""""',
+    ];
+
+    for (const comment of testCases) {
+      it(`correctly handles "${comment}"`, () => {
+        render(<Endorsement comment={comment} />);
+        const comments = screen
+          .getByTestId("endorsement")
+          .querySelectorAll(".comment");
+        expect(comments.length).toBe(1);
+        expect(comments[0].textContent).toBe('"Comment"');
+      });
+    }
+  });
+
   it("renders attribution correctly when name and location are provided", () => {
     render(<Endorsement comment={"x"} name="Alice" location="London" />);
 

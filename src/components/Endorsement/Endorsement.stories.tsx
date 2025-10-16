@@ -15,5 +15,10 @@ export default meta;
 type Story = StoryObj<typeof Endorcement>;
 
 export const Default: Story = {
-  args: {},
+  args: {
+    comment: "This is an endorsment",
+    date: new Date(2023, 1, 1),
+    location: "Leeds, UK",
+    name: "N8G",
+  },
 };
