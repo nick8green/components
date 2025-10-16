@@ -1,0 +1,17 @@
+.accordion-item button {
+    background-color: var(--color-background-secondary, darkgreen);
+    color: white;
+}
+.accordion-item.active button {
+    background-color: var(--color-background-secondary, darkslategrey);
+    color: lightgrey;
+}
+
+.accordion-item .item-content {
+    height: 0;
+    overflow: hidden;
+    transition: height 0.5s ease;
+}
+.accordion-item.active .item-content {
+    height: auto;
+}
