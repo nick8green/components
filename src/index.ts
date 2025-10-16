@@ -2,6 +2,7 @@
 
 import dynamic from "next/dynamic";
 
+export { default as Accordion } from "components/Accordion";
 export { default as Button } from "components/Button";
 export { default as ButtonGroup } from "components/Button/Group";
 export {
