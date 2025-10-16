@@ -13,7 +13,14 @@ Accordion component.
 
 ## Arguments
 
-TBC
+- **allowMultipleOpen** _`boolean`_ - Indicator for whether to allow multiple open items. _(default: false)_ _(optional)_
+- **title** _`string`_ - The title to display for the accordion. _(optional)_
+- **items** _`Item[]`_ - Each item in the accordion. _(default: \[\])_ _(optional)_
+
+### Item
+
+- **title** _`string`_ - The title to be displayed to for the accordion item.
+- **children** _`ReactNode`_ - The components to be displayed when opening the accordion item.
 
 ## Usage
 
@@ -23,10 +30,42 @@ import {Accordion} from "@nick8green/components";
 const Example = () => {
   return (
       <Accordion
-        
+        items={[
+        {
+            title: "Item 1",
+            children: <div>Content for Item 1</div>,
+        },
+        {
+            title: "Item 2",
+            children: <div>Content for Item 2</div>,
+        },
+        {
+            title: "Item 3",
+            children: <div>Content for Item 3</div>,
+        },
+        {
+            title: "Item 4",
+            children: <div>Content for Item 4</div>,
+        },
+        {
+            title: "Item 5",
+            children: <div>Content for Item 5</div>,
+        },
+        ]}
+        title="Accordion Title"
       />
   );
 };
 
 export default Example;
 ```
+
+## Supported Styling
+
+| Usage                                                                             | Variable           | Alternatives (in priority order) | Fallback      |
+|-----------------------------------------------------------------------------------|--------------------|----------------------------------|---------------|
+| The text colour for the title and the accordion title background when active/open | --primary-colour   | --primary-background-colour      | darkslategrey |
+| The default background colour for the item title                                  | --secondary-colour | --secondary-background-colour    | darkgreen     |
+| The border colour separating options                                              | --border-color     |                                  | black         |
+| The default text colour for the item title                                        | --primary-colour   | --primary-background-colour      | white         |
+| The accordion title text colour when active/open                                  | --secondary-colour | --secondary-background-colour    | white         |

@@ -1,5 +1,6 @@
 "use client";
-import { useRef, useState, type FC, type PropsWithChildren, type ReactNode } from "react";
+import { useState, type FC, type ReactNode } from "react";
+import AccordionItem from "components/Accordion/Item";
 
 import "./style.css";
 
@@ -9,53 +10,46 @@ type Item = {
 };
 
 type AccordionProps = {
-    allowMultipleOpen?: boolean;
+  allowMultipleOpen?: boolean;
   title?: string;
   items?: Item[];
 };
 
-const Accordion: FC<AccordionProps> = ({ allowMultipleOpen = false, items, title }) => {
-    const [openIndex, setOpenIndex] = useState<number | null>(null);
+const Accordion: FC<AccordionProps> = ({
+  allowMultipleOpen = false,
+  items = [],
+  title,
+}) => {
+  const [openIndex, setOpenIndex] = useState<number[]>([]);
 
-    const handleToggle = (index: number) => {
-        console.log("Accordion toggle")
-        if (openIndex === index) {
-            return setOpenIndex(null);
-        }
-        setOpenIndex(openIndex === index ? null : index);
-    };
+  const handleToggle = (index: number) => {
+    if (openIndex.includes(index)) {
+      return setOpenIndex(openIndex.filter((i) => i !== index));
+    }
+    setOpenIndex(allowMultipleOpen ? [...openIndex, index] : [index]);
+  };
 
-    return <div className="accordion">
-        {title && <h3 className="title">{title}</h3>}
-        <ul className="accordion">
+  const isActive = (index: number): boolean => {
+    return openIndex.includes(index);
+  };
+
+  return (
+    <div className="accordion">
+      {title && <h3 className="title">{title}</h3>}
+      <ul className="accordion">
         {items?.map((item, index) => (
-            <AccordionItem key={item.title.replaceAll(" ", "-")} active={allowMultipleOpen ? undefined : openIndex === index} title={item.title} onToggle={allowMultipleOpen ? undefined : () => handleToggle(index)}>{item.children}</AccordionItem>
+          <AccordionItem
+            key={item.title.replaceAll(" ", "-")}
+            active={isActive(index)}
+            title={item.title}
+            onToggle={() => handleToggle(index)}
+          >
+            {item.children}
+          </AccordionItem>
         ))}
-        </ul>
-    </div>;
-};
-
-const AccordionItem: FC<PropsWithChildren<{ active?: boolean; onToggle?: () => void; title: string }>> = ({ active = false, onToggle, title, children }) => {
-    const contentRef = useRef<HTMLDivElement>(null);
-    const [isOpen, setIsOpen] = useState(active);
-
-    const handleToggle = () => {
-        if (onToggle) {
-            console.log(1);
-            return onToggle();
-        }
-        console.log(2);
-        setIsOpen(!isOpen);
-    };
-
-    return (
-        <li className={`accordion-item ${active ? "active" : ""}`}>
-            <button className="item-title" onClick={handleToggle}>
-                {title} <span className="control">{isOpen ? "-" : "+"}</span>
-            </button>
-            <div className="item-content" ref={contentRef} style={{ height: isOpen ? contentRef.current?.scrollHeight : 0 }}>{children}</div>
-        </li>
-    );
+      </ul>
+    </div>
+  );
 };
 
 export default Accordion;
