@@ -1,0 +1,46 @@
+import { Canvas, Meta } from "@storybook/addon-docs/blocks";
+import * as Endorsement from "./Endorsement.stories.tsx";
+
+<Meta of={Endorsement} title="Endorsement" />
+
+# Endorsement
+
+Endorsement component for a website.
+
+#### Example
+
+<Canvas of={Endorsement.Default} />
+
+## Arguments
+
+- **comment** _`string`_ - The comment made to form the endorsement.
+- **date** _`Date`_ - The date of the endorsement. _(optional)_
+- **location** _`string`_ - The location of the user/individual/business making the comment. _(optional)_
+- **name** _`string`_ - The name of the user/individual/business making the comment. _(optional)_
+
+## Usage
+
+```ts
+import { Endorsement } from "@nick8green/components";
+
+const Example = () => {
+  return (
+      <Endorsement
+        comment="This is an endorsment"
+        date={new Date(2023, 01, 01)}
+        location="Leeds, UK"
+        name="N8G"
+      />
+  );
+};
+
+export default Example;
+```
+
+## Supported Styling
+
+| Usage              | Variable           | Alternatives (in priority order) | Fallback      |
+|--------------------|--------------------|----------------------------------|---------------|
+| Comment colour     | --primary-colour   | --primary-text-colour            | darkslategrey |
+| Attribution colour | --secondary-colour | --secondary-text-colour          | black         |
+| Date colour        | --secondary-colour | --secondary-text-colour          | black         |
