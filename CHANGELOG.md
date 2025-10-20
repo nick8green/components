@@ -1,3 +1,10 @@
+## [2.7.1](https://github.com/nick8green/components/compare/v2.7.0...v2.7.1) (2025-10-20)
+
+
+### Bug Fixes
+
+* **Blog:** corrected issue with blank content initially ([e747f3a](https://github.com/nick8green/components/commit/e747f3ae39478ac865ec07860c8e08d05039cf2e))
+
 # [2.7.0](https://github.com/nick8green/components/compare/v2.6.2...v2.7.0) (2025-10-20)
 
 
