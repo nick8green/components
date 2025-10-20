@@ -1,3 +1,11 @@
+# [2.7.0](https://github.com/nick8green/components/compare/v2.6.2...v2.7.0) (2025-10-20)
+
+
+### Features
+
+* **Blog:** added components for displaying blog posts ([649ef0a](https://github.com/nick8green/components/commit/649ef0ae579dc50c47414019cbb0121f312eb8e2))
+* **Pagination:** added a pagination component ([c96da11](https://github.com/nick8green/components/commit/c96da11925f7daf701f36a063631641a1cade939))
+
 ## [2.6.2](https://github.com/nick8green/components/compare/v2.6.1...v2.6.2) (2025-10-20)
 
 
