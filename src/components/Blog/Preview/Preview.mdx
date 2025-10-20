@@ -1,0 +1,38 @@
+import { Canvas, Meta } from "@storybook/addon-docs/blocks";
+import * as Preview from "./Preview.stories.tsx";
+
+<Meta of={Preview} title="Preview" />
+
+# Blog Preview
+
+Blog post preview component.
+
+#### Example
+
+<Canvas of={Preview.Default} />
+
+## Arguments
+
+- **date** _`Date`_ - The date of the post creation.
+- **excerpt** _`string`_ - The excerpt from the post.
+- **title** _`string`_ - The title of the post.
+- **url** _`string`_ - The url the post lives at.
+
+## Usage
+
+```ts
+import {BlogPreview} from "@nick8green/components";
+
+const Example = () => {
+  return (
+      <BlogPreview
+        date={new Date("2024-01-01")}
+        excerpt="This is a sample excerpt from the blog post to give readers an idea of the content."
+        title="Sample Blog Post"
+        url="/blog/sample-post"
+      />
+  );
+};
+
+export default Example;
+```

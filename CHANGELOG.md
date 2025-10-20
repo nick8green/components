@@ -1,3 +1,46 @@
+# [2.7.0](https://github.com/nick8green/components/compare/v2.6.2...v2.7.0) (2025-10-20)
+
+
+### Features
+
+* **Blog:** added components for displaying blog posts ([649ef0a](https://github.com/nick8green/components/commit/649ef0ae579dc50c47414019cbb0121f312eb8e2))
+* **Pagination:** added a pagination component ([c96da11](https://github.com/nick8green/components/commit/c96da11925f7daf701f36a063631641a1cade939))
+
+## [2.6.2](https://github.com/nick8green/components/compare/v2.6.1...v2.6.2) (2025-10-20)
+
+
+### Bug Fixes
+
+* **Timeline:** reworked styling for horizontal timelines ([32acb4c](https://github.com/nick8green/components/commit/32acb4c91d15dda5dd88ecfb0afdf3f97c268fd8))
+
+# [2.6.0](https://github.com/nick8green/components/compare/v2.5.3...v2.6.0) (2025-10-20)
+
+
+### Bug Fixes
+
+* **Accordion:** styling and docs for the accordion ([b911659](https://github.com/nick8green/components/commit/b9116594da9c728a769d46c7767ab2ff66d01778))
+* **Endorsement:** updated styling and documentation ([4a75f54](https://github.com/nick8green/components/commit/4a75f541574e9dfa7c8eb04e6dfb0720b06b985d))
+
+
+### Features
+
+* **Accordion:** initial accordion implementation ([eb7885b](https://github.com/nick8green/components/commit/eb7885bab05586e2c856ba2dcc55ed3289f41457))
+* **Endorsement:** added component for testimonial or endorsement ([736e5ea](https://github.com/nick8green/components/commit/736e5ea73013c92d9edb9a85b64a2e9655df4ca9))
+
+# [2.6.0](https://github.com/nick8green/components/compare/v2.5.3...v2.6.0) (2025-10-20)
+
+
+### Bug Fixes
+
+* **Accordion:** styling and docs for the accordion ([b911659](https://github.com/nick8green/components/commit/b9116594da9c728a769d46c7767ab2ff66d01778))
+* **Endorsement:** updated styling and documentation ([4a75f54](https://github.com/nick8green/components/commit/4a75f541574e9dfa7c8eb04e6dfb0720b06b985d))
+
+
+### Features
+
+* **Accordion:** initial accordion implementation ([eb7885b](https://github.com/nick8green/components/commit/eb7885bab05586e2c856ba2dcc55ed3289f41457))
+* **Endorsement:** added component for testimonial or endorsement ([736e5ea](https://github.com/nick8green/components/commit/736e5ea73013c92d9edb9a85b64a2e9655df4ca9))
+
 # [2.5.0](https://github.com/nick8green/components/compare/v2.4.0...v2.5.0) (2025-10-16)
 
 
