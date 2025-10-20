@@ -1,3 +1,10 @@
+## [2.6.2](https://github.com/nick8green/components/compare/v2.6.1...v2.6.2) (2025-10-20)
+
+
+### Bug Fixes
+
+* **Timeline:** reworked styling for horizontal timelines ([32acb4c](https://github.com/nick8green/components/commit/32acb4c91d15dda5dd88ecfb0afdf3f97c268fd8))
+
 # [2.6.0](https://github.com/nick8green/components/compare/v2.5.3...v2.6.0) (2025-10-20)
 
 
