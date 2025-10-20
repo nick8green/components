@@ -1,0 +1,32 @@
+import { Canvas, Meta } from "@storybook/addon-docs/blocks";
+import * as Post from "./Post.stories.tsx";
+
+<Meta of={Post} title="Post" />
+
+# Blog Post
+
+Blog post component.
+
+#### Example
+
+<Canvas of={Post.Default} />
+
+## Arguments
+
+TBD
+
+## Usage
+
+```ts
+import {BlogPost} from "@nick8green/components";
+
+const Example = () => {
+  return (
+      <BlogPost
+        
+      />
+  );
+};
+
+export default Example;
+```

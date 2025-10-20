@@ -7,15 +7,25 @@ import {
   Children,
   createElement,
   type Component,
+  type ComponentType,
   type FC,
+  type JSX,
   type PropsWithChildren,
 } from "react";
 import ReactMarkdown, { type Components } from "react-markdown";
 import rehypeReact from "rehype-react";
 import remarkGfm from "remark-gfm";
 
+type MarkdownRendererProps = {
+  children?: React.ReactNode;
+  node?: any;
+  [key: string]: any;
+};
+
 export type MarkdownProps = {
-  renderers?: { [key: string]: Component };
+  renderers?: {
+    [key: string]: ComponentType<MarkdownRendererProps> | Component<any, any>;
+  };
 };
 
 export const flattenToId = (text: string, child: any): string => {
@@ -40,12 +50,16 @@ export const codeRenderer: FC<PropsWithChildren> = ({
   </pre>
 );
 
-export const headingRenderer = ({ children, node, ...props }: any) => {
-  let tag: RegExpExecArray | null;
-  if (!(tag = /^h([0-9]+)/.exec(node.tagName))) {
+export const headingRenderer = ({
+  children,
+  node,
+  ...props
+}: any): JSX.Element => {
+  const tag: RegExpExecArray | null = /^h(\d+)/.exec(node.tagName);
+  if (!tag) {
     throw new Error("invalid heading tag");
   }
-  const level = parseInt(tag[1]) + 1;
+  const level = Number.parseInt(tag[1]) + 1;
 
   if (level > 6) {
     throw new Error(
@@ -60,11 +74,11 @@ export const headingRenderer = ({ children, node, ...props }: any) => {
   );
 };
 
-export const imageRenderer = ({ children, ...props }: any) => {
+export const imageRenderer = ({ children, ...props }: any): JSX.Element => {
   return createElement("img", { ...props, loading: "lazy" }, children);
 };
 
-export const linkRenderer = ({ children, href, node }: any) => {
+export const linkRenderer = ({ children, href, node }: any): JSX.Element => {
   if (/^\/[a-z0-9]+/i.exec(href)) {
     return <a {...node.properties}>{children}</a>;
   }
@@ -97,7 +111,7 @@ const Markdown: FC<PropsWithChildren<MarkdownProps>> = ({
         rehypePlugins={[rehypeReact]}
         remarkPlugins={[remarkGfm]}
       >
-        {content?.toString()}
+        {typeof content === "string" ? content : content?.toString()}
       </ReactMarkdown>
     </div>
   );

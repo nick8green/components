@@ -1,0 +1,32 @@
+import { Canvas, Meta } from "@storybook/addon-docs/blocks";
+import * as Preview from "./Preview.stories.tsx";
+
+<Meta of={Preview} title="Preview" />
+
+# Blog Preview
+
+Blog post preview component.
+
+#### Example
+
+<Canvas of={Preview.Default} />
+
+## Arguments
+
+TBD
+
+## Usage
+
+```ts
+import {BlogPreview} from "@nick8green/components";
+
+const Example = () => {
+  return (
+      <BlogPreview
+        
+      />
+  );
+};
+
+export default Example;
+```
