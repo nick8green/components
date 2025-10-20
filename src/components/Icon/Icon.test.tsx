@@ -38,7 +38,6 @@ describe("Icon", () => {
     expect(faIcon).toBeInTheDocument();
     expect(faIcon).toHaveClass("test-class");
     expect(faIcon).toHaveClass("fa-2x");
-    console.log(screen.debug());
     expect(faIcon).toHaveAttribute("title", "Test Icon");
   });
 

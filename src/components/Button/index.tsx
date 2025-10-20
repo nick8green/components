@@ -1,4 +1,4 @@
-import type { FC } from "react";
+import type { FC, PropsWithChildren } from "react";
 
 import "./style.css";
 
@@ -9,13 +9,16 @@ export enum ButtonType {
 }
 
 export type ButtonProps = {
+  className?: string;
   disabled?: boolean;
   label: string;
   onClick?: () => void;
   type?: ButtonType;
 };
 
-const Button: FC<ButtonProps> = ({
+const Button: FC<PropsWithChildren<ButtonProps>> = ({
+  className,
+  children,
   disabled = false,
   label,
   onClick = () => null,
@@ -23,6 +26,7 @@ const Button: FC<ButtonProps> = ({
 }) => {
   return (
     <button
+      className={className}
       data-testid={label
         .replaceAll(/&[a-z]+;/g, "")
         .replaceAll(/ +/g, " ")
@@ -34,7 +38,7 @@ const Button: FC<ButtonProps> = ({
       onClick={onClick}
       type={type}
     >
-      {label}
+      {children ?? label}
     </button>
   );
 };

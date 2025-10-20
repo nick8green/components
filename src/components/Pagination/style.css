@@ -1,0 +1,32 @@
+.pagination { margin-bottom: 1em; text-align: center; }
+
+.pagination .controls {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    margin: 1em 0 0;
+}
+
+.pagination button { 
+    background-color: #f0f0f0;
+    border: none;
+    padding: 0.5em 0.75em;
+    margin: 0 0.2em;
+    cursor: pointer;
+    border-radius: 0.25em;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    flex-flow: column nowrap;
+}
+.pagination .nav-btn { width: 5em; }
+
+.pagination ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+}
+
+.pagination li { margin: 0 0.2em; }
+
+.pagination p { margin: 0; padding: 0; }
