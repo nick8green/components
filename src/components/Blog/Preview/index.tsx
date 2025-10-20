@@ -1,10 +1,9 @@
 import moment from "moment";
 import Link from "next/link";
 import type { FC } from "react";
+import Markdown from "components/Markdown";
 
 import "./style.css";
-import Markdown from "components/Markdown";
-import { useRouter } from "next/router";
 
 export type PreviewProps = {
   date: Date;
@@ -20,11 +19,11 @@ const Preview: FC<PreviewProps> = ({ date, excerpt, title, url }) => {
     );
   }
 
-  const router = useRouter();
-
   return (
     <div className="blog-preview" data-testid="blog-preview">
-      <h3 onClick={() => router.push(url)}>{title}</h3>
+      <Link href={url}>
+        <h3>{title}</h3>
+      </Link>
       <p className="timestamp">{moment(date).format("MMMM D, YYYY")}</p>
       {/* <p className="meta"></p> */}
       <Markdown>{excerpt}</Markdown>

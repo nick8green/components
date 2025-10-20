@@ -1,8 +1,7 @@
 import React from "react";
-import { render, screen, fireEvent, cleanup } from "@testing-library/react";
-import { vi, describe, it, expect, afterEach, type Mock } from "vitest";
-import { useRouter } from "next/router";
-import Preview from "./index";
+import { render, screen, cleanup } from "@testing-library/react";
+import { vi, describe, it, expect, afterEach } from "vitest";
+import Preview from "components/Blog/Preview";
 
 vi.mock("next/link", () => {
   return {
@@ -17,12 +16,6 @@ vi.mock("components/Markdown", () => {
     __esModule: true,
     default: ({ children }: any) =>
       React.createElement("div", { "data-testid": "markdown" }, children),
-  };
-});
-
-vi.mock("next/router", () => {
-  return {
-    useRouter: vi.fn(),
   };
 });
 
@@ -47,22 +40,15 @@ describe("Preview component", () => {
   });
 
   it("renders title as an h3 and calls router.push when clicked", () => {
-    const pushMock = vi.fn();
-    (useRouter as unknown as Mock).mockReturnValue({ push: pushMock });
-
     render(<Preview title={title} excerpt={excerpt} date={date} url={url} />);
 
     const heading = screen.getByText(title);
     // ensure it's the h3 element
     expect(heading.tagName).toBe("H3");
-
-    fireEvent.click(heading);
-    expect(pushMock).toHaveBeenCalledWith(url);
+    expect(heading.parentElement?.getAttribute("href")).toBe(url);
   });
 
   it("renders the formatted date using moment", () => {
-    (useRouter as unknown as Mock).mockReturnValue({ push: vi.fn() });
-
     render(<Preview title={title} excerpt={excerpt} date={date} url={url} />);
 
     // January 2, 2020 is the expected moment format for 2020-01-02
@@ -70,8 +56,6 @@ describe("Preview component", () => {
   });
 
   it("renders excerpt via Markdown and includes a 'Read more' link with correct href", () => {
-    (useRouter as unknown as Mock).mockReturnValue({ push: vi.fn() });
-
     render(<Preview title={title} excerpt={excerpt} date={date} url={url} />);
 
     const md = screen.getByTestId("markdown");

@@ -13,7 +13,10 @@ Blog post list component.
 
 ## Arguments
 
-TBD
+- **page** _`number`_ - The current page of posts. _(optional)_
+- **posts** _`PreviewProps[]`_ - A list of posts to display. _(default: [])_ _(optional)_
+- **postsPerPage** _`number`_ - The number of posts to display per page. _(optional)_
+- **title** _`string`_ - The title of the blog. _(default: "")_ _(optional)_
 
 ## Usage
 
@@ -23,7 +26,31 @@ import {BlogList} from "@nick8green/components";
 const Example = () => {
   return (
       <BlogList
-        
+        page={1}
+        posts={[
+          {
+            date: new Date("2024-01-01"),
+            excerpt:
+              "This is a sample excerpt from the blog post to give readers an idea of the content.",
+            title: "One More Blog Post",
+            url: "/blog/one-more-blog-post",
+          },
+          {
+            date: new Date("2024-02-01"),
+            excerpt:
+              "This is a sample excerpt from the blog post to give readers an idea of the content.",
+            title: "Another Sample Blog Post",
+            url: "/blog/another-sample-post",
+          },
+          {
+            date: new Date("2024-03-01"),
+            excerpt:
+              "This is a sample excerpt from the blog post to give readers an idea of the content.",
+            title: "Sample Blog Post",
+            url: "/blog/sample-post",
+          },
+        ]}
+        postsPerPage={2}
       />
   );
 };

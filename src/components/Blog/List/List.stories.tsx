@@ -4,6 +4,16 @@ import BlogList from "components/Blog/List";
 const meta: Meta<typeof BlogList> = {
   title: "Display/Blog/List",
   component: BlogList,
+  decorators: [
+    (Story) => (
+      <div style={{ width: "100vw", height: "100vh" }}>
+        <Story />
+      </div>
+    ),
+  ],
+  parameters: {
+    layout: "fullscreen",
+  },
 };
 
 export default meta;
@@ -34,6 +44,7 @@ export const Default: Story = {
         url: "/blog/sample-post",
       },
     ],
+    postsPerPage: 2,
     title: "",
   },
 };
