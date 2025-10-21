@@ -1,3 +1,17 @@
+## [2.7.2](https://github.com/nick8green/components/compare/v2.7.1...v2.7.2) (2025-10-21)
+
+
+### Bug Fixes
+
+* updated style variables convention ([6acd144](https://github.com/nick8green/components/commit/6acd144f0bd27dd583f35561b6e8e8ae7e189839))
+
+## [2.7.1](https://github.com/nick8green/components/compare/v2.7.0...v2.7.1) (2025-10-20)
+
+
+### Bug Fixes
+
+* **Blog:** corrected issue with blank content initially ([e747f3a](https://github.com/nick8green/components/commit/e747f3ae39478ac865ec07860c8e08d05039cf2e))
+
 # [2.7.0](https://github.com/nick8green/components/compare/v2.6.2...v2.7.0) (2025-10-20)
 
 

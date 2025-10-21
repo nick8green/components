@@ -1,7 +1,7 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
 import { vi } from "vitest";
-import Post from "./index";
+import Post from "components/Blog/Post";
 
 vi.mock("components/Markdown", () => {
   // simple deterministic flattenToId used by the component's headerRenderer

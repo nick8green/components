@@ -15,7 +15,7 @@ const List: FC<ListProps> = ({ posts, postsPerPage, title }) => {
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [visiblePage, setVisiblePage] = useState<number>(1);
   const [isFadingOut, setIsFadingOut] = useState<boolean>(false);
-  const [isFadingIn, setIsFadingIn] = useState<boolean>(false);
+  const [isFadingIn, setIsFadingIn] = useState<boolean>(true);
 
   const getEndIndex = (): number | undefined => {
     if (postsPerPage) {

@@ -2,7 +2,8 @@ import React from "react";
 import { render, screen, fireEvent, cleanup } from "@testing-library/react";
 import { vi, describe, it, expect, beforeEach, afterEach } from "vitest";
 import { act } from "react-dom/test-utils";
-import List from "./index";
+import List from "components/Blog/List";
+import type { PreviewProps } from "components/Blog/Preview";
 
 // Mock Preview component to render title text
 vi.mock("components/Blog/Preview", () => {
@@ -68,10 +69,10 @@ describe("Blog List component", () => {
 
   it("renders posts sorted by date descending", () => {
     const posts = [
-      { title: "Post A", date: new Date("2020-01-01"), href: "/a" },
-      { title: "Post B", date: new Date("2022-01-01"), href: "/b" },
-      { title: "Post C", date: new Date("2021-06-01"), href: "/c" },
-    ];
+      { title: "Post A", date: new Date("2020-01-01"), url: "/a" },
+      { title: "Post B", date: new Date("2022-01-01"), url: "/b" },
+      { title: "Post C", date: new Date("2021-06-01"), url: "/c" },
+    ] as PreviewProps[];
     const { container } = render(<List posts={posts} />);
     const previews = screen
       .getAllByTestId("preview")
@@ -84,10 +85,10 @@ describe("Blog List component", () => {
 
   it("paginates and applies fade-out then fade-in classes when changing pages", async () => {
     const posts = [
-      { title: "Post 1", date: new Date("2022-01-03"), href: "/1" },
-      { title: "Post 2", date: new Date("2022-01-02"), href: "/2" },
-      { title: "Post 3", date: new Date("2022-01-01"), href: "/3" },
-    ];
+      { title: "Post 1", date: new Date("2022-01-03"), url: "/1" },
+      { title: "Post 2", date: new Date("2022-01-02"), url: "/2" },
+      { title: "Post 3", date: new Date("2022-01-01"), url: "/3" },
+    ] as PreviewProps[];
     const { container } = render(<List posts={posts} postsPerPage={2} />);
 
     // initial page shows first two (sorted descending)
