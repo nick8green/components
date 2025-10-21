@@ -11,10 +11,10 @@
 nav.main-navigation .link-icon { display: inline-block; }
 
 nav.main-navigation ul {
-	background-color: var(--navigation-background-color, var(--primary-background-colour, var(--background-color, transparent)));
+	background-color: var(--navigation-background, var(--colour-background-primaryr, var(--colour-background, transparent)));
 	margin: 0;
 	padding: 0;
-	color: var(--primary-text-colour, var(--primary-colour, darkslategrey));
+	color: var(--colour-text-primary, var(--colour-primary, darkslategrey));
 }
 
 nav.main-navigation li {
@@ -26,11 +26,11 @@ nav.main-navigation li {
 }
 nav.main-navigation.highlight-on-hover li:not(.active-link) { border-bottom: none; }
 nav.main-navigation.highlight-on-hover ul li:hover, nav.main-navigation.highlight-on-hover ul li:focus, nav.main-navigation.highlight-on-hover ul li:active {
-	background-color: var(--primary-colour, var(--primary-text-colour, darkslategrey));
-	color: var(--secondary-colour, var(--secondary-text-colour, white));
+	background-color: var(--colour-primary, var(--colour-text-primary, darkslategrey));
+	color: var(--colour-secondary, var(--colour-text-secondary, white));
 }
 nav.main-navigation ul li:hover, nav.main-navigation ul li:focus, nav.main-navigation ul li:active {
-	border-bottom-color: var(--primary-text-colour, var(--primary-colour, darkslategrey));
+	border-bottom-color: var(--colour-text-primary, var(--colour-primary, darkslategrey));
 }
 
 nav.main-navigation ul li a, nav.main-navigation ul li a:visited, nav.main-navigation ul li a:hover, nav.main-navigation ul li a:focus, nav.main-navigation ul li a:active {
@@ -41,7 +41,7 @@ nav.main-navigation ul li a, nav.main-navigation ul li a:visited, nav.main-navig
 }
 
 nav.main-navigation > ul ul {
-	background-color: var(--navigation-background-color, var(--primary-background-colour, var(--background-color, white)));
+	background-color: var(--navigation-background, var(--colour-background-primaryr, var(--colour-background, white)));
 	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
 	display: none;
 	flex-flow: column nowrap;
@@ -57,7 +57,7 @@ nav.main-navigation.highlight-on-hover > ul ul ul { top: 0; }
 
 nav.main-navigation > ul li:active > ul, nav.main-navigation > ul li:focus > ul, nav.main-navigation > ul li:hover > ul { display: flex; }
 
-nav.main-navigation:not(.no-active-link) .active-link { border-bottom: 0.25em solid var(--primary-text-colour, var(--primary-colour, darkslategrey)); }
+nav.main-navigation:not(.no-active-link) .active-link { border-bottom: 0.25em solid var(--colour-text-primary, var(--colour-primary, darkslategrey)); }
 
 nav.main-navigation .link-expansion-icon { font-size: 0.8em; margin-left: 0.25em; }
 

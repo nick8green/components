@@ -4,7 +4,7 @@
 
 nav.breadcrumb-navigation ul {
 	background-color: transparent;
-	color: var(--secondary-text-colour, var(--secondary-colour, darkgreen));
+	color: var(--colour-text-secondary, var(--colour-secondary, darkgreen));
 	display: flex;
 	flex-flow: row nowrap;
 	list-style: none;
@@ -14,7 +14,7 @@ nav.breadcrumb-navigation ul {
 
 nav.breadcrumb-navigation li+li:before {
   padding: 0.25em 0.5em;
-  color: var(--primary-text-colour, var(--primary-colour, darkslategrey));
+  color: var(--colour-text-primary, var(--colour-primary, darkslategrey));
   content: ">";
 }
 
@@ -29,6 +29,6 @@ nav.breadcrumb-navigation ul li a:hover, nav.breadcrumb-navigation ul li a:focus
 
 nav.breadcrumb-navigation > ul ul { display: none; }
 
-nav.breadcrumb-navigation:not(.no-active-link) .active-link { color: var(--primary-text-colour, var(--primary-colour, darkslategrey)); }
+nav.breadcrumb-navigation:not(.no-active-link) .active-link { color: var(--colour-text-primary, var(--colour-primary, darkslategrey)); }
 
 nav.breadcrumb-navigation .link-icon { display: none; }

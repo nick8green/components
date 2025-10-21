@@ -38,6 +38,28 @@ Storybook documentation is hosted in GitHub at [http://nick8green.github.io/comp
 
 Each component with example usage can be found here.
 
+## Styling
+
+Where possible styling variables follow the hierarchy:
+
+    component -> generic -> default
+
+All spellings should follow the english spellings rather than the american.
+
+### Component
+
+The convention should looks like...
+
+`--{component}-{category}-{attribute}-{hierarchy}`
+
+### Generic
+
+The convention follows a very similar pattern...
+
+`--{category}-{attribute}-{hierarchy}`
+
+The category sould be things like "font" or "colour".
+
 ## Reporting Issues
 
 Please raise an issue to the repository or [click here](https://github.com/nick8green/components/issues).

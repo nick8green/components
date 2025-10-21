@@ -6,7 +6,7 @@
     animation: spinner 2s linear infinite;
     border: calc(var(--spinner-size) / 10) solid #EAF0F6;
     border-radius: 50%;
-    border-top: calc(var(--spinner-size) / 10) solid var(--primary-bg, darkgreen);
+    border-top: calc(var(--spinner-size) / 10) solid var(--colour-background, darkgreen);
     height: var(--spinner-size);
     margin: auto;
     width: var(--spinner-size);
