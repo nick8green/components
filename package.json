@@ -8,14 +8,17 @@
     ".": {
       "types": "./dist/index.d.ts",
       "import": "./dist/index.mjs",
-      "require": "./dist/index.js"
+      "require": "./dist/index.js",
+      "default": "./dist/index.js"
     },
     "./client": {
       "types": "./dist/client.d.ts",
       "import": "./dist/client.mjs",
-      "require": "./dist/client.js"
+      "require": "./dist/client.js",
+      "default": "./dist/client.js"
     },
-    "./style.css": "./dist/index.css"
+    "./style.css": "./dist/index.css",
+    "./package.json": "./package.json"
   },
   "style": "dist/index.css",
   "files": [
