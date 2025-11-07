@@ -11,9 +11,11 @@ import { name } from "./package.json";
 export default defineConfig({
   build: {
     lib: {
-      entry: "./src/index.ts", // Specifies the entry point for building the library.
+      entry: {
+        index: "./src/index.ts", // Server-side entry point
+        client: "./src/client.ts", // Client-side entry point for Next.js
+      },
       name, // Sets the name of the generated library.
-      fileName: (format) => `index.${format}.js`, // Generates the output file name based on the format.
       formats: ["cjs", "es"], // Specifies the output formats (CommonJS and ES modules).
     },
     rollupOptions: {
@@ -28,6 +30,10 @@ export default defineConfig({
         "next",
         "next/link",
         "next/router",
+        "next/dynamic",
+        "react",
+        "react-dom",
+        "react/jsx-runtime",
         "react-markdown",
         "remark-gfm",
         "rehype-react",
@@ -35,6 +41,7 @@ export default defineConfig({
       ], // Defines external dependencies for Rollup bundling.
       output: {
         globals: {},
+        assetFileNames: "index.[ext]", // Control CSS output name
       },
       onwarn(warning, warn) {
         if (warning.code === "EVAL") return;
@@ -43,7 +50,7 @@ export default defineConfig({
     },
     sourcemap: true, // Generates source maps for debugging.
     emptyOutDir: true, // Clears the output directory before building.
-    cssCodeSplit: true, // Enables CSS code splitting.
+    cssCodeSplit: false, // Disable CSS code splitting for predictable output.
   },
   plugins: [
     tsconfigPaths(),
