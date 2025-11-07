@@ -32,6 +32,37 @@ $ npm install @nick8green/components
 
 The components can then be utilised as per the examples in Storybook.
 
+### Next.js Usage
+
+This library supports both Server Components and Client Components for Next.js App Router:
+
+#### Server Components (default)
+Import from the main package for server-side rendering:
+
+```tsx
+import { Header, Footer, BlogPost } from '@nick8green/components';
+```
+
+#### Client Components
+Import from the `/client` subpath for client-side components:
+
+```tsx
+'use client';
+
+import { Icon, Button, Modal } from '@nick8green/components/client';
+```
+
+**Note:** The main export includes `ClientIcon` which is a dynamically imported version of the `Icon` component that can be used in Server Components when you need client-side interactivity.
+
+#### Importing Styles
+
+Don't forget to import the CSS file in your layout or page:
+
+```tsx
+import '@nick8green/components/style.css';
+```
+
+
 ## Documentation
 
 Storybook documentation is hosted in GitHub at [http://nick8green.github.io/components](http://nick8green.github.io/components).
