@@ -13,9 +13,7 @@ describe("Footer Component", () => {
   test("displays the correct text for the copyright", () => {
     render(<Footer copyright={{ owner: "My Company", year: 2023 }} />);
     const copyright = screen.getByTestId("copyright");
-    expect(copyright.innerHTML).toBe(
-      "© My Company 2023. All rights reserved.",
-    );
+    expect(copyright.innerHTML).toBe("© My Company 2023. All rights reserved.");
   });
 
   test("contains a links passed", () => {
