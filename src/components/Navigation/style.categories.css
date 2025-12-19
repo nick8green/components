@@ -4,7 +4,7 @@
 
 nav.categories-navigation ul {
 	background-color: transparent;
-	color: var(--primary-text-colour, var(--primary-colour, darkslategrey));
+	color: var(--colour-text-primary, var(--colour-primary, darkslategrey));
 	display: flex;
 	flex-flow: row nowrap;
 	font-weight: bold;

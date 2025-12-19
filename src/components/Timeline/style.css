@@ -9,8 +9,7 @@
     padding: 0;
     position: relative;
     width: 100%;
-    height: 100%;
-
+    height: var(--timeline-height, 100%);
 }
 .timeline.horizontal {
     flex-direction: row;

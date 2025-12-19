@@ -3,7 +3,7 @@
  */
 
 nav.sidebar-navigation {
-	background-color: var(--primary-colour, lightgrey);
+	background-color: var(--colour-primary, lightgrey);
 	height: 100vh;
 	max-width: 40vw;
 	overflow-y: auto;
@@ -12,7 +12,7 @@ nav.sidebar-navigation {
 }
 
 nav.sidebar-navigation ul {
-	color: var(--secondary-colour, darkslategrey);
+	color: var(--colour-secondary, darkslategrey);
 	display: flex;
 	flex-flow: column nowrap;
 	list-style: none;
@@ -25,8 +25,8 @@ nav.sidebar-navigation li {
 	-webkit-transition: all .25s ease-in-out;
 }
 nav.sidebar-navigation ul li:hover, nav.sidebar-navigation ul li:focus, nav.sidebar-navigation ul li:active {
-	background-color: var(--secondary-colour, darkslategrey);
-	color: var(--primary-colour, white);
+	background-color: var(--colour-secondary, darkslategrey);
+	color: var(--colour-primary, white);
 }
 
 nav.sidebar-navigation > ul > li {
@@ -51,6 +51,6 @@ nav.sidebar-navigation ul ul ul, nav.sidebar-navigation ul ul .link-expansion-ic
 nav.sidebar-navigation > ul > li:active > ul, nav.sidebar-navigation > ul > li:focus > ul, nav.sidebar-navigation > ul > li:hover > ul { display: flex; }
 
 nav.sidebar-navigation:not(.no-active-link) .active-link, nav.sidebar-navigation:not(.no-active-link) .child-active-link {
-	background-color: var(--secondary-colour, darkslategrey);
-	color: var(--primary-colour, white);
+	background-color: var(--colour-secondary, darkslategrey);
+	color: var(--colour-primary, white);
 }

@@ -1,4 +1,4 @@
 .endorsement { text-align: center; }
-.endorsement > .comment { color: var(--primary-colour, var(--primary-text-colour, darkslategrey)); font-size: 1.25em; font-style: italic; }
-.endorsement > .attribution { color: var(--secondary-colour, var(--secondary-text-colour, black)); font-size: 1.1em; font-weight: bold; margin: -0.5em 0 0; }
-.endorsement > .date { color: var(--secondary-colour, var(--secondary-text-colour, black)); font-size: 0.9em; margin: 0 1em 1em; text-align: center; }
+.endorsement > .comment { color: var(--colour-primary, var(--colour-text-primary, darkslategrey)); font-size: 1.25em; font-style: italic; }
+.endorsement > .attribution { color: var(--colour-secondary, var(--colour-text-secondary, black)); font-size: 1.1em; font-weight: bold; margin: -0.5em 0 0; }
+.endorsement > .date { color: var(--colour-secondary, var(--colour-text-secondary, black)); font-size: 0.9em; margin: 0 1em 1em; text-align: center; }

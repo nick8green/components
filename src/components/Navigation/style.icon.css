@@ -3,10 +3,10 @@
  */
 
 nav.icon-navigation ul {
-	background-color: var(--navigation-background-color, var(--primary-background-colour, var(--background-color, transparent)));
+	background-color: var(--navigation-background, var(--colour-background-primaryr, var(--colour-background, transparent)));
 	margin: 0;
 	padding: 0;
-	color: var(--primary-text-colour, var(--primary-colour, darkslategrey));
+	color: var(--colour-text-primary, var(--colour-primary, darkslategrey));
 }
 
 nav.icon-navigation li {
@@ -17,13 +17,13 @@ nav.icon-navigation li {
 	-webkit-transition: all .25s ease-in-out;
 }
 nav.icon-navigation.highlight-on-hover ul li:hover, nav.icon-navigation.highlight-on-hover ul li:focus, nav.icon-navigation.highlight-on-hover ul li:active {
-	background-color: var(--primary-colour, var(--primary-text-colour, darkslategrey));
+	background-color: var(--colour-primary, var(--colour-text-primary, darkslategrey));
 	border-bottom: inherit;
 	border-radius: 0.5em;
-	color: var(--secondary-colour, var(--secondary-text-colour, white));
+	color: var(--colour-secondary, var(--colour-text-secondary, white));
 }
 nav.icon-navigation ul li:hover, nav.icon-navigation ul li:focus, nav.icon-navigation ul li:active {
-	border-bottom-color: var(--primary-text-colour, var(--primary-colour, darkslategrey));
+	border-bottom-color: var(--colour-text-primary, var(--colour-primary, darkslategrey));
 }
 
 nav.icon-navigation ul li a, nav.icon-navigation ul li a:visited, nav.icon-navigation ul li a:hover, nav.icon-navigation ul li a:focus, nav.icon-navigation ul li a:active {
@@ -34,7 +34,7 @@ nav.icon-navigation ul li a, nav.icon-navigation ul li a:visited, nav.icon-navig
 }
 
 nav.icon-navigation > ul ul {
-	background-color: var(--navigation-background-color, var(--primary-background-colour, var(--background-color, white)));
+	background-color: var(--navigation-background, var(--colour-background-primaryr, var(--colour-background, white)));
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     display: none;
     flex-flow: column nowrap;
@@ -49,7 +49,7 @@ nav.icon-navigation > ul ul ul { left: 100%; top: 0; }
 
 nav.icon-navigation > ul li:hover > ul { display: flex; }
 
-nav.icon-navigation:not(.no-active-link) .active-link { border-bottom-color: var(--primary-text-colour, var(--primary-colour, darkslategrey)); }
+nav.icon-navigation:not(.no-active-link) .active-link { border-bottom-color: var(--colour-text-primary, var(--colour-primary, darkslategrey)); }
 
 nav.icon-navigation .link-expansion-icon { font-size: 0.8em; margin-left: 0.25em; }
 

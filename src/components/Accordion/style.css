@@ -1,5 +1,5 @@
 .accordion > h3 {
-    color: var(--primary-colour, var(--primary-background-colour, darkslategrey));
+    color: var(--colour-primary, var(--colour-background-primaryr, darkslategrey));
     margin: 0.25em 0 0.1em;
     padding: 0 0.25em 0 0.5em;
 }
@@ -26,18 +26,18 @@
 }
 
 .accordion-item .item-title {
-    background-color: var(--secondary-colour, var(--secondary-background-colour, darkgreen));
+    background-color: var(--colour-secondary, var(--colour-background-secondary, darkgreen));
     border: none;
-    border-bottom: solid 1px var(--border-color, black);
-    color: var(--primary-colour, var(--primary-background-colour, white));
+    border-bottom: solid 1px var(--accordion-border-colour, var(--colour-border, black));
+    color: var(--colour-primary, var(--colour-background-primaryr, white));
     font-size: 1em;
     padding: 1em;
     text-align: left;   
     transition: all 0.5s ease;
 }
 .accordion-item.active .item-title {
-    background-color: var(--primary-colour, var(--primary-background-colour, darkslategrey));
-    color: var(--secondary-colour, var(--secondary-background-colour, white));
+    background-color: var(--colour-primary, var(--colour-background-primaryr, darkslategrey));
+    color: var(--colour-secondary, var(--colour-background-secondary, white));
 }
 .accordion-item .item-title .control { font-size: 2em; line-height: 0.5em; }
 
