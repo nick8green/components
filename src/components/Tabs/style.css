@@ -1,0 +1,26 @@
+.tabs {
+    width: 100%;
+}
+
+.tabs .header > button {
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    margin: 0;
+    padding: 0.5em 1em;
+}
+.tabs .header > button:active, .tabs .header > button:focus, .tabs .header > button:hover {
+    cursor: pointer;
+}
+.tabs .header > button.active {
+    background: var(--colour-primary, var(--colour-border-primary, darkslategrey));
+    border: solid 1px var(--colour-background, var(--colour-background-primary, white));
+    border-bottom: solid 1px var(--colour-primary, var(--colour-border-primary, darkslategrey));
+    color: var(--colour-background, var(--colour-background-primary, white));
+    z-index: 100;
+}
+
+.tabs .tab {
+    border-top: 1px solid var(--colour-background, var(--colour-background-primary, darkslategrey));
+    margin-top: -1px;
+}
