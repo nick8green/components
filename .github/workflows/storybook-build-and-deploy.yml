@@ -54,7 +54,7 @@ jobs:
 
       - if: inputs.deploy == true
         name: 🗒️ setup pages
-        uses: actions/configure-pages@v5
+        uses: actions/configure-pages@v6
 
       - id: deployment
         if: inputs.deploy == true
