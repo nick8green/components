@@ -59,4 +59,4 @@ jobs:
       - id: deployment
         if: inputs.deploy == true
         name: 🚀 deploy to github pages
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
