@@ -41,14 +41,14 @@ jobs:
 
       - if: inputs.deploy != true
         name: 📦 upload artifact build only
-        uses: actions/upload-pages-artifact@v4
+        uses: actions/upload-pages-artifact@v5
         with:
           name: storybook-build
           path: storybook
 
       - if: inputs.deploy == true
         name: 📦 upload pages artifact
-        uses: actions/upload-pages-artifact@v4
+        uses: actions/upload-pages-artifact@v5
         with:
           path: storybook
 
