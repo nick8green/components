@@ -1,18 +1,18 @@
-import type { FC, PropsWithChildren } from "react";
+import './style.css';
 
-import "./style.css";
-import Icon from "components/Icon";
+import Icon from '@lib/components/Icon';
+import type { FC, PropsWithChildren } from 'react';
 
 export enum ModalType {
-  INPUT = "input",
-  LOADER = "loader",
+  INPUT = 'input',
+  LOADER = 'loader',
 }
 
-export type ModalProps = {
+export interface ModalProps {
   close?: () => void;
   type?: ModalType;
   visible: boolean;
-};
+}
 
 const Modal: FC<PropsWithChildren<ModalProps>> = ({
   children,
@@ -21,11 +21,11 @@ const Modal: FC<PropsWithChildren<ModalProps>> = ({
   visible,
 }) => {
   if (type === ModalType.INPUT && !close) {
-    throw new Error("please provide closure for an input modal");
+    throw new Error('please provide closure for an input modal');
   }
 
   return (
-    <div id="modal" className={visible ? "show" : "hidden"} data-testid="modal">
+    <div id="modal" className={visible ? 'show' : 'hidden'} data-testid="modal">
       <div className={`content ${type}`}>
         {type === ModalType.INPUT && (
           <header>

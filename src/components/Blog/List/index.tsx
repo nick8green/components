@@ -1,15 +1,15 @@
-"use client";
-import { useState, type FC } from "react";
-import Preview, { type PreviewProps } from "components/Blog/Preview";
+'use client';
+import './style.css';
 
-import "./style.css";
-import Pagination from "components/Pagination";
+import Preview, { type PreviewProps } from '@lib/components/Blog/Preview';
+import Pagination from '@lib/components/Pagination';
+import { type FC, useState } from 'react';
 
-type ListProps = {
+interface ListProps {
   posts?: PreviewProps[];
   postsPerPage?: number;
   title?: string;
-};
+}
 
 const List: FC<ListProps> = ({ posts, postsPerPage, title }) => {
   const [currentPage, setCurrentPage] = useState<number>(1);
@@ -26,12 +26,12 @@ const List: FC<ListProps> = ({ posts, postsPerPage, title }) => {
 
   const getFadingClass = (): string => {
     if (isFadingOut) {
-      return "fade-out";
+      return 'fade-out';
     }
     if (isFadingIn) {
-      return "fade-in";
+      return 'fade-in';
     }
-    return "";
+    return '';
   };
 
   const getInitialIndex = (): number => {
@@ -61,20 +61,13 @@ const List: FC<ListProps> = ({ posts, postsPerPage, title }) => {
     <div className="blog-list-container">
       {title && <h3>{title}</h3>}
       <div className="blog-list-wrapper">
-        <div
-          aria-live="polite"
-          className={`blog-list ${getFadingClass()}`}
-          key={visiblePage}
-        >
+        <div aria-live="polite" className={`blog-list ${getFadingClass()}`} key={visiblePage}>
           {posts && posts.length > 0 ? (
             posts
               .toSorted((a, b) => b.date.getTime() - a.date.getTime())
               .slice(getInitialIndex(), getEndIndex())
               .map((post: PreviewProps) => (
-                <Preview
-                  key={post.title.replaceAll(" ", "-").toLowerCase()}
-                  {...post}
-                />
+                <Preview key={post.title.replaceAll(' ', '-').toLowerCase()} {...post} />
               ))
           ) : (
             <p>No blog posts available.</p>

@@ -1,21 +1,21 @@
-"use client";
+'use client';
+import './style.css';
+
+import Button from '@lib/components/Button';
+import ButtonGroup from '@lib/components/Button/Group';
+import Step from '@lib/components/MultiStepForm/Step';
 import {
   cloneElement,
   type FC,
   type FormEvent,
   isValidElement,
   type PropsWithChildren,
+  type ReactNode,
   useEffect,
   useState,
-} from "react";
+} from 'react';
 
-import ButtonGroup from "components/Button/Group";
-import Button from "components/Button";
-import Step from "components/MultiStepForm/Step";
-
-import "./style.css";
-
-type GenericObject = {
+interface GenericObject {
   [key: string]:
     | boolean
     | boolean[]
@@ -25,23 +25,20 @@ type GenericObject = {
     | string
     | string[]
     | ((e: FormEvent<HTMLInputElement | HTMLSelectElement>) => void);
-};
+}
 
 export type StepProps = GenericObject & {
   handleChange?: (e: FormEvent<HTMLInputElement | HTMLSelectElement>) => void;
 };
 
-export type MultiStepProps = {
+export interface MultiStepProps {
   done: (data?: GenericObject) => void;
-};
+}
 
-const MultiStepForm: FC<PropsWithChildren<MultiStepProps>> = ({
-  children,
-  done,
-}) => {
+const MultiStepForm: FC<PropsWithChildren<MultiStepProps>> = ({ children, done }) => {
   if (!children || !Array.isArray(children)) {
     throw new Error(
-      "Children are required for MultiStepForm and there must be more than one step to be completed!",
+      'Children are required for MultiStepForm and there must be more than one step to be completed!',
     );
   }
 
@@ -58,9 +55,9 @@ const MultiStepForm: FC<PropsWithChildren<MultiStepProps>> = ({
 
     if ((match = matcher.exec(e.currentTarget.name)) !== null) {
       if (!match[2]) {
-        throw new Error("not sure if the regex has worked for this element?");
+        throw new Error('not sure if the regex has worked for this element?');
       }
-      name = name.replace(matcher, "$1");
+      name = name.replace(matcher, '$1');
       newData[name] = !data[name] ? [] : data[name];
       const index = parseInt(match[2]);
       (newData[name] as (boolean | number | string)[])[index] = value;
@@ -72,7 +69,7 @@ const MultiStepForm: FC<PropsWithChildren<MultiStepProps>> = ({
   };
 
   const getStep = () => {
-    const child = children[step - 1];
+    const child = children[step - 1] as ReactNode;
     if (isValidElement(child)) {
       return cloneElement(child, {
         ...(child.props as object),
@@ -80,7 +77,7 @@ const MultiStepForm: FC<PropsWithChildren<MultiStepProps>> = ({
         ...{ handleChange },
       });
     }
-    return child;
+    return child ?? null;
   };
 
   const [activeStep, setActiveStep] = useState(getStep());
@@ -112,9 +109,7 @@ const MultiStepForm: FC<PropsWithChildren<MultiStepProps>> = ({
         {step !== children.length && step - 1 < children.length && (
           <Button label="Next &gt;" onClick={nextStep} />
         )}
-        {step === children.length && (
-          <Button label="Complete!" onClick={() => done(data)} />
-        )}
+        {step === children.length && <Button label="Complete!" onClick={() => done(data)} />}
       </ButtonGroup>
     </div>
   );

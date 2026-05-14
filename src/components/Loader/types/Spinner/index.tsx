@@ -1,12 +1,12 @@
-import type { FC } from "react";
+import './style.css';
 
-import "./style.css";
+import type { FC } from 'react';
 
-export type SpinnerLoaderArgs = {
+export interface SpinnerLoaderArgs {
   message?: string;
-};
+}
 
-const Spinner: FC<SpinnerLoaderArgs> = ({ message = "Loading" }) => {
+const Spinner: FC<SpinnerLoaderArgs> = ({ message = 'Loading' }) => {
   return (
     <div className="spinner">
       <div></div>

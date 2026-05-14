@@ -1,16 +1,16 @@
-import { useArgs } from "storybook/preview-api";
-import type { Meta, StoryObj } from "@storybook/react-vite";
-import Switch from "components/Switch";
+import Switch from '@lib/components/Switch';
+import type { Meta, StoryObj } from '@storybook/react-vite';
+import { useArgs } from 'storybook/preview-api';
 
 const meta: Meta<typeof Switch> = {
-  title: "Interaction/Switch",
+  title: 'Interaction/Switch',
   component: Switch,
   args: {
-    label: "storybook",
+    label: 'storybook',
   },
   argTypes: {
     offColour: {
-      control: { type: "color" },
+      control: { type: 'color' },
     },
   },
 };
@@ -18,17 +18,19 @@ const meta: Meta<typeof Switch> = {
 export default meta;
 type Story = StoryObj<typeof Switch>;
 
+const Render = ({ ...args }) => {
+  const [{ checked }, updateArgs] = useArgs();
+  return (
+    <Switch
+      {...args}
+      checked={checked}
+      label="storybook"
+      onChange={(isChecked) => updateArgs({ isChecked })}
+    />
+  );
+};
+
 export const Default: Story = {
   args: {},
-  render: ({ ...args }) => {
-    const [{ checked }, updateArgs] = useArgs();
-    return (
-      <Switch
-        {...args}
-        checked={checked}
-        label="storybook"
-        onChange={(checked) => updateArgs({ checked })}
-      />
-    );
-  },
+  render: Render,
 };

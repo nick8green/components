@@ -1,20 +1,20 @@
-import type { FC, PropsWithChildren } from "react";
+import './style.css';
 
-import "./style.css";
+import type { FC, PropsWithChildren } from 'react';
 
 export enum ButtonType {
-  NORMAL = "button",
-  RESET = "reset",
-  SUBMIT = "submit",
+  NORMAL = 'button',
+  RESET = 'reset',
+  SUBMIT = 'submit',
 }
 
-export type ButtonProps = {
+export interface ButtonProps {
   className?: string;
   disabled?: boolean;
   label: string;
   onClick?: () => void;
   type?: ButtonType;
-};
+}
 
 const Button: FC<PropsWithChildren<ButtonProps>> = ({
   className,
@@ -28,11 +28,11 @@ const Button: FC<PropsWithChildren<ButtonProps>> = ({
     <button
       className={className}
       data-testid={label
-        .replaceAll(/&[a-z]+;/g, "")
-        .replaceAll(/ +/g, " ")
-        .replaceAll(/[^a-zA-Z\d\s\-:]/g, "")
+        .replaceAll(/&[a-z]+;/g, '')
+        .replaceAll(/ +/g, ' ')
+        .replaceAll(/[^a-zA-Z\d\s\-:]/g, '')
         .trim()
-        .replaceAll(" ", "-")
+        .replaceAll(' ', '-')
         .toLowerCase()}
       disabled={disabled}
       onClick={onClick}

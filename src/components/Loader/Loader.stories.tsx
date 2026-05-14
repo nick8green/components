@@ -1,9 +1,8 @@
-import type { Meta, StoryObj } from "@storybook/react-vite";
-
-import Loader, { LoaderType } from "components/Loader";
+import Loader, { LoaderType } from '@lib/components/Loader';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 
 const meta: Meta<typeof Loader> = {
-  title: "Feedback/Loader",
+  title: 'Feedback/Loader',
   component: Loader,
   argTypes: {
     type: {
@@ -15,7 +14,7 @@ const meta: Meta<typeof Loader> = {
     (Story) => (
       <div
         style={{
-          height: "25em",
+          height: '25em',
         }}
       >
         <Story />
@@ -23,7 +22,7 @@ const meta: Meta<typeof Loader> = {
     ),
   ],
   parameters: {
-    layout: "padded",
+    layout: 'padded',
   },
 };
 
@@ -33,7 +32,7 @@ type Story = StoryObj<typeof Loader>;
 export const Default: Story = {
   args: {
     args: {
-      message: "Loading",
+      message: 'Loading',
     },
     displayed: true,
   },
@@ -42,7 +41,7 @@ export const Default: Story = {
 export const Spinner: Story = {
   args: {
     args: {
-      message: "Loading",
+      message: 'Loading',
     },
     displayed: true,
     type: LoaderType.SPINNER,
@@ -52,7 +51,7 @@ export const Spinner: Story = {
 export const Dots: Story = {
   args: {
     args: {
-      message: "Loading",
+      message: 'Loading',
     },
     displayed: true,
     type: LoaderType.DOTS,

@@ -1,25 +1,21 @@
-"use client";
-import { useState, type FC, type ReactNode } from "react";
-import AccordionItem from "components/Accordion/Item";
+'use client';
+import './style.css';
 
-import "./style.css";
+import AccordionItem from '@lib/components/Accordion/Item';
+import { type FC, type ReactNode, useState } from 'react';
 
-type Item = {
+interface Item {
   title: string;
   children: ReactNode;
-};
+}
 
-type AccordionProps = {
+interface AccordionProps {
   allowMultipleOpen?: boolean;
   title?: string;
   items?: Item[];
-};
+}
 
-const Accordion: FC<AccordionProps> = ({
-  allowMultipleOpen = false,
-  items = [],
-  title,
-}) => {
+const Accordion: FC<AccordionProps> = ({ allowMultipleOpen = false, items = [], title }) => {
   const [openIndex, setOpenIndex] = useState<number[]>([]);
 
   const handleToggle = (index: number) => {
@@ -39,7 +35,7 @@ const Accordion: FC<AccordionProps> = ({
       <ul className="accordion">
         {items?.map((item, index) => (
           <AccordionItem
-            key={item.title.replaceAll(" ", "-")}
+            key={item.title.replaceAll(' ', '-')}
             active={isActive(index)}
             title={item.title}
             onToggle={() => handleToggle(index)}

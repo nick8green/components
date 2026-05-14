@@ -1,27 +1,27 @@
+/* eslint-disable no-undef */
 module.exports = {
   branches: [
-    "release",
+    'release',
     {
-      channel: "canary",
-      name: "^(?!develop|main|release).*$",
-      prerelease: "${name}.rc",
+      channel: 'canary',
+      name: '^(?!develop|main|release).*$',
+      prerelease: '${name}.rc',
     },
   ],
   ci: true,
   debug: true,
   plugins: [
-    "@semantic-release/commit-analyzer",
-    "@semantic-release/release-notes-generator",
+    '@semantic-release/commit-analyzer',
+    '@semantic-release/release-notes-generator',
     [
-      "./plugins/conditional-changelog.js",
+      './plugins/conditional-changelog.js',
       {
-        changelogFile: "CHANGELOG.md",
-        assets: ["package.json", "CHANGELOG.md"],
-        message:
-          "chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}",
+        changelogFile: 'CHANGELOG.md',
+        assets: ['package.json', 'CHANGELOG.md'],
+        message: 'chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}',
       },
     ],
-    "@semantic-release/npm",
-    ["./plugins/conditional-github.js"],
+    '@semantic-release/npm',
+    ['./plugins/conditional-github.js'],
   ],
 };

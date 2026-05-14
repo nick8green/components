@@ -6,10 +6,10 @@
     "skipLibCheck": true
   },
   "exclude": [
-      "src/**/*.mdx?",
-      "src/**/*.stories.*",
-      "src/**/*.test.*"
-    ],
-    "extends": "./tsconfig",
-    "include": ["src"]
+    "src/**/*.mdx?",
+    "src/**/*.stories.*",
+    "src/**/*.test.*"
+  ],
+  "extends": "./tsconfig",
+  "include": ["src"]
 }

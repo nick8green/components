@@ -1,12 +1,12 @@
-import type { Meta, StoryObj } from "@storybook/react-vite";
-import Endorcement, { type EndorsementProps } from "components/Endorsement";
+import Endorcement, { type EndorsementProps } from '@lib/components/Endorsement';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 
 const meta: Meta<EndorsementProps> = {
-  title: "Display/Endorcement",
+  title: 'Display/Endorcement',
   component: Endorcement,
   argTypes: {
     date: {
-      control: "date",
+      control: 'date',
     },
   },
 };
@@ -16,9 +16,9 @@ type Story = StoryObj<typeof Endorcement>;
 
 export const Default: Story = {
   args: {
-    comment: "This is an endorsment",
+    comment: 'This is an endorsment',
     date: new Date(2023, 1, 1),
-    location: "Leeds, UK",
-    name: "N8G",
+    location: 'Leeds, UK',
+    name: 'N8G',
   },
 };

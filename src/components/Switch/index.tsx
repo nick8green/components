@@ -1,27 +1,29 @@
-"use client";
-import type { FC } from "react";
+'use client';
+import './style.css';
 
-import "./style.css";
+import type { FC } from 'react';
 
-export type ToggleProps = {
+export interface ToggleProps {
   offColour?: string;
   onColour?: string;
   checked?: boolean;
   label: string;
   onChange: (checked: boolean) => void;
-};
+}
 
 const Toggle: FC<ToggleProps> = ({
-  offColour = "#708090",
-  onColour = "#242424",
+  offColour = '#708090',
+  onColour = '#242424',
   checked = false,
   label,
   onChange,
 }) => {
-  let labelStyle = {},
-    inputStyle = {};
-  labelStyle = { background: offColour, ":hover": { background: "blue" } };
-  inputStyle = { ":checked + label": { background: onColour } };
+  const labelStyle = {
+      background: offColour,
+      ':hover': { background: 'blue' },
+    },
+    // inputStyle = { ":checked + label": { background: onColour } };
+    inputStyle = { background: onColour };
 
   return (
     <div className="toggle-switch">
@@ -33,7 +35,9 @@ const Toggle: FC<ToggleProps> = ({
         style={inputStyle}
         type="checkbox"
       />
-      <label htmlFor={label} style={labelStyle}></label>
+      <label htmlFor={label} style={labelStyle}>
+        {label}
+      </label>
     </div>
   );
 };
