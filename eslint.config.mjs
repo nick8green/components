@@ -74,7 +74,12 @@ export default [
     ],
   },
   {
-    files: ["./**/*.js"],
+    files: ["**/*.{js,cjs}"],
+    languageOptions: {
+      globals: {
+        ...cleanGlobals(globals.node),
+      },
+    },
     rules: {
       "@typescript-eslint/no-require-imports": "off",
       "no-undef": "off",
