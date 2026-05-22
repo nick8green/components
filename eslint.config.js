@@ -14,13 +14,13 @@ export default [
       'setupTests.ts',
       '**/tsup.config.ts',
       '**/*.config.ts',
-      '**/*.config.js',
-      '**/*.js',
+      '**/*.config.{js,cjs,mjs}',
+      '**/*.{js,cjs,mjs}',
     ],
     ...tseslint.configs.disableTypeChecked,
   },
   {
-    files: ['**/*.js', 'plugins/**/*.js', 'release.config.js'],
+    files: ['**/*.{js,cjs}', 'plugins/**/*.{js,cjs}', 'release.config.js'],
     languageOptions: {
       sourceType: 'commonjs',
       globals: {

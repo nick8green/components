@@ -33,7 +33,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: 🧱 setup workspace
-        uses: nick8green/workflows/actions/node/setup@node-setup
+        uses: nick8green/workflows/actions/node/setup@db5746daa8f8de518dfd4415827ee49a3bc5a6b8
         with:
           registry: 'https://npm.pkg.github.com'
 

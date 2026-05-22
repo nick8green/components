@@ -2,20 +2,24 @@ name: build checks for application
 
 on:
   workflow_call:
+    secrets:
+      GH_PAT:
+        description: 'GitHub Personal Access Token with repo permissions'
+        required: true
   workflow_dispatch:
 
 jobs:
   # run unit tests
   test:
     name: 🧪 unit tests
-    uses: nick8green/workflows/.github/workflows/node-unit-test.yml@node-setup
+    uses: nick8green/workflows/.github/workflows/node-unit-test.yml@db5746daa8f8de518dfd4415827ee49a3bc5a6b8
     secrets:
       token: ${{ secrets.GH_PAT }}
 
   # build package
   build:
     name: 🏗️ build package
-    uses: nick8green/workflows/.github/workflows/node-build.yml@node-setup
+    uses: nick8green/workflows/.github/workflows/node-build.yml@db5746daa8f8de518dfd4415827ee49a3bc5a6b8
     secrets:
       token: ${{ secrets.GH_PAT }}
 
@@ -29,6 +33,6 @@ jobs:
   # lint code
   linting:
     name: ✏️ lint code
-    uses: nick8green/workflows/.github/workflows/node-inspect.yml@node-setup
+    uses: nick8green/workflows/.github/workflows/node-inspect.yml@db5746daa8f8de518dfd4415827ee49a3bc5a6b8
     secrets:
       token: ${{ secrets.GH_PAT }}
