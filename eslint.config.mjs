@@ -34,18 +34,19 @@ export default [
     ),
   ),
   {
+    settings: {
+      react: {
+        version: "detect",
+      },
+    },
+  },
+  {
     files: ["**/*.{js,jsx,ts,tsx}"],
     plugins: { "react-hooks": reactHooks },
   },
   {
     plugins: {
       "@typescript-eslint": fixupPluginRules(typescriptEslint),
-    },
-
-    settings: {
-      react: {
-        version: "detect",
-      },
     },
 
     languageOptions: {
