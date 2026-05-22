@@ -13,7 +13,7 @@ module.exports = {
     "@semantic-release/commit-analyzer",
     "@semantic-release/release-notes-generator",
     [
-      "./plugins/conditional-changelog.js",
+      "./plugins/conditional-changelog.cjs",
       {
         changelogFile: "CHANGELOG.md",
         assets: ["package.json", "CHANGELOG.md"],
@@ -22,6 +22,6 @@ module.exports = {
       },
     ],
     "@semantic-release/npm",
-    ["./plugins/conditional-github.js"],
+    ["./plugins/conditional-github.cjs"],
   ],
 };
