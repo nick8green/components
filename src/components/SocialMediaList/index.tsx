@@ -1,35 +1,26 @@
-import type { FC } from "react";
+import './style.css';
 
-import SocialMediaLink, {
-  type SocialMediaArgs,
-} from "components/SocialMediaLink";
+import SocialMediaLink, { type SocialMediaArgs } from '@lib/components/SocialMediaLink';
+import type { FC } from 'react';
 
-import "./style.css";
-
-export type SocialMediaListDisplayProps = {
-  direction?: "row" | "column";
+export interface SocialMediaListDisplayProps {
+  direction?: 'row' | 'column';
   showHandles?: boolean;
-};
+}
 
-export type SocialMediaListProps = {
+export interface SocialMediaListProps {
   display?: SocialMediaListDisplayProps;
   socials?: SocialMediaArgs[];
-};
+}
 
 const defaultDisplay: SocialMediaListDisplayProps = {
-  direction: "row",
+  direction: 'row',
   showHandles: false,
 };
 
-const SocialMediaList: FC<SocialMediaListProps> = ({
-  display = defaultDisplay,
-  socials = [],
-}) => {
+const SocialMediaList: FC<SocialMediaListProps> = ({ display = defaultDisplay, socials = [] }) => {
   return (
-    <ul
-      className={`social-media-list ${display?.direction}`}
-      data-testid="social-media-list"
-    >
+    <ul className={`social-media-list ${display?.direction}`} data-testid="social-media-list">
       {socials.map((social: SocialMediaArgs, index: number) => (
         <li key={`social-${social.platform}-${social.handle ?? index}`}>
           <SocialMediaLink {...social} displayHandle={display.showHandles} />

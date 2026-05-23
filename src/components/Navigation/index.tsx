@@ -1,21 +1,21 @@
-import type { FC, PropsWithChildren } from "react";
-import { RenderLinks } from "components/Navigation/RenderLinks";
+import './style.css';
 
-import "./style.css";
+import { RenderLinks } from '@lib/components/Navigation/RenderLinks';
+import type { FC, PropsWithChildren } from 'react';
 
-export type Link = {
+export interface Link {
   children?: Link[];
   icon?: string;
   isActive?: boolean;
   label: string;
   url: string;
-};
+}
 
 export interface NavigationProps {
   className?: string;
   levels?: number;
   links: Link[];
-  type?: "breadcrumb" | "categories" | "icon" | "main" | "sidebar";
+  type?: 'breadcrumb' | 'categories' | 'icon' | 'main' | 'sidebar';
 }
 
 /**
@@ -31,10 +31,10 @@ export interface NavigationProps {
  */
 const Navigation: FC<PropsWithChildren<NavigationProps>> = ({
   children,
-  className = "",
+  className = '',
   levels = 10,
   links = [],
-  type = "main",
+  type = 'main',
 }) => {
   if (links.length === 0) return null;
 
@@ -47,23 +47,19 @@ const Navigation: FC<PropsWithChildren<NavigationProps>> = ({
     return level;
   };
 
-  if (type === "breadcrumb" && getLowerestNestedLevel(links) > 1) {
-    console.warn("breadcrumb navigation should not have nested links!");
+  if (type === 'breadcrumb' && getLowerestNestedLevel(links) > 1) {
+    console.warn('breadcrumb navigation should not have nested links!');
   }
-  if (type === "breadcrumb" && links.at(-1)?.isActive !== true) {
-    console.warn("the last link should be active!");
-  }
-
-  if (type === "categories" && getLowerestNestedLevel(links) > 2) {
-    console.warn(
-      "categories navigation currently doesn't support more than 2 levels!",
-    );
+  if (type === 'breadcrumb' && links.at(-1)?.isActive !== true) {
+    console.warn('the last link should be active!');
   }
 
-  if (type === "sidebar" && getLowerestNestedLevel(links) > 2) {
-    console.warn(
-      "sidebar navigation currently doesn't support more than 2 levels!",
-    );
+  if (type === 'categories' && getLowerestNestedLevel(links) > 2) {
+    console.warn("categories navigation currently doesn't support more than 2 levels!");
+  }
+
+  if (type === 'sidebar' && getLowerestNestedLevel(links) > 2) {
+    console.warn("sidebar navigation currently doesn't support more than 2 levels!");
   }
 
   return (

@@ -1,10 +1,10 @@
-import type { FC } from "react";
+import './style.css';
 
-import "./style.css";
+import type { FC } from 'react';
 
-export type TextLoaderArgs = {
+export interface TextLoaderArgs {
   message: string;
-};
+}
 
 const TextLoader: FC<TextLoaderArgs> = ({ message }) => (
   <p className="loader-text-message">{message}</p>

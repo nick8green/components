@@ -1,23 +1,23 @@
-import type { Meta, StoryObj } from "@storybook/react-vite";
-import Button, { ButtonType } from "components/Button";
+import Button, { ButtonType } from '@lib/components/Button';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 
 const meta: Meta<typeof Button> = {
-  title: "Interaction/Button",
+  title: 'Interaction/Button',
   component: Button,
   argTypes: {
     disabled: {
-      control: "boolean",
+      control: 'boolean',
     },
     label: {
-      control: "text",
+      control: 'text',
     },
     type: {
       options: Object.keys(ButtonType),
       mapping: ButtonType,
       labels: {
-        Normal: "button",
-        Submit: "submit",
-        Reset: "reset",
+        Normal: 'button',
+        Submit: 'submit',
+        Reset: 'reset',
       },
     },
   },
@@ -28,8 +28,8 @@ type Story = StoryObj<typeof Button>;
 
 export const Default: Story = {
   args: {
-    label: "Click me!",
-    onClick: () => console.log("button clicked!"),
+    label: 'Click me!',
+    onClick: () => console.log('button clicked!'),
     disabled: false,
   },
 };

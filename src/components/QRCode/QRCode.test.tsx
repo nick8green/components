@@ -1,17 +1,16 @@
-import { render, screen } from "@testing-library/react";
+import QRCode from '@lib/components/QRCode';
+import { render, screen } from '@testing-library/react';
 
-import QRCode from "components/QRCode";
-
-describe("QR Code Component", () => {
-  test("renders successfully", () => {
+describe('QR Code Component', () => {
+  test('renders successfully', () => {
     render(<QRCode title="testing" value="http://example.com" />);
-    const qrCode = screen.getByTestId("qr-code");
+    const qrCode = screen.getByTestId('qr-code');
     expect(qrCode).toBeInTheDocument();
-    expect(qrCode.getElementsByTagName("title")[0].innerHTML).toBe("testing");
-    const paths = qrCode.getElementsByTagName("path");
+    expect(qrCode.getElementsByTagName('title')[0].innerHTML).toBe('testing');
+    const paths = qrCode.getElementsByTagName('path');
     expect(paths).toHaveLength(2);
-    expect(paths[0]).toHaveAttribute("fill", "#ffffff");
-    expect(paths[1]).toHaveAttribute("fill", "#000000");
+    expect(paths[0]).toHaveAttribute('fill', '#ffffff');
+    expect(paths[1]).toHaveAttribute('fill', '#000000');
     // <svg height="128" width="128" viewBox="0 0 29 29" role="img" data-testid="qr-code">
     //   <title>testing</title>
     //   <path fill="#ffffff" d="M0,0 h29v29H0z" shape-rendering="crispEdges"></path>
@@ -19,19 +18,10 @@ describe("QR Code Component", () => {
     // </svg>
   });
 
-  test("renders successfully with a defined background", () => {
-    render(
-      <QRCode
-        display={{ background: "#f00" }}
-        title="testing"
-        value="http://example.com"
-      />,
-    );
-    const qrCode = screen.getByTestId("qr-code");
-    expect(qrCode.getElementsByTagName("path")[0]).toHaveAttribute(
-      "fill",
-      "#f00",
-    );
+  test('renders successfully with a defined background', () => {
+    render(<QRCode display={{ background: '#f00' }} title="testing" value="http://example.com" />);
+    const qrCode = screen.getByTestId('qr-code');
+    expect(qrCode.getElementsByTagName('path')[0]).toHaveAttribute('fill', '#f00');
     // <svg height="128" width="128" viewBox="0 0 29 29" role="img" data-testid="qr-code">
     //   <title>testing</title>
     //   <path fill="#f00" d="M0,0 h29v29H0z" shape-rendering="crispEdges"></path>
@@ -39,19 +29,10 @@ describe("QR Code Component", () => {
     // </svg>
   });
 
-  test("renders successfully with a defined foreground", () => {
-    render(
-      <QRCode
-        display={{ foreground: "#f00" }}
-        title="testing"
-        value="http://example.com"
-      />,
-    );
-    const qrCode = screen.getByTestId("qr-code");
-    expect(qrCode.getElementsByTagName("path")[1]).toHaveAttribute(
-      "fill",
-      "#f00",
-    );
+  test('renders successfully with a defined foreground', () => {
+    render(<QRCode display={{ foreground: '#f00' }} title="testing" value="http://example.com" />);
+    const qrCode = screen.getByTestId('qr-code');
+    expect(qrCode.getElementsByTagName('path')[1]).toHaveAttribute('fill', '#f00');
     // <svg height="128" width="128" viewBox="0 0 29 29" role="img" data-testid="qr-code">
     //   <title>testing</title>
     //   <path fill="#ffffff" d="M0,0 h29v29H0z" shape-rendering="crispEdges"></path>
@@ -59,18 +40,18 @@ describe("QR Code Component", () => {
     // </svg>
   });
 
-  test("renders successfully with an embedded image", () => {
+  test('renders successfully with an embedded image', () => {
     render(
       <QRCode
-        display={{ image: "/path/to/image.png" }}
+        display={{ image: '/path/to/image.png' }}
         title="testing"
         value="http://example.com"
       />,
     );
-    const qrCode = screen.getByTestId("qr-code");
-    const image = qrCode.getElementsByTagName("image")[0];
-    expect(image).toHaveAttribute("href", "/path/to/image.png");
-    expect(image).toHaveAttribute("opacity", "0.75");
+    const qrCode = screen.getByTestId('qr-code');
+    const image = qrCode.getElementsByTagName('image')[0];
+    expect(image).toHaveAttribute('href', '/path/to/image.png');
+    expect(image).toHaveAttribute('opacity', '0.75');
     // <svg height="128" width="128" viewBox="0 0 29 29" role="img" data-testid="qr-code">
     //   <title>testing</title>
     //   <path fill="#ffffff" d="M0,0 h29v29H0z" shape-rendering="crispEdges"></path>

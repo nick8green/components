@@ -1,22 +1,22 @@
-import type { Meta, StoryObj } from "@storybook/react-vite";
-import SocialMediaLink, { Platform } from "components/SocialMediaLink";
+import SocialMediaLink, { Platform } from '@lib/components/SocialMediaLink';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 
 const meta: Meta<typeof SocialMediaLink> = {
-  title: "Display/SocialMediaLink",
+  title: 'Display/SocialMediaLink',
   component: SocialMediaLink,
   argTypes: {
     displayHandle: {
-      control: "boolean",
+      control: 'boolean',
     },
     handle: {
-      control: "text",
+      control: 'text',
     },
     platform: {
       options: Object.keys(Platform),
       mapping: Platform,
     },
     url: {
-      control: "text",
+      control: 'text',
     },
   },
 };
@@ -26,8 +26,8 @@ type Story = StoryObj<typeof SocialMediaLink>;
 
 export const Default: Story = {
   args: {
-    handle: "My Social Media",
+    handle: 'My Social Media',
     platform: Platform.Facebook,
-    url: "https://www.facebook.com",
+    url: 'https://www.facebook.com',
   },
 };

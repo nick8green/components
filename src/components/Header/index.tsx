@@ -1,6 +1,6 @@
-import type { FC, PropsWithChildren } from "react";
+import './style.css';
 
-import "./style.css";
+import type { FC, PropsWithChildren } from 'react';
 
 export interface HeaderProps {
   title: string;

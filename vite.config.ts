@@ -1,43 +1,42 @@
 /// <reference types="vitest" />
 
-import { defineConfig } from "vite";
-import { configDefaults } from "vitest/config";
-import react from "@vitejs/plugin-react";
-import dts from "vite-plugin-dts";
-import tsconfigPaths from "vite-tsconfig-paths";
+import react from '@vitejs/plugin-react';
+import { defineConfig } from 'vite';
+import dts from 'vite-plugin-dts';
+import { configDefaults } from 'vitest/config';
 
-import { name } from "./package.json";
+import { name } from './package.json';
 
 export default defineConfig({
   build: {
     lib: {
-      entry: "./src/index.ts", // Specifies the entry point for building the library.
+      entry: './src/index.ts', // Specifies the entry point for building the library.
       name, // Sets the name of the generated library.
       fileName: (format) => `index.${format}.js`, // Generates the output file name based on the format.
-      formats: ["cjs", "es"], // Specifies the output formats (CommonJS and ES modules).
+      formats: ['cjs', 'es'], // Specifies the output formats (CommonJS and ES modules).
     },
     rollupOptions: {
       external: [
-        "@fortawesome/fontawesome-common-types",
-        "@fortawesome/fontawesome-svg-core",
-        "@fortawesome/free-brands-svg-icons",
-        "@fortawesome/free-regular-svg-icons",
-        "@fortawesome/free-solid-svg-icons",
-        "@fortawesome/react-fontawesome",
-        "moment",
-        "next",
-        "next/link",
-        "next/router",
-        "react-markdown",
-        "remark-gfm",
-        "rehype-react",
-        "qrcode.react",
+        '@fortawesome/fontawesome-common-types',
+        '@fortawesome/fontawesome-svg-core',
+        '@fortawesome/free-brands-svg-icons',
+        '@fortawesome/free-regular-svg-icons',
+        '@fortawesome/free-solid-svg-icons',
+        '@fortawesome/react-fontawesome',
+        'moment',
+        'next',
+        'next/link',
+        'next/router',
+        'react-markdown',
+        'remark-gfm',
+        'rehype-react',
+        'qrcode.react',
       ], // Defines external dependencies for Rollup bundling.
       output: {
         globals: {},
       },
       onwarn(warning, warn) {
-        if (warning.code === "EVAL") return;
+        if (warning.code === 'EVAL') return;
         warn(warning);
       },
     },
@@ -46,30 +45,32 @@ export default defineConfig({
     cssCodeSplit: true, // Enables CSS code splitting.
   },
   plugins: [
-    tsconfigPaths(),
     react(),
     dts({
-      entryRoot: "src",
-      include: ["src"],
+      entryRoot: 'src',
+      include: ['src'],
     }),
   ], // Uses the 'vite-plugin-dts' plugin for generating TypeScript declaration files (d.ts).
+  resolve: {
+    tsconfigPaths: true,
+  },
 
   test: {
     coverage: {
       clean: true,
       exclude: [
         ...configDefaults.exclude,
-        "**/*.mdx",
-        "**/*.stories.ts",
-        "**/*.stories.tsx",
-        "**/*.test.ts",
-        "**/*.test.tsx",
-        "./src/index.ts",
-        "setupTests.ts",
+        '**/*.mdx',
+        '**/*.stories.ts',
+        '**/*.stories.tsx',
+        '**/*.test.ts',
+        '**/*.test.tsx',
+        './src/index.ts',
+        'setupTests.ts',
       ],
-      include: ["src/**"],
-      reporter: ["text", "json", "html"],
-      provider: "v8",
+      include: ['src/**'],
+      reporter: ['text', 'json', 'html'],
+      provider: 'v8',
       thresholds: {
         functions: 80,
         lines: 80,
@@ -78,7 +79,7 @@ export default defineConfig({
       },
     },
     globals: true,
-    environment: "jsdom",
-    setupFiles: "./setupTests.ts",
+    environment: 'jsdom',
+    setupFiles: './setupTests.ts',
   },
 });

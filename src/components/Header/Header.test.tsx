@@ -1,26 +1,26 @@
-import { render, screen } from "@testing-library/react";
-import Header, { type HeaderProps } from "components/Header";
+import Header, { type HeaderProps } from '@lib/components/Header';
+import { render, screen } from '@testing-library/react';
 
-describe("Header Component", () => {
+describe('Header Component', () => {
   const defaultProps: HeaderProps = {
-    title: "Test Title",
+    title: 'Test Title',
   };
 
-  it("renders the title correctly", () => {
+  it('renders the title correctly', () => {
     render(<Header {...defaultProps} />);
-    const titleElement = screen.getByText("Test Title");
+    const titleElement = screen.getByText('Test Title');
     expect(titleElement).toBeInTheDocument();
-    expect(titleElement.tagName).toBe("H1");
-    expect(titleElement.id).toBe("site-title");
+    expect(titleElement.tagName).toBe('H1');
+    expect(titleElement.id).toBe('site-title');
   });
 
-  it("renders children correctly", () => {
+  it('renders children correctly', () => {
     render(
       <Header {...defaultProps}>
         <p>Child Content</p>
       </Header>,
     );
-    const childElement = screen.getByText("Child Content");
+    const childElement = screen.getByText('Child Content');
     expect(childElement).toBeInTheDocument();
   });
 });
