@@ -1,6 +1,9 @@
 name: publish components packages
 
 on:
+  push:
+    branches:
+      - release
   pull_request:
     types: 
       - opened
@@ -84,6 +87,7 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GH_PAT }}
           NODE_AUTH_TOKEN: ${{ secrets.GH_PAT }}
+          NPM_TOKEN: ${{ secrets.GH_PAT }}
         run: npx semantic-release
 
   storybook:
@@ -96,6 +100,8 @@ jobs:
     uses: ./.github/workflows/storybook-build-and-deploy.yml
     with:
       deploy: true
+    secrets:
+      GH_PAT: ${{ secrets.GH_PAT }}
 
   create-pr:
     # Only create PR to main if this is a release branch, otherwise we can end up

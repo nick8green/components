@@ -29,6 +29,8 @@ jobs:
     uses: ./.github/workflows/storybook-build-and-deploy.yml
     with:
       deploy: false
+    secrets:
+      GH_PAT: ${{ secrets.GH_PAT }}
 
   # lint code
   linting:
