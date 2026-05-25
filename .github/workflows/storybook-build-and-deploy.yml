@@ -39,29 +39,29 @@ jobs:
       - name: 🧱 setup workspace
         uses: nick8green/workflows/actions/node/setup@db5746daa8f8de518dfd4415827ee49a3bc5a6b8
         with:
-          registry: 'https://npm.pkg.github.com'
+          registry: 'npm.pkg.github.com'
 
       - name: 📔 build storybook
         run: yarn build:storybook
 
       - if: inputs.deploy != true
         name: 📦 upload artifact build only
-        uses: actions/upload-pages-artifact@v4
+        uses: actions/upload-pages-artifact@v5
         with:
           name: storybook-build
           path: storybook
 
       - if: inputs.deploy == true
         name: 📦 upload pages artifact
-        uses: actions/upload-pages-artifact@v4
+        uses: actions/upload-pages-artifact@v5
         with:
           path: storybook
 
       - if: inputs.deploy == true
         name: 🗒️ setup pages
-        uses: actions/configure-pages@v5
+        uses: actions/configure-pages@v6
 
       - id: deployment
         if: inputs.deploy == true
         name: 🚀 deploy to github pages
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
