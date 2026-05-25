@@ -1,19 +1,19 @@
-import type { FC } from "react";
-import { QRCodeSVG } from "qrcode.react";
+import { QRCodeSVG } from 'qrcode.react';
+import type { FC } from 'react';
 
-export type QRCodeDisplayOptions = {
+export interface QRCodeDisplayOptions {
   background?: string;
   foreground?: string;
   image?: string;
-};
+}
 
-export type QRCodeProps = {
+export interface QRCodeProps {
   display?: QRCodeDisplayOptions;
   title: string;
   value: string | string[];
-};
+}
 
-type QRProps = {
+interface QRProps {
   bgColor: string;
   fgColor: string;
   imageSettings?: {
@@ -26,12 +26,12 @@ type QRProps = {
   marginSize: number;
   title: string;
   value: string | string[];
-};
+}
 
 const QRCode: FC<QRCodeProps> = ({ display, title, value }) => {
   const opts: QRProps = {
-    bgColor: display?.background ?? "#ffffff",
-    fgColor: display?.foreground ?? "#000000",
+    bgColor: display?.background ?? '#ffffff',
+    fgColor: display?.foreground ?? '#000000',
     marginSize: 2,
     title,
     value,

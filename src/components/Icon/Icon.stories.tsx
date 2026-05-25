@@ -1,27 +1,24 @@
-import type { Meta, StoryObj } from "@storybook/react-vite";
-import Icon, { type IconProps } from "components/Icon";
-import { iconRegistry } from "lib/icons";
+import Icon, { type IconProps } from '@lib/components/Icon';
+import { iconRegistry } from '@lib/utils/icons';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 
 const meta: Meta<IconProps> = {
-  title: "Display/Icon",
+  title: 'Display/Icon',
   component: Icon,
   argTypes: {
     pack: {
-      control: "select",
-      options: ["solid", "brands"],
+      control: 'select',
+      options: ['solid', 'brands'],
     },
     name: {
-      control: "select",
-      description: "The name of the icon required.",
-      options: [
-        ...Object.keys(iconRegistry.solid),
-        ...Object.keys(iconRegistry.brands),
-      ],
+      control: 'select',
+      description: 'The name of the icon required.',
+      options: [...Object.keys(iconRegistry.solid), ...Object.keys(iconRegistry.brands)],
     },
   },
   args: {
-    pack: "solid",
-    name: "home",
+    pack: 'solid',
+    name: 'home',
   },
 };
 

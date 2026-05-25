@@ -1,18 +1,18 @@
-import type { Meta, StoryObj } from "@storybook/react-vite";
-import BlogList from "components/Blog/List";
+import BlogList from '@lib/components/Blog/List';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 
 const meta: Meta<typeof BlogList> = {
-  title: "Display/Blog/List",
+  title: 'Display/Blog/List',
   component: BlogList,
   decorators: [
     (Story) => (
-      <div style={{ width: "100vw", height: "100vh" }}>
+      <div style={{ width: '100vw', height: '100vh' }}>
         <Story />
       </div>
     ),
   ],
   parameters: {
-    layout: "fullscreen",
+    layout: 'fullscreen',
   },
 };
 
@@ -23,28 +23,28 @@ export const Default: Story = {
   args: {
     posts: [
       {
-        date: new Date("2024-01-01"),
+        date: new Date('2024-01-01'),
         excerpt:
-          "This is a sample excerpt from the blog post to give readers an idea of the content.",
-        title: "One More Blog Post",
-        url: "/blog/one-more-blog-post",
+          'This is a sample excerpt from the blog post to give readers an idea of the content.',
+        title: 'One More Blog Post',
+        url: '/blog/one-more-blog-post',
       },
       {
-        date: new Date("2024-02-01"),
+        date: new Date('2024-02-01'),
         excerpt:
-          "This is a sample excerpt from the blog post to give readers an idea of the content.",
-        title: "Another Sample Blog Post",
-        url: "/blog/another-sample-post",
+          'This is a sample excerpt from the blog post to give readers an idea of the content.',
+        title: 'Another Sample Blog Post',
+        url: '/blog/another-sample-post',
       },
       {
-        date: new Date("2024-03-01"),
+        date: new Date('2024-03-01'),
         excerpt:
-          "This is a sample excerpt from the blog post to give readers an idea of the content.",
-        title: "Sample Blog Post",
-        url: "/blog/sample-post",
+          'This is a sample excerpt from the blog post to give readers an idea of the content.',
+        title: 'Sample Blog Post',
+        url: '/blog/sample-post',
       },
     ],
     postsPerPage: 2,
-    title: "",
+    title: '',
   },
 };

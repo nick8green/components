@@ -1,14 +1,14 @@
-import { MINIMAL_VIEWPORTS } from "storybook/viewport";
-import type { Preview } from "@storybook/react-vite";
+import './styles.css';
 
-import "./styles.css";
+import type { Preview } from '@storybook/react-vite';
+import { MINIMAL_VIEWPORTS } from 'storybook/viewport';
 
 const preview: Preview = {
   parameters: {
     backgrounds: {
       options: {
-        dark: { name: "Dark", value: "#333" },
-        light: { name: "Light", value: "#F7F9F2" },
+        dark: { name: 'Dark', value: '#333' },
+        light: { name: 'Light', value: '#F7F9F2' },
       },
     },
     controls: {
@@ -19,9 +19,9 @@ const preview: Preview = {
       },
     },
     initialGlobals: {
-      backgrounds: { value: "light" },
+      backgrounds: { value: 'light' },
     },
-    layout: "centered",
+    layout: 'centered',
     viewport: {
       options: MINIMAL_VIEWPORTS,
     },
@@ -29,7 +29,7 @@ const preview: Preview = {
 
   initialGlobals: {
     viewport: {
-      value: "responsive",
+      value: 'responsive',
       isRotated: false,
     },
   },

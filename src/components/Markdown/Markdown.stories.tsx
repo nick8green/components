@@ -1,5 +1,5 @@
-import type { Meta, StoryObj } from "@storybook/react-vite";
-import Markdown from "components/Markdown";
+import Markdown from '@lib/components/Markdown';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 
 const content = `# Markdown Example
 
@@ -36,14 +36,14 @@ Some *emphasis* and <strong>strong</strong>!
 </div>`;
 
 const meta: Meta<typeof Markdown> = {
-  title: "Display/Markdown",
+  title: 'Display/Markdown',
   component: Markdown,
   argTypes: {
     children: {
       control: {
-        type: "text",
+        type: 'text',
       },
-      description: "Content to render as markdown.",
+      description: 'Content to render as markdown.',
     },
   },
 };

@@ -1,22 +1,20 @@
-import moment from "moment";
-import Link from "next/link";
-import type { FC } from "react";
-import Markdown from "components/Markdown";
+import './style.css';
 
-import "./style.css";
+import Markdown from '@lib/components/Markdown';
+import moment from 'moment';
+import Link from 'next/link';
+import type { FC } from 'react';
 
-export type PreviewProps = {
+export interface PreviewProps {
   date: Date;
   excerpt: string;
   title: string;
   url: string;
-};
+}
 
 const Preview: FC<PreviewProps> = ({ date, excerpt, title, url }) => {
   if (!url) {
-    throw new Error(
-      "the path to the full blog post is required via the url prop!",
-    );
+    throw new Error('the path to the full blog post is required via the url prop!');
   }
 
   return (
@@ -24,7 +22,7 @@ const Preview: FC<PreviewProps> = ({ date, excerpt, title, url }) => {
       <Link href={url}>
         <h3>{title}</h3>
       </Link>
-      <p className="timestamp">{moment(date).format("MMMM D, YYYY")}</p>
+      <p className="timestamp">{moment(date).format('MMMM D, YYYY')}</p>
       {/* <p className="meta"></p> */}
       <Markdown>{excerpt}</Markdown>
       <Link href={url}>Read more</Link>

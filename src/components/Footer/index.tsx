@@ -1,29 +1,29 @@
-import { Fragment, type FC, type PropsWithChildren } from "react";
+import './style.css';
 
-import "./style.css";
+import { type FC, Fragment, type PropsWithChildren } from 'react';
 
-export type ContactInfoProps = {
+export interface ContactInfoProps {
   address?: string;
   email?: string;
   fax?: string;
   phone?: string;
-};
+}
 
-export type CopyrightProps = {
+export interface CopyrightProps {
   year: number;
   owner: string;
-};
+}
 
-export type FooterProps = {
+export interface FooterProps {
   contactInfo?: ContactInfoProps;
   copyright: CopyrightProps;
   links?: LinkProps[];
-};
+}
 
-export type LinkProps = {
+export interface LinkProps {
   title: string;
   url: string;
-};
+}
 
 const Footer: FC<PropsWithChildren<FooterProps>> = ({
   children,
@@ -51,16 +51,14 @@ const Footer: FC<PropsWithChildren<FooterProps>> = ({
           <div id="info">
             {contactInfo.address && (
               <p data-testid="address">
-                {contactInfo.address
-                  .split(/,\s*/g)
-                  .map((line, key, address) => {
-                    return (
-                      <Fragment key={line.replaceAll(/\s+/g, "-")}>
-                        <span>{line}</span>
-                        {key < address.length - 1 && <br />}
-                      </Fragment>
-                    );
-                  })}
+                {contactInfo.address.split(/,\s*/g).map((line, key, address) => {
+                  return (
+                    <Fragment key={line.replaceAll(/\s+/g, '-')}>
+                      <span>{line}</span>
+                      {key < address.length - 1 && <br />}
+                    </Fragment>
+                  );
+                })}
               </p>
             )}
             {contactInfo.phone && (

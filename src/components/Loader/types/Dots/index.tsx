@@ -1,12 +1,12 @@
-import type { FC } from "react";
+import './style.css';
 
-import "./style.css";
+import type { FC } from 'react';
 
-export type DotsLoaderArgs = {
+export interface DotsLoaderArgs {
   message?: string;
-};
+}
 
-const Dots: FC<DotsLoaderArgs> = ({ message = "Loading" }) => {
+const Dots: FC<DotsLoaderArgs> = ({ message = 'Loading' }) => {
   return (
     <div className="dots">
       <div id="dot-container">

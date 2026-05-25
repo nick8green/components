@@ -1,57 +1,49 @@
-import { type ComponentProps } from "react";
-import type { Meta, StoryObj } from "@storybook/react-vite";
-
-import QRCode, { type QRCodeDisplayOptions } from "components/QRCode";
+import QRCode, { type QRCodeDisplayOptions } from '@lib/components/QRCode';
+import type { Meta, StoryObj } from '@storybook/react-vite';
+import { type ComponentProps } from 'react';
 
 type QRCodeStoryProps = ComponentProps<typeof QRCode> &
   QRCodeDisplayOptions & { imagePath: string };
 
 const meta: Meta<QRCodeStoryProps> = {
-  title: "Display/QRCode",
+  title: 'Display/QRCode',
   component: QRCode,
   argTypes: {
     background: {
       control: {
-        type: "color",
+        type: 'color',
       },
-      description:
-        "Part of the display properties. The background color of the QR code.",
+      description: 'Part of the display properties. The background color of the QR code.',
     },
     foreground: {
       control: {
-        type: "color",
+        type: 'color',
       },
-      description:
-        "Part of the display properties. The foreground color of the QR code.",
+      description: 'Part of the display properties. The foreground color of the QR code.',
     },
     imagePath: {
       control: {
-        type: "text",
+        type: 'text',
       },
       description:
-        "Part of the display properties. The path to the image to overlay on the QR code.",
+        'Part of the display properties. The path to the image to overlay on the QR code.',
     },
     display: {
       control: false,
     },
     title: {
       control: {
-        type: "text",
+        type: 'text',
       },
     },
     value: {
       control: {
-        type: "text",
+        type: 'text',
       },
     },
   },
   render: ({ background, foreground, imagePath, ...props }) => {
-    return (
-      <QRCode
-        {...props}
-        display={{ background, foreground, image: imagePath }}
-      />
-    );
+    return <QRCode {...props} display={{ background, foreground, image: imagePath }} />;
   },
 };
 
@@ -60,7 +52,7 @@ type Story = StoryObj<typeof QRCode>;
 
 export const Default: Story = {
   args: {
-    title: "Example QR Code",
-    value: "https://example.com",
+    title: 'Example QR Code',
+    value: 'https://example.com',
   },
 };

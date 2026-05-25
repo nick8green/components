@@ -1,4 +1,4 @@
-import { hexToRgb, rgbToHex } from "utils/colours";
+import { hexToRgb, rgbToHex } from '@lib/utils/colours';
 
 interface ConversionTest {
   hex: string;
@@ -7,42 +7,40 @@ interface ConversionTest {
 
 const testInvalidHex = (hex: string) =>
   expect(() => hexToRgb(hex)).toThrow(
-    "please specify a valid hex colour value (^#?[0-9a-f]{3|6})!",
+    'please specify a valid hex colour value (^#?[0-9a-f]{3|6})!',
   );
 const testInvalidRgb = (r: number, g: number, b: number) =>
-  expect(() => rgbToHex(r, g, b)).toThrow(
-    "please specify a valid colour value (0-255)!",
-  );
+  expect(() => rgbToHex(r, g, b)).toThrow('please specify a valid colour value (0-255)!');
 
-describe("colour utility tests", () => {
+describe('colour utility tests', () => {
   const conversionTests: ConversionTest[] = [
     {
-      hex: "#000000",
+      hex: '#000000',
       rgb: [0, 0, 0],
     },
     {
-      hex: "#ffffff",
+      hex: '#ffffff',
       rgb: [255, 255, 255],
     },
     {
-      hex: "#708090",
+      hex: '#708090',
       rgb: [112, 128, 144],
     },
     {
-      hex: "#aaaaaa",
+      hex: '#aaaaaa',
       rgb: [170, 170, 170],
     },
     {
-      hex: "#242424",
+      hex: '#242424',
       rgb: [36, 36, 36],
     },
     {
-      hex: "#CCCCCC",
+      hex: '#CCCCCC',
       rgb: [204, 204, 204],
     },
   ];
 
-  describe("HEX values to RGB", () => {
+  describe('HEX values to RGB', () => {
     conversionTests.forEach((tc: ConversionTest) => {
       it(`${tc.hex} to RGB`, () => {
         expect(hexToRgb(tc.hex)).toEqual(tc.rgb);
@@ -50,66 +48,66 @@ describe("colour utility tests", () => {
     });
 
     it(`#000 to RGB`, () => {
-      expect(hexToRgb("#000")).toEqual([0, 0, 0]);
+      expect(hexToRgb('#000')).toEqual([0, 0, 0]);
     });
 
-    it("errors if the hex value is too short", () => {
-      testInvalidHex("#12");
-      testInvalidHex("12");
+    it('errors if the hex value is too short', () => {
+      testInvalidHex('#12');
+      testInvalidHex('12');
     });
 
-    it("errors if the hex value is too long", () => {
-      testInvalidHex("#1234567");
-      testInvalidHex("1234567");
+    it('errors if the hex value is too long', () => {
+      testInvalidHex('#1234567');
+      testInvalidHex('1234567');
     });
 
-    it("errors if the hex value is between 3 and 6", () => {
-      testInvalidHex("#12ab");
-      testInvalidHex("12abc");
+    it('errors if the hex value is between 3 and 6', () => {
+      testInvalidHex('#12ab');
+      testInvalidHex('12abc');
     });
 
-    it("errors if the hex value has invalid characters", () => {
-      testInvalidHex("123xyz");
+    it('errors if the hex value has invalid characters', () => {
+      testInvalidHex('123xyz');
     });
 
-    it("converts three character hex successfully", () => {
-      expect(hexToRgb("353")).toEqual([51, 85, 51]);
+    it('converts three character hex successfully', () => {
+      expect(hexToRgb('353')).toEqual([51, 85, 51]);
     });
   });
 
-  describe("RGB values to HEX", () => {
+  describe('RGB values to HEX', () => {
     conversionTests.forEach((tc: ConversionTest) => {
-      it(`${tc.rgb} to HEX`, () => {
+      it(`${tc.rgb.join(', ')} to HEX`, () => {
         expect(rgbToHex(...tc.rgb)).toEqual(tc.hex.toLowerCase());
       });
     });
 
-    describe("errors if the red value is", () => {
-      it("is below 0", () => {
+    describe('errors if the red value is', () => {
+      it('is below 0', () => {
         testInvalidRgb(-1, 10, 20);
       });
 
-      it("is above 255", () => {
+      it('is above 255', () => {
         testInvalidRgb(300, 10, 20);
       });
     });
 
-    describe("errors if the green value is", () => {
-      it("is below 0", () => {
+    describe('errors if the green value is', () => {
+      it('is below 0', () => {
         testInvalidRgb(10, -20, 30);
       });
 
-      it("is above 255", () => {
+      it('is above 255', () => {
         testInvalidRgb(10, 2000, 30);
       });
     });
 
-    describe("errors if the blue value is", () => {
-      it("is below 0", () => {
+    describe('errors if the blue value is', () => {
+      it('is below 0', () => {
         testInvalidRgb(10, 20, -30);
       });
 
-      it("is above 255", () => {
+      it('is above 255', () => {
         testInvalidRgb(10, 20, 300);
       });
     });

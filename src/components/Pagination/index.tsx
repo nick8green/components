@@ -1,25 +1,21 @@
-import Button from "components/Button";
-import Icon from "components/Icon";
-import type { FC } from "react";
+import './style.css';
 
-import "./style.css";
+import Button from '@lib/components/Button';
+import Icon from '@lib/components/Icon';
+import type { FC } from 'react';
 
-type PaginationProps = {
+interface PaginationProps {
   currentPage: number;
   totalPages: number;
   onPageChange: (page: number) => void;
-};
+}
 
-const Pagination: FC<PaginationProps> = ({
-  currentPage,
-  totalPages,
-  onPageChange,
-}) => {
+const Pagination: FC<PaginationProps> = ({ currentPage, totalPages, onPageChange }) => {
   if (totalPages < 1) {
-    throw new Error("total pages must be 1 or greater");
+    throw new Error('total pages must be 1 or greater');
   }
   if (currentPage < 1 || currentPage > totalPages) {
-    throw new Error("current page value is out of bounds");
+    throw new Error('current page value is out of bounds');
   }
 
   return (

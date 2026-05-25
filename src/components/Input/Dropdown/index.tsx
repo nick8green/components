@@ -1,27 +1,21 @@
-import type { FC, FormEvent } from "react";
+import type { ChangeEvent, FC } from 'react';
 
-type DropdownProps = {
+interface DropdownProps {
   id: string;
-  onChange: (e: FormEvent<HTMLSelectElement>) => void;
+  onChange: (e: ChangeEvent<HTMLSelectElement>) => void;
   options: Option[];
   placeholder?: string;
   value?: string;
-};
+}
 
-export type Option = {
+export interface Option {
   label: string;
   value: string;
-};
+}
 
-const Dropdown: FC<DropdownProps> = ({
-  id,
-  onChange,
-  options,
-  placeholder,
-  value,
-}) => {
+const Dropdown: FC<DropdownProps> = ({ id, onChange, options, placeholder, value }) => {
   if (options.length === 0) {
-    throw new Error("you must provide options for a dropdown!");
+    throw new Error('you must provide options for a dropdown!');
   }
 
   return (

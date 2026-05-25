@@ -1,8 +1,8 @@
-import type { Meta, StoryObj } from "@storybook/react-vite";
-import Header from "components/Header";
+import Header from '@lib/components/Header';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 
 const meta: Meta<typeof Header> = {
-  title: "Display/Header",
+  title: 'Display/Header',
   component: Header,
 };
 
@@ -11,9 +11,9 @@ type Story = StoryObj<typeof Header>;
 
 export const Default: Story = {
   args: {
-    title: "My Business",
+    title: 'My Business',
   },
   parameters: {
-    layout: "fullscreen",
+    layout: 'fullscreen',
   },
 };

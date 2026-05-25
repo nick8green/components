@@ -1,16 +1,15 @@
-import type { Meta, StoryObj } from "@storybook/react-vite";
-import { fn } from "storybook/test";
-
-import Modal, { ModalType } from "components/Modal";
+import Modal, { ModalType } from '@lib/components/Modal';
+import type { Meta, StoryObj } from '@storybook/react-vite';
+import { fn } from 'storybook/test';
 
 const meta: Meta<typeof Modal> = {
-  title: "Feedback/Modal",
+  title: 'Feedback/Modal',
   component: Modal,
   decorators: [
     (Story) => (
       <div
         style={{
-          height: "25em",
+          height: '25em',
         }}
       >
         <Story />
@@ -24,7 +23,7 @@ const meta: Meta<typeof Modal> = {
     },
   },
   parameters: {
-    layout: "padded",
+    layout: 'padded',
   },
 };
 

@@ -1,18 +1,17 @@
-import type { FormEvent } from "react";
-import { useArgs } from "storybook/preview-api";
-import type { Meta, StoryObj } from "@storybook/react-vite";
-
-import Input, { type InputProps, InputType } from "components/Input";
+import Input, { type InputProps, InputType } from '@lib/components/Input';
+import type { Meta, StoryObj } from '@storybook/react-vite';
+import type { FormEvent } from 'react';
+import { useArgs } from 'storybook/preview-api';
 
 const meta: Meta<typeof Input> = {
-  title: "Interaction/Input",
+  title: 'Interaction/Input',
   component: Input,
   argTypes: {
     label: {
-      control: "text",
+      control: 'text',
     },
     type: {
-      options: Object.keys(InputType).filter((o) => o !== "DROPDOWN"),
+      options: Object.keys(InputType).filter((o) => o !== 'DROPDOWN'),
       mapping: InputType,
     },
   },
@@ -21,24 +20,22 @@ const meta: Meta<typeof Input> = {
 export default meta;
 type Story = StoryObj<typeof Input>;
 
-const id = "storybookInput",
-  label = "Story Input";
+const id = 'storybookInput',
+  label = 'Story Input';
 
 const Template = (args: InputProps) => {
   const [{ value }, updateArgs] = useArgs<InputProps>();
   const handleChange = (e: FormEvent<HTMLInputElement | HTMLSelectElement>) =>
     updateArgs({ value: e.currentTarget.value });
 
-  return (
-    <Input {...args} onChange={args.onChange || handleChange} value={value} />
-  );
+  return <Input {...args} onChange={args.onChange || handleChange} value={value} />;
 };
 
 export const Default: Story = {
   args: {
     id,
     label,
-  } as InputProps,
+  },
   render: Template,
 };
 
@@ -48,21 +45,21 @@ export const Dropdown: Story = {
     label,
     options: [
       {
-        label: "Option 1",
-        value: "1",
+        label: 'Option 1',
+        value: '1',
       },
       {
-        label: "Option 2",
-        value: "2",
+        label: 'Option 2',
+        value: '2',
       },
       {
-        label: "Option 3",
-        value: "3",
+        label: 'Option 3',
+        value: '3',
       },
     ],
-    placeholder: "choose and option",
+    placeholder: 'choose and option',
     type: InputType.DROPDOWN,
-  } as InputProps,
+  },
   render: Template,
 };
 
@@ -71,7 +68,7 @@ export const Text: Story = {
     id,
     label,
     type: InputType.TEXT,
-  } as InputProps,
+  },
   render: Template,
 };
 

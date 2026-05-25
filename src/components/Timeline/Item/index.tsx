@@ -1,52 +1,46 @@
-import moment from "moment";
-import type { FC, ReactNode } from "react";
+import './style.css';
 
-import Markdown from "components/Markdown";
+import Markdown from '@lib/components/Markdown';
+import moment from 'moment';
+import type { FC, ReactNode } from 'react';
 
-import "./style.css";
-
-export type ItemProps = {
+export interface ItemProps {
   content: string | ReactNode;
   date: Date;
-  display?: "alternate" | "default";
+  display?: 'alternate' | 'default';
   format?: string;
   icon?: ReactNode;
   link?: string;
   tag?: string;
   title?: string;
-};
+}
 
 export const Item: FC<ItemProps> = ({
   content,
   date,
-  display = "default",
+  display = 'default',
   format,
   icon,
   link,
   tag,
   title,
 }) => {
-  const linkOpts: { href?: string; target?: string; rel?: string } = link
-    ? { href: link }
-    : {};
+  const linkOpts: { href?: string; target?: string; rel?: string } = link ? { href: link } : {};
   if (link?.match(/^https?:\/\//)) {
-    linkOpts.target = "_blank";
-    linkOpts.rel = "noopener noreferrer";
+    linkOpts.target = '_blank';
+    linkOpts.rel = 'noopener noreferrer';
   }
 
   return (
-    <div
-      className={`timeline-item date-${display}`}
-      data-testid="timeline-item"
-    >
+    <div className={`timeline-item date-${display}`} data-testid="timeline-item">
       <span className="circle">
         <span>{icon}</span>
       </span>
       {tag && <span className="tag">{tag}</span>}
-      <time>{moment(date).format(format || "DD/MM/YYYY")}</time>
+      <time>{moment(date).format(format || 'DD/MM/YYYY')}</time>
       <div className="content">
         {title && <h3>{title}</h3>}
-        {typeof content === "string" ? (
+        {typeof content === 'string' ? (
           <div>
             <Markdown>{content}</Markdown>
           </div>

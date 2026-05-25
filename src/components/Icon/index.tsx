@@ -1,25 +1,25 @@
-"use client";
+'use client';
 
-import { type FC } from "react";
-import { icon as iconRenderer } from "@fortawesome/fontawesome-svg-core";
-import { iconRegistry, type IconName, type IconPack } from "lib/icons";
+import { icon as iconRenderer } from '@fortawesome/fontawesome-svg-core';
+import { type IconName, type IconPack, iconRegistry } from '@lib/utils/icons';
+import { type FC } from 'react';
 
-export type IconProps<P extends IconPack = IconPack> = {
+export interface IconProps<P extends IconPack = IconPack> {
   pack: P;
   name: IconName<P>;
-  size?: "xs" | "sm" | "lg" | "1x" | "2x" | "3x" | "4x" | "5x";
+  size?: 'xs' | 'sm' | 'lg' | '1x' | '2x' | '3x' | '4x' | '5x';
   className?: string;
   title?: string;
-  "data-testid"?: string;
-};
+  'data-testid'?: string;
+}
 
 export const Icon: FC<IconProps> = ({
   pack,
   name,
-  size = "1x",
+  size = '1x',
   className,
   title,
-  "data-testid": dataTestId,
+  'data-testid': dataTestId,
 }) => {
   const icon = iconRegistry[pack]?.[name];
 
@@ -28,12 +28,12 @@ export const Icon: FC<IconProps> = ({
     return null;
   }
 
-  const html = iconRenderer(icon as any)
-    .html.join("")
+  const html = iconRenderer(icon)
+    .html.join('')
     .replace(
       /class="([a-z\- ]+)"/,
       `class="$1 ${className} fa-${size}" data-testid="${
-        dataTestId ?? "fa-icon"
+        dataTestId ?? 'fa-icon'
       }" title="${title}"`,
     );
   return (

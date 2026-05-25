@@ -1,41 +1,8 @@
-import type { FC } from "react";
-import type { Meta, StoryObj } from "@storybook/react-vite";
+import MultiStepForm, { type StepProps } from '@lib/components/MultiStepForm';
+import type { Meta, StoryObj } from '@storybook/react-vite';
+import type { FC } from 'react';
 
-import MultiStepForm, { type StepProps } from "components/MultiStepForm";
-
-const meta: Meta<typeof MultiStepForm> = {
-  title: "Interaction/MultiStepForm",
-  component: MultiStepForm,
-  argTypes: {},
-};
-
-export default meta;
-type Story = StoryObj<typeof MultiStepForm>;
-
-export const Default: Story = {
-  render: () => (
-    <MultiStepForm
-      done={(data) => {
-        const d = data || {};
-        alert(
-          `data collected...\n  - ${Object.keys(d)
-            .map((key) => `${key}: ${d[key]}`)
-            .join("\n  - ")}`,
-        );
-      }}
-    >
-      <PersonalDetails />
-      <AccountDetails />
-      <AccountSummary />
-    </MultiStepForm>
-  ),
-};
-
-const PersonalDetails: FC<StepProps> = ({
-  firstname,
-  lastname,
-  handleChange,
-}) => {
+const PersonalDetails: FC<StepProps> = ({ firstname, lastname, handleChange }) => {
   return (
     <div>
       <h3>Personal Details</h3>
@@ -93,4 +60,33 @@ const AccountSummary: FC<StepProps> = ({ username, firstname, lastname }) => {
       </p>
     </div>
   );
+};
+
+const meta: Meta<typeof MultiStepForm> = {
+  title: 'Interaction/MultiStepForm',
+  component: MultiStepForm,
+  argTypes: {},
+};
+
+export default meta;
+type Story = StoryObj<typeof MultiStepForm>;
+
+export const Default: Story = {
+  render: () => (
+    <MultiStepForm
+      done={(data) => {
+        const d = data || {};
+        // eslint-disable-next-line no-alert
+        alert(
+          `data collected...\n  - ${Object.keys(d)
+            .map((key) => `${key}: ${String(d[key])}`)
+            .join('\n  - ')}`,
+        );
+      }}
+    >
+      <PersonalDetails />
+      <AccountDetails />
+      <AccountSummary />
+    </MultiStepForm>
+  ),
 };

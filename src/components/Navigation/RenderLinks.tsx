@@ -1,7 +1,7 @@
-import type { FC } from "react";
-import type { Link as LinkData } from "components/Navigation";
-import Link from "next/link";
-import Icon from "components/Icon";
+import Icon from '@lib/components/Icon';
+import type { Link as LinkData } from '@lib/components/Navigation';
+import Link from 'next/link';
+import type { FC } from 'react';
 
 const ExpansionIcon: FC<{ hasChildren: boolean; topLevel: boolean }> = ({
   hasChildren,
@@ -11,7 +11,7 @@ const ExpansionIcon: FC<{ hasChildren: boolean; topLevel: boolean }> = ({
   return (
     <Icon
       className="link-icon link-expansion-icon"
-      name={topLevel ? "down" : "right"}
+      name={topLevel ? 'down' : 'right'}
       pack="solid"
     />
   );
@@ -43,24 +43,17 @@ export const RenderLinks: FC<{
     <>
       {links.map(({ icon, label, url, isActive, children }) => (
         <li
-          className={`${isActive ? "active-link" : ""} ${childIsActiveLink(children) ? "child-active-link" : ""}`}
-          key={(label ?? "link").trim().toLowerCase().replaceAll(/\s+/g, "-")}
+          className={`${isActive ? 'active-link' : ''} ${childIsActiveLink(children) ? 'child-active-link' : ''}`}
+          key={(label ?? 'link').trim().toLowerCase().replaceAll(/\s+/g, '-')}
         >
           <Link href={url}>
             {icon && <Icon className="link-icon" name={icon} pack="solid" />}
             <span className="link-label">{label}</span>
-            <ExpansionIcon
-              hasChildren={levels > 1 && !!children?.length}
-              topLevel={topLevel}
-            />
+            <ExpansionIcon hasChildren={levels > 1 && !!children?.length} topLevel={topLevel} />
           </Link>
           {children && children?.length > 0 && (
             <ul>
-              <RenderLinks
-                links={children}
-                levels={levels - 1}
-                topLevel={false}
-              />
+              <RenderLinks links={children} levels={levels - 1} topLevel={false} />
             </ul>
           )}
         </li>

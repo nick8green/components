@@ -1,9 +1,10 @@
-import { render, fireEvent, waitFor, screen } from "@testing-library/react";
-import { vi } from "vitest";
-import AccordionItem from "./Item";
+import { fireEvent, render, screen, waitFor } from '@testing-library/react';
+import { vi } from 'vitest';
 
-describe("AccordionItem", () => {
-  it("renders title, children and toggles control text; calls onToggle when clicked", () => {
+import AccordionItem from './Item';
+
+describe('AccordionItem', () => {
+  it('renders title, children and toggles control text; calls onToggle when clicked', () => {
     const onToggle = vi.fn();
     render(
       <ul>
@@ -14,14 +15,14 @@ describe("AccordionItem", () => {
     );
 
     // Title and children present
-    expect(screen.getByText("My Title")).toBeTruthy();
-    expect(screen.getByText("Child content")).toBeTruthy();
+    expect(screen.getByText('My Title')).toBeTruthy();
+    expect(screen.getByText('Child content')).toBeTruthy();
 
     // Control shows plus when inactive
-    expect(screen.getByText("+")).toBeTruthy();
+    expect(screen.getByText('+')).toBeTruthy();
 
     // Clicking the title button calls onToggle
-    fireEvent.click(screen.getByRole("button", { name: /My Title/i }));
+    fireEvent.click(screen.getByRole('button', { name: /My Title/i }));
     expect(onToggle).toHaveBeenCalled();
   });
 
@@ -34,17 +35,15 @@ describe("AccordionItem", () => {
       </ul>,
     );
 
-    const content = container.querySelector(".item-content") as HTMLDivElement;
+    const content = container.querySelector('.item-content') as HTMLDivElement;
     expect(content).toBeTruthy();
 
     // Initially inactive -> height should be 0 (renderer sets 0 -> "0px")
     // style.height may be "0px"
-    expect(content.style.height === "0px" || content.style.height === "0").toBe(
-      true,
-    );
+    expect(content.style.height === '0px' || content.style.height === '0').toBe(true);
 
     // Define a scrollHeight for the element before activating
-    Object.defineProperty(content, "scrollHeight", {
+    Object.defineProperty(content, 'scrollHeight', {
       value: 200,
       configurable: true,
     });
@@ -60,10 +59,10 @@ describe("AccordionItem", () => {
 
     // Wait for the effect to run and update the inline style
     await waitFor(() => {
-      expect(content.style.height).toBe("200px");
+      expect(content.style.height).toBe('200px');
     });
 
     // When active, control shows "-"
-    expect(screen.getByText("-")).toBeTruthy();
+    expect(screen.getByText('-')).toBeTruthy();
   });
 });
