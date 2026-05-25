@@ -1,3 +1,10 @@
+## [2.7.3](https://github.com/nick8green/components/compare/v2.7.2...v2.7.3) (2026-05-25)
+
+
+### Bug Fixes
+
+* version bumps ([07553e9](https://github.com/nick8green/components/commit/07553e9f2353443ee035779cdf5717c7ce71c1b1))
+
 ## [2.7.2](https://github.com/nick8green/components/compare/v2.7.1...v2.7.2) (2025-10-21)
 
 
