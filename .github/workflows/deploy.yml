@@ -20,7 +20,7 @@ jobs:
 
   dry-run-comment:
     env:
-      NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      NODE_AUTH_TOKEN: ${{ secrets.GH_PAT }}
     name: 🧪 release dry run
     if: github.event_name == 'pull_request'
     runs-on: ubuntu-latest
